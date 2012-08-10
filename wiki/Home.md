@@ -1,0 +1,1 @@
+Welcome to the PHP_CodeSniffer wiki!
