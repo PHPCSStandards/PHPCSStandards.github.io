@@ -1,0 +1,2 @@
+# This is just a placeholder file.
+# This directory will eventually become the source directory for the website, but we're not there yet.
