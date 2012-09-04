@@ -1,6 +1,6 @@
 PHP_CodeSniffer Links
 
-[[Introduction]]  
+[[Introduction|Home]]  
 Requirements  
 Usage  
 Advanced Usage  
