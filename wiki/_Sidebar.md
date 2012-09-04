@@ -3,7 +3,7 @@ PHP_CodeSniffer Links
 [[Introduction|Home]]  
 Requirements  
 Usage  
-Advanced Usage  
+[[Advanced Usage]]  
 [[Reporting]]  
 Configuration Options  
 Coding Standard Tutorial  
