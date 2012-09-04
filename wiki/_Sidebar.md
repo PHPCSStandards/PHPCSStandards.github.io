@@ -5,7 +5,7 @@ Requirements
 Usage  
 [[Advanced Usage]]  
 [[Reporting]]  
-Configuration Options  
+[[Configuration Options]]  
 Coding Standard Tutorial  
 [[Annotated ruleset.xml]]  
 Using the Subversion pre-commit Hook  
