@@ -92,14 +92,14 @@ You can also specific multiple values:
     $ phpcs -d memory_limit=32M -d include_path=.:/php/includes /path/to/code
 
 ## Setting Configuration Options
-PHP_CodeSniffer has some configuration options that can be set. Individual coding standards may also require configuration options to be set before functionality can be used. View a full list of configuration options.
+PHP_CodeSniffer has some configuration options that can be set. Individual coding standards may also require configuration options to be set before functionality can be used. [[View a full list of configuration options|Configuration Options]].
 
 To set a configuration option, use the `--config-set` command line argument.
 
     $ phpcs --config-set <option> <value>
 
 ## Deleting Configuration Options
-PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. View a full list of configuration options.
+PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].
 
 To delete a configuration option, use the `--config-delete` command line argument.
 
