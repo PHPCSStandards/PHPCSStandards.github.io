@@ -32,9 +32,11 @@ The following sample file documents the ruleset.xml format and shows you the com
 
      <!--
         Patterns can be specified as relative if you would
-        like the relative path of the file, based on the path
-        you pass on the command line, checked instead of the
+        like the relative path of the file checked instead of the
         full path. This can sometimes help with portability.
+        
+        The relative path is determined based on the paths you
+        pass into PHP_CodeSniffer on the command line.
      -->
      <exclude-pattern type="relative">^/tests/*</exclude-pattern>
      <exclude-pattern type="relative">^/data/*</exclude-pattern>
