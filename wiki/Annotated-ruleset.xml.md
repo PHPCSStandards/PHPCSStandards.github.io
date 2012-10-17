@@ -107,6 +107,17 @@ The following sample file documents the ruleset.xml format and shows you the com
       <message>Please review this TODO comment: %s</message>
       <severity>3</severity>
      </rule>
+
+     <!--
+        You can also change the type of a message from error to
+        warning and vice versa.
+     -->
+     <rule ref="Generic.Commenting.Todo.CommentFound">
+      <type>error</type>
+     </rule>
+     <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
+      <type>warning</type>
+     </rule>
     
      <!--
         Here we change two messages from the same sniff. Note how the
