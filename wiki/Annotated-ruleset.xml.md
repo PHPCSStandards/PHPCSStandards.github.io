@@ -127,10 +127,10 @@ The following sample file documents the ruleset.xml format and shows you the com
         for errors.
      -->
      <rule ref="Generic.Files.LineLength.MaxExceeded">
-      <message>Line exceeds maximum limit of %s characters; contains %s characters</message>
+      <message>Line contains %2$s chars, which is longer than the max limit of %1$s</message>
      </rule>
      <rule ref="Generic.Files.LineLength.TooLong">
-      <message>Line exceeds %s characters; contains %s characters</message>
+      <message>Line longer than %s characters; contains %s characters</message>
      </rule>
     
      <!--
