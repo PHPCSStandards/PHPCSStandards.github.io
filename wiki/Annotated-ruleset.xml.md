@@ -1,6 +1,6 @@
 PHP_CodeSniffer allows developers to design their own coding standards by creating a simple ruleset XML file that both pulls in sniffs from existing standards and customises them for the developer's needs. This XML file can be named anything you like, as long as it has an `xml` extension and complies to the ruleset.xml format. The file can be stored anywhere, making it perfect for placing under version control with a project's source code and unit tests.
 
-Once created, a ruleset file can be used with the `--standard command` line argument. In the following example, PHP_CodeSniffer will use the coding standard defined in a custom ruleset file called custom_ruleset.xml:
+Once created, a ruleset file can be used with the `--standard` command line argument. In the following example, PHP_CodeSniffer will use the coding standard defined in a custom ruleset file called custom_ruleset.xml:
 
     $ phpcs --standard=/path/to/custom_ruleset.xml test.php
 
