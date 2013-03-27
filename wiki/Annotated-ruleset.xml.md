@@ -29,7 +29,7 @@ The following sample file documents the ruleset.xml format and shows you the com
      -->
      <exclude-pattern>*/tests/*</exclude-pattern>
      <exclude-pattern>*/data/*</exclude-pattern>
-
+    
      <!--
         Patterns can be specified as relative if you would
         like the relative path of the file checked instead of the
@@ -66,6 +66,12 @@ The following sample file documents the ruleset.xml format and shows you the com
      <rule ref="/home/username/standards/custom.xml"/>
     
      <!--
+        Relative paths can also be used everywhere absolute paths are used.
+     -->
+     <rule ref="standards/mystandard"/>
+     <rule ref="../username/custom.xml"/>
+    
+     <!--
         Include all sniffs in the Squiz standard except one. Note that
         the name of the sniff being excluded is the code that the sniff
         is given by PHP_CodeSniffer and is based on the file name and
@@ -74,6 +80,22 @@ The following sample file documents the ruleset.xml format and shows you the com
      -->
      <rule ref="Squiz">
       <exclude name="Squiz.PHP.CommentedOutCode"/>
+     </rule>
+    
+     <!--
+        You can also exclude a whole category of sniffs.
+     -->
+     <rule ref="Squiz">
+      <exclude name="Squiz.PHP"/>
+     </rule>
+    
+    <!--
+        You can even exclude a whole standard. This example includes
+        all sniffs from the Squiz standard, but excludes any that come
+        from the Generic standard.
+     -->
+     <rule ref="Squiz">
+      <exclude name="Generic"/>
      </rule>
     
      <!--
@@ -107,7 +129,7 @@ The following sample file documents the ruleset.xml format and shows you the com
       <message>Please review this TODO comment: %s</message>
       <severity>3</severity>
      </rule>
-
+    
      <!--
         You can also change the type of a message from error to
         warning and vice versa.
