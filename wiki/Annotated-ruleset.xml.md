@@ -67,8 +67,10 @@ The following sample file documents the ruleset.xml format and shows you the com
     
      <!--
         Relative paths can also be used everywhere absolute paths are used.
+        Make sure the reference starts with ./ or ../ so PHP_CodeSniffer
+        knows it is a relative path.
      -->
-     <rule ref="standards/mystandard"/>
+     <rule ref="./standards/mystandard"/>
      <rule ref="../username/custom.xml"/>
     
      <!--
