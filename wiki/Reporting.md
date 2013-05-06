@@ -137,6 +137,7 @@ PHP_CodeSniffer can output a report in a format the compiler built into the GNU 
 
 To use PHP_CodeSniffer with Emacs, make sure you have installed PHP mode for Emacs. Then put the following into your .emacs file, changing PHP_CodeSniffer options as required.
 
+    (require 'compile)
     (defun my-php-hook-function ()
      (set (make-local-variable 'compile-command) (format "phpcs --report=emacs --standard=PEAR %s" (buffer-file-name))))
     (add-hook 'php-mode-hook 'my-php-hook-function)
