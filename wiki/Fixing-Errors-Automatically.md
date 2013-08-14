@@ -23,7 +23,7 @@ Screen-based reports, such as the [full](https://github.com/squizlabs/PHP_CodeSn
     --------------------------------------------------------------------------------
 
 ## Printing a Diff Report
-> The `diff` report is described here as it is not currently included in the main PHPCS release. It will be moved to the [Reporting](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) page at a late date.
+> The `diff` report is described here as it is not currently included in the main PHPCS release. It will be moved to the [[Reporting]] page at a late date.
 
 PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
 
