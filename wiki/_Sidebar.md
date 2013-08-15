@@ -1,4 +1,4 @@
-PHP_CodeSniffer Links
+PHP_CodeSniffer Documentation
 
 [[Introduction|Home]]  
 [[Requirements]]  
