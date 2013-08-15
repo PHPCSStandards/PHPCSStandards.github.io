@@ -58,3 +58,24 @@ To automatically fix as many sniff violations as possible, use the `phpcbf` comm
     Time: 35 ms, Memory: 5.00Mb
 
 The source code is now ready for you to test and commit.
+
+## Viewing Debug Information
+
+To see the fixes that are being made to a file, specify the `-vv` command line argument. This works with both the `phpcs --report=diff` and `phpcbf` commands. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
+
+    *** START FILE FIXING ***
+    Generic_Sniffs_WhiteSpace_ScopeIndentSniff (line 378) replaced token 14 (T_ECHO) "echo" => "····echo"
+    Generic_Sniffs_PHP_LowerCaseConstantSniff (line 102) replaced token 9 (T_FALSE) "FALSE" => "false"
+    Fixed 2 violations, starting over
+    *** END FILE FIXING ***
+
+Sometimes the file may need to be processed multiple times in order to fix all the violations. This can happen when multiple sniffs need to modify the same part of a file, or if a fix causes a new sniff violation somewhere else in the standard. When this happens, the output will look like this:
+
+    *** START FILE FIXING ***
+    Generic_Sniffs_WhiteSpace_ScopeIndentSniff (line 378) replaced token 14 (T_ECHO) "echo" => "····echo"
+    Squiz_Sniffs_Commenting_ClosingDeclarationCommentSniff (line 115) replaced token 37 (T_CLOSE_CURLY_BRACKET) "}" => "}//end·foo()\n"
+    Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff (line 239) replaced token 26 (T_WHITESPACE) "\n" => "\n\n"
+    Fixed 3 violations, starting over
+    Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff (line 132) replaced token 40 (T_COMMENT) "//end·foo()\n" => "//end·foo()\n\n\n"
+    Fixed 1 violations, starting over
+    *** END FILE FIXING ***
