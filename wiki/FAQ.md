@@ -22,16 +22,6 @@ Sometimes, errors mask the existence of other errors, or new errors are created 
 
 Always run PHP_CodeSniffer until you get a passing result. Once you've made the changes PHP_CodeSniffer recommends, run PHP_CodeSniffer again to ensure no new errors have been added.
 
-## Why doesn't PHP_CodeSniffer just make the changes it suggests for me?
-As much as I trust PHP_CodeSniffer to check your code for coding standard errors, I don't trust any application to ever change code for me without reviewing it first. Considering you would have to check each change PHP_CodeSniffer made before releasing the source code, why not make the changes manually?
-
-Making the changes manually ensures a few positive things happen:
-* Developers learn the coding standards and make less mistakes in the future.
-* Developers can ensure that PHP_CodeSniffer is working correctly.
-* Developers can decide if a coding standard doesn't fit a particular piece of code.
-
-No matter how small of a change you make, always test your code before committing it to your code repository or releasing it. Even changes suggested by PHP_CodeSniffer need to be tested, as small and insignificant as some of them may seem.
-
 ## What does PHP_CodeSniffer use to tokenize my code?
 For PHP files, PHP_CodeSniffer uses [PHP's inbuilt tokenizer functions](http://www.php.net/tokenizer) to parse your code. It then modifies that output to include much more data about the file, such as matching function braces to function keywords.
 
