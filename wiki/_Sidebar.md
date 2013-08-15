@@ -9,5 +9,5 @@ PHP_CodeSniffer Documentation
 [[Fixing Errors Automatically]]  
 Coding Standard Tutorial  
 [[Annotated ruleset.xml]]  
-Using the Subversion pre-commit Hook  
+Using the SVN pre-commit Hook  
 [[FAQ]]  
