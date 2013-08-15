@@ -2,7 +2,7 @@ PHP_CodeSniffer Links
 
 [[Introduction|Home]]  
 [[Requirements]]  
-Usage  
+[[Usage]]  
 [[Advanced Usage]]  
 [[Reporting]]  
 [[Configuration Options]]  
