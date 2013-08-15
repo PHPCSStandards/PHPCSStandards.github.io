@@ -1,7 +1,7 @@
 PHP_CodeSniffer Links
 
 [[Introduction|Home]]  
-Requirements  
+[[Requirements]]  
 Usage  
 [[Advanced Usage]]  
 [[Reporting]]  
