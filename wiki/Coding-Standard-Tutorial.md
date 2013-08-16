@@ -22,15 +22,14 @@ Now that our directory structure is created, we need to add our ruleset.xml file
 
 The content of the `ruleset.xml` file should be the following:
 
-````xml
+```xml
 <?xml version="1.0"?>
 <ruleset name="MyStandard">
   <description>A custom coding standard.</description>
 </ruleset>
-````
+```
 
 > The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the ruleset.xml provides, see the [[Annotated ruleset.xml]].
-
 
 ## Creating the Sniff
 
@@ -64,7 +63,7 @@ Once an error is detected, a sniff should indicate that an error has occurred by
 
 We now have to write the content of our sniff. The content of the `DisallowHashCommentsSniff.php` file should be the following:
 
-````php
+```php
 <?php
 /**
  * This sniff prohibits the use of Perl style hash comments.
@@ -135,11 +134,11 @@ class MyStandard_Sniffs_Commenting_DisallowHashCommentsSniff implements PHP_Code
 }//end class
 
 ?>
-````
+```
 
 By default, PHP_CodeSniffer assumes all sniffs are designed to check PHP code only. You can specify a list of tokenizers that your sniff supports, allowing it to be used wth PHP, JavaScript or XML files, or any combination of the three. You do this by setting the `$supportedTokenizers` member variable in your sniff. Adding the following code to your sniff will tell PHP_CodeSniffer that it can be used to check both PHP and JavaScript code:
 
-````php
+```php
 /**
  * A list of tokenizers this sniff supports.
  *
@@ -149,14 +148,14 @@ public $supportedTokenizers = array(
                                'PHP',
                                'JS',
                               );
-````
+```
 
 
 ## Results
 
 Now that we have defined a coding standard, let's validate a file that contains hash comments. The test file we are using has the following contents:
 
-````php
+```php
 <?php
 
 # Check for valid contents.
@@ -172,7 +171,7 @@ if ($obj->contentsAreValid($array)) {
 }
 
 ?>
-````
+```
 
 When PHP_CodeSniffer is run on the file using our new coding standard, 3 errors will be reported:
 
