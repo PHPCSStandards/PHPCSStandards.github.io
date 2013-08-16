@@ -74,8 +74,7 @@ We now have to write the content of our sniff. The content of the `DisallowHashC
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Your Name <you@domain.net>
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   SVN: $Id: coding-standard-tutorial.xml,v 1.9 2008-10-09 15:16:47 cweiske Exp $
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
@@ -92,7 +91,7 @@ We now have to write the content of our sniff. The content of the `DisallowHashC
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Your Name <you@domain.net>
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
