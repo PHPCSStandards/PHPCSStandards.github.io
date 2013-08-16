@@ -55,6 +55,11 @@ When the tab width is set by default, the replacement of tabs with spaces can be
 
 ## Generic Coding Standard Configuration Options
 
+### Setting the Path to the Google Closure Linter
+The Generic coding standard includes a sniff that will check each file using the [Google Closure Linter](http://code.google.com/p/closure-linter/), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
+
+    $ phpcs --config-set gjslint_path /path/to/gjslint
+
 ### Setting the Path to JSHint
 
 The Generic coding standard includes a sniff that will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
@@ -80,11 +85,6 @@ As JSLint is just JavaScript code, you also need to install [Rhino](https://deve
 The Squiz coding standard includes a sniff that will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
 
     $ phpcs --config-set jsl_path /path/to/jsl
-
-### Setting the Path to the Google Closure Linter
-The Squiz coding standard includes a sniff that will check each file using the [Google Closure Linter](http://code.google.com/p/closure-linter/), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
-
-    $ phpcs --config-set gjslint_path /path/to/gjslint
 
 ## Zend Coding Standard Configuration Options
 ### Setting the Path to the Zend Code Analyzer
