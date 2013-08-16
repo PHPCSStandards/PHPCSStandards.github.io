@@ -16,7 +16,7 @@ A pre-commit hook is a feature available in the [Subversion](http://subversion.t
 
 
 
-## Configuring the pre-commit Hook
+## Configuring the pre commit Hook
 
 Edit `/path/to/PHP_CodeSniffer/scripts/phpcs-svn-pre-commit` and replace `@php_bin@` in the first line with the path to the PHP CLI. For example, `#!@php_bin@` becomes `#!/usr/bin/php`.
 
