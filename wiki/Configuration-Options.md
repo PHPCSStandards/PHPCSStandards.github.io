@@ -52,6 +52,18 @@ By default, PHP_CodeSniffer will not convert tabs to spaces in checked files. Sp
 When the tab width is set by default, the replacement of tabs with spaces can be disabled for a single script run by setting the tab width to zero.
 
     $ phpcs --tab-width=0 /path/to/code
+
+## Generic Coding Standard Configuration Options
+
+### Setting the Path to JSHint
+
+The Generic coding standard includes a sniff that will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
+
+    $ phpcs --config-set jshint_path /path/to/jshint.js
+
+As JSHint is just JavaScript code, you also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
+
+    $ phpcs --config-set rhino_path /path/to/rhino
  
 ## Squiz Coding Standard Configuration Options
 
