@@ -69,6 +69,11 @@ The Generic coding standard includes a sniff that will check each JavaScript fil
 As JSHint is just JavaScript code, you also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
 
     $ phpcs --config-set rhino_path /path/to/rhino
+
+### Setting the Path to CSSLint
+The Generic coding standard includes a sniff that will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
+
+    $ phpcs --config-set csslint_path /path/to/csslint
  
 ## Squiz Coding Standard Configuration Options
 
