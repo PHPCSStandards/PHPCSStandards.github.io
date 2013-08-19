@@ -51,13 +51,34 @@ Diff reports are more easily used when output to a file. They can then be applie
 
 ## Using the PHP Code Beautifier and Fixer
 
-To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. When using this command, you do not need to specify a report type. PHPCBF will automatically produce a diff file and apply it to your code:
+To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. When using this command, you do not need to specify a report type. PHPCBF will automatically produce a diff file and apply it to your code using the `patch` command:
 
     $ phpcbf /path/to/code
-    Patched 1 files
+    Patched 2 files
     Time: 35 ms, Memory: 5.00Mb
 
-The source code is now ready for you to test and commit.
+> If you do not have access to the diff or patch commands within your development environment, specify the `--no-patch` command line argument. PHPCBF will use PHP to replace the content of your files.
+>
+    $phpcbf /path/to/code --no-patch
+    Fixed 2 sniff violations in /path/to/code/init.php
+        => file was overwritten
+    Fixed 2 sniff violations in /path/to/code/main.css
+        => file was overwritten
+    Fixed 2 files
+    Time: 35 ms, Memory: 5.00Mb
+
+
+If you do not want to overwrite existing files, you can specify the `--suffix` command line argument and provide a filename suffix to use for new files. A fixed copy of each file will be created and stored in the same directory as the original file. If a file already exists with the new name, it will be overwritten.
+
+    $phpcs /path/to/code --suffix=.fixed
+    Fixed 2 sniff violations in /path/to/code/init.php
+        => fixed file written to init.php.fixed
+    Fixed 2 sniff violations in /path/to/code/main.css
+        => fixed file written to main.css.fixed
+    Fixed 2 files
+    Time: 35 ms, Memory: 5.00Mb
+
+> When using the `--suffix` command line argument, the `diff` and `patch` commands are not used so you don't need to specify the `--no-patch` argument.
 
 ## Viewing Debug Information
 
