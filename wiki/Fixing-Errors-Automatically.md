@@ -4,22 +4,22 @@
 
 PHP_CodeSniffer is able to fix many errors and warnings automatically. The `diff` report can be used to generate a diff that can be applied using the `patch` command. Alternatively, the PHP Code Beautifier and Fixer (`phpcbf`) can be used in place of `phpcs` to automatically generate and apply the diff for you.
 
-Screen-based reports, such as the [full](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, an additional line of information will be printed:
+Screen-based reports, such as the [full](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, additional information will be printed:
 
     $ phpcs /path/to/code/myfile.php
-    
+
     FILE: /path/to/code/myfile.php
     --------------------------------------------------------------------------------
     FOUND 5 ERRORS AFFECTING 4 LINES
     --------------------------------------------------------------------------------
-     2 | ERROR | Missing file doc comment
-     3 | ERROR | TRUE, FALSE and NULL must be lowercase; expected "false" but found
-       |       | "FALSE"
-     5 | ERROR | Line indented incorrectly; expected at least 4 spaces, found 1
-     8 | ERROR | Missing function doc comment
-     8 | ERROR | Opening brace should be on a new line
+     2 | ERROR | [ ] Missing file doc comment
+     3 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+       |       |     found "FALSE"
+     5 | ERROR | [x] Line indented incorrectly; expected at least 4 spaces, found 1
+     8 | ERROR | [ ] Missing function doc comment
+     8 | ERROR | [ ] Opening brace should be on a new line
     --------------------------------------------------------------------------------
-    PHPCBF CAN FIX 2 OF THESE SNIFF VIOLATIONS AUTOMATICALLY
+    PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
     --------------------------------------------------------------------------------
 
 ## Printing a Diff Report
