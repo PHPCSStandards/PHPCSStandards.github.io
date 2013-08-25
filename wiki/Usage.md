@@ -2,8 +2,8 @@
 
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
 
-    Usage: phpcs [-nwlsapvi] [-d key[=value]]
-        [--report=<report>] [--report-file=<reportfile>] [--report-<report>=<reportfile>] ...
+    Usage: phpcs [-nwlsaepvi] [-d key[=value]]
+        [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>] ...
         [--report-width=<reportWidth>] [--generator=<generator>] [--tab-width=<tabWidth>]
         [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
         [--config-set key value] [--config-delete key] [--config-show]
@@ -14,6 +14,7 @@ Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will pr
             -l            Local directory only, no recursion
             -s            Show sniff codes in all reports
             -a            Run interactively
+            -e            Explain a standard by showing the sniffs it includes
             -p            Show progress of the run
             -v[v][v]      Print verbose output
             -i            Show a list of installed coding standards
@@ -21,22 +22,23 @@ Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will pr
             --help        Print this help message
             --version     Print version information
             <file>        One or more files and/or directories to check
+            <encoding>    The encoding of the files being checked (default is iso-8859-1)
             <extensions>  A comma separated list of file extensions to check
                           (only valid if checking a directory)
+            <generator>   The name of a doc generator to use
+                          (forces doc generation instead of checking)
             <patterns>    A comma separated list of patterns to ignore files and directories
-            <encoding>    The encoding of the files being checked (default is iso-8859-1)
+            <report>      Print either the "full", "xml", "checkstyle", "csv"
+                          "json", "emacs", "source", "summary", "diff"
+                          "svnblame", "gitblame", "hgblame" or "notifysend" report
+                          (the "full" report is printed by default)
+            <reportFile>  Write the report to the specified file path
+            <reportWidth> How many columns wide screen reports should be printed
             <sniffs>      A comma separated list of sniff codes to limit the check to
                           (all sniffs must be part of the specified standard)
             <severity>    The minimum severity required to display an error or warning
             <standard>    The name or path of the coding standard to use
             <tabWidth>    The number of spaces each tab represents
-            <generator>   The name of a doc generator to use
-                          (forces doc generation instead of checking)
-            <report>      Print either the "full", "xml", "checkstyle", "csv", "emacs"
-                          "source", "summary", "svnblame" or "gitblame" report
-                          (the "full" report is printed by default)
-            <reportfile>  Write the report to the specified file path
-            <reportWidth> How many columns wide screen reports should be printed
 
 > The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
 
