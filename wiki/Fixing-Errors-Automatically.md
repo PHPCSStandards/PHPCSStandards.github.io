@@ -51,7 +51,37 @@ Diff reports are more easily used when output to a file. They can then be applie
 
 ## Using the PHP Code Beautifier and Fixer
 
-To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. When using this command, you do not need to specify a report type. PHPCBF will automatically produce a diff file and apply it to your code using the `patch` command:
+To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
+
+    Usage: phpcbf [-nwlpvi] [-d key[=value]]
+        [--standard=<standard>] [--sniffs=<sniffs>] [--suffix=<suffix>]
+        [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
+        [--tab-width=<tabWidth>] [--encoding=<encoding>]
+        [--extensions=<extensions>] [--ignore=<patterns>] <file> ...
+            -n            Do not fix warnings (shortcut for --warning-severity=0)
+            -w            Fix both warnings and errors (on by default)
+            -l            Local directory only, no recursion
+            -p            Show progress of the run
+            -v[v][v]      Print verbose output
+            -i            Show a list of installed coding standards
+            -d            Set the [key] php.ini value to [value] or [true] if value is omitted
+            --help        Print this help message
+            --version     Print version information
+            --no-patch    Do not make use of the "diff" or "patch" programs
+            <file>        One or more files and/or directories to fix
+            <encoding>    The encoding of the files being fixed (default is iso-8859-1)
+            <extensions>  A comma separated list of file extensions to fix
+                          (only valid if fixing a directory)
+            <patterns>    A comma separated list of patterns to ignore files and directories
+            <sniffs>      A comma separated list of sniff codes to limit the fixes to
+                          (all sniffs must be part of the specified standard)
+            <severity>    The minimum severity required to fix an error or warning
+            <standard>    The name or path of the coding standard to use
+            <suffix>      Write modified files to a filename using this suffix
+                          ("diff" and "patch" are not used in this mode)
+            <tabWidth>    The number of spaces each tab represents
+
+When using the PHPCBF command, you do not need to specify a report type. PHPCBF will automatically produce a diff file and apply it to your code using the `patch` command:
 
     $ phpcbf /path/to/code
     Patched 2 files
@@ -66,7 +96,6 @@ To automatically fix as many sniff violations as possible, use the `phpcbf` comm
         => file was overwritten
     Fixed 2 files
     Time: 35 ms, Memory: 5.00Mb
-
 
 If you do not want to overwrite existing files, you can specify the `--suffix` command line argument and provide a filename suffix to use for new files. A fixed copy of each file will be created and stored in the same directory as the original file. If a file already exists with the new name, it will be overwritten.
 
