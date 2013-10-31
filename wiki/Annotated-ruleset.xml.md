@@ -83,9 +83,16 @@ The following sample file documents the ruleset.xml format and shows you the com
      <rule ref="Squiz">
       <exclude name="Squiz.PHP.CommentedOutCode"/>
      </rule>
+
+     <!--
+        You can also exclude a single sniff message.
+     -->
+     <rule ref="Squiz">
+      <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+     </rule>
     
      <!--
-        You can also exclude a whole category of sniffs.
+        Or, you can exclude a whole category of sniffs.
      -->
      <rule ref="Squiz">
       <exclude name="Squiz.PHP"/>
