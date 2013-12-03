@@ -18,6 +18,18 @@ The following sample file documents the ruleset.xml format and shows you the com
         developers who may change this file in the future.
      -->
      <description>A custom coding standard</description>
+
+     <!--
+        * will be released in 1.5.1 *
+        You can hard-code config values used by sniffs directly
+        into your custom standard. Note that this does not work
+        for config values that override command line arguments,
+        such as show_warnings and report_format.
+        
+        The following tag is equivalent to the command line
+        argument: --runtime-set zend_ca_path /path/to/ZendCodeAnalyzer
+     -->
+     <config name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
     
      <!--
         You can hard-code ignore patterns directly into your
