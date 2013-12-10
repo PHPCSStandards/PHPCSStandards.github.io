@@ -124,12 +124,8 @@ By default, PHP_CodeSniffer will run quietly, only printing the report of errors
 
 With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked. The possible status characters are:
 
-By default, PHP_CodeSniffer will run quietly, only printing the report of errors and warnings at the end. If you are checking a large number of files, you may have to wait a while to see the report. If you want to know what is happening, you can turn on progress or verbose output.
-
-With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked. The possible status characters are:
-
 * `.` : The file contained no errors or warnings
-* `E` : The file contained 1 or more errors<
+* `E` : The file contained 1 or more errors
 * `W` : The file contained 1 or more warnings, but no errors
 * `S` : The file contained a [@codingStandardsIgnoreFile](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
 
