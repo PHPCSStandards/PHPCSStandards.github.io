@@ -20,7 +20,6 @@ The following sample file documents the ruleset.xml format and shows you the com
      <description>A custom coding standard</description>
 
      <!--
-        * will be released in 1.5.1 *
         You can hard-code config values used by sniffs directly
         into your custom standard. Note that this does not work
         for config values that override command line arguments,
