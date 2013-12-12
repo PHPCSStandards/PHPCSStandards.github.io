@@ -53,7 +53,7 @@ When the tab width is set by default, the replacement of tabs with spaces can be
 
     $ phpcs --tab-width=0 /path/to/code
 
-## Setting the installed standard paths (will be released in 1.5.1)
+## Setting the installed standard paths
 By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` directory to find installed coding standards. An installed standard appears when you use the `-i` command line argument and can be referenced using a name instead of a path when using the `--standard` command line argument. You can add install paths by setting the `installed_paths` configuration option.
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
