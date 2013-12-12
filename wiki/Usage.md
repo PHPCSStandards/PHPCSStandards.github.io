@@ -171,6 +171,10 @@ Can you also tell PHP_CodeSniffer to use an external standard by specifying the 
 
     $ phpcs --standard=/path/to/MyStandard /path/to/code/myfile.inc
 
+Multiple coding standards can be checked at the same time by passing a list of comma separated standards on the command line. A mix of external and installed coding standards can be passed if required.
+
+    $ phpcs --standard=PEAR,Squiz,/path/to/MyStandard /path/to/code/myfile.inc
+
 ## Printing a List of Installed Coding Standards
 
 PHP_CodeSniffer can print you a list of the coding standards that are installed so that you can correctly specify a coding standard to use for testing. You can print this list by specifying the `-i` command line argument.
