@@ -98,6 +98,10 @@ To set a configuration option, use the `--config-set` command line argument.
 
     $ phpcs --config-set <option> <value>
 
+Configuration options are written to a global configuration file. If you want to set them for a single run only, use the `--runtime-set` command line argument.
+
+    $ phpcs --runtime-set <option> <value> /path/to/code
+
 ## Deleting Configuration Options
 PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].
 
