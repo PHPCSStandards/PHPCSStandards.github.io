@@ -25,8 +25,8 @@ The following sample file documents the ruleset.xml format and shows you the com
         for config values that override command line arguments,
         such as show_warnings and report_format.
         
-        The following tag is equivalent to the command line
-        argument: --runtime-set zend_ca_path /path/to/ZendCodeAnalyzer
+        The following tag is equivalent to the command line argument:
+        --runtime-set zend_ca_path /path/to/ZendCodeAnalyzer
      -->
      <config name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
     
@@ -35,11 +35,23 @@ The following sample file documents the ruleset.xml format and shows you the com
         custom standard so you don't have to specify the
         patterns on the command line.
         
-        The following two tags are equivalent to the command line
-        argument: --ignore=*/tests/*,*/data/*
+        The following two tags are equivalent to the command line argument:
+        --ignore=*/tests/*,*/data/*
      -->
      <exclude-pattern>*/tests/*</exclude-pattern>
      <exclude-pattern>*/data/*</exclude-pattern>
+
+     <!--
+        [TO BE RELEASED IN 1.6.0a1]
+        You can hard-code command line values into your custom standard.
+        Note that this does not work for the command line values:
+        -v[v][v], -l, --sniffs and --standard
+        
+        The following tags are equivalent to the command line arguments:
+        --report=summary -sp
+     -->
+     <arg name="report" value="summary"/>
+     <arg value="sp"/>
     
      <!--
         Patterns can be specified as relative if you would
