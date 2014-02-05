@@ -1,4 +1,4 @@
-> Note: This documentation is for the [phpcs-fixer](https://github.com/squizlabs/PHP_CodeSniffer/tree/phpcs-fixer) branch only. Everything described here is still experimental.
+> Note: This documentation is for the [phpcs-fixer](https://github.com/squizlabs/PHP_CodeSniffer/tree/phpcs-fixer) branch only, to be released as version 2.0.0. Everything described here is still experimental.
 
 > Testing of the `phpcbf` command is more easily done from a Git clone rather than being installed via PEAR. If you choose to use a Git clone, use the commands `/path/to/PHP_CodeSniffer/scripts/phpcs` and `/path/to/PHP_CodeSniffer/scripts/phpcbf` instead of the ones shown in the documentation below.
 
