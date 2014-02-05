@@ -42,7 +42,7 @@ The following sample file documents the ruleset.xml format and shows you the com
      <exclude-pattern>*/data/*</exclude-pattern>
 
      <!--
-        [TO BE RELEASED IN 1.6.0a1]
+        [AVAILABLE IN VERSION 2.0.0 ONLY]
         You can hard-code command line values into your custom standard.
         Note that this does not work for the command line values:
         -v[v][v], -l, --sniffs and --standard
