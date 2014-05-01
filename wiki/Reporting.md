@@ -119,11 +119,13 @@ PHP_CodeSniffer can output an information report to show you how your code is wr
 
     Private method prefixed with underscore: yes [11/11, 100%]
 
---------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
 
 When more than one variation is found for a particular coding convention, the most common variation is printed on the first line and the other variations that were found are indented on subsequent lines. Each convention is followed by a number and each variation followed by a percentage, indicating the number of times the convention was checked and the percentage of code using each variation.
 
 In the example above, the `Inline comment style` convention was checked 594 times, indicating that 594 inline comments were found and checked. 585 of them (98.48%) used the `// ...` style variation and 9 of them (1.52%) used the `/* ... */` style variation.
+
+> **Tip:** To check your code against a wide range of conventions, specify all included standards. This will take longer, but give you more information about your code: `phpcs --standard=Generic,PEAR,Squiz,PSR2,Zend --report=info /path/to/code`
 
 ## Printing an XML Report
 PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
