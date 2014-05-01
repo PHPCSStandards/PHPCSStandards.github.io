@@ -78,6 +78,52 @@ To show source codes instead of friendly names, use the `-s` command line argume
     A TOTAL OF 8 SNIFF VIOLATION(S) WERE FOUND IN 3 SOURCE(S)
     --------------------------------------------------------------------------------
 
+## Printing an Information Report
+> Note: This report is only available from version 2.0.0a2 onwards.
+PHP_CodeSniffer can output an information report to show you how your code is written rather than checking that it conforms to a standard. This report will use one or more standards you pass to it and then use the sniffs within those standards to inspect your code. Sniffs must be written to support recording metrics for this feature, so not all sniffs will report back information. To print an information report, use the `--report=info` command line argument. The output will look like this:
+
+    $ phpcs --report=info /path/to/code
+    
+    PHP CODE SNIFFER INFORMATION REPORT
+    --------------------------------------------------------------------------------
+    Class has doc comment: yes [10/10, 100%]
+
+    Class opening brace placement: new line [10/10, 100%]
+
+    Constant name case: upper [81/81, 100%]
+
+    Control structure defined inline: no [863/863, 100%]
+
+    EOL char: \n [10/10, 100%]
+
+    File has doc comment: yes [10/10, 100%]
+
+    Function has doc comment: yes [130/130, 100%]
+
+    Function opening brace placement: new line [111/111, 100%]
+
+    Inline comment style: // ... [585/594, 98.48%]
+        /* ... */ => 9 (1.52%)
+
+    Line indent: spaces [5099/5099, 100%]
+
+    Line length: 80 or less [6723/7134, 94.24%]
+        81-120 => 397 (5.56%)
+        121-150 => 10 (0.14%)
+        151 or more => 4 (0.06%)
+
+    PHP constant case: lower [684/684, 100%]
+
+    PHP short open tag used: no [10/10, 100%]
+
+    Private method prefixed with underscore: yes [11/11, 100%]
+
+--------------------------------------------------------------------------------
+
+When more than one variation is found for a particular coding convention, the most common variation is printed on the first line and the other variations that were found are indented on subsequent lines. Each convention is followed by a number and each variation followed by a percentage, indicating the number of times the convention was checked and the percentage of code using each variation.
+
+In the example above, the `Inline comment style` convention was checked 594 times, indicating that 594 inline comments were found and checked. 585 of them (98.48%) used the `// ...` style variation and 9 of them (1.52%) used the `/* ... */` style variation.
+
 ## Printing an XML Report
 PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
 
