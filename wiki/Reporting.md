@@ -80,6 +80,7 @@ To show source codes instead of friendly names, use the `-s` command line argume
 
 ## Printing an Information Report
 > Note: This report is only available from version 2.0.0a2 onwards.
+
 PHP_CodeSniffer can output an information report to show you how your code is written rather than checking that it conforms to a standard. This report will use one or more standards you pass to it and then use the sniffs within those standards to inspect your code. Sniffs must be written to support recording metrics for this feature, so not all sniffs will report back information. To print an information report, use the `--report=info` command line argument. The output will look like this:
 
     $ phpcs --report=info /path/to/code
