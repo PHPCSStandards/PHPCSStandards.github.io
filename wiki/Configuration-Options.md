@@ -58,6 +58,13 @@ By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` dir
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
 
+## Ignoring warnings when generating the exit code
+> Note: This configuration option is only available from version 2.0.0RC2 onwards.
+
+By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display warnings to the user, but still return with a zero exit code if no errors are found, you can set the `ignore_warnings_on_exit` configuration option. This option is typically used by automated build tools so that a list of warnings can be generated without failing the build.
+
+    $ phpcs --config-set ignore_warnings_on_exit 1
+
 ## Generic Coding Standard Configuration Options
 
 ### Setting the path to CSSLint
