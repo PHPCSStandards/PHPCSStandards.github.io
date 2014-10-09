@@ -119,7 +119,7 @@ If you do not want to overwrite existing files, you can specify the `--suffix` c
 
 To see the fixes that are being made to a file, specify the `-vv` command line argument when generating a diff report. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
 
-    $phpcs /path/to/file --report=diff -vv
+    $ phpcs /path/to/file --report=diff -vv
     ..snip..
     *** START FILE FIXING ***
     E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
@@ -129,7 +129,7 @@ To see the fixes that are being made to a file, specify the `-vv` command line a
 
 Sometimes the file may need to be processed multiple times in order to fix all the violations. This can happen when multiple sniffs need to modify the same part of a file, or if a fix causes a new sniff violation somewhere else in the standard. When this happens, the output will look like this:
 
-    $phpcs /path/to/file --report=diff -vv
+    $ phpcs /path/to/file --report=diff -vv
     ..snip..
     *** START FILE FIXING ***
     E: [Line 3] Expected 1 space before "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
