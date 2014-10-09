@@ -117,21 +117,29 @@ If you do not want to overwrite existing files, you can specify the `--suffix` c
 
 ## Viewing Debug Information
 
-To see the fixes that are being made to a file, specify the `-vv` command line argument. This works with both the `phpcs --report=diff` and `phpcbf` commands. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
+To see the fixes that are being made to a file, specify the `-vv` command line argument when generating a diff report. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
 
+    $phpcs --report=diff -vv
+    ..snip..
     *** START FILE FIXING ***
-    Generic_Sniffs_WhiteSpace_ScopeIndentSniff (line 378) replaced token 14 (T_ECHO) "echo" => "····echo"
-    Generic_Sniffs_PHP_LowerCaseConstantSniff (line 102) replaced token 9 (T_FALSE) "FALSE" => "false"
-    Fixed 2 violations, starting over
+    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
+    * fixed 1 violations, starting loop 2 *
     *** END FILE FIXING ***
 
 Sometimes the file may need to be processed multiple times in order to fix all the violations. This can happen when multiple sniffs need to modify the same part of a file, or if a fix causes a new sniff violation somewhere else in the standard. When this happens, the output will look like this:
 
+    $phpcs --report=diff -vv
+    ..snip..
     *** START FILE FIXING ***
-    Generic_Sniffs_WhiteSpace_ScopeIndentSniff (line 378) replaced token 14 (T_ECHO) "echo" => "····echo"
-    Squiz_Sniffs_Commenting_ClosingDeclarationCommentSniff (line 115) replaced token 37 (T_CLOSE_CURLY_BRACKET) "}" => "}//end·foo()\n"
-    Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff (line 239) replaced token 26 (T_WHITESPACE) "\n" => "\n\n"
-    Fixed 3 violations, starting over
-    Squiz_Sniffs_WhiteSpace_FunctionSpacingSniff (line 132) replaced token 40 (T_COMMENT) "//end·foo()\n" => "//end·foo()\n\n\n"
-    Fixed 1 violations, starting over
+    E: [Line 3] Expected 1 space before "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 228) replaced token 3 (T_EQUAL) "=" => "·="
+    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+    * token 3 has already been modified, skipping *
+    E: [Line 3] Equals sign not aligned correctly; expected 1 space but found 0 spaces (Generic.Formatting.MultipleStatementAlignment.Incorrect)
+    * token 3 has already been modified, skipping *
+    * fixed 1 violations, starting loop 2 *
+    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
+    * fixed 1 violations, starting loop 3 *
     *** END FILE FIXING ***
