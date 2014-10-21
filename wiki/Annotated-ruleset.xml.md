@@ -281,3 +281,58 @@ The following sample file documents the ruleset.xml format and shows you the com
      </rule>
     
     </ruleset>
+
+##Selectively Applying Rules
+
+> Note: This feature is only available from version 2.0.0RC4 onwards.
+
+All tags in a ruleset file, with the exception of `ruleset` and `description`, can be selectively applied when a specific tool is being run. The two tools that are available are `phpcs` (the coding standards checker) and `phpcbf` (the coding standards fixer). Restrictions are applied by using the `phpcs-only` and `phpcbf-only` tag attributes.
+
+Setting the `phpcs-only` attribute to `true` will only apply the rule when the `phpcs` tool is running. The rule will not be applied while the file is being fixed with the `phpcbf` tool.
+
+Setting the `phpcbf-only` attribute to `true` will only apply the rule when the `phpcbf` tool is fixing a file. The rule will not be applied while the file is being checked with the `phpcs` tool.
+
+The following sample file shows a ruleset.xml format that makes use of selective rules. The file is designed for documentation purposes only and is not a working coding standard.
+
+
+    <?xml version="1.0"?>
+    <ruleset name="Selective Standard">
+
+     <!--
+        Use an external tool only when checking coding standards
+        and not while fixing a file.
+     -->
+     <config phpcs-only="true" name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
+
+     <!--
+        Exclude some files from being fixed.
+     -->
+     <exclude-pattern phpcbf-only="true">*/3rdparty/*</exclude-pattern>
+
+     <!--
+        Exclude some sniffs when fixing files, but allow them
+        to still report errors while checking files.
+     -->
+     <rule ref="Squiz">
+      <exclude phpcbf-only="true" name="Generic.WhiteSpace.ScopeIndent"/>
+     </rule>
+
+     <!--
+        Exclude some messages when fixing files, but allow them
+        to still report errors while checking files.
+     -->
+     <rule ref="Generic.Commenting.Todo.CommentFound">
+      <severity phpcbf-only="true">0</severity>
+     </rule>
+
+     <!--
+        Set different property values for fixing and checking.
+     -->
+     <rule ref="Generic.Files.LineLength">
+      <properties>
+       <property phpcs-only="true" name="lineLimit" value="80"/>
+       <property phpcbf-only="true" name="lineLimit" value="120"/>
+      </properties>
+     </rule>
+
+    </ruleset>
