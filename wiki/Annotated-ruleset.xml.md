@@ -284,8 +284,6 @@ The following sample file documents the ruleset.xml format and shows you the com
 
 ##Selectively Applying Rules
 
-> Note: This feature is only available from version 2.0.0RC4 onwards.
-
 All tags in a ruleset file, with the exception of `ruleset` and `description`, can be selectively applied when a specific tool is being run. The two tools that are available are `phpcs` (the coding standards checker) and `phpcbf` (the coding standards fixer). Restrictions are applied by using the `phpcs-only` and `phpcbf-only` tag attributes.
 
 Setting the `phpcs-only` attribute to `true` will only apply the rule when the `phpcs` tool is running. The rule will not be applied while the file is being fixed with the `phpcbf` tool.
