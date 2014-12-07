@@ -290,7 +290,7 @@ Setting the `phpcs-only` attribute to `true` will only apply the rule when the `
 
 Setting the `phpcbf-only` attribute to `true` will only apply the rule when the `phpcbf` tool is fixing a file. The rule will not be applied while the file is being checked with the `phpcs` tool.
 
-The following sample file shows a ruleset.xml format that makes use of selective rules. The file is designed for documentation purposes only and is not a working coding standard.
+The following sample file shows a ruleset.xml file that makes use of selective rules. The file is designed for documentation purposes only and is not a working coding standard.
 
 
     <?xml version="1.0"?>
