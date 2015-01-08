@@ -20,6 +20,12 @@ By default, PHP_CodeSniffer will run quietly and only print the report of errors
 
     $ phpcs --config-set show_progress 1
 
+## Using colors in output by default
+By default, PHP_CodeSniffer will not use colors in progress or report screen output. To use colors in output by default, set the `colors` configuration option to `1`.
+
+    $ phpcs --config-set colors 1
+
+
 ## Changing the default severity levels
 By default, PHP_CodeSniffer will show all errors and warnings with a severity level of 5 or greater. You can change these settings for a single script run by using the `--severity`, `--error-severity` and `--warning-severity` command line arguments, but you can also change the default settings if you prefer.
 
