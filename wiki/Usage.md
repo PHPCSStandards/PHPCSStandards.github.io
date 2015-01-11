@@ -3,7 +3,7 @@
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
 
 ````
-Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors]
+Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors] [--no-colors]
     [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>] ...
     [--report-width=<reportWidth>] [--generator=<generator>] [--tab-width=<tabWidth>]
     [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
@@ -12,7 +12,7 @@ Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors]
     [--extensions=<extensions>] [--ignore=<patterns>] <file> ...
                       Set runtime value (see --config-set)
         -n            Do not print warnings (shortcut for --warning-severity=0)
-        -w            Print both warnings and errors (on by default)
+        -w            Print both warnings and errors (this is the default)
         -l            Local directory only, no recursion
         -s            Show sniff codes in all reports
         -a            Run interactively
@@ -24,6 +24,7 @@ Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors]
         --help        Print this help message
         --version     Print version information
         --colors      Use colors in output
+        --no-colors   Do not use colors in output (this is the default)
         <file>        One or more files and/or directories to check
         <encoding>    The encoding of the files being checked (default is iso-8859-1)
         <extensions>  A comma separated list of file extensions to check
@@ -39,6 +40,7 @@ Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors]
                       (the "full" report is printed by default)
         <reportFile>  Write the report to the specified file path
         <reportWidth> How many columns wide screen reports should be printed
+                      or set to "auto" to use current screen width, where supported
         <sniffs>      A comma separated list of sniff codes to limit the check to
                       (all sniffs must be part of the specified standard)
         <severity>    The minimum severity required to display an error or warning
