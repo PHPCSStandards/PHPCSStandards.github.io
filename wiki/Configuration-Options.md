@@ -13,7 +13,7 @@ By default, PHP_CodeSniffer will show both errors and warnings for your code. Yo
 
     $ phpcs --config-set show_warnings 0
 
-When warnings are hidden by default, you can use the `-w` command line argument to show them for a single script run.
+> Note: When warnings are hidden by default, you can use the `-w` command line argument to show them for a single script run.
 
 ## Showing progress by default
 By default, PHP_CodeSniffer will run quietly and only print the report of errors and warnings at the end. If you want to know what is happening you can turn on progress output, but you can also enable this by default if you prefer. To show progress by default, set the `show_progress` configuration option to `1`.
@@ -25,6 +25,7 @@ By default, PHP_CodeSniffer will not use colors in progress or report screen out
 
     $ phpcs --config-set colors 1
 
+> Note: When colors are being used by default, you can use the `--no-colors` command line argument to disable them for a single script run.
 
 ## Changing the default severity levels
 By default, PHP_CodeSniffer will show all errors and warnings with a severity level of 5 or greater. You can change these settings for a single script run by using the `--severity`, `--error-severity` and `--warning-severity` command line arguments, but you can also change the default settings if you prefer.
@@ -38,12 +39,16 @@ To change the default severity levels to show all errors but only some warnings
     $ phpcs --config-set error_severity 1
     $ phpcs --config-set warning_severity 8
 
-Setting the severity of warnings to 0 is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
+> Note: Setting the severity of warnings to 0 is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
 
 ## Setting the default report width
 By default, PHP_CodeSniffer will print all screen-based reports 80 characters wide. File paths will be truncated if they don't fit within this limit and error messages will be wrapped across multiple lines. You can increase the report width to show longer file paths and limit the wrapping of error messages using the `--report-width` command line argument, but you can also change the default report width by setting the `report_width` configuration option.
 
     $ phpcs --config-set report_width 120
+
+> Note: If you want reports to fill the entire terminal width (in supported terminals), set the `report_width` config configuration option to `auto`.
+>
+>    `$phpcs --config-set report_width auto`
 
 ## Setting the default encoding
 By default, PHP_CodeSniffer will treat all source files as if they use ISO-8859-1 encoding. This can cause double-encoding problems when generating UTF-8 encoded XML reports. To help PHP_CodeSniffer encode reports correctly, you can specify the encoding of your source files using the `--encoding` command line argument, but you can also change the default encoding by setting the `encoding` configuration option.
