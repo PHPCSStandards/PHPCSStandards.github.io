@@ -29,6 +29,18 @@ The following sample file documents the ruleset.xml format and shows you the com
         --runtime-set zend_ca_path /path/to/ZendCodeAnalyzer
      -->
      <config name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
+
+    <!--
+        [AVAILABLE FROM VERSION 2.2.0]
+        If no files or directories are specified on the command line
+        your custom standard can specify what files should be checked
+        instead.
+
+        Note that specifying any file or directory path
+        on the command line will ignore all file tags.
+     -->
+     <file>./path/to/directory</file>
+     <file>./path/to/file.php</file>
     
      <!--
         You can hard-code ignore patterns directly into your
