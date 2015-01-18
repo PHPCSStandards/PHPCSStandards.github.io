@@ -26,21 +26,24 @@ In the following example, PHP_CodeSniffer will skip all files inside the package
 
 You can also tell PHP_CodeSniffer to ignore a file using a special comment inserted at the top of the file. This will stop the file being checked even if it does not match the ignore pattern.
 
-    <?php
-    // @codingStandardsIgnoreFile
-    $xmlPackage = new XMLPackage;
-    $xmlPackage['error_code'] = get_default_error_code_value();
-    $xmlPackage->send();
-    ?>
+```php
+<?php
+// @codingStandardsIgnoreFile
+$xmlPackage = new XMLPackage;
+$xmlPackage['error_code'] = get_default_error_code_value();
+$xmlPackage->send();
+```
 
 ## Ignoring Parts of a File
 Some parts of your code may be unable to conform to your coding standard. For example, you might have to break your standard to integrate with an external library or web service. To stop PHP_CodeSniffer generating errors for this code, you can wrap it in special comments. PHP_CodeSniffer will then hide all errors and warnings that are generated for these lines of code.
 
-    $xmlPackage = new XMLPackage;
-    // @codingStandardsIgnoreStart
-    $xmlPackage['error_code'] = get_default_error_code_value();
-    // @codingStandardsIgnoreEnd
-    $xmlPackage->send();
+```php
+$xmlPackage = new XMLPackage;
+// @codingStandardsIgnoreStart
+$xmlPackage['error_code'] = get_default_error_code_value();
+// @codingStandardsIgnoreEnd
+$xmlPackage->send();
+```
 
 ## Limiting Results to Specific Sniffs
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of an error to eliminate it more quickly or understand the scope of the problem. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument. Sniffs are separated by commas.
@@ -58,7 +61,6 @@ To hide errors and warnings with a severity less than 3:
 
     $ phpcs --severity=3 /path/to/code
 
-   
 You can specify different values for errors and warnings using the `--error-severity` and `--warning-severity` command line arguments.
 
 To show all errors, but only warnings with a severity of 8 or more:
