@@ -188,4 +188,4 @@ Multiple coding standards can be checked at the same time by passing a list of c
 PHP_CodeSniffer can print you a list of the coding standards that are installed so that you can correctly specify a coding standard to use for testing. You can print this list by specifying the `-i` command line argument.
 
     $ phpcs -i
-    The installed coding standards are Zend, PEAR, PHPCS, Squiz and MySource
+    The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
