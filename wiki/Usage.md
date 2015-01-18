@@ -175,7 +175,7 @@ The example below checks the `myfile.inc` file for violations of the _PEAR_ codi
 
     $ phpcs --standard=PEAR /path/to/code/myfile.inc
 
-Can you also tell PHP_CodeSniffer to use an external standard by specifying the full path to the standard's root directory on the command line. An external standard is one that is stored outside of PHP_CodeSniffer's `Standards` directory.
+You can also tell PHP_CodeSniffer to use an external standard by specifying the full path to the standard's root directory on the command line. An external standard is one that is stored outside of PHP_CodeSniffer's `Standards` directory.
 
     $ phpcs --standard=/path/to/MyStandard /path/to/code/myfile.inc
 
