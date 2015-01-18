@@ -302,7 +302,7 @@ By default, PHP_CodeSniffer will print all screen-based reports 80 characters wi
 >
 >    $ phpcs --report-width=auto --report=summary /path/to/code/myfile.php
 
-Writing a Report to a File
+## Writing a Report to a File
 PHP_CodeSniffer always prints the specified report to the screen, but it can also be told to write a copy of the report to a file. When writing to a file, all internal parsing errors and verbose output PHP_CodeSniffer produces will not be included in the file. This feature is particularly useful when using report types such as XML and CSV that are often parsed by scripts or used with continuous integration software.
 
 To write a copy of a report to a file, use the `--report-file` command line argument.
