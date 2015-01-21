@@ -86,8 +86,6 @@ Some PHP_CodeSniffer reports output UTF-8 encoded XML, which can cause problems 
 The default encoding used by PHP_CodeSniffer is ISO-8859-1.
 
 ## Using a Default Configuration File
-> [ AVAILABLE FROM VERSION 2.2.0 ]
-
 If you run PHP_CodeSniffer without specifying any files to check, PHP_CodeSniffer will look in the current directory for a file called `phpcs.xml`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
 
 The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset.xml]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
