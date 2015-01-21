@@ -32,7 +32,6 @@ The following sample file documents the ruleset.xml format and shows you the com
  <config name="zend_ca_path" value="/path/to/ZendCodeAnalyzer"/>
 
 <!--
-    [AVAILABLE FROM VERSION 2.2.0]
     If no files or directories are specified on the command line
     your custom standard can specify what files should be checked
     instead.
