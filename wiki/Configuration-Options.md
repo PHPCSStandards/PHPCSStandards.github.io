@@ -69,6 +69,16 @@ By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` dir
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
 
+## Ignoring errors when generating the exit code
+By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display errors to the user, but still return with a zero exit code if no warnings are found, you can set the `ignore_errors_on_exit` configuration option. This option is typically used by automated build tools so that a list of errors can be generated without failing the build.
+
+    $ phpcs --config-set ignore_errors_on_exit 1
+
+> Note: If you want to generate a zero exit code in all cases, additionally set the `ignore_warnings_on_exit` config configuration option.
+>
+>    `$ phpcs --config-set ignore_errors_on_exit 1`
+>    `$ phpcs --config-set ignore_warnings_on_exit 1`
+
 ## Ignoring warnings when generating the exit code
 By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display warnings to the user, but still return with a zero exit code if no errors are found, you can set the `ignore_warnings_on_exit` configuration option. This option is typically used by automated build tools so that a list of warnings can be generated without failing the build.
 
