@@ -33,7 +33,7 @@ The content of the `ruleset.xml` file should be the following:
 
 ## Creating the Sniff
 
-A sniff requires a single PHP file. It's name should clearly describe the standard that we are enforcing and must end with `Sniff.php`. For our sniff, we will name the PHP file `DisallowHashCommentsSniff.php` and place it into a `Commenting` sub-directory to categorise this sniff as relating to commenting. Run the following commands to create the category and the sniff:
+A sniff requires a single PHP file that must be placed into a sub-directory to categorise the type of check it performs. It's name should clearly describe the standard that we are enforcing and must end with `Sniff.php`. For our sniff, we will name the PHP file `DisallowHashCommentsSniff.php` and place it into a `Commenting` sub-directory to categorise this sniff as relating to commenting. Run the following commands to create the category and the sniff:
 
     $ cd Sniffs
     $ mkdir Commenting
