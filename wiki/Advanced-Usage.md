@@ -123,7 +123,7 @@ To delete a configuration option, use the `--config-delete` command line argumen
 
    
 ## Viewing Configuration Options
-To view the currently set configuration options, use the 1--config-show1 command line argument.
+To view the currently set configuration options, use the `--config-show` command line argument.
 
     $ phpcs --config-show
     Array
