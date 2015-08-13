@@ -238,6 +238,16 @@ The following sample file documents the ruleset.xml format and shows you the com
    <property name="error" value="true"/>
   </properties>
  </rule>
+ 
+ <!--
+    Array values are specified by using a string
+    representation of the array.
+ -->
+ <rule ref="Generic.PHP.ForbiddenFunctions">
+  <properties>
+   <property name="forbiddenFunctions" type="array" value="delete=>unset,print=>echo,create_function=>null" />
+  </properties>
+ </rule>
 
  <!--
     If you want to completely disable an error message in a sniff
