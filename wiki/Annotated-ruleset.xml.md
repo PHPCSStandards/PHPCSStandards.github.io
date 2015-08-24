@@ -53,6 +53,17 @@ The following sample file documents the ruleset.xml format and shows you the com
  <exclude-pattern>*/tests/*</exclude-pattern>
  <exclude-pattern>*/data/*</exclude-pattern>
 
+<!--
+    Patterns can be specified as relative if you would
+    like the relative path of the file checked instead of the
+    full path. This can sometimes help with portability.
+    
+    The relative path is determined based on the paths you
+    pass into PHP_CodeSniffer on the command line.
+ -->
+ <exclude-pattern type="relative">^/tests/*</exclude-pattern>
+ <exclude-pattern type="relative">^/data/*</exclude-pattern>
+
  <!--
     You can hard-code command line values into your custom standard.
     Note that this does not work for the command line values:
@@ -63,17 +74,6 @@ The following sample file documents the ruleset.xml format and shows you the com
  -->
  <arg name="report" value="summary"/>
  <arg value="sp"/>
-
- <!--
-    Patterns can be specified as relative if you would
-    like the relative path of the file checked instead of the
-    full path. This can sometimes help with portability.
-    
-    The relative path is determined based on the paths you
-    pass into PHP_CodeSniffer on the command line.
- -->
- <exclude-pattern type="relative">^/tests/*</exclude-pattern>
- <exclude-pattern type="relative">^/data/*</exclude-pattern>
 
  <!--
     Include all sniffs in the PEAR standard. Note that the
