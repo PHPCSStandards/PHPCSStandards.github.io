@@ -31,8 +31,8 @@ Usage: phpcs [-nwlsaepvi] [-d key[=value]] [--colors] [--no-colors]
                       (extension filtering only valid when checking a directory)
                       The type of the file can be specified using: ext/type
                       e.g., module/php,es/js
-        <generator>   The name of a doc generator to use
-                      (forces doc generation instead of checking)
+        <generator>   Uses either the "HMTL", "Markdown" or "Text" generator
+                      (forces documentation generation instead of checking)
         <patterns>    A comma separated list of patterns to ignore files and directories
         <report>      Print either the "full", "xml", "checkstyle", "csv"
                       "json", "emacs", "source", "summary", "diff"
