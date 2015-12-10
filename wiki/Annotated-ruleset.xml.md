@@ -67,13 +67,19 @@ The following sample file documents the ruleset.xml format and shows you the com
  <!--
     You can hard-code command line values into your custom standard.
     Note that this does not work for the command line values:
-    -v[v][v], -l, --sniffs and --standard
+    -v[v][v], -l, -d, --sniffs and --standard
     
     The following tags are equivalent to the command line arguments:
     --report=summary -sp
  -->
  <arg name="report" value="summary"/>
  <arg value="sp"/>
+
+ <!--
+    You can hard-code custom php.ini settings into your custom standard.
+    The following tag sets the memory limit to 64M.
+ -->
+ <ini name="memory_limit" value="64M"/>
 
  <!--
     Include all sniffs in the PEAR standard. Note that the
