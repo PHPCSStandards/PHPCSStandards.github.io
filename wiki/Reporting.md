@@ -1,3 +1,26 @@
+## Table of contents
+* [Printing Full and Summary Reports] (#printing-full-and-summary-reports)
+* Other Report Types
+    * [Checkstyle] (#printing-a-checkstyle-report)
+    * [CSV] (#printing-a-csv-report)
+    * Diff
+    * [Emacs] (#printing-an-emacs-report)
+    * [Git Blame] (#printing-a-git-blame-report)
+    * HG Blame
+    * [Information] (#printing-an-information-report)
+    * JSON
+    * JUnit
+    * Notify-Send
+    * [Source] (#printing-a-source-report)
+    * [SVN Blame] (#printing-an-svn-blame-report)
+    * [XML] (#printing-an-xml-report)
+* [Printing Multiple Reports] (#printing-multiple-reports)
+* [Running Interactively] (#running-interactively)
+* [Specifying a Report Width] (#specifying-a-report-width)
+* [Writing a Report to a File] (#writing-a-report-to-a-file)
+
+***
+
 ## Printing Full and Summary Reports
 Both the full and summary reports can additionally show information about the source of errors and warnings. Source codes can be used with the `--sniffs` command line argument to only show messages from a specified list of sources. To include source codes in the report, use the `-s` command line argument.
 
