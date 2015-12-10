@@ -1,3 +1,26 @@
+## Table of contents
+* [Setting the default coding standard] (#setting-the-default-coding-standard)
+* [Setting the default report format] (#setting-the-default-report-format)
+* [Hiding warnings by default] (#hiding-warnings-by-default)
+* [Showing progress by default] (#showing-progress-by-default)
+* [Using colors in output by default] (#using-colors-in-output-by-default)
+* [Changing the default severity levels] (#changing-the-default-severity-levels)
+* [Setting the default report width] (#setting-the-default-report-width)
+* [Setting the default encoding] (#setting-the-default-encoding)
+* [Setting the default tab width] (#setting-the-default-tab-width)
+* [Setting the installed standard paths] (#setting-the-installed-standard-paths)
+* [Ignoring errors when generating the exit code] (#ignoring-errors-when-generating-the-exit-code)
+* [Ignoring warnings when generating the exit code] (#ignoring-warnings-when-generating-the-exit-code)
+* Setting tool paths
+    * [CSSLint] (#setting-the-path-to-csslint)
+    * [Google Closure Linter] (#setting-the-path-to-the-google-closure-linter)
+    * [JSHint] (#setting-the-path-to-jshint)
+    * [JSLint] (#setting-the-path-to-jslint)
+    * [JavaScript Lint] (#setting-the-path-to-javaScript-lint)
+    * [Zend Code Analyzer] (#setting-the-path-to-the-zend-code-analyzer)
+
+***
+
 ## Setting the default coding standard
 By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is supplied on the command line. You can change the default standard by setting the default_standard configuration option.
 
