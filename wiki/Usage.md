@@ -1,3 +1,13 @@
+## Table of contents
+  * [Getting Help from the Command Line] (#getting-help-from-the-command-line)
+  * [Checking Files and Folders] (#checking-files-and-folders)
+  * [Printing a Summary Report] (#printing-a-summary-report)
+  * [Printing Progress Information] (#printing-progress-information)
+  * [Specifying a Coding Standard] (#specifying-a-coding-standard)
+  * [Printing a List of Installed Coding Standards] (#printing-a-list-of-installed-coding-standards)
+  
+***
+
 ## Getting Help from the Command Line
 
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
