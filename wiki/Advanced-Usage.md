@@ -6,6 +6,7 @@
   * [Filtering Errors and Warnings Based on Severity] (#filtering-errors-and-warnings-based-on-severity)
   * [Replacing Tabs with Spaces] (#replacing-tabs-with-spaces)
   * [Specifying an Encoding] (#specifying-an-encoding)
+  * [Using a Bootstrap File] (#using-a-bootstrap-file)
   * [Using a Default Configuration File] (#using-a-default-configuration-file)
   * [Specifying php.ini Settings] (#specifying-phpini-settings)
   * [Setting Configuration Options] (#setting-configuration-options)
@@ -85,7 +86,7 @@ To show all errors, but only warnings with a severity of 8 or more:
 
     $ phpcs --error-severity=1 --warning-severity=8 /path/to/code
 
-Setting the severity of warnings to 0 is the same as using the `-n` command line argument. If you set the severity of errors to 0 PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
+Setting the severity of warnings to `0` is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
 
 This feature is particularly useful during manual code reviews. During normal development, or an automated build, you may want to only check code formatting issues. But while during a code review, you may wish to show less severe errors and warnings that may need manual peer review.
 
@@ -104,6 +105,11 @@ Some PHP_CodeSniffer reports output UTF-8 encoded XML, which can cause problems 
     $ phpcs --encoding=utf-8 /path/to/code
 
 The default encoding used by PHP_CodeSniffer is ISO-8859-1.
+
+## Using a Bootstrap File
+PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
+
+    $ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
 
 ## Using a Default Configuration File
 If you run PHP_CodeSniffer without specifying any files to check, PHP_CodeSniffer will look in the current directory for a file called `phpcs.xml`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
