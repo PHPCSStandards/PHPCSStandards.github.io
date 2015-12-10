@@ -16,7 +16,7 @@
     * [Google Closure Linter] (#setting-the-path-to-the-google-closure-linter)
     * [JSHint] (#setting-the-path-to-jshint)
     * [JSLint] (#setting-the-path-to-jslint)
-    * [JavaScript Lint] (#setting-the-path-to-javaScript-lint)
+    * [JavaScript Lint] (#setting-the-path-to-javascript-lint)
     * [Zend Code Analyzer] (#setting-the-path-to-the-zend-code-analyzer)
 
 ***
