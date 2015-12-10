@@ -1,3 +1,21 @@
+## Table of contents
+  * [Specifying Valid File Extensions] (#specifying-valid-file-extensions)
+  * [Ignoring Files and Folders] (#ignoring-files-and-folders)
+  * [Ignoring Parts of a File] (#ignoring-parts-of-a-file)
+  * [Limiting Results to Specific Sniffs] (#limiting-results-to-specific-sniffs)
+  * [Filtering Errors and Warnings Based on Severity] (#filtering-errors-and-warnings-based-on-severity)
+  * [Replacing Tabs with Spaces] (#replacing-tabs-with-spaces)
+  * [Specifying an Encoding] (#specifying-an-encoding)
+  * [Using a Default Configuration File] (#using-a-default-configuration-file)
+  * [Specifying php.ini Settings] (#specifying-phpini-settings)
+  * [Setting Configuration Options] (#setting-configuration-options)
+  * [Deleting Configuration Options] (#deleting-configuration-options)
+  * [Viewing Configuration Options] (#viewing-configuration-options)
+  * [Printing Verbose Tokeniser Output] (#printing-verbose-tokeniser-output)
+  * [Printing Verbose Token Processing Output] (#printing-verbose-token-processing-output)
+
+***
+
 ## Specifying Valid File Extensions
 By default, PHP_CodeSniffer will check any file it finds with a `.inc`, `.php`, `.js` or `.css` extension, although not all standards will actually check all these file types. Sometimes, this means that PHP_CodeSniffer is not checking enough of your files. Sometimes, the opposite is true. PHP_CodeSniffer allows you to specify a list of valid file extensions using the `--extensions` command line argument. Extensions are separated by commas.
 
