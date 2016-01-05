@@ -112,11 +112,13 @@ PHP_CodeSniffer can optionally include one or more custom bootstrap files before
     $ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
 
 ## Using a Default Configuration File
-If you run PHP_CodeSniffer without specifying any files to check, PHP_CodeSniffer will look in the current directory for a file called `phpcs.xml`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
+If you run PHP_CodeSniffer without specifying a coding standard, PHP_CodeSniffer will look in the current directory, and all parent directories, for a file called either `phpcs.xml` or `phpcs.xml.dist`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
+
+> Note: If both a phpcs.xml and a phpcs.xml.dist file are found, PHP_CodeSniffer will use the phpcs.xml file.
 
 The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset.xml]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
 
-> An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml](https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xml)
+> An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml.dist](https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xml.dist)
 
 ## Specifying php.ini Settings
 PHP_CodeSniffer allows you to set temporary php.ini settings during a run using the `-d` command line argument. The name of the php.ini setting must be specified on the command line, but the value is optional. If no value is set, the php.ini setting will be given a value of TRUE.
