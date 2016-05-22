@@ -281,7 +281,7 @@ The following sample file documents the ruleset.xml format and shows you the com
  </rule>
 
  <!--
-    You can also hard-code ignore patterns for specific sniffs,
+    You can hard-code ignore patterns for specific sniffs,
     a feature not available on the command line. Please note that
     all sniff-specific ignore patterns are checked using absolute paths.
 
@@ -305,6 +305,20 @@ The following sample file documents the ruleset.xml format and shows you the com
  <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
     <exclude-pattern>*/tests/*</exclude-pattern>
     <exclude-pattern>*/data/*</exclude-pattern>
+ </rule>
+
+  <!--
+    You can hard-code include patterns for specific sniffs,
+    allowing you to only include sniffs when checking specific file.
+    Please note that all sniff-specific include patterns are checked using
+    absolute paths.
+
+    The code here will only run the Squiz DoubleQuoteUsage sniff for
+    files that match either of the two include patterns.
+ -->
+ <rule ref="Squiz.Strings.DoubleQuoteUsage">
+    <include-pattern>*/templates/*</include-pattern>
+    <include-pattern>*.tpl</include-pattern>
  </rule>
 
 </ruleset>
