@@ -308,6 +308,7 @@ The following sample file documents the ruleset.xml format and shows you the com
  </rule>
 
   <!--
+    [AVAILABLE IN VERSION 3.0.0 ONLY]
     You can hard-code include patterns for specific sniffs,
     allowing you to only include sniffs when checking specific file.
     Please note that all sniff-specific include patterns are checked using
