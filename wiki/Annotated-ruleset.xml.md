@@ -157,6 +157,14 @@ The following sample file documents the ruleset.xml format and shows you the com
  <rule ref="Generic.ControlStructures.InlineControlStructure"/>
 
  <!--
+    If you are including sniffs that are not installed, you can
+    reference the sniff class using an absolute or relative path
+    instead of using the sniff code.
+ -->
+ <rule ref="/path/to/standards/Generic/Sniffs/Commenting/TodoSniff.php"/>
+ <rule ref="../Generic/Sniffs/ControlStructures/InlineControlStructureSniff.php"/>
+
+ <!--
     Here we are including a specific sniff but also changing
     the error message of a specific message inside the sniff.
     Note that the specific code for the message, which is
