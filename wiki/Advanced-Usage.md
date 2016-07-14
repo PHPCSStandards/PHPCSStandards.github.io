@@ -14,6 +14,7 @@
   * [Viewing Configuration Options] (#viewing-configuration-options)
   * [Printing Verbose Tokeniser Output] (#printing-verbose-tokeniser-output)
   * [Printing Verbose Token Processing Output] (#printing-verbose-token-processing-output)
+  * [Quieting Output] (#quieting-output)
 
 ***
 
@@ -314,3 +315,6 @@ For example, the output above shows us that token 1, an if keyword, had 5 sniffs
 The other interesting piece of information we get from the output above is that some tokens didn't have any sniffs executed on them. This is normal behaviour for PHP_CodeSniffer as most sniffs listen for specific or rarely used tokens and then execute on it and a number of tokens following it.
 
 For example, the ScopeIndentSniff executes on the if statement's token only, but actually checks the indentation of every line within the if statement. The sniff uses the scope map to find all tokens within the if statement.
+
+## Quieting Output
+If a coding standard or configuration file includes settings to print progress or verbose output while running PHP_CodeSniffer, it can make it difficult to use the standard with automated checking tools and build scripts as these typically only expect an error report. If you have this problem, or just want less output, you can quiten the output of PHP_CodeSniffer by using the `-q` command line argument. When using this quiet mode, PHP_CodeSniffer will only print report output, and only if errors or warnings are found. No progress or verbose output will be printed.
