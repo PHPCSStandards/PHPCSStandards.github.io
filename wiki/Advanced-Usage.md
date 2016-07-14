@@ -65,13 +65,19 @@ $xmlPackage->send();
 ```
 
 ## Limiting Results to Specific Sniffs
-By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of an error to eliminate it more quickly or understand the scope of the problem. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument. Sniffs are separated by commas.
+By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
+
+> Note: All sniffs specified on the command line must be used in the coding standard you are using to check your files.
+
+The following example will only run two sniffs over the code instead of all sniffs in the PEAR standard:
 
     $ phpcs --standard=PEAR --sniffs=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
 
-This feature is a message filter and not a quick way to define a custom coding standard. All sniffs specified on the command line in this way must be used in the coding standard you are using to check your files.
+The following example will run all sniffs in the PEAR standard except for the two specificed:
 
-To view source codes for error messages, use the `-s` command line argument. This will print source codes in the full, summary and source reports.
+    $ phpcs --standard=PEAR --exclude=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
+
+> Note: If you use both the `--sniffs` and `--exclude` command line arguments together, the `--exclude` list will be ignored.
 
 ## Filtering Errors and Warnings Based on Severity
 By default, PHP_CodeSniffer assigns a severity of 5 to all errors and warnings. Standards may change the severity of some messages so they are hidden by default or even so that they are raised to indicate greater importance. PHP_CodeSniffer allows you to decide what the minimum severity level must be to show a message in its report using the `--severity` command line argument.
