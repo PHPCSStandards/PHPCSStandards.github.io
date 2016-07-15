@@ -25,6 +25,31 @@ use PHP_CodeSniffer\Files\File;
 class TestSniff implements Sniff {}
 ```
 
+### Extending Other Sniffs
+
+If your custom sniff extends another sniff, the class definition needs to change a bit more. Previously, a `class_exists()` call may have been used to autoload the sniff. Now, a `use` statement is used for autoloading, and the extended class name also changes.
+
+The old class definition for a sniff extending another looked like this:
+```php
+if (class_exists('OtherStandardName_Sniffs_Category_TestSniff', true) === false) {
+    throw new PHP_CodeSniffer_Exception('Class OtherStandardName_Sniffs_Category_TestSniff not found');
+}
+
+class StandardName_Sniffs_Category_TestSniff extends OtherStandardName_Sniffs_Category_TestSniff {}
+```
+
+The sniff class definition above should now be rewritten as this:
+```php
+namespace StandardName\Sniffs\Category;
+
+use OtherStandardName\Sniffs\Category\TestSniff as OtherTestSniff;
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
+class TestSniff extends OtherTestSniff {}
+```
+
+### New Class Names
 Any references to `PHP_CodeSniffer_File` in your sniff should be changed to `File`. This includes the type hint that is normally used in the `process()` function definition. The old definition looked like this:
 ```php
 public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {}
