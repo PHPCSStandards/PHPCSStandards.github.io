@@ -49,6 +49,47 @@ use PHP_CodeSniffer\Files\File;
 class TestSniff extends OtherTestSniff {}
 ```
 
+### Extending the Included Abstract Sniffs
+
+#### AbstractVariableSniff
+If you previously extended the `AbstractVariableSniff`, your class definition will now look like this:
+```php
+namespace StandardName\Sniffs\Category;
+
+use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
+use PHP_CodeSniffer\Files\File;
+
+class TestSniff extends AbstractVariableSniff {}
+```
+#### AbstractPatternSniff
+If you previously extended the `AbstractPatternSniff`, your class definition will now look like this:
+```php
+namespace StandardName\Sniffs\Category;
+
+use PHP_CodeSniffer\Sniffs\AbstractPatternSniff;
+
+class TestSniff extends AbstractPatternSniff {}
+```
+> Note: `PHP_CodeSniffer\Files\File` is not typically needed in a sniff that extends AbstractPatternSniff because these sniffs normally override the `getPatterns()` method only. If you are overriding a method that needs `File`, include the `use` statement as you would for any other sniff.
+
+#### AbstractScopeSniff
+If you previously extended the `AbstractScopeSniff`, your class definition will now look like this:
+```php
+namespace StandardName\Sniffs\Category;
+
+use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
+use PHP_CodeSniffer\Files\File;
+
+class TestSniff extends AbstractScopeSniff {}
+```
+
+If you did not previously define the optional `processTokenOutsideScope()` method, you must now do so as it has been marked as abstract. Include the empty method below if you do not need to process tokens outside the specified scopes:
+```php
+protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
+{
+}
+```
+
 ### New Class Names
 Any references to `PHP_CodeSniffer_File` in your sniff should be changed to `File`. This includes the type hint that is normally used in the `process()` function definition. The old definition looked like this:
 ```php
