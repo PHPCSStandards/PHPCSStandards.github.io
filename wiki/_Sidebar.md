@@ -1,4 +1,4 @@
-PHP_CodeSniffer Documentation
+For everyone
 
 [[Introduction|Home]]  
 [[Requirements]]  
@@ -7,8 +7,11 @@ PHP_CodeSniffer Documentation
 [[Reporting]]  
 [[Configuration Options]]  
 [[Fixing Errors Automatically]]  
-[[Coding Standard Tutorial]]  
-[[Version 3.0 Upgrade Guide]]  
+[[FAQ]]  
+
+For sniff developers
+
 [[Annotated ruleset.xml]]  
 [[Using the SVN pre commit Hook]]  
-[[FAQ]]  
+[[Coding Standard Tutorial]]  
+[[Version 3.0 Upgrade Guide]]  
