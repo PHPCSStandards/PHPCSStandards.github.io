@@ -138,4 +138,20 @@ class TestSniff implements Sniff {}
 
 ## Upgrading Unit Tests
 
+Internal namespace changes to core classes require changes to all unit test class definitions. The old definition looked like this:
+```php
+class StandardName_Tests_Category_TestSniffUnitTest implements AbstractSniffUnitTest {}
+```
+
+The unit test class definition above should now be rewritten as this:
+```php
+namespace StandardName\Tests\Category;
+
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
+
+class TestSniffUnitTest extends AbstractSniffUnitTest {}
+```
+
+### Setting CLI Values
+
 ## Upgrading Custom Reports
