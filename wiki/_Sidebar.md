@@ -9,9 +9,12 @@ For everyone
 [[Fixing Errors Automatically]]  
 [[FAQ]]  
 
-For sniff developers
+For coding standard creators
 
 [[Annotated ruleset.xml]]  
 [[Using the SVN pre commit Hook]]  
+
+For sniff developers
+
 [[Coding Standard Tutorial]]  
 [[Version 3.0 Upgrade Guide]]  
