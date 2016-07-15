@@ -154,4 +154,21 @@ class TestSniffUnitTest extends AbstractSniffUnitTest {}
 
 ### Setting CLI Values
 
+If your unit test class uses the `getCliValues()` method to specify CLI values to use during testing, you'll need to instead use the new `setCliValues()` method to set the configuration values directly. A common use case for setting CLI values is to set the tab width, which was previously done using a method like this:
+```php
+public function getCliValues($testFile)
+{
+    return array('--tab-width=4');
+}
+```
+
+Tab width is now set using this method:
+```php
+public function setCliValues($testFile, $config)
+{
+    $config->tabWidth = 4;
+}
+```
+> Note: A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/squizlabs/PHP_CodeSniffer/blob/3.0/src/Config.php#L34).
+
 ## Upgrading Custom Reports
