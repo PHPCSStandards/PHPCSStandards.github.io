@@ -91,6 +91,8 @@ protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
 ```
 
 ### New Class Names
+
+#### PHP_CodeSniffer_File
 Any references to `PHP_CodeSniffer_File` in your sniff should be changed to `File`. This includes the type hint that is normally used in the `process()` function definition. The old definition looked like this:
 ```php
 public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {}
@@ -101,7 +103,8 @@ The `process()` function declaration should now be rewritten as this:
 public function process(File $phpcsFile, $stackPtr) {}
 ```
 
-If your sniff currently uses the `PHP_CodeSniffer_Tokens` class, you will also need to add a use statement for `PHP_CodeSniffer\Util\Tokens` and then change references of `PHP_CodeSniffer_Tokens::` to `Tokens::` inside your sniff. The below example shows a sniff that is registering the list of comment tokens using the new `Tokens` class. Note that additional `use` statement:
+#### PHP_CodeSniffer_Tokens
+If your sniff currently uses the `PHP_CodeSniffer_Tokens` class, you will need to add a use statement for `PHP_CodeSniffer\Util\Tokens` and then change references of `PHP_CodeSniffer_Tokens::` to `Tokens::` inside your sniff. The below example shows a sniff that is registering the list of comment tokens using the new `Tokens` class. Note that additional `use` statement:
 ```php
 namespace StandardName\Sniffs\Category;
 
@@ -120,6 +123,17 @@ class TestSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr) {}
 
 }
+```
+#### PHP_CodeSniffer
+If your sniff currently uses the `PHP_CodeSniffer` class to access utility functions such as `isCamelCaps()` and `suggestType()`, you will need to add a use statement for `PHP_CodeSniffer\Util\Common` and then change references of `PHP_CodeSniffer::` to `Common::` inside your sniff. Your class definition will look like this:
+```php
+namespace StandardName\Sniffs\Category;
+
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Common;
+
+class TestSniff implements Sniff {}
 ```
 
 ## Upgrading Unit Tests
