@@ -1,3 +1,21 @@
+## Table of contents
+* [Upgrading Custom Sniffs] (#upgrading-custom-sniffs)
+    * [Extending Other Sniffs] (#extending-other-snifs)
+    * [Extending the Included Abstract Sniffs] (#extending-the-included-abstract-sniffs)
+        * [AbstractVariableSniff] (#abstractvariablesniff)
+        * [AbstractPatternSniff] (#abstractpatternsniff)
+        * [AbstractScopeSniff] (#abstractscopesniff)
+* [New Class Names] (#new-class-names)
+    * [PHP_CodeSniffer_File] (#php_codesniffer_file)
+    * [PHP_CodeSniffer_Tokens] (#php_codesniffer_tokens)
+    * [PHP_CodeSniffer] (#php_codesniffer)
+* [Upgrading Unit Tests] (#upgrading-unit-tests)
+    * [Setting CLI Values] (#setting-cli-values)
+* [Upgrading Custom Reports] (#upgrading-custom-reports)
+    * [Supporting Concurrency] (#supporting-concurrency)
+
+***
+
 PHP_CodeSniffer version 3 contains a large number of core changes and breaks backwards compatibility for all custom sniffs and reports. The aim of this guide is to help developers upgrade their custom sniffs, unit tests, and reports from PHP_CodeSniffer version 2 to version 3.
 
 If you only use the built-in coding standards, or you have a custom ruleset.xml file that only makes use of the sniffs and reports distributed with PHP_CodeSniffer, you do not need to make any changes to begin using PHP_CodeSniffer version 3.
@@ -244,7 +262,7 @@ public function generate(
 }
 ```
 
-### Concurrency
+### Supporting Concurrency
 
 PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
 
