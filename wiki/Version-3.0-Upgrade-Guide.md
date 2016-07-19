@@ -33,7 +33,7 @@ Internal namespace changes to core classes require changes to all sniff class de
 class StandardName_Sniffs_Category_TestSniff implements PHP_CodeSniffer_Sniff {}
 ```
 
-The sniff class definition above should now be rewritten as this:
+The sniff class definition above should now be rewritten like this:
 ```php
 namespace StandardName\Sniffs\Category;
 
@@ -56,7 +56,7 @@ if (class_exists('OtherStandardName_Sniffs_Category_TestSniff', true) === false)
 class StandardName_Sniffs_Category_TestSniff extends OtherStandardName_Sniffs_Category_TestSniff {}
 ```
 
-The sniff class definition above should now be rewritten as this:
+The sniff class definition above should now be rewritten like this:
 ```php
 namespace StandardName\Sniffs\Category;
 
@@ -88,7 +88,7 @@ use PHP_CodeSniffer\Sniffs\AbstractPatternSniff;
 
 class TestSniff extends AbstractPatternSniff {}
 ```
-> Note: `PHP_CodeSniffer\Files\File` is not typically needed in a sniff that extends AbstractPatternSniff because these sniffs normally override the `getPatterns()` method only. If you are overriding a method that needs `File`, include the `use` statement as you would for any other sniff.
+> Note: `PHP_CodeSniffer\Files\File` is not typically needed in a sniff that extends AbstractPatternSniff because these sniffs normally only override the `getPatterns()` method. If you are overriding a method that needs `File`, include the `use` statement as you would for any other sniff.
 
 #### AbstractScopeSniff
 If you previously extended the `AbstractScopeSniff`, your class definition will now look like this:
@@ -116,13 +116,13 @@ Any references to `PHP_CodeSniffer_File` in your sniff should be changed to `Fil
 public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {}
 ```
 
-The `process()` function declaration should now be rewritten as this:
+The `process()` function declaration should now be rewritten like this:
 ```php
 public function process(File $phpcsFile, $stackPtr) {}
 ```
 
 #### PHP_CodeSniffer_Tokens
-If your sniff currently uses the `PHP_CodeSniffer_Tokens` class, you will need to add a use statement for `PHP_CodeSniffer\Util\Tokens` and then change references of `PHP_CodeSniffer_Tokens::` to `Tokens::` inside your sniff. The below example shows a sniff that is registering the list of comment tokens using the new `Tokens` class. Note that additional `use` statement:
+If your sniff currently uses the `PHP_CodeSniffer_Tokens` class, you will need to add a use statement for `PHP_CodeSniffer\Util\Tokens` and then change references of `PHP_CodeSniffer_Tokens::` to `Tokens::` inside your sniff. The below example shows a sniff that is registering the list of comment tokens using the new `Tokens` class. Note the additional `use` statement:
 ```php
 namespace StandardName\Sniffs\Category;
 
@@ -142,6 +142,7 @@ class TestSniff implements Sniff
 
 }
 ```
+
 #### PHP_CodeSniffer
 If your sniff currently uses the `PHP_CodeSniffer` class to access utility functions such as `isCamelCaps()` and `suggestType()`, you will need to add a use statement for `PHP_CodeSniffer\Util\Common` and then change references of `PHP_CodeSniffer::` to `Common::` inside your sniff. Your class definition will look like this:
 ```php
@@ -161,7 +162,7 @@ Internal namespace changes to core classes require changes to all unit test clas
 class StandardName_Tests_Category_TestSniffUnitTest implements AbstractSniffUnitTest {}
 ```
 
-The unit test class definition above should now be rewritten as this:
+The unit test class definition above should now be rewritten like this:
 ```php
 namespace StandardName\Tests\Category;
 
@@ -172,7 +173,7 @@ class TestSniffUnitTest extends AbstractSniffUnitTest {}
 
 ### Setting CLI Values
 
-If your unit test class uses the `getCliValues()` method to specify CLI values to use during testing, you'll need to instead use the new `setCliValues()` method to set the configuration values directly. A common use case for setting CLI values is to set the tab width, which was previously done using a method like this:
+If your unit test class uses the `getCliValues()` method to specify CLI values to use during testing, you'll need to instead use the new `setCliValues()` method to set configuration values directly. A common use case for setting CLI values is to set the tab width, which was previously done using a method like this:
 ```php
 public function getCliValues($testFile)
 {
@@ -264,7 +265,7 @@ public function generate(
 
 ### Supporting Concurrency
 
-PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
+PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class at the same time and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
 
 > Note: Reports that output content in a way where the order or formatting is not important do not need to worry about caching data and can continue to produce reports they way they do now. Examples of these reports include the CSV report and the XML report.
 
@@ -277,12 +278,14 @@ $this->_reportFiles[$report['filename']] = array(
                                            );
 return true;
 ```
+
 Now, it outputs cache information directly using a single line of output per file:
 ```php
 echo $report['filename'].'>>'.$report['errors'].'>>'.$report['warnings'].PHP_EOL;
 return true;
 ```
-Previously, the Summary report would read it's private member var in the generate() method to get a list of all the cached data it has stored. It would then iterate over that data to generate the final report:
+
+Previously, the Summary report would read it's private member var in the `generate()` method to get a list of all the cached data it has stored. It would then iterate over that data to generate the final report:
 ```php
 if (empty($this->_reportFiles) === true) {
     return;
@@ -292,6 +295,7 @@ foreach ($this->_reportFiles as $file => $data) {
     ...
 }
 ```
+
 Now, it receives all the output the various forks of the PHP_CodeSniffer process produced in one big string. It explodes the data and then iterates over it as before:
 ```php
 $lines = explode(PHP_EOL, $cachedData);
