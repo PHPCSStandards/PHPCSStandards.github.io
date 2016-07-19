@@ -1,6 +1,6 @@
 ## Table of contents
 * [Upgrading Custom Sniffs] (#upgrading-custom-sniffs)
-    * [Extending Other Sniffs] (#extending-other-snifs)
+    * [Extending Other Sniffs] (#extending-other-sniffs)
     * [Extending the Included Abstract Sniffs] (#extending-the-included-abstract-sniffs)
         * [AbstractVariableSniff] (#abstractvariablesniff)
         * [AbstractPatternSniff] (#abstractpatternsniff)
