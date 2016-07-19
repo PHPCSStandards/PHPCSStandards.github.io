@@ -172,3 +172,49 @@ public function setCliValues($testFile, $config)
 > Note: A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/squizlabs/PHP_CodeSniffer/blob/3.0/src/Config.php#L42).
 
 ## Upgrading Custom Reports
+
+Something here about class and function sigs
+
+## Concurrency
+
+PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
+
+> Note: Reports that output content in a way where the order or formatting is not important do not need to worry about caching data and can continue to produce reports they way they do now. Examples of these reports include the CSV report and the XML report.
+
+The Summary report is a good example of what changes need to be made. The summary report can't output a single final report line for each file it processes as it has to properly align all the values in the final screen report. Previously, it wrote the number of error and warnings found to a private member var array inside the `generateFileReport()` method and  later used that array to generate the final report. Even though it didn't output anything to screen, it had to return `true` to ensure the Reporter knew there were errors in the file:
+```php
+$this->_reportFiles[$report['filename']] = array(
+                                            'errors'   => $report['errors'],
+                                            'warnings' => $report['warnings'],
+                                            'strlen'   => strlen($report['filename']),
+                                           );
+return true;
+```
+Now, it outputs cache information directly using a single line of output per file:
+```php
+echo $report['filename'].'>>'.$report['errors'].'>>'.$report['warnings'].PHP_EOL;
+return true;
+```
+Previously, the Summary report would read it's private member var in the generate() method to get a list of all the cached data it has stored. It would then iterate over that data to generate the final report:
+```php
+if (empty($this->_reportFiles) === true) {
+    return;
+}
+
+foreach ($this->_reportFiles as $file => $data) {
+    ...
+}
+```
+Now, it receives all the output the various forks of the PHP_CodeSniffer process produced in one big string. It explodes the data and then iterates over it as before:
+```php
+$lines = explode(PHP_EOL, $cachedData);
+array_pop($lines);
+
+if (empty($lines) === true) {
+    return;
+}
+
+foreach ($lines as $line) {
+    ...
+}
+```
