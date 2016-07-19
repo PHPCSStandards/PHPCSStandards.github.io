@@ -173,9 +173,78 @@ public function setCliValues($testFile, $config)
 
 ## Upgrading Custom Reports
 
-Something here about class and function sigs
+All reports must now be namespaced.
 
-## Concurrency
+> Note: It doesn't really matter what namespace you use for your custom reports, but the examples below use a basic namespace based on the standard name. If you aren't sure what to use, try using this format.
+
+Internal namespace changes to core classes require changes to all report class definitions. The old definition looked like this:
+```php
+class PHP_CodeSniffer_Reports_ReportName implements PHP_CodeSniffer_Report {}
+```
+
+The report class definition above should now be rewritten as this:
+```php
+namespace StandardName\Reports;
+
+use PHP_CodeSniffer\Files\File;
+
+class ReportName implements Report {}
+```
+
+The function signatures of the `generateFileReport()` and `generate()` methods are also slightly different. The `generateFileReport()` signature simply renames `PHP_CodeSniffer_File` to `File` due to namespace changes, while the `generate()` signature adds a new `$interactive` argument so reports know if PHP_CodeSniffer is running in interactive mode. This is useful so that reports can suppress output such as memory and time usage when they know they are printing in this mode, or even change their output completely as they know they are only printing a report for a single file.
+
+The old method signatures looked like this:
+```php
+public function generateFileReport(
+    $report,
+    PHP_CodeSniffer_File $phpcsFile,
+    $showSources=false,
+    $width=80
+) {
+    ...
+}
+
+public function generate(
+    $cachedData,
+    $totalFiles,
+    $totalErrors,
+    $totalWarnings,
+    $totalFixable,
+    $showSources=false,
+    $width=80,
+    $toScreen=true
+) {
+    ...
+}
+```
+
+They should now be written like this:
+```php
+public function generateFileReport(
+    $report,
+    File $phpcsFile,
+    $showSources=false,
+    $width=80
+) {
+    ...
+}
+
+public function generate(
+    $cachedData,
+    $totalFiles,
+    $totalErrors,
+    $totalWarnings,
+    $totalFixable,
+    $showSources=false,
+    $width=80,
+    $interactive=false,
+    $toScreen=true
+) {
+    ...
+}
+```
+
+### Concurrency
 
 PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
 
