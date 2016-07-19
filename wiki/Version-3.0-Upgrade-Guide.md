@@ -1,3 +1,9 @@
+PHP_CodeSniffer version 3 contains a large number of core changes and breaks backwards compatibility for all custom sniffs and reports. The aim of this guide is to help developers upgrade their custom sniffs, unit tests, and reports from PHP_CodeSniffer version 2 to version 3.
+
+> Note: If you only use the built-in coding standards, or you have a custom ruleset.xml file that only makes use of the sniffs and reports distributed with PHP_CodeSniffer, you do not need to make any changes to begin using PHP_CodeSniffer version 3.
+
+***
+
 ## Table of contents
 * [Upgrading Custom Sniffs] (#upgrading-custom-sniffs)
     * [Extending Other Sniffs] (#extending-other-sniffs)
@@ -15,12 +21,6 @@
     * [Supporting Concurrency] (#supporting-concurrency)
 
 ***
-
-PHP_CodeSniffer version 3 contains a large number of core changes and breaks backwards compatibility for all custom sniffs and reports. The aim of this guide is to help developers upgrade their custom sniffs, unit tests, and reports from PHP_CodeSniffer version 2 to version 3.
-
-If you only use the built-in coding standards, or you have a custom ruleset.xml file that only makes use of the sniffs and reports distributed with PHP_CodeSniffer, you do not need to make any changes to begin using PHP_CodeSniffer version 3.
-
-> Note: This guide is a work in progress. Large sections are not yet complete.
 
 ## Upgrading Custom Sniffs
 
