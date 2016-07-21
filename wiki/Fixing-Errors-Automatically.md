@@ -84,7 +84,7 @@ When using the PHPCBF command, you do not need to specify a report type. PHPCBF 
 
 > If you do not have access to the diff or patch commands within your development environment, specify the `--no-patch` command line argument. PHPCBF will use PHP to replace the content of your files.
 >
-    $phpcbf /path/to/code --no-patch
+    $ phpcbf /path/to/code --no-patch
     Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
         => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
         => File was overwritten
@@ -96,7 +96,7 @@ When using the PHPCBF command, you do not need to specify a report type. PHPCBF 
 
 If you do not want to overwrite existing files, you can specify the `--suffix` command line argument and provide a filename suffix to use for new files. A fixed copy of each file will be created and stored in the same directory as the original file. If a file already exists with the new name, it will be overwritten.
 
-    $phpcs /path/to/code --suffix=.fixed
+    $ phpcbf /path/to/code --suffix=.fixed
     Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
         => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
         => Fixed file written to init.php.fixed
