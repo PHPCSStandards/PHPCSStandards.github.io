@@ -61,7 +61,25 @@ Some parts of your code may be unable to conform to your coding standard. For ex
 $xmlPackage = new XMLPackage;
 // @codingStandardsIgnoreStart
 $xmlPackage['error_code'] = get_default_error_code_value();
+$xmlPackage->send();
 // @codingStandardsIgnoreEnd
+```
+
+You can also ignore a single line using the `@codingStandardsIgnoreLine` comment. This comment will ignore the line that the comment is on, and the following line. It is typically used like this:
+
+```php
+$xmlPackage = new XMLPackage;
+// @codingStandardsIgnoreLine
+$xmlPackage['error_code'] = get_default_error_code_value();
+$xmlPackage->send();
+```
+
+Or like this:
+
+```php
+$xmlPackage = new XMLPackage;
+$xmlPackage['error_code'] = get_default_error_code_value(); // @codingStandardsIgnoreLine
+
 $xmlPackage->send();
 ```
 
