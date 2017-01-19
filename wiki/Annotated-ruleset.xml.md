@@ -36,8 +36,9 @@ The following sample file documents the ruleset.xml format and shows you the com
     your custom standard can specify what files should be checked
     instead.
 
-    Note that specifying any file or directory path
-    on the command line will ignore all file tags.
+    Note that file and directory paths specified in a ruleset are
+    relative to the ruleset's location, and that specifying any file or
+    directory path on the command line will ignore all file tags.
  -->
  <file>./path/to/directory</file>
  <file>./path/to/file.php</file>
