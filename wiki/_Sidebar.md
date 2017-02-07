@@ -12,6 +12,7 @@ For everyone
 For coding standard creators
 
 [[Annotated ruleset.xml]]  
+[[Customisable Sniff Properties]]
 [[Using the SVN pre commit Hook]]  
 
 For sniff developers
