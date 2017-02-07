@@ -1,3 +1,5 @@
+> The SVN pre-commit hook will be removed and unavailable from version 3.0.0 onwards.
+
 > The SVN pre-commit hook has different requirements than the main PHP_CodeSniffer package. See the [[Requirements]] page for more information.
 
 A pre-commit hook is a feature available in the [Subversion](http://subversion.tigris.org) version control system that allows code to be validated before it is committed to the repository. The PHP_CodeSniffer pre-commit hook allows you to check code for coding standard errors and stop the commit process if errors are found. This ensures developers are not able to commit code that violates your coding standard. Instead, they are presented with the list of errors they need to correct before committing.
