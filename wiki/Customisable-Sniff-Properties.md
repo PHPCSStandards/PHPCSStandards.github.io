@@ -1,47 +1,385 @@
 > Note: This page is a work in progress. The content and structure may change but the information provided is accurate. It is not recommended to link to sections within this document until it has been completed.
 
-The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation.
+The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation. For properties that were added after ruleset support was introduced, the first stable version that made the property available is listed.
 
-For more information about changing sniff behaviour by customising your ruleset and how on how to pass different types of values via the ruleset, please read the [Annotated ruleset wiki page](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml).
+For more information about changing sniff behaviour by customising your ruleset, see the [[Annotated ruleset.xml]].
 
 ## Table of contents
+  * Generic Sniffs
+    * [Generic.ControlStructures.InlineControlStructure] (#genericcontrolstructuresinlinecontrolstructure)
+    * [Generic.Debug.ClosureLinter] (#genericdebugclosurelinter)
+    * [Generic.Files.LineEndings] (#genericfileslineendings)
+    * [Generic.Files.LineLength] (#genericfileslinelength)
+    * [Generic.Formatting.MultipleStatementAlignment] (#genericformattingmultiplestatementalignment)
+    * [Generic.Functions.OpeningFunctionBraceBsdAllman] (#genericfunctionsopeningfunctionbracebsdallman)
+    * [Generic.Functions.OpeningFunctionBraceKernighanRitchie] (#genericfunctionsopeningfunctionbracekernighanritchie)
+    * [Generic.Metrics.CyclomaticComplexity] (#genericmetricscyclomaticcomplexity)
+    * [Generic.Metrics.NestingLevel] (#genericmetricsnestinglevel)
+    * [Generic.NamingConventions.CamelCapsFunctionName] (#genericnamingconventionscamelcapsfunctionname)
+    * [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions)
+    * [Generic.PHP.NoSilencedErrors] (#genericphpnosilencederrors)
+    * [Generic.Strings.UnnecessaryStringConcat] (#genericstringsunnecessarystringconcat)
+    * [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent)
+  
+***
 
-* [Generic properties used across standards](#generic-properties-used-across-standards)
-    + [Changing the message type](#changing-the-message-type)
-    + [Code indentation](#code-indentation)
-    + [Spacing inside parenthesis for function calls and control structures](#spacing-inside-parenthesis-for-function-calls-and-control-structures)
-    + [Ignoring comments in sniffs based on patterns](#ignoring-comments-in-sniffs-based-on-patterns)
-* [Standard: Generic](#standard-generic)
-    + [CodeAnalysis: Unused function parameters](#codeanalysis-unused-function-parameters)
-    + [Debug: Google Closure JSLinter](#debug-google-closure-jslinter)
-    + [Files: Line endings](#files-line-endings)
-    + [Files: Line length](#files-line-length)
-    + [Formatting: assignment alignment](#formatting-assignment-alignment)
-    + [Functions: opening brace style for functions and closures](#functions-opening-brace-style-for-functions-and-closures)
-    + [Metrics: Cyclomatic complexity](#metrics-cyclomatic-complexity)
-    + [Metrics: nesting levels](#metrics-nesting-levels)
-    + [Naming Conventions: CamelCaps function names](#naming-conventions-camelcaps-function-names)
-    + [PHP: Forbidden PHP functions](#php-forbidden-php-functions)
-    + [PHP: Deprecated PHP functions](#php-deprecated-php-functions)
-    + [Strings: Unnecessary string concat](#strings-unnecessary-string-concat)
-    + [Whitespace: Scope indent](#whitespace-scope-indent)
-* [Standard: PEAR](#standard-pear)
-    + [Functions: Function call signature / multi-line](#functions-function-call-signature-multi-line)
-    + [Whitespace: Scope indent](#whitespace-scope-indent-1)
-* [Standard: Squiz](#standard-squiz)
-    + [Commenting: Long conditions closing comments](#commenting-long-conditions-closing-comments)
-    + [Functions: Function declaration argument spacing](#functions-function-declaration-argument-spacing)
-    + [PHP: Commented out code](#php-commented-out-code)
-    + [PHP: Discouraged and Forbidden functions](#php-discouraged-and-forbidden-functions)
-    + [Strings: Concatenation spacing](#strings-concatenation-spacing)
-    + [Whitespace: Function spacing](#whitespace-function-spacing)
-    + [Whitespace: Object operator spacing](#whitespace-object-operator-spacing)
-    + [Whitespace: Operator spacing](#whitespace-operator-spacing)
-    + [Whitespace: Superfluous whitespace](#whitespace-superfluous-whitespace)
+## Generic Sniffs
 
+### Generic.ControlStructures.InlineControlStructure
 
-**Note**: The `MySource`, `PSR1`, `PSR2` and `Zend` standards do not have any customizable properties at this moment.
+Property Name | Type | Default  | Available Since
+------------- | ---- | -------- | ---------------
+error         | bool | true     | -
 
+If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
+
+```xml
+<rule ref="Generic.ControlStructures.InlineControlStructure">
+ <properties>
+  <property name="error" value="false" />
+ </properties>
+</rule>
+```
+
+### Generic.Debug.ClosureLinter
+
+Property Name | Type  | Default  | Available Since
+------------- | ----- | -------- | ---------------
+errorCodes    | array | -        | -
+ignoreCodes   | array | -        | -
+
+The `Generic.Debug.ClosureLinter` sniff runs the `gjslint` tool over JavaScript files and reports errors that the tool finds. All found errors are reported as PHP_CodeSniffer warnings by default.
+
+There are two configurable options:
+* `errorCodes` : a list of error codes that should show as errors instead of warnings
+* `ignoreCodes` : a list of error codes that should be ignored
+
+> Note: The error codes accepted by this sniff are the 4-digit codes generated by the `gjslint` tool and displayed in the warning messages produced by this sniff.
+
+```xml
+<rule ref="Generic.Debug.ClosureLinter">
+ <properties>
+  <property name="errorCodes" type="array" value="0210"/>
+  <property name="ignoreCodes" type="array" value="0001,0110,0240"/>
+ </properties>
+</rule>
+```
+
+### Generic.Files.LineEndings
+
+Property Name | Type   | Default  | Available Since
+------------- | ------ | -------- | ---------------
+eolChar       | string | \n       | -
+
+This sniff ensures that files use a specific line ending, which can be customised by setting the `eolChar` property.
+
+```xml
+<rule ref="Generic.Files.LineEndings">
+ <properties>
+  <property name="eolChar" value="\r\n" />
+ </properties>
+</rule>
+```
+
+### Generic.Files.LineLength
+
+Property Name     | Type | Default  | Available Since
+----------------- | ---  | -------- | ---------------
+lineLimit         | int  | 80       | -
+absoluteLineLimit | int  | 100      | -
+
+This sniff checks all lines in a file and generates warnings if they are over `lineLimit` characters in length and errors if they are over `absoluteLineLimit` in length. These properties can be used to set the threshold at which errors are reported.
+
+> Note: The value of the `lineLimit` property should be less than or equal to the value of the `absoluteLineLimit` property.
+
+```xml
+<!--
+ Warn about lines longer than 100 chars,
+ and error for lines longer than 135 chars.
+-->
+<rule ref="Generic.Files.LineLength">
+ <properties>
+  <property name="lineLimit" value="100" />
+  <property name="absoluteLineLimit" value="135" />
+ </properties>
+</rule>
+```
+
+If errors are not required, the value of `absoluteLineLimit` can be set to zero.
+
+```xml
+<!-- Warn about lines longer than 135 chars, and never error. -->
+<rule ref="Generic.Files.LineLength">
+ <properties>
+  <property name="lineLimit" value="135" />
+  <property name="absoluteLineLimit" value="0" />
+ </properties>
+</rule>
+```
+
+### Generic.Formatting.MultipleStatementAlignment
+
+Property Name | Type | Default  | Available Since
+------------- | ---- | -------- | ---------------
+maxPadding    | int  | 1000     | -
+error         | bool | false    | -
+
+This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the equals signs of each assignment are aligned.
+
+The difference in alignment between two adjacent assignments is occassionaly quite large, sp aligning equals signs would create extremely long lines. By setting the `maxPadding` property, you can configure the maximum amount of padding required to align the assignment with the surrounding assignments before the alignment is ignored and no warnings will be generated.
+
+```xml
+<rule ref="Generic.Formatting.MultipleStatementAlignment">
+ <properties>
+  <property name="maxPadding" value="50" />
+ </properties>
+</rule>
+```
+
+If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
+
+```xml
+<rule ref="Generic.Formatting.MultipleStatementAlignment">
+ <properties>
+  <property name="error" value="true" />
+ </properties>
+</rule>
+```
+
+### Generic.Functions.OpeningFunctionBraceBsdAllman
+
+Property Name  | Type | Default | Available Since
+-------------- | ---- | ------- | ---------------
+checkFunctions | bool | true    | 2.3.0
+checkClosures  | bool | false   | 2.3.0
+
+The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
+
+```xml
+<!-- Don't check function braces, but check closure braces. -->
+<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman">
+ <properties>
+  <property name="checkFunctions" value="false" />
+  <property name="checkClosures" value="true" />
+ </properties>
+</rule>
+```
+
+### Generic.Functions.OpeningFunctionBraceKernighanRitchie
+
+Property Name  | Type | Default | Available Since
+-------------- | ---- | ------- | ---------------
+checkFunctions | bool | true    | 2.3.0
+checkClosures  | bool | false   | 2.3.0
+
+The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
+
+```xml
+<!-- Don't check function braces, but check closure braces. -->
+<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
+ <properties>
+  <property name="checkFunctions" value="false" />
+  <property name="checkClosures" value="true" />
+ </properties>
+</rule>
+```
+
+### Generic.Metrics.CyclomaticComplexity
+
+Property Name      | Type | Default | Available Since
+------------------ | ---- | ------- | ---------------
+complexity         | int  | 10      | -
+absoluteComplexity | int  | 20      | -
+
+This sniff checks the cyclomatic complexity for functions by counting the different paths the function includes.
+
+There are two configurable options:
+* `complexity` : the cyclomatic complexity above which this sniff will generate warnings
+* `absoluteComplexity` : the cyclomatic complexity above which this sniff will generate errors
+
+> Note: The value of the `complexity` property should be less than or equal to the value of the `absoluteComplexity` property.
+
+```xml
+<rule ref="Generic.Metrics.CyclomaticComplexity">
+ <properties>
+  <property name="complexity" value="15" />
+  <property name="absoluteComplexity" value="30" />
+ </properties>
+</rule>
+```
+
+### Generic.Metrics.NestingLevel
+
+Property Name        | Type | Default | Available Since
+-------------------- | ---- | ------- | ---------------
+nestingLevel         | int  | 5       | -
+absoluteNestingLevel | int  | 10      | -
+
+This sniff checks how many level deep that code is nested within a function.
+
+There are two configurable options:
+* `nestingLevel` : the nesting level above which this sniff will generate warnings
+* `absoluteNestingLevel` : the nesting level above which this sniff will generate errors
+
+```xml
+<rule ref="Generic.Metrics.NestingLevel">
+ <properties>
+  <property name="nestingLevel" value="8" />
+  <property name="absoluteNestingLevel" value="12" />
+ </properties>
+</rule>
+```
+
+### Generic.NamingConventions.CamelCapsFunctionName
+
+Property Name | Type | Default | Available Since
+------------- | ---- | ------- | ---------------
+strict        | bool | true    | 1.3.5
+
+This sniff ensures function and method names are in CamelCaps.
+
+Stricly speaking, a name cannot have two capital letters next to each other in CamelCaps format. By setting the `strict` property to `false`, the sniff applies the rule more leniently and allows for two capital letters next to each other in function and method names.
+
+```xml
+<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+ <properties>
+  <property name="strict" value="false" />
+ </properties>
+</rule>
+```
+
+### Generic.PHP.ForbiddenFunctions
+
+Property Name      | Type  | Default                     | Available Since
+-------------------| ----- | --------------------------- | ---------------
+forbiddenFunctions | array | sizeof=>count,delete=>unset | 2.0.0
+error              | bool  | true                        | -
+
+This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alterrnaitve function exists (i.e., the function should never be used) specify `null` as the value.
+
+```xml
+<rule ref="Generic.PHP.ForbiddenFunctions">
+ <properties>
+  <property name="forbiddenFunctions" type="array"
+   value="print=>echo,create_function=>null" />
+ </properties>
+</rule>
+```
+
+If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
+
+```xml
+<rule ref="Generic.PHP.ForbiddenFunctions">
+ <properties>
+  <property name="error" value="false" />
+ </properties>
+</rule>
+```
+
+### Generic.PHP.NoSilencedErrors
+
+Property Name | Type | Default  | Available Since
+------------- | ---- | -------- | ---------------
+error         | bool | true     | -
+
+If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
+
+```xml
+<rule ref="Generic.PHP.NoSilencedErrors">
+ <properties>
+  <property name="error" value="false" />
+ </properties>
+</rule>
+```
+
+### Generic.Strings.UnnecessaryStringConcat
+
+Property Name  | Type | Default  | Available Since
+-------------- | ---- | -------- | ---------------
+allowMultiline | bool | false    | 2.3.4
+error          | bool | true     | -
+
+This sniff checks that two strings using the same quoting style are not concatenated. Sometimes long strings are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `allowMultiline` property to `true` will get the sniff to allow string concatenation if the string covers multiple lines.
+
+```xml
+<rule ref="Generic.Strings.UnnecessaryStringConcat">
+ <properties>
+  <property name="allowMultiline" value="true" />
+ </properties>
+</rule>
+```
+
+If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
+
+```xml
+<rule ref="Generic.Strings.UnnecessaryStringConcat">
+ <properties>
+  <property name="error" value="false" />
+ </properties>
+</rule>
+```
+
+### Generic.WhiteSpace.ScopeIndent
+
+Property Name           | Type  | Default | Available Since
+----------------------- | ----- | ------- | ---------------
+indent                  | int   | 4       | -
+exact                   | bool  | false   | -
+tabIndent               | bool  | false   | 2.0.0
+ignoreIndentationTokens | array | -       | 1.4.8
+
+This sniff checks that code blocks are indented correctly. By default, this sniff ensures that code blocks are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+The `exact` property is used to determine whether an indent is treated as an exact number or as a minimum amount. By default, code blocks must be indented at least `indent` spaces from the last code block. If `exact` is set to `true`, code blocks must be indented exactly `indent` spaces from the last code block.
+
+> Note: Enforcing exact indent checking is generally not advised because it doesn't allow for any flexibility when indenting and aligning code. It is almost always better to use the default value and then allow other sniffs to enforce specific indenting rules.
+
+```xml
+<rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+        <property name="exact" value="true" />
+    </properties>
+</rule>
+```
+
+By default, this sniff enforces the use of spaces for indentation and also uses spaces when fixing the indentation of code blocks. If you prefer using tabs, you can set the `tabIndent` property to `true`. 
+
+> Note: The size of each tab is important, so it should be specified using the `--tab-width` CLI argument or by adding `<arg name="tab-width" value="4"/>` to your ruleset. This sniff will use this value when checking and fixing indents.
+
+```xml
+<!-- Tabs should represent 4 spaces. -->
+<arg name="tab-width" value="4"/>
+...
+<!-- Indent using tabs. -->
+<rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+        <property name="tabIndent" value="true" />
+    </properties>
+</rule>
+```
+
+Setting the `ignoreIndentationTokens` property provides the sniff with a list of tokens that do not need to be checked for indentation. This is commonly used to ignore indentation for code structures such as comments and here/nowdocs.
+
+```xml
+<rule ref="Generic.WhiteSpace.ScopeIndent">
+ <properties>
+  <property name="ignoreIndentationTokens" type="array"
+   value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+ </properties>
+</rule>
+```
+
+***
+***
+***
 
 ## Generic properties used across standards
 
