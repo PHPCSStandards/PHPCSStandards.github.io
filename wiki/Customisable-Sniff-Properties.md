@@ -1,6 +1,6 @@
 > Note: This page is a work in progress. The content and structure may change but the information provided is accurate. It is not recommended to link to sections within this document until it has been completed.
 
-The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation. For properties that were added after ruleset support was introduced, the first stable version that made the property available is listed.
+The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
 
 For more information about changing sniff behaviour by customising your ruleset, see the [[Annotated ruleset.xml]].
 
@@ -20,7 +20,11 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [Generic.PHP.NoSilencedErrors] (#genericphpnosilencederrors)
     * [Generic.Strings.UnnecessaryStringConcat] (#genericstringsunnecessarystringconcat)
     * [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent)
-  
+  * PSR2 Sniffs
+    * [PSR2.Classes.ClassDeclaration] (#psr2classesclassdeclaration)
+    * [PSR2.ControlStructures.ControlStructureSpacing] (#psr2controlstructurescontrolstructurespacing)
+    * [PSR2.ControlStructures.SwitchDeclaration] (#psr2controlstructuresswitchdeclaration)
+
 ***
 
 ## Generic Sniffs
@@ -35,9 +39,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ```xml
 <rule ref="Generic.ControlStructures.InlineControlStructure">
- <properties>
-  <property name="error" value="false" />
- </properties>
+    <properties>
+        <property name="error" value="false" />
+    </properties>
 </rule>
 ```
 
@@ -58,10 +62,10 @@ There are two configurable options:
 
 ```xml
 <rule ref="Generic.Debug.ClosureLinter">
- <properties>
-  <property name="errorCodes" type="array" value="0210"/>
-  <property name="ignoreCodes" type="array" value="0001,0110,0240"/>
- </properties>
+    <properties>
+        <property name="errorCodes" type="array" value="0210"/>
+        <property name="ignoreCodes" type="array" value="0001,0110,0240"/>
+    </properties>
 </rule>
 ```
 
@@ -75,9 +79,9 @@ This sniff ensures that files use a specific line ending, which can be customise
 
 ```xml
 <rule ref="Generic.Files.LineEndings">
- <properties>
-  <property name="eolChar" value="\r\n" />
- </properties>
+    <properties>
+        <property name="eolChar" value="\r\n" />
+    </properties>
 </rule>
 ```
 
@@ -98,10 +102,10 @@ This sniff checks all lines in a file and generates warnings if they are over `l
  and error for lines longer than 135 chars.
 -->
 <rule ref="Generic.Files.LineLength">
- <properties>
-  <property name="lineLimit" value="100" />
-  <property name="absoluteLineLimit" value="135" />
- </properties>
+    <properties>
+        <property name="lineLimit" value="100" />
+        <property name="absoluteLineLimit" value="135" />
+    </properties>
 </rule>
 ```
 
@@ -110,10 +114,10 @@ If errors are not required, the value of `absoluteLineLimit` can be set to zero.
 ```xml
 <!-- Warn about lines longer than 135 chars, and never error. -->
 <rule ref="Generic.Files.LineLength">
- <properties>
-  <property name="lineLimit" value="135" />
-  <property name="absoluteLineLimit" value="0" />
- </properties>
+    <properties>
+        <property name="lineLimit" value="135" />
+        <property name="absoluteLineLimit" value="0" />
+    </properties>
 </rule>
 ```
 
@@ -130,9 +134,9 @@ The difference in alignment between two adjacent assignments is occassionaly qui
 
 ```xml
 <rule ref="Generic.Formatting.MultipleStatementAlignment">
- <properties>
-  <property name="maxPadding" value="50" />
- </properties>
+    <properties>
+        <property name="maxPadding" value="50" />
+    </properties>
 </rule>
 ```
 
@@ -140,9 +144,9 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 ```xml
 <rule ref="Generic.Formatting.MultipleStatementAlignment">
- <properties>
-  <property name="error" value="true" />
- </properties>
+    <properties>
+        <property name="error" value="true" />
+    </properties>
 </rule>
 ```
 
@@ -158,10 +162,10 @@ The sniff checks the position of the opening brace of a function and/or closure 
 ```xml
 <!-- Don't check function braces, but check closure braces. -->
 <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman">
- <properties>
-  <property name="checkFunctions" value="false" />
-  <property name="checkClosures" value="true" />
- </properties>
+    <properties>
+        <property name="checkFunctions" value="false" />
+        <property name="checkClosures" value="true" />
+    </properties>
 </rule>
 ```
 
@@ -177,10 +181,10 @@ The sniff checks the position of the opening brace of a function and/or closure 
 ```xml
 <!-- Don't check function braces, but check closure braces. -->
 <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie">
- <properties>
-  <property name="checkFunctions" value="false" />
-  <property name="checkClosures" value="true" />
- </properties>
+    <properties>
+        <property name="checkFunctions" value="false" />
+        <property name="checkClosures" value="true" />
+    </properties>
 </rule>
 ```
 
@@ -201,10 +205,10 @@ There are two configurable options:
 
 ```xml
 <rule ref="Generic.Metrics.CyclomaticComplexity">
- <properties>
-  <property name="complexity" value="15" />
-  <property name="absoluteComplexity" value="30" />
- </properties>
+    <properties>
+        <property name="complexity" value="15" />
+        <property name="absoluteComplexity" value="30" />
+    </properties>
 </rule>
 ```
 
@@ -223,10 +227,10 @@ There are two configurable options:
 
 ```xml
 <rule ref="Generic.Metrics.NestingLevel">
- <properties>
-  <property name="nestingLevel" value="8" />
-  <property name="absoluteNestingLevel" value="12" />
- </properties>
+    <properties>
+        <property name="nestingLevel" value="8" />
+        <property name="absoluteNestingLevel" value="12" />
+    </properties>
 </rule>
 ```
 
@@ -242,9 +246,9 @@ Stricly speaking, a name cannot have two capital letters next to each other in C
 
 ```xml
 <rule ref="Generic.NamingConventions.CamelCapsFunctionName">
- <properties>
-  <property name="strict" value="false" />
- </properties>
+    <properties>
+        <property name="strict" value="false" />
+    </properties>
 </rule>
 ```
 
@@ -259,10 +263,10 @@ This sniff discourages the use of alias functions that are kept in PHP for compa
 
 ```xml
 <rule ref="Generic.PHP.ForbiddenFunctions">
- <properties>
-  <property name="forbiddenFunctions" type="array"
-   value="print=>echo,create_function=>null" />
- </properties>
+    <properties>
+        <property name="forbiddenFunctions" type="array"
+            value="print=>echo,create_function=>null" />
+     </properties>
 </rule>
 ```
 
@@ -270,9 +274,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ```xml
 <rule ref="Generic.PHP.ForbiddenFunctions">
- <properties>
-  <property name="error" value="false" />
- </properties>
+    <properties>
+        <property name="error" value="false" />
+    </properties>
 </rule>
 ```
 
@@ -286,9 +290,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ```xml
 <rule ref="Generic.PHP.NoSilencedErrors">
- <properties>
-  <property name="error" value="false" />
- </properties>
+    <properties>
+        <property name="error" value="false" />
+    </properties>
 </rule>
 ```
 
@@ -303,9 +307,9 @@ This sniff checks that two strings using the same quoting style are not concaten
 
 ```xml
 <rule ref="Generic.Strings.UnnecessaryStringConcat">
- <properties>
-  <property name="allowMultiline" value="true" />
- </properties>
+    <properties>
+        <property name="allowMultiline" value="true" />
+    </properties>
 </rule>
 ```
 
@@ -313,9 +317,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ```xml
 <rule ref="Generic.Strings.UnnecessaryStringConcat">
- <properties>
-  <property name="error" value="false" />
- </properties>
+    <properties>
+        <property name="error" value="false" />
+    </properties>
 </rule>
 ```
 
@@ -370,10 +374,81 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 
 ```xml
 <rule ref="Generic.WhiteSpace.ScopeIndent">
- <properties>
-  <property name="ignoreIndentationTokens" type="array"
-   value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
- </properties>
+    <properties>
+        <property name="ignoreIndentationTokens" type="array"
+            value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+    </properties>
+</rule>
+```
+
+
+
+
+## PSR2 Sniffs
+
+### PSR2.Classes.ClassDeclaration
+
+Property Name | Type | Default | Available Since
+------------- | ---- | ------- | ---------------
+indent        | int  | 4       | 1.3.5
+
+One of the rules that this sniff enforces is the indent of a list of implemented or extended class names that have been split over multiple lines. By default, this sniff ensures that the class names are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="PSR2.Classes.ClassDeclaration">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+### PSR2.ControlStructures.ControlStructureSpacing
+
+Property Name             | Type | Default | Available Since
+------------------------- | ---- | ------- | ---------------
+requiredSpacesAfterOpen   | int  | 0       | 1.5.2
+requiredSpacesBeforeClose | int  | 0       | 1.5.2
+
+This sniff checks that control strucures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
+
+```php
+if ($condition === true) {
+    // Body.
+}
+```
+
+Another common way of padding control structures is to use a single space, as shown in the following code snippet:
+
+```php
+if ( $condition === true ) {
+    // Body.
+}
+```
+
+If you prefer to write your code like this, you can set the `requiredSpacesAfterOpen` and `requiredSpacesBeforeClose` properties to `1`, or whatever padding you prefer.
+
+```xml
+<rule ref="PSR2.ControlStructures.ControlStructureSpacing">
+    <properties>
+        <property name="requiredSpacesAfterOpen" value="1" />
+        <property name="requiredSpacesBeforeClose" value="1" />
+    </properties>
+</rule>
+```
+
+### PSR2.ControlStructures.SwitchDeclaration
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+indent        | int  | 4       | 1.4.5
+
+One of the rules that this sniff enforces is the indent of the case terminating statement. By default, this sniff ensures that the statement is indented 4 spaces from the `case` keyword, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="PSR2.ControlStructures.SwitchDeclaration">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
 </rule>
 ```
 
