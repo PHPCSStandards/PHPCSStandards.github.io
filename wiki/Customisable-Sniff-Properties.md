@@ -1,8 +1,8 @@
 > Note: This page is a work in progress. The content and structure may change but the information provided is accurate. It is not recommended to link to sections within this document until it has been completed.
 
-The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
+The behavior of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. On this page you will find the properties used in the various standards which are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
 
-For more information about changing sniff behaviour by customising your ruleset, see the [[Annotated ruleset.xml]].
+For more information about changing sniff behavior by customising your ruleset, see the [[Annotated ruleset.xml]].
 
 ## Table of contents
 * Generic Sniffs
@@ -148,7 +148,7 @@ error         | bool | false   | -
 
 This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the equals signs of each assignment are aligned.
 
-The difference in alignment between two adjacent assignments is occassionaly quite large, sp aligning equals signs would create extremely long lines. By setting the `maxPadding` property, you can configure the maximum amount of padding required to align the assignment with the surrounding assignments before the alignment is ignored and no warnings will be generated.
+The difference in alignment between two adjacent assignments is occasionally quite large, so aligning equals signs would create extremely long lines. By setting the `maxPadding` property, you can configure the maximum amount of padding required to align the assignment with the surrounding assignments before the alignment is ignored and no warnings will be generated.
 
 ```xml
 <rule ref="Generic.Formatting.MultipleStatementAlignment">
@@ -260,7 +260,7 @@ strict        | bool | true    | 1.3.5
 
 This sniff ensures function and method names are in CamelCaps.
 
-Stricly speaking, a name cannot have two capital letters next to each other in CamelCaps format. By setting the `strict` property to `false`, the sniff applies the rule more leniently and allows for two capital letters next to each other in function and method names.
+Strictly speaking, a name cannot have two capital letters next to each other in CamelCaps format. By setting the `strict` property to `false`, the sniff applies the rule more leniently and allows for two capital letters next to each other in function and method names.
 
 ```xml
 <rule ref="Generic.NamingConventions.CamelCapsFunctionName">
@@ -277,7 +277,7 @@ Property Name      | Type  | Default                     | Available Since
 forbiddenFunctions | array | sizeof=>count,delete=>unset | 2.0.0
 error              | bool  | true                        | -
 
-This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alterrnaitve function exists (i.e., the function should never be used) specify `null` as the value.
+This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alternative function exists (i.e., the function should never be used) specify `null` as the value.
 
 ```xml
 <rule ref="Generic.PHP.ForbiddenFunctions">
@@ -402,6 +402,57 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 
 
 
+## PEAR Sniffs
+
+### PEAR.Functions.FunctionCallSignature
+
+Property Name          | Type | Default | Available Since
+---------------------- | ---- | ------- | ---------------
+allowMultipleArguments | bool | true    | 1.3.6 (?)
+
+According to the PEAR coding standards:
+> Functions should be called with no spaces between the function name, the opening parenthesis, and the first parameter; and no space between the last parameter, the closing parenthesis, and the semicolon.
+
+Setting the `allowMultipleArguments` property to `true`, allows for multiple arguments to be defined per line in a multi-line call.
+
+```xml
+<rule ref="PEAR.Functions.FunctionCallSignature">
+    <properties>
+        <property name="allowMultipleArguments" value="false" />
+    </properties>
+</rule>
+```
+
+
+### PEAR.WhiteSpace.ScopeIndent
+
+Property Name           | Type  | Default | Available Since
+----------------------- | ----- | ------- | ---------------
+indent                  | int   | 4       | -
+exact                   | bool  | false   | -
+tabIndent               | bool  | false   | 2.0.0
+ignoreIndentationTokens | array | -       | 1.4.8
+
+> Note: All properties are inherited from the [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent) sniff.
+
+See the [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent) sniff for an explanation of all properties.
+
+```xml
+<!-- Tabs should represent 4 spaces. -->
+<arg name="tab-width" value="4"/>
+...
+<rule ref="PEAR.WhiteSpace.ScopeIndent">
+    <properties>
+        <property name="exact" value="true" />
+        <property name="tabIndent" value="true" />
+        <property name="ignoreIndentationTokens" type="array"
+            value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+    </properties>
+</rule>
+```
+
+
+
 ## PSR2 Sniffs
 
 ### PSR2.Classes.ClassDeclaration
@@ -427,7 +478,7 @@ Property Name             | Type | Default | Available Since
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
-This sniff checks that control strucures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
+This sniff checks that control structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
 ```php
 if ($condition === true) {
@@ -481,7 +532,7 @@ Property Name | Type | Default | Available Since
 ------------  | ---- | ------- | ---------------
 indent        | int  | 4       | 1.3.5
 
-> Note: The `indent` property is inhertied from the [PSR2.Classes.ClassDeclaration] (#psr2classesclassdeclaration) sniff.
+> Note: The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration] (#psr2classesclassdeclaration) sniff.
 
 One of the rules that this sniff enforces is the indent of a list of implemented or extended class names that have been split over multiple lines. By default, this sniff ensures that the class names are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -500,7 +551,7 @@ Property Name | Type   | Default  | Available Since
 lineLimit     | int    | 20       | 2.7.0
 commentFormat | string | //end %s | 2.7.0
 
-This sniff checks that long blocks of code have a closing comment. The `lineLimit` property allows you to configure the numbers of lines that the code block must span before requring a comment. By default, the code block must be at least 20 lines long, including the opening and closing lines, but you can change the required length by setting the `lineLimit` property.
+This sniff checks that long blocks of code have a closing comment. The `lineLimit` property allows you to configure the numbers of lines that the code block must span before requiring a comment. By default, the code block must be at least 20 lines long, including the opening and closing lines, but you can change the required length by setting the `lineLimit` property.
 
 ```xml
 <rule ref="Squiz.Commenting.LongConditionClosingComment">
@@ -528,7 +579,7 @@ Property Name             | Type | Default | Available Since
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
-This sniff checks that `foreach` strucures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
+This sniff checks that `foreach` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
 ```php
 foreach ($foo as $bar) {
@@ -562,7 +613,7 @@ Property Name             | Type | Default | Available Since
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
-This sniff checks that `for` strucures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
+This sniff checks that `for` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
 ```php
 for ($i = 0; $i < 10; $i++) {
@@ -627,7 +678,7 @@ Property Name | Type | Default | Available Since
 ------------  | ---- | ------- | ---------------
 indent        | int  | 4       | 1.4.7
 
-This sniff checks the indentation of CSS classe definitions. By default, this sniff ensures that style statements are indented using 4 spaces, but you can change the size of the indent by setting the `indent` property.
+This sniff checks the indentation of CSS class definitions. By default, this sniff ensures that style statements are indented using 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
 ```xml
 <rule ref="Squiz.CSS.Indentation">
@@ -643,7 +694,7 @@ Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | --------------
 ignoreComments | bool | false   | 1.4.0
 
-> Note: The `ignoreComments` property is inhertied from the AbstractPattern sniff.
+> Note: The `ignoreComments` property is inherited from the AbstractPattern sniff.
 
 This sniff verifies that functions declarations match a specific pattern of whitespace and bracket placement. By default, comments placed within the function declaration will generate an error, but the sniff can be told to ignore comments by setting the `ignoreComments` property to `true`.
 
@@ -722,7 +773,7 @@ Property Name | Type | Default | Available Since
 ------------- | ---- | ------- | ---------------
 maxPercentage | int  | 35      | 1.3.3
 
-This sniff generates warnings for commented out code. By default, a warning is generated if a comment appears to be more than 35% valid code. If you find that the sniff is generating a lot of false positive, you may want to raise the valid code threshold by increasing the `maxPercentage` property. Similiarly, if you find that the sniff is generating a lot of false negatives, you may want to make it more sensitive by dropping the threshold by decreasing the `maxPercentage` property.
+This sniff generates warnings for commented out code. By default, a warning is generated if a comment appears to be more than 35% valid code. If you find that the sniff is generating a lot of false positive, you may want to raise the valid code threshold by increasing the `maxPercentage` property. Similarly, if you find that the sniff is generating a lot of false negatives, you may want to make it more sensitive by dropping the threshold by decreasing the `maxPercentage` property.
 
 ```xml
 <!-- Make this sniff more sensitive to commented out code blocks. -->
@@ -739,7 +790,7 @@ Property Name | Type | Default | Available Since
 ------------- | ---- | ------- | ---------------
 error         | bool | false   | -
 
-> Note: This sniff also has a `forbiddenFunctions` property inhertied from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of discouraged functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
+> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of discouraged functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
 
 If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
 
@@ -757,7 +808,7 @@ Property Name | Type | Default | Available Since
 ------------- | ---- | ------- | ---------------
 error         | bool | false   | -
 
-> Note: This sniff also has a `forbiddenFunctions` property inhertied from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of forbidden functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
+> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of forbidden functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
 
 If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
 
