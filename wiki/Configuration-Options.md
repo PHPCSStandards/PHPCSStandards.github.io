@@ -115,7 +115,7 @@ The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_
     $ phpcs --config-set csslint_path /path/to/csslint
 
 ### Setting the path to the Google Closure Linter
-The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](http://code.google.com/p/closure-linter/), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
 
     $ phpcs --config-set gjslint_path /path/to/gjslint
 
