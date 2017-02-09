@@ -410,10 +410,28 @@ Property Name          | Type | Default | Available Since
 ---------------------- | ---- | ------- | ---------------
 allowMultipleArguments | bool | true    | 1.3.6 (?)
 
-According to the PEAR coding standards:
-> Functions should be called with no spaces between the function name, the opening parenthesis, and the first parameter; and no space between the last parameter, the closing parenthesis, and the semicolon.
+One of the rules that this sniff enforces is the formatting of multi-line function calls. By default, multiple arguments can appear on each line, as shown in the following code snippet:
 
-Setting the `allowMultipleArguments` property to `true`, allows for multiple arguments to be defined per line in a multi-line call.
+```php
+$returnValue = foo(
+    $a, $b, $c
+    $d, $e
+);
+```
+
+Another common way of defining multi-line function calls is to have one argument per line, as shown in the following code snippet:
+
+```php
+$returnValue = foo(
+    $a,
+    $b,
+    $c
+    $d,
+    $e
+);
+```
+
+If you prefer to write your code like this, you can set the `allowMultipleArguments` property to `false`.
 
 ```xml
 <rule ref="PEAR.Functions.FunctionCallSignature">
@@ -450,6 +468,7 @@ See the [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent) sniff f
     </properties>
 </rule>
 ```
+
 
 
 
@@ -717,7 +736,7 @@ requiredSpacesBeforeClose | int  | 0       | 1.5.2
 One of the rules this sniff enforces is the padding around equal signs in the function argument list. By default, the sniff ensures there are zero spaces before and after the equals sign, as shown in the following code snippet:
 
 ```php
-function Foo($a='a', $b='b') {
+function foo($a='a', $b='b') {
     // Body.
 }
 ```
@@ -725,7 +744,7 @@ function Foo($a='a', $b='b') {
 Another common way of defining default values is to use a single space, as shown in the following code snippet:
 
 ```php
-function Foo($a = 'a', $b = 'b') {
+function foo($a = 'a', $b = 'b') {
     // Body.
 }
 ```
@@ -743,7 +762,7 @@ If you prefer to write your code like this, you can set the `equalsSpacing` prop
 Another of the rules this sniff enforces is that functions have the correct padding inside their bracketed list of arguments. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
 ```php
-function Foo($a, $b) {
+function foo($a, $b) {
     // Body.
 }
 ```
@@ -751,7 +770,7 @@ function Foo($a, $b) {
 Another common way of padding argument lists is to use a single space, as shown in the following code snippet:
 
 ```php
-function Foo( $a, $b ) {
+function foo( $a, $b ) {
     // Body.
 }
 ```
