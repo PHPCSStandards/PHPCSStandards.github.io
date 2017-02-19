@@ -8,7 +8,7 @@
     * [Git Blame] (#printing-a-git-blame-report)
     * HG Blame
     * [Information] (#printing-an-information-report)
-    * JSON
+    * [JSON] (#printing-a-json-report)
     * JUnit
     * Notify-Send
     * [Source] (#printing-a-source-report)
@@ -148,6 +148,72 @@ In the example above, the `Inline comment style` convention was checked 594 time
 
 > **Tip:** To check your code against a wide range of conventions, specify all included standards. This will take longer, but give you more information about your code: `phpcs --standard=Generic,PEAR,Squiz,PSR2,Zend --report=info /path/to/code`
 
+## Printing a JSON Report
+PHP_CodeSniffer can output an JOSN report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
+
+    $ phpcs --report=json /path/to/code
+    
+    {
+        "totals": {
+            "errors": 4,
+            "warnings": 1,
+            "fixable": 3
+        },
+        "files": {
+            "/path/to/code/myfile.php": {
+                "errors": 4,
+                "warnings": 1,
+                "messages": [
+                    {
+                        "message": "Missing file doc comment",
+                        "source": "PEAR.Commenting.FileComment",
+                        "severity": 5,
+                        "type": "ERROR",
+                        "line": 2,
+                        "column": 1,
+                        "fixable": false
+                    },
+                    {
+                        "message": "TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",
+                        "source": "Generic.PHP.LowerCaseConstant",
+                        "severity": 5,
+                        "type": "ERROR",
+                        "line": 20,
+                        "column": 43,
+                        "fixable": true
+                    },
+                    {
+                        "message": "Line not indented correctly; expected 4 spaces but found 1",
+                        "source": "PEAR.WhiteSpace.ScopeIndent",
+                        "severity": 5,
+                        "type": "ERROR",
+                        "line": 47,
+                        "column": 1,
+                        "fixable": true
+                    },
+                    {
+                        "message": "Equals sign not aligned with surrounding assignments",
+                        "source": "Generic.Formatting.MultipleStatementAlignment",
+                        "severity": 5,
+                        "type": "WARNING",
+                        "line": 47,
+                        "column": 20,
+                        "fixable": true
+                    },
+                    {
+                        "message": "Missing function doc comment",
+                        "source": "PEAR.Commenting.FunctionComment",
+                        "severity": 5,
+                        "type": "ERROR",
+                        "line": 51,
+                        "column": 4,
+                        "fixable": false
+                    }
+                ]
+            }
+        }
+    }
+
 ## Printing an XML Report
 PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
 
@@ -155,12 +221,12 @@ PHP_CodeSniffer can output an XML report to allow you to parse the output easily
     
     <?xml version="1.0" encoding="UTF-8"?>
     <phpcs version="1.0.0">
-     <file name="/path/to/code/myfile.php" errors="4" warnings="1">
-      <error line="2" column="1" source="PEAR.Commenting.FileComment" severity="5">Missing file doc comment</error>
-      <error line="20" column="43" source="Generic.PHP.LowerCaseConstant" severity="5">PHP keywords must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;</error>
-      <error line="47" column="1" source="PEAR.WhiteSpace.ScopeIndent" severity="5">Line not indented correctly; expected 4 spaces but found 1</error>
-      <warning line="47" column="20" source="Generic.Formatting.MultipleStatementAlignment" severity="5">Equals sign not aligned with surrounding assignments</warning>
-      <error line="51" column="4" source="PEAR.Commenting.FunctionComment" severity="5">Missing function doc comment</error>
+     <file name="/path/to/code/myfile.php" errors="4" warnings="1" fixable="3">
+      <error line="2" column="1" source="PEAR.Commenting.FileComment" severity="5" fixable="0">Missing file doc comment</error>
+      <error line="20" column="43" source="Generic.PHP.LowerCaseConstant" severity="5" fixable="1">TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;</error>
+      <error line="47" column="1" source="PEAR.WhiteSpace.ScopeIndent" severity="5" fixable="1">Line not indented correctly; expected 4 spaces but found 1</error>
+      <warning line="47" column="20" source="Generic.Formatting.MultipleStatementAlignment" severity="5" fixable="1">Equals sign not aligned with surrounding assignments</warning>
+      <error line="51" column="4" source="PEAR.Commenting.FunctionComment" severity="5" fixable="0">Missing function doc comment</error>
      </file>
     </phpcs>
 
@@ -173,7 +239,7 @@ PHP_CodeSniffer can output an XML report similar to the one produced by Checksty
     <checkstyle version="1.0.0">
      <file name="/path/to/code/myfile.php">
       <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment"/>
-      <error line="20" column="43" severity="error" message="PHP keywords must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;" source="Generic.PHP.LowerCaseConstant"/>
+      <error line="20" column="43" severity="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;" source="Generic.PHP.LowerCaseConstant"/>
       <error line="47" column="1" severity="error" message="Line not indented correctly; expected 4 spaces but found 1" source="PEAR.WhiteSpace.ScopeIndent"/>
       <error line="47" column="20" severity="warning" message="Equals sign not aligned with surrounding assignments" source="Generic.Formatting.MultipleStatementAlignment"/>
       <error line="51" column="4" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment"/>
@@ -185,12 +251,12 @@ PHP_CodeSniffer can output a CSV report to allow you to parse the output easily 
 
     $ phpcs --report=csv /path/to/code
     
-    File,Line,Column,Type,Message,Source,Severity
-    "/path/to/code/myfile.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment,5
-    "/path/to/code/myfile.php",20,43,error,"PHP keywords must be lowercase; expected \"false\" but found \"FALSE\"",Generic.PHP.LowerCaseConstant,5
-    "/path/to/code/myfile.php",47,1,error,"Line not indented correctly; expected 4 spaces but found 1",PEAR.WhiteSpace.ScopeIndent,5
-    "/path/to/code/myfile.php",47,20,warning,"Equals sign not aligned with surrounding assignments",Generic.Formatting.MultipleStatementAlignment,5
-    "/path/to/code/myfile.php",51,4,error,"Missing function doc comment",PEAR.Commenting.FunctionComment,5
+    File,Line,Column,Type,Message,Source,Severity,Fixable
+    "/path/to/code/myfile.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment,5,0
+    "/path/to/code/myfile.php",20,43,error,"TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",Generic.PHP.LowerCaseConstant,5,1
+    "/path/to/code/myfile.php",47,1,error,"Line not indented correctly; expected 4 spaces but found 1",PEAR.WhiteSpace.ScopeIndent,5,1
+    "/path/to/code/myfile.php",47,20,warning,"Equals sign not aligned with surrounding assignments",Generic.Formatting.MultipleStatementAlignment,5,1
+    "/path/to/code/myfile.php",51,4,error,"Missing function doc comment",PEAR.Commenting.FunctionComment,5,0
 
 **Note:** The first row of the CSV output defines the order of information. When using the CSV output, please parse this header row to determine the order correctly as the format may change over time or new information may be added.
 
@@ -200,7 +266,7 @@ PHP_CodeSniffer can output a report in a format the compiler built into the GNU 
     $ phpcs --report=emacs /path/to/code
     
     /path/to/code/myfile.php:2:1: error - Missing file doc comment
-    /path/to/code/myfile.php:20:43: error - PHP keywords must be lowercase; expected "false" but found "FALSE"
+    /path/to/code/myfile.php:20:43: error - TRUE, FALSE and NULL must be lowercase; expected "false" but found "FALSE"
     /path/to/code/myfile.php:47:1: error - Line not indented correctly; expected 4 spaces but found 1
     /path/to/code/myfile.php:47:20: warning - Equals sign not aligned with surrounding assignments
     /path/to/code/myfile.php:51:4: error - Missing function doc comment
