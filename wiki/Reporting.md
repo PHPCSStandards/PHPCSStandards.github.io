@@ -9,7 +9,7 @@
     * HG Blame
     * [Information] (#printing-an-information-report)
     * [JSON] (#printing-a-json-report)
-    * JUnit
+    * [JUnit] (#printing-a-junit-report)
     * Notify-Send
     * [Source] (#printing-a-source-report)
     * [SVN Blame] (#printing-an-svn-blame-report)
@@ -26,21 +26,22 @@ Both the full and summary reports can additionally show information about the so
 
     $ phpcs -s /path/to/code/myfile.php
     
-    FILE: /path/to/code/myfile.php
+    FILE: /path/to/code/classA.php
     --------------------------------------------------------------------------------
-    FOUND 5 ERROR(S) AND 1 WARNING(S) AFFECTING 5 LINE(S)
+    FOUND 4 ERRORS AND 1 WARNING AFFECTING 5 LINES
     --------------------------------------------------------------------------------
-      2 | ERROR   | Missing file doc comment (PEAR.Commenting.FileComment)
-     20 | ERROR   | PHP keywords must be lowercase; expected "false" but found
-        |         | "FALSE" (Generic.PHP.LowerCaseConstant)
-     47 | ERROR   | Line not indented correctly; expected 4 spaces but found 1
-        |         | (PEAR.WhiteSpace.ScopeIndent)
-     47 | WARNING | Equals sign not aligned with surrounding assignments
-        |         | (Generic.Formatting.MultipleStatementAlignment)
-     51 | ERROR   | Missing function doc comment
-        |         | (PEAR.Commenting.FunctionComment)
-     88 | ERROR   | Line not indented correctly; expected 9 spaces but found 6
-        |         | (PEAR.WhiteSpace.ScopeIndent)
+      2 | ERROR   | [ ] Missing file doc comment
+        |         |     (PEAR.Commenting.FileComment.Missing)
+      4 | ERROR   | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+        |         |     found "FALSE" (Generic.PHP.LowerCaseConstant.Found)
+      6 | ERROR   | [x] Line indented incorrectly; expected at least 4 spaces, found
+        |         |     1 (PEAR.WhiteSpace.ScopeIndent.Incorrect)
+      9 | ERROR   | [ ] Missing function doc comment
+        |         |     (PEAR.Commenting.FunctionComment.Missing)
+     11 | WARNING | [x] Inline control structures are discouraged
+        |         |     (Generic.ControlStructures.InlineControlStructure.Discouraged)
+    --------------------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
     --------------------------------------------------------------------------------
 
     $ phpcs -s --report=summary /path/to/code
@@ -55,20 +56,6 @@ Both the full and summary reports can additionally show information about the so
     --------------------------------------------------------------------------------
     A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
     --------------------------------------------------------------------------------
-    
-    
-    PHP CODE SNIFFER VIOLATION SOURCE SUMMARY
-    --------------------------------------------------------------------------------
-    SOURCE                                                                     COUNT
-    --------------------------------------------------------------------------------
-    PEAR.WhiteSpace.ScopeIndent                                                3
-    PEAR.Commenting.FileComment                                                2
-    Generic.PHP.LowerCaseConstant                                              2
-    Generic.Formatting.MultipleStatementAlignment                              1
-    PEAR.Commenting.FunctionComment                                            1
-    --------------------------------------------------------------------------------
-    A TOTAL OF 9 SNIFF VIOLATION(S) WERE FOUND IN 5 SOURCE(S)
-    --------------------------------------------------------------------------------
 
 ## Printing a Source Report
 PHP_CodeSniffer can output a summary report showing you the most common errors detected in your files so you can target specific parts of your coding standard for improvement. To print a source report, use the `--report=source` command line argument. The output will look like this:
@@ -76,30 +63,38 @@ PHP_CodeSniffer can output a summary report showing you the most common errors d
     $ phpcs --report=source /path/to/code
     
     PHP CODE SNIFFER VIOLATION SOURCE SUMMARY
-    --------------------------------------------------------------------------------
-    STANDARD    CATEGORY            SNIFF                                      COUNT
-    --------------------------------------------------------------------------------
-    Generic     PHP                 Lower case constant                        4
-    PEAR        White space         Scope indent                               3
-    PEAR        Commenting          File comment                               1
-    --------------------------------------------------------------------------------
-    A TOTAL OF 8 SNIFF VIOLATION(S) WERE FOUND IN 3 SOURCE(S)
-    --------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------
+        STANDARD  CATEGORY            SNIFF                                 COUNT
+    -----------------------------------------------------------------------------
+    [x] PEAR      White space         Scope indent incorrect                1
+    [x] Generic   PHP                 Lower case constant found             1
+    [x] Generic   Control structures  Inline control structure discouraged  1
+    [ ] PEAR      Commenting          Function comment missing              1
+    [ ] PEAR      Commenting          File comment missing                  1
+    -----------------------------------------------------------------------------
+    A TOTAL OF 5 SNIFF VIOLATIONS WERE FOUND IN 5 SOURCES
+    -----------------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SOURCES AUTOMATICALLY (3 VIOLATIONS IN TOTAL)
+    -----------------------------------------------------------------------------
 
 To show source codes instead of friendly names, use the `-s` command line argument.
 
     $ phpcs -s --report=source /path/to/code
     
     PHP CODE SNIFFER VIOLATION SOURCE SUMMARY
-    --------------------------------------------------------------------------------
-    SOURCE                                                                     COUNT
-    --------------------------------------------------------------------------------
-    Generic.PHP.LowerCaseConstant                                              4
-    PEAR.WhiteSpace.ScopeIndent                                                3
-    PEAR.Commenting.FileComment                                                1
-    --------------------------------------------------------------------------------
-    A TOTAL OF 8 SNIFF VIOLATION(S) WERE FOUND IN 3 SOURCE(S)
-    --------------------------------------------------------------------------------
+    -----------------------------------------------------------------------
+        SOURCE                                                        COUNT
+    -----------------------------------------------------------------------
+    [x] Generic.ControlStructures.InlineControlStructure.Discouraged  1
+    [x] PEAR.WhiteSpace.ScopeIndent.Incorrect                         1
+    [x] Generic.PHP.LowerCaseConstant.Found                           1
+    [ ] PEAR.Commenting.FunctionComment.Missing                       1
+    [ ] PEAR.Commenting.FileComment.Missing                           1
+    -----------------------------------------------------------------------
+    A TOTAL OF 5 SNIFF VIOLATIONS WERE FOUND IN 5 SOURCES
+    -----------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SOURCES AUTOMATICALLY (3 VIOLATIONS IN TOTAL)
+    -----------------------------------------------------------------------
 
 ## Printing an Information Report
 PHP_CodeSniffer can output an information report to show you how your code is written rather than checking that it conforms to a standard. This report will use one or more standards you pass to it and then use the sniffs within those standards to inspect your code. Sniffs must be written to support recording metrics for this feature, so not all sniffs will report back information. To print an information report, use the `--report=info` command line argument. The output will look like this:
@@ -148,102 +143,20 @@ In the example above, the `Inline comment style` convention was checked 594 time
 
 > **Tip:** To check your code against a wide range of conventions, specify all included standards. This will take longer, but give you more information about your code: `phpcs --standard=Generic,PEAR,Squiz,PSR2,Zend --report=info /path/to/code`
 
-## Printing a JSON Report
-PHP_CodeSniffer can output an JOSN report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
-
-    $ phpcs --report=json /path/to/code
-    
-    {
-        "totals": {
-            "errors": 4,
-            "warnings": 1,
-            "fixable": 3
-        },
-        "files": {
-            "/path/to/code/myfile.php": {
-                "errors": 4,
-                "warnings": 1,
-                "messages": [
-                    {
-                        "message": "Missing file doc comment",
-                        "source": "PEAR.Commenting.FileComment",
-                        "severity": 5,
-                        "type": "ERROR",
-                        "line": 2,
-                        "column": 1,
-                        "fixable": false
-                    },
-                    {
-                        "message": "TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",
-                        "source": "Generic.PHP.LowerCaseConstant",
-                        "severity": 5,
-                        "type": "ERROR",
-                        "line": 20,
-                        "column": 43,
-                        "fixable": true
-                    },
-                    {
-                        "message": "Line not indented correctly; expected 4 spaces but found 1",
-                        "source": "PEAR.WhiteSpace.ScopeIndent",
-                        "severity": 5,
-                        "type": "ERROR",
-                        "line": 47,
-                        "column": 1,
-                        "fixable": true
-                    },
-                    {
-                        "message": "Equals sign not aligned with surrounding assignments",
-                        "source": "Generic.Formatting.MultipleStatementAlignment",
-                        "severity": 5,
-                        "type": "WARNING",
-                        "line": 47,
-                        "column": 20,
-                        "fixable": true
-                    },
-                    {
-                        "message": "Missing function doc comment",
-                        "source": "PEAR.Commenting.FunctionComment",
-                        "severity": 5,
-                        "type": "ERROR",
-                        "line": 51,
-                        "column": 4,
-                        "fixable": false
-                    }
-                ]
-            }
-        }
-    }
-
-## Printing an XML Report
-PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
-
-    $ phpcs --report=xml /path/to/code
-    
-    <?xml version="1.0" encoding="UTF-8"?>
-    <phpcs version="1.0.0">
-     <file name="/path/to/code/myfile.php" errors="4" warnings="1" fixable="3">
-      <error line="2" column="1" source="PEAR.Commenting.FileComment" severity="5" fixable="0">Missing file doc comment</error>
-      <error line="20" column="43" source="Generic.PHP.LowerCaseConstant" severity="5" fixable="1">TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;</error>
-      <error line="47" column="1" source="PEAR.WhiteSpace.ScopeIndent" severity="5" fixable="1">Line not indented correctly; expected 4 spaces but found 1</error>
-      <warning line="47" column="20" source="Generic.Formatting.MultipleStatementAlignment" severity="5" fixable="1">Equals sign not aligned with surrounding assignments</warning>
-      <error line="51" column="4" source="PEAR.Commenting.FunctionComment" severity="5" fixable="0">Missing function doc comment</error>
-     </file>
-    </phpcs>
-
 ## Printing a Checkstyle Report
 PHP_CodeSniffer can output an XML report similar to the one produced by Checkstyle, allowing you to use the output in scripts and applications that already support Checkstyle. To print a Checkstyle report, use the `--report=checkstyle` command line argument. The output will look like this:
 
     $ phpcs --report=checkstyle /path/to/code
     
     <?xml version="1.0" encoding="UTF-8"?>
-    <checkstyle version="1.0.0">
-     <file name="/path/to/code/myfile.php">
-      <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment"/>
-      <error line="20" column="43" severity="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;" source="Generic.PHP.LowerCaseConstant"/>
-      <error line="47" column="1" severity="error" message="Line not indented correctly; expected 4 spaces but found 1" source="PEAR.WhiteSpace.ScopeIndent"/>
-      <error line="47" column="20" severity="warning" message="Equals sign not aligned with surrounding assignments" source="Generic.Formatting.MultipleStatementAlignment"/>
-      <error line="51" column="4" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment"/>
-     </file>
+    <checkstyle version="x.x.x">
+    <file name="/path/to/code/classA.php">
+     <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+     <error line="4" column="12" severity="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;" source="Generic.PHP.LowerCaseConstant.Found"/>
+     <error line="6" column="2" severity="error" message="Line indented incorrectly; expected at least 4 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+     <error line="9" column="1" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+     <error line="11" column="5" severity="warning" message="Inline control structures are discouraged" source="Generic.ControlStructures.InlineControlStructure.Discouraged"/>
+    </file>
     </checkstyle>
 
 ## Printing a CSV Report
@@ -252,11 +165,11 @@ PHP_CodeSniffer can output a CSV report to allow you to parse the output easily 
     $ phpcs --report=csv /path/to/code
     
     File,Line,Column,Type,Message,Source,Severity,Fixable
-    "/path/to/code/myfile.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment,5,0
-    "/path/to/code/myfile.php",20,43,error,"TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",Generic.PHP.LowerCaseConstant,5,1
-    "/path/to/code/myfile.php",47,1,error,"Line not indented correctly; expected 4 spaces but found 1",PEAR.WhiteSpace.ScopeIndent,5,1
-    "/path/to/code/myfile.php",47,20,warning,"Equals sign not aligned with surrounding assignments",Generic.Formatting.MultipleStatementAlignment,5,1
-    "/path/to/code/myfile.php",51,4,error,"Missing function doc comment",PEAR.Commenting.FunctionComment,5,0
+    "/path/to/code/classA.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5,0
+    "/path/to/code/classA.php",4,12,error,"TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",Generic.PHP.LowerCaseConstant.Found,5,1
+    "/path/to/code/classA.php",6,2,error,"Line indented incorrectly; expected at least 4 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5,1
+    "/path/to/code/classA.php",9,1,error,"Missing function doc comment",PEAR.Commenting.FunctionComment.Missing,5,0
+    "/path/to/code/classA.php",11,5,warning,"Inline control structures are discouraged",Generic.ControlStructures.InlineControlStructure.Discouraged,5,1
 
 **Note:** The first row of the CSV output defines the order of information. When using the CSV output, please parse this header row to determine the order correctly as the format may change over time or new information may be added.
 
@@ -265,11 +178,11 @@ PHP_CodeSniffer can output a report in a format the compiler built into the GNU 
 
     $ phpcs --report=emacs /path/to/code
     
-    /path/to/code/myfile.php:2:1: error - Missing file doc comment
-    /path/to/code/myfile.php:20:43: error - TRUE, FALSE and NULL must be lowercase; expected "false" but found "FALSE"
-    /path/to/code/myfile.php:47:1: error - Line not indented correctly; expected 4 spaces but found 1
-    /path/to/code/myfile.php:47:20: warning - Equals sign not aligned with surrounding assignments
-    /path/to/code/myfile.php:51:4: error - Missing function doc comment
+    /path/to/code/classA.php:2:1: error - Missing file doc comment
+    /path/to/code/classA.php:4:12: error - TRUE, FALSE and NULL must be lowercase; expected "false" but found "FALSE"
+    /path/to/code/classA.php:6:2: error - Line indented incorrectly; expected at least 4 spaces, found 1
+    /path/to/code/classA.php:9:1: error - Missing function doc comment
+    /path/to/code/classA.php:11:5: warning - Inline control structures are discouraged
 
 To use PHP_CodeSniffer with Emacs, make sure you have installed PHP mode for Emacs. Then put the following into your .emacs file, changing PHP_CodeSniffer options as required.
 
@@ -279,6 +192,114 @@ To use PHP_CodeSniffer with Emacs, make sure you have installed PHP mode for Ema
     (add-hook 'php-mode-hook 'my-php-hook-function)
 
 Now you can use the compile command and associated shortcuts to move between error messages within your file.
+
+## Printing a Git Blame Report
+Like the SVN Blame report, PHP_CodeSniffer can make use of the git blame command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output and options are the same as those described in the [SVN Blame report] (#printing-an-svn-blame-report).
+
+**Note:** You need to make sure the location of the `git` command is in your path. If the command is not in your path, the report will fail to generate.
+
+## Printing a JSON Report
+PHP_CodeSniffer can output an JOSN report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
+
+    $ phpcs --report=json /path/to/code
+    
+    {
+      "totals": {
+        "errors": 4,
+        "warnings": 1,
+        "fixable": 3
+      },
+      "files": {
+        "\/path\/to\/code\/classA.php": {
+          "errors": 4,
+          "warnings": 1,
+          "messages": [
+            {
+              "message": "Missing file doc comment",
+              "source": "PEAR.Commenting.FileComment.Missing",
+              "severity": 5,
+              "type": "ERROR",
+              "line": 2,
+              "column": 1,
+              "fixable": false
+            },
+            {
+              "message": "TRUE, FALSE and NULL must be lowercase; expected \"false\" but found \"FALSE\"",
+              "source": "Generic.PHP.LowerCaseConstant.Found",
+              "severity": 5,
+              "type": "ERROR",
+              "line": 4,
+              "column": 12,
+              "fixable": true
+            },
+            {
+              "message": "Line indented incorrectly; expected at least 4 spaces, found 1",
+              "source": "PEAR.WhiteSpace.ScopeIndent.Incorrect",
+              "severity": 5,
+              "type": "ERROR",
+              "line": 6,
+              "column": 2,
+              "fixable": true
+            },
+            {
+              "message": "Missing function doc comment",
+              "source": "PEAR.Commenting.FunctionComment.Missing",
+              "severity": 5,
+              "type": "ERROR",
+              "line": 9,
+              "column": 1,
+              "fixable": false
+            },
+            {
+              "message": "Inline control structures are discouraged",
+              "source": "Generic.ControlStructures.InlineControlStructure.Discouraged",
+              "severity": 5,
+              "type": "WARNING",
+              "line": 11,
+              "column": 5,
+              "fixable": true
+            }
+          ]
+        },
+        "\/path\/to\/code\/classB.php": {
+          "errors": 0,
+          "warnings": 0,
+          "messages": [
+            
+          ]
+        }
+      }
+    }
+
+## Printing a JUnit Report
+PHP_CodeSniffer can output an XML report similar to the one produced by JUnit, allowing you to use the output in scripts and applications that already support JUnit. To print a JUnit report, use the `--report=junit` command line argument. The output will look like this:
+
+    $ phpcs --report=junit /path/to/code
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+    <testsuites name="PHP_CodeSniffer x.x.x" tests="6" failures="5">
+    <testsuite name="/path/to/code/classA.php" tests="5" failures="5">
+     <testcase name="PEAR.Commenting.FileComment.Missing at /path/to/code/classA.php (2:1)">
+      <failure type="error" message="Missing file doc comment"/>
+     </testcase>
+     <testcase name="Generic.PHP.LowerCaseConstant.Found at /path/to/code/classA.php (4:12)">
+      <failure type="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;"/>
+     </testcase>
+     <testcase name="PEAR.WhiteSpace.ScopeIndent.Incorrect at /path/to/code/classA.php (6:2)">
+      <failure type="error" message="Line indented incorrectly; expected at least 4 spaces, found 1"/>
+     </testcase>
+     <testcase name="PEAR.Commenting.FunctionComment.Missing at /path/to/code/classA.php (9:1)">
+      <failure type="error" message="Missing function doc comment"/>
+     </testcase>
+     <testcase name="Generic.ControlStructures.InlineControlStructure.Discouraged at /path/to/code/classA.php (11:5)">
+      <failure type="warning" message="Inline control structures are discouraged"/>
+     </testcase>
+    </testsuite>
+    <testsuite name="/path/to/code/classB.php" tests="1" failures="0">
+     <testcase name="/path/to/code/classB.php"/>
+    </testsuite>
+    </testsuites>
+
 
 ## Printing an SVN Blame Report
 PHP_CodeSniffer can make use of the svn blame command to try and determine who committed each error and warning to an SVN respository. To print an SVN Blame report, use the `--report=svnblame` command line argument. The output will look like this:
@@ -338,10 +359,21 @@ To include authors with no violations, and perhaps shower them with praise, use 
 
 **Note:** You need to make sure the location of the `svn` command is in your path and that SVN is storing a username and password (if required by your repository). If the command is not in your path, the report will fail to generate. If SVN does not have a username and password stored, you'll need to enter it for each file being checked by PHP_CodeSniffer that contains violations.
 
-## Printing a Git Blame Report
-Like the SVN Blame report, PHP_CodeSniffer can make use of the git blame command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output and options are the same as those described in the SVN Blame report above.
+## Printing an XML Report
+PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
 
-**Note:** You need to make sure the location of the `git` command is in your path. If the command is not in your path, the report will fail to generate.
+    $ phpcs --report=xml /path/to/code
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+    <phpcs version="x.x.x">
+    <file name="/path/to/code/classA.php" errors="4" warnings="1" fixable="3">
+     <error line="2" column="1" source="PEAR.Commenting.FileComment.Missing" severity="5" fixable="0">Missing file doc comment</error>
+     <error line="4" column="12" source="Generic.PHP.LowerCaseConstant.Found" severity="5" fixable="1">TRUE, FALSE and NULL must be lowercase; expected &quot;false&quot; but found &quot;FALSE&quot;</error>
+     <error line="6" column="2" source="PEAR.WhiteSpace.ScopeIndent.Incorrect" severity="5" fixable="1">Line indented incorrectly; expected at least 4 spaces, found 1</error>
+     <error line="9" column="1" source="PEAR.Commenting.FunctionComment.Missing" severity="5" fixable="0">Missing function doc comment</error>
+     <warning line="11" column="5" source="Generic.ControlStructures.InlineControlStructure.Discouraged" severity="5" fixable="1">Inline control structures are discouraged</warning>
+    </file>
+    </phpcs>
 
 ## Printing Multiple Reports
 PHP_CodeSniffer can print any combination of the above reports to either the screen or to separate files. To print multiple reports, use the `--report-[type]` command line argument instead of the standard `--report=[type]` format. You can then specify multiple reports using multiple arguments. The reports will be printed to the screen in the order you specify them on the command line.
@@ -365,17 +397,19 @@ To run PHP_CodeSniffer interactively, use the `-a` command line argument.
 
     $ phpcs -a /path/to/code
     
-    FILE: /path/to/code/myfile.php
+    FILE: /path/to/code/classA.php
     --------------------------------------------------------------------------------
-    FOUND 5 ERROR(S) AND 1 WARNING(S) AFFECTING 5 LINE(S)
+    FOUND 4 ERRORS AND 1 WARNING AFFECTING 5 LINES
     --------------------------------------------------------------------------------
-      2 | ERROR   | Missing file doc comment
-     20 | ERROR   | PHP keywords must be lowercase; expected "false" but found
-        |         | "FALSE"
-     47 | ERROR   | Line not indented correctly; expected 4 spaces but found 1
-     47 | WARNING | Equals sign not aligned with surrounding assignments
-     51 | ERROR   | Missing function doc comment
-     88 | ERROR   | Line not indented correctly; expected 9 spaces but found 6
+      2 | ERROR   | [ ] Missing file doc comment
+      4 | ERROR   | [x] TRUE, FALSE and NULL must be lowercase; expected "false"
+        |         |     but found "FALSE"
+      6 | ERROR   | [x] Line indented incorrectly; expected at least 4 spaces,
+        |         |     found 1
+      9 | ERROR   | [ ] Missing function doc comment
+     11 | WARNING | [x] Inline control structures are discouraged
+    --------------------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
     --------------------------------------------------------------------------------
     
     <ENTER> to recheck, [s] to skip or [q] to quit :
