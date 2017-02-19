@@ -50,9 +50,9 @@ Both the full and summary reports can additionally show information about the so
     --------------------------------------------------------------------------------
     FILE                                                            ERRORS  WARNINGS
     --------------------------------------------------------------------------------
-    /path/to/code/myfile.inc                                        5       0
-    /path/to/code/yourfile.inc                                      1       1
-    /path/to/code/ourfile.inc                                       0       2
+    /path/to/code/classA.inc                                        5       0
+    /path/to/code/classB.inc                                        1       1
+    /path/to/code/classC.inc                                        0       2
     --------------------------------------------------------------------------------
     A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
     --------------------------------------------------------------------------------
