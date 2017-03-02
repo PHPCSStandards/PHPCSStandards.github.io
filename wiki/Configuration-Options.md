@@ -9,6 +9,7 @@
 * [Setting the default encoding] (#setting-the-default-encoding)
 * [Setting the default tab width] (#setting-the-default-tab-width)
 * [Setting the installed standard paths] (#setting-the-installed-standard-paths)
+* [Setting the PHP version] (#setting-the-php-version)
 * [Ignoring errors when generating the exit code] (#ignoring-errors-when-generating-the-exit-code)
 * [Ignoring warnings when generating the exit code] (#ignoring-warnings-when-generating-the-exit-code)
 * Setting tool paths
@@ -91,6 +92,13 @@ When the tab width is set by default, the replacement of tabs with spaces can be
 By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` directory to find installed coding standards. An installed standard appears when you use the `-i` command line argument and can be referenced using a name instead of a path when using the `--standard` command line argument. You can add install paths by setting the `installed_paths` configuration option.
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
+
+## Setting the PHP version
+Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the verison of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targetting, the `php_version` configuration option can be used.
+
+    $ phpcs --config-set php_version 50403
+
+> Note: The format of the `php_version` value is the same as the PHP_VERSION_ID constant. e.g., 50403 for version 5.4.3.
 
 ## Ignoring errors when generating the exit code
 By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display errors to the user, but still return with a zero exit code if no warnings are found, you can set the `ignore_errors_on_exit` configuration option. This option is typically used by automated build tools so that a list of errors can be generated without failing the build.
