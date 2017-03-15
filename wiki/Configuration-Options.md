@@ -94,7 +94,7 @@ By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` dir
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
 
 ## Setting the PHP version
-Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the verison of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targetting, the `php_version` configuration option can be used.
+Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the version of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targeting, the `php_version` configuration option can be used.
 
     $ phpcs --config-set php_version 50403
 
