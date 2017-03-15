@@ -15,6 +15,7 @@
 * Setting tool paths
     * [CSSLint](#setting-the-path-to-csslint)
     * [Google Closure Linter](#setting-the-path-to-the-google-closure-linter)
+    * [PHP](#setting-the-path-to-php)
     * [JSHint](#setting-the-path-to-jshint)
     * [JSLint](#setting-the-path-to-jslint)
     * [JavaScript Lint](#setting-the-path-to-javascript-lint)
@@ -126,6 +127,11 @@ The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_
 The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
 
     $ phpcs --config-set gjslint_path /path/to/gjslint
+
+### Setting the path to PHP
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/PHP/SyntaxSniff.php) that will check the syntax of each PHP file using [the built-in PHP linter](http://php.net/manual/en/features.commandline.options.php). Use the `php_path` configuration option to tell the Syntax sniff where to find the PHP binary.
+
+    $ phpcs --config-set php_path /path/to/php
 
 ### Setting the path to JSHint
 
