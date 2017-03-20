@@ -2,6 +2,7 @@
 * [Printing Full and Summary Reports](#printing-full-and-summary-reports)
 * Other Report Types
     * [Checkstyle](#printing-a-checkstyle-report)
+    * [Code](#printing-a-code-report)
     * [CSV](#printing-a-csv-report)
     * Diff
     * [Emacs](#printing-an-emacs-report)
@@ -142,6 +143,62 @@ When more than one variation is found for a particular coding convention, the mo
 In the example above, the `Inline comment style` convention was checked 594 times, indicating that 594 inline comments were found and checked. 585 of them (98.48%) used the `// ...` style variation and 9 of them (1.52%) used the `/* ... */` style variation.
 
 > **Tip:** To check your code against a wide range of conventions, specify all included standards. This will take longer, but give you more information about your code: `phpcs --standard=Generic,PEAR,Squiz,PSR2,Zend --report=info /path/to/code`
+
+## Printing a Code Report
+
+**Note:** The code report is available in version 3.0.0 only
+
+PHP_CodeSniffer can output a report that shows a code snippet for each error and warning, showing the context in which the violation has occurred. The output will look like this:
+
+    $ phpcs --report=code /path/to/code
+    
+    FILE: /path/to/code/classA.php
+    ------------------------------------------------------------------------------------------------
+    FOUND 4 ERRORS AND 1 WARNING AFFECTING 5 LINES
+    ------------------------------------------------------------------------------------------------
+    LINE  2: ERROR   [ ] Missing file doc comment
+    ------------------------------------------------------------------------------------------------
+        1:  <?php
+    >>  2:
+        3:  if·($foo·===·null)·{
+        4:  ····$foo·=·FALSE;
+    ------------------------------------------------------------------------------------------------
+    LINE  4: ERROR   [x] TRUE, FALSE and NULL must be lowercase; expected "false" but found "FALSE"
+    ------------------------------------------------------------------------------------------------
+        2:
+        3:  if·($foo·===·null)·{
+    >>  4:  ····$foo·=·FALSE;
+        5:  }·else·{
+        6:  ·$foo·=·getFoo();
+    ------------------------------------------------------------------------------------------------
+    LINE  6: ERROR   [x] Line indented incorrectly; expected at least 4 spaces, found 1
+    ------------------------------------------------------------------------------------------------
+        4:  ····$foo·=·FALSE;
+        5:  }·else·{
+    >>  6:  ·$foo·=·getFoo();
+        7:  }
+        8:
+    ------------------------------------------------------------------------------------------------
+    LINE  9: ERROR   [ ] Missing function doc comment
+    ------------------------------------------------------------------------------------------------
+        7:  }
+        8:
+    >>  9:  function·getFoo()
+       10:  {
+       11:  ····if·($foo)·return·'foo';
+    ------------------------------------------------------------------------------------------------
+    LINE 11: WARNING [x] Inline control structures are discouraged
+    ------------------------------------------------------------------------------------------------
+        9:  function·getFoo()
+       10:  {
+    >> 11:  ····if·($foo)·return·'foo';
+       12:  ····return·'bar';
+       13:  }
+    ------------------------------------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+    ------------------------------------------------------------------------------------------------
+
+**Note:** The code report shows up to 5 lines of source code for each violation, so it is best used when checking single files and short code snippets to ensure the report doesn't become unreadble due to its length.
 
 ## Printing a Checkstyle Report
 PHP_CodeSniffer can output an XML report similar to the one produced by Checkstyle, allowing you to use the output in scripts and applications that already support Checkstyle. To print a Checkstyle report, use the `--report=checkstyle` command line argument. The output will look like this:
