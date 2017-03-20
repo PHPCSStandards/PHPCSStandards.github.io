@@ -1,23 +1,23 @@
 ## Table of contents
-* [Printing Full and Summary Reports] (#printing-full-and-summary-reports)
+* [Printing Full and Summary Reports](#printing-full-and-summary-reports)
 * Other Report Types
-    * [Checkstyle] (#printing-a-checkstyle-report)
-    * [CSV] (#printing-a-csv-report)
+    * [Checkstyle](#printing-a-checkstyle-report)
+    * [CSV](#printing-a-csv-report)
     * Diff
-    * [Emacs] (#printing-an-emacs-report)
-    * [Git Blame] (#printing-a-git-blame-report)
+    * [Emacs](#printing-an-emacs-report)
+    * [Git Blame](#printing-a-git-blame-report)
     * HG Blame
-    * [Information] (#printing-an-information-report)
-    * [JSON] (#printing-a-json-report)
-    * [JUnit] (#printing-a-junit-report)
+    * [Information](#printing-an-information-report)
+    * [JSON](#printing-a-json-report)
+    * [JUnit](#printing-a-junit-report)
     * Notify-Send
-    * [Source] (#printing-a-source-report)
-    * [SVN Blame] (#printing-an-svn-blame-report)
-    * [XML] (#printing-an-xml-report)
-* [Printing Multiple Reports] (#printing-multiple-reports)
-* [Running Interactively] (#running-interactively)
-* [Specifying a Report Width] (#specifying-a-report-width)
-* [Writing a Report to a File] (#writing-a-report-to-a-file)
+    * [Source](#printing-a-source-report)
+    * [SVN Blame](#printing-an-svn-blame-report)
+    * [XML](#printing-an-xml-report)
+* [Printing Multiple Reports](#printing-multiple-reports)
+* [Running Interactively](#running-interactively)
+* [Specifying a Report Width](#specifying-a-report-width)
+* [Writing a Report to a File](#writing-a-report-to-a-file)
 
 ***
 
