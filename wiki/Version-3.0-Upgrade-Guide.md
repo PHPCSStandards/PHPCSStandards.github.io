@@ -5,20 +5,20 @@ PHP_CodeSniffer version 3 contains a large number of core changes and breaks bac
 ***
 
 ## Table of contents
-* [Upgrading Custom Sniffs] (#upgrading-custom-sniffs)
-    * [Extending Other Sniffs] (#extending-other-sniffs)
-    * [Extending the Included Abstract Sniffs] (#extending-the-included-abstract-sniffs)
-        * [AbstractVariableSniff] (#abstractvariablesniff)
-        * [AbstractPatternSniff] (#abstractpatternsniff)
-        * [AbstractScopeSniff] (#abstractscopesniff)
-* [New Class Names] (#new-class-names)
-    * [PHP_CodeSniffer_File] (#php_codesniffer_file)
-    * [PHP_CodeSniffer_Tokens] (#php_codesniffer_tokens)
-    * [PHP_CodeSniffer] (#php_codesniffer)
-* [Upgrading Unit Tests] (#upgrading-unit-tests)
-    * [Setting CLI Values] (#setting-cli-values)
-* [Upgrading Custom Reports] (#upgrading-custom-reports)
-    * [Supporting Concurrency] (#supporting-concurrency)
+* [Upgrading Custom Sniffs](#upgrading-custom-sniffs)
+    * [Extending Other Sniffs](#extending-other-sniffs)
+    * [Extending the Included Abstract Sniffs](#extending-the-included-abstract-sniffs)
+        * [AbstractVariableSniff](#abstractvariablesniff)
+        * [AbstractPatternSniff](#abstractpatternsniff)
+        * [AbstractScopeSniff](#abstractscopesniff)
+* [New Class Names](#new-class-names)
+    * [PHP_CodeSniffer_File](#php_codesniffer_file)
+    * [PHP_CodeSniffer_Tokens](#php_codesniffer_tokens)
+    * [PHP_CodeSniffer](#php_codesniffer)
+* [Upgrading Unit Tests](#upgrading-unit-tests)
+    * [Setting CLI Values](#setting-cli-values)
+* [Upgrading Custom Reports](#upgrading-custom-reports)
+    * [Supporting Concurrency](#supporting-concurrency)
 
 ***
 
