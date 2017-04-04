@@ -4,7 +4,8 @@ Once created, a ruleset file can be used with the `--standard` command line argu
 
     $ phpcs --standard=/path/to/custom_ruleset.xml test.php
 
-##The Annotated Sample File
+## The Annotated Sample File
+
 The following sample file documents the ruleset.xml format and shows you the complete range of features that the format supports. The file is designed for documentation purposes only and is not a working coding standard.
 
 ```xml
@@ -334,7 +335,7 @@ The following sample file documents the ruleset.xml format and shows you the com
 </ruleset>
 ```
 
-##Selectively Applying Rules
+## Selectively Applying Rules
 
 All tags in a ruleset file, with the exception of `ruleset` and `description`, can be selectively applied when a specific tool is being run. The two tools that are available are `phpcs` (the coding standards checker) and `phpcbf` (the coding standards fixer). Restrictions are applied by using the `phpcs-only` and `phpcbf-only` tag attributes.
 
