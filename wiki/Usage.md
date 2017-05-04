@@ -13,52 +13,65 @@
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
 
 ```
-Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors] [--stdin-path=<stdinPath>]
-    [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>] ...
-    [--report-width=<reportWidth>] [--generator=<generator>] [--tab-width=<tabWidth>]
-    [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
-    [--runtime-set key value] [--config-set key value] [--config-delete key] [--config-show]
-    [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>] [--encoding=<encoding>]
-    [--extensions=<extensions>] [--ignore=<patterns>] [--bootstrap=<bootstrap>] <file> ...
-                      Set runtime value (see --config-set)
-        -n            Do not print warnings (shortcut for --warning-severity=0)
-        -w            Print both warnings and errors (this is the default)
-        -l            Local directory only, no recursion
-        -s            Show sniff codes in all reports
-        -a            Run interactively
-        -e            Explain a standard by showing the sniffs it includes
-        -p            Show progress of the run
-        -q            Quiet mode; disables progress and verbose output
-        -v[v][v]      Print verbose output
-        -i            Show a list of installed coding standards
-        -d            Set the [key] php.ini value to [value] or [true] if value is omitted
-        --help        Print this help message
-        --version     Print version information
-        --colors      Use colors in output
-        --no-colors   Do not use colors in output (this is the default)
-        <file>        One or more files and/or directories to check
-        <stdinPath>   If processing STDIN, the file path that STDIN will be processed as
-        <bootstrap>   A comma separated list of files to run before processing starts
-        <encoding>    The encoding of the files being checked (default is iso-8859-1)
-        <extensions>  A comma separated list of file extensions to check
-                      (extension filtering only valid when checking a directory)
-                      The type of the file can be specified using: ext/type
-                      e.g., module/php,es/js
-        <generator>   Uses either the "HTML", "Markdown" or "Text" generator
-                      (forces documentation generation instead of checking)
-        <patterns>    A comma separated list of patterns to ignore files and directories
-        <report>      Print either the "full", "xml", "checkstyle", "csv"
-                      "json", "emacs", "source", "summary", "diff", "junit"
-                      "svnblame", "gitblame", "hgblame" or "notifysend" report
-                      (the "full" report is printed by default)
-        <reportFile>  Write the report to the specified file path
-        <reportWidth> How many columns wide screen reports should be printed
-                      or set to "auto" to use current screen width, where supported
-        <sniffs>      A comma separated list of sniff codes to include or exclude during checking
-                      (all sniffs must be part of the specified standard)
-        <severity>    The minimum severity required to display an error or warning
-        <standard>    The name or path of the coding standard to use
-        <tabWidth>    The number of spaces each tab represents
+Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--cache[=<cacheFile>]] [--no-cache] [--colors] [--no-colors]
+  [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>]
+  [--report-width=<reportWidth>] [--basepath=<basepath>] [--stdin-path=<stdinPath>]
+  [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
+  [--runtime-set key value] [--config-set key value] [--config-delete key] [--config-show]
+  [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>] [--tab-width=<tabWidth>]
+  [--encoding=<encoding>] [--parallel=<processes>] [--generator=<generator>]
+  [--extensions=<extensions>] [--ignore=<patterns>] [--ignore-annotations] <file> - ...
+
+ -     Check STDIN instead of local files and directories
+ -n    Do not print warnings (shortcut for --warning-severity=0)
+ -w    Print both warnings and errors (this is the default)
+ -l    Local directory only, no recursion
+ -s    Show sniff codes in all reports
+ -a    Run interactively
+ -e    Explain a standard by showing the sniffs it includes
+ -p    Show progress of the run
+ -q    Quiet mode; disables progress and verbose output
+ -m    Stop error messages from being recorded
+       (saves a lot of memory, but stops many reports from being used)
+ -v    Print processed files
+ -vv   Print ruleset and token output
+ -vvv  Print sniff processing information
+ -i    Show a list of installed coding standards
+ -d    Set the [key] php.ini value to [value] or [true] if value is omitted
+
+ --help                Print this help message
+ --version             Print version information
+ --colors              Use colors in output
+ --no-colors           Do not use colors in output (this is the default)
+ --cache               Cache results between runs
+ --no-cache            Do not cache results between runs (this is the default)
+ --ignore-annotations  Ignore all @codingStandard annotations in code comments
+
+ <cacheFile>    Use a specific file for caching (uses a temporary file by default)
+ <basepath>     A path to strip from the front of file paths inside reports
+ <file>         One or more files and/or directories to check
+ <encoding>     The encoding of the files being checked (default is utf-8)
+ <extensions>   A comma separated list of file extensions to check
+                (extension filtering only valid when checking a directory)
+                The type of the file can be specified using: ext/type
+                e.g., module/php,es/js
+ <generator>    Uses either the "HTML", "Markdown" or "Text" generator
+                (forces documentation generation instead of checking)
+ <patterns>     A comma separated list of patterns to ignore files and directories
+ <processes>    How many files should be checked simultaneously (default is 1)
+ <report>       Print either the "full", "xml", "checkstyle", "csv"
+                "json", "junit", "emacs", "source", "summary", "diff"
+                "svnblame", "gitblame", "hgblame" or "notifysend" report
+                (the "full" report is printed by default)
+ <reportFile>   Write the report to the specified file path
+ <reportWidth>  How many columns wide screen reports should be printed
+                or set to "auto" to use current screen width, where supported
+ <severity>     The minimum severity required to display an error or warning
+ <sniffs>       A comma separated list of sniff codes to include or exclude from checking
+                (all sniffs must be part of the specified standard)
+ <standard>     The name or path of the coding standard to use
+ <stdinPath>    If processing STDIN, the file path that STDIN will be processed as
+ <tabWidth>     The number of spaces each tab represents
 ```
 
 > The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
