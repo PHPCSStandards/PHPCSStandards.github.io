@@ -90,7 +90,7 @@ When the tab width is set by default, the replacement of tabs with spaces can be
     $ phpcs --tab-width=0 /path/to/code
 
 ## Setting the installed standard paths
-By default, PHP_CodeSniffer will look inside its own `CodeSniffer/Standards` directory to find installed coding standards. An installed standard appears when you use the `-i` command line argument and can be referenced using a name instead of a path when using the `--standard` command line argument. You can add install paths by setting the `installed_paths` configuration option.
+By default, PHP_CodeSniffer will look inside its own `src/Standards` directory to find installed coding standards. An installed standard appears when you use the `-i` command line argument and can be referenced using a name instead of a path when using the `--standard` command line argument. You can add install paths by setting the `installed_paths` configuration option.
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
 
@@ -119,23 +119,23 @@ By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warn
 ## Generic Coding Standard Configuration Options
 
 ### Setting the path to CSSLint
-The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/CSSLintSniff.php) that will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/CSSLintSniff.php) that will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
 
     $ phpcs --config-set csslint_path /path/to/csslint
 
 ### Setting the path to the Google Closure Linter
-The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
 
     $ phpcs --config-set gjslint_path /path/to/gjslint
 
 ### Setting the path to PHP
-The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/PHP/SyntaxSniff.php) that will check the syntax of each PHP file using [the built-in PHP linter](http://php.net/manual/en/features.commandline.options.php). Use the `php_path` configuration option to tell the Syntax sniff where to find the PHP binary.
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/SyntaxSniff.php) that will check the syntax of each PHP file using [the built-in PHP linter](http://php.net/manual/en/features.commandline.options.php). Use the `php_path` configuration option to tell the Syntax sniff where to find the PHP binary.
 
     $ phpcs --config-set php_path /path/to/php
 
 ### Setting the path to JSHint
 
-The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Debug/JSHintSniff.php) that will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
+The Generic coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/JSHintSniff.php) that will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
 
     $ phpcs --config-set jshint_path /path/to/jshint.js
 
@@ -146,7 +146,7 @@ As JSHint is just JavaScript code, you also need to install [Rhino](http://www.m
 ## Squiz Coding Standard Configuration Options
 
 ### Setting the path to JSLint
-The Squiz coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/Debug/JSLintSniff.php) that will check each JavaScript file using [JSLint](http://www.jslint.com/), a JavaScript program that looks for problems in JavaScript programs. Use the `jslint_path` configuration option to tell the JSLint sniff where to find the tool.
+The Squiz coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Squiz/Sniffs/Debug/JSLintSniff.php) that will check each JavaScript file using [JSLint](http://www.jslint.com/), a JavaScript program that looks for problems in JavaScript programs. Use the `jslint_path` configuration option to tell the JSLint sniff where to find the tool.
 
     $ phpcs --config-set jslint_path /path/to/jslint.js
 
@@ -155,12 +155,12 @@ As JSLint is just JavaScript code, you also need to install [Rhino](https://deve
     $ phpcs --config-set rhino_path /path/to/rhino
 
 ### Setting the path to JavaScript Lint
-The Squiz coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/Debug/JavaScriptLintSniff.php) that will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
+The Squiz coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Squiz/Sniffs/Debug/JavaScriptLintSniff.php) that will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
 
     $ phpcs --config-set jsl_path /path/to/jsl
 
 ## Zend Coding Standard Configuration Options
 ### Setting the path to the Zend Code Analyzer
-The Zend coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php) that will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
+The Zend coding standard [includes a sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php) that will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
 
     $ phpcs --config-set zend_ca_path /path/to/ZendCodeAnalyzer
