@@ -122,7 +122,7 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 
     $ phpcs --tab-width=4 /path/to/code
 
-> Note: The [included sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset.xml]] if you want to use tab indentation.
+> Note: The [included sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset.xml]] if you want to use tab indentation.
 
 ## Specifying an Encoding
 Some PHP_CodeSniffer reports output UTF-8 encoded XML, which can cause problems if your files are already UTF-8 encoded. In this case, some content from your files (generally comments) are used within error messages and may be double-encoded. To help PHP_CodeSniffer encode reports correctly, you can specify the encoding of your source files using the `--encoding` command line argument.
