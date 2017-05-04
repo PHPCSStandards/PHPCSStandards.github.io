@@ -13,12 +13,13 @@
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
 
 ```
-Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--cache[=<cacheFile>]] [--no-cache] [--colors] [--no-colors]
+Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
+  [--cache[=<cacheFile>]] [--no-cache] [--tab-width=<tabWidth>]
   [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>]
   [--report-width=<reportWidth>] [--basepath=<basepath>] [--stdin-path=<stdinPath>]
   [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
   [--runtime-set key value] [--config-set key value] [--config-delete key] [--config-show]
-  [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>] [--tab-width=<tabWidth>]
+  [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>]
   [--encoding=<encoding>] [--parallel=<processes>] [--generator=<generator>]
   [--extensions=<extensions>] [--ignore=<patterns>] [--ignore-annotations] <file> - ...
 
