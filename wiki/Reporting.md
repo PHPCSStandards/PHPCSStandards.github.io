@@ -146,8 +146,6 @@ In the example above, the `Inline comment style` convention was checked 594 time
 
 ## Printing a Code Report
 
-**Note:** The code report is available in version 3.0.0 only
-
 PHP_CodeSniffer can output a report that shows a code snippet for each error and warning, showing the context in which the violation has occurred. The output will look like this:
 
     $ phpcs --report=code /path/to/code
