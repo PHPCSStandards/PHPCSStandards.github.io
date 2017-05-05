@@ -72,9 +72,10 @@ The following sample file documents the ruleset.xml format and shows you the com
     -v[v][v], -l, -d, --sniffs and --standard
     
     The following tags are equivalent to the command line arguments:
-    --report=summary -sp
+    --report=summary --colors -sp
  -->
  <arg name="report" value="summary"/>
+ <arg name="colors"/>
  <arg value="sp"/>
 
  <!--
