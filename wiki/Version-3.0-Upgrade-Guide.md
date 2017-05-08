@@ -26,7 +26,7 @@ PHP_CodeSniffer version 3 contains a large number of core changes and breaks bac
 
 All sniffs must now be namespaced.
 
-> Note: It doesn't really matter what namespace you use for your sniffs, but the examples below use a basic namespace based on the standard and category names. If you aren't sure what to use, try using this format.
+> Note: It doesn't matter what namespace you use for your sniffs as long as the last part of the namespace is in the format `StandardName\Sniffs\Category` as this is used to determine the sniff code. The examples below use a very minimal namespace but you can prefix it with whatever makes sense for your project. If you aren't sure what namespace to use, try using the example format.
 
 Internal namespace changes to core classes require changes to all sniff class definitions. The old definition looked like this:
 ```php
