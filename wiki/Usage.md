@@ -16,12 +16,13 @@ Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will pr
 Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
   [--cache[=<cacheFile>]] [--no-cache] [--tab-width=<tabWidth>]
   [--report=<report>] [--report-file=<reportFile>] [--report-<report>=<reportFile>]
-  [--report-width=<reportWidth>] [--basepath=<basepath>] [--stdin-path=<stdinPath>]
+  [--report-width=<reportWidth>] [--basepath=<basepath>] [--bootstrap=<bootstrap>]
   [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
   [--runtime-set key value] [--config-set key value] [--config-delete key] [--config-show]
   [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>]
   [--encoding=<encoding>] [--parallel=<processes>] [--generator=<generator>]
-  [--extensions=<extensions>] [--ignore=<patterns>] [--ignore-annotations] <file> - ...
+  [--extensions=<extensions>] [--ignore=<patterns>] [--ignore-annotations]
+  [--stdin-path=<stdinPath>] [--file-list=<fileList>] <file> - ...
 
  -     Check STDIN instead of local files and directories
  -n    Do not print warnings (shortcut for --warning-severity=0)
@@ -50,7 +51,9 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
 
  <cacheFile>    Use a specific file for caching (uses a temporary file by default)
  <basepath>     A path to strip from the front of file paths inside reports
+ <bootstrap>    A comma separated list of files to run before processing begins
  <file>         One or more files and/or directories to check
+ <fileList>     A file containing a list of files and/or directories to check (one per line)
  <encoding>     The encoding of the files being checked (default is utf-8)
  <extensions>   A comma separated list of file extensions to check
                 (extension filtering only valid when checking a directory)
