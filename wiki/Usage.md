@@ -53,7 +53,8 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  <basepath>     A path to strip from the front of file paths inside reports
  <bootstrap>    A comma separated list of files to run before processing begins
  <file>         One or more files and/or directories to check
- <fileList>     A file containing a list of files and/or directories to check (one per line)
+ <fileList>     A file containing a list of files and/or directories to check
+                (one per line)
  <encoding>     The encoding of the files being checked (default is utf-8)
  <extensions>   A comma separated list of file extensions to check
                 (extension filtering only valid when checking a directory)
