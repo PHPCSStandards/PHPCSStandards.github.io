@@ -10,12 +10,25 @@ The following sample file documents the ruleset.xml format and shows you the com
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Custom Standard">
+<ruleset name="Custom Standard" namespace="MyProject\CS\Standard">
 
  <!--
     The name attribute of the ruleset tag is displayed
     when running PHP_CodeSniffer with the -v command line
-    argument. The description tag below is not displayed anywhere
+    argument.
+
+    If you have custom sniffs, and they use a namespace prefix
+    that is different to the name of the directory containing
+    your ruleset.xml file, you can set the namespace prefix using
+    the namespace attribute of the ruleset tag.
+
+    For example, if your namespace format for snifs is
+    MyProject\CS\Standard\Sniffs\Category, set the namespace to
+    MyProject\CS\Standard (everything up to \Sniffs\)
+ -->
+
+ <!--
+    The content of the description tag is not displayed anywhere
     except in this file, so it can contain information for
     developers who may change this file in the future.
  -->
@@ -83,6 +96,17 @@ The following sample file documents the ruleset.xml format and shows you the com
     The following tag sets the memory limit to 64M.
  -->
  <ini name="memory_limit" value="64M"/>
+
+ <!--
+    If your helper classes need custom autoloading rules that you are
+    not able to include in other ways, you can hard-code files to include
+    before the ruleset is processed and any sniff classes have been loaded.
+
+    This is different to bootstrap files, which are loaded after the ruleset
+    has already been processed.
+ -->
+ <autoload>/path/to/autoload.php</autoload>
+ <autoload>/path/to/other/autoload.php</autoload>
 
  <!--
     Include all sniffs in the PEAR standard. Note that the
