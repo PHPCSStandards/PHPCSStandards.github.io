@@ -28,6 +28,8 @@ All sniffs must now be namespaced.
 
 > Note: It doesn't matter what namespace you use for your sniffs as long as the last part of the namespace is in the format `StandardName\Sniffs\Category` as this is used to determine the sniff code. The examples below use a very minimal namespace but you can prefix it with whatever makes sense for your project. If you aren't sure what namespace to use, try using the example format.
 
+> Note: If you decide to use a more complex prefix, or your prefix does not match the name of the directory containing your ruleset.xml file, you need to define the prefix in the ruleset tag of your ruleset.xml file. For example, if your namespace format for sniffs is `MyProject\CS\Standard\Sniffs\Category`, set the namespace to `MyProject\CS\Standard` (everything up to `\Sniffs\`). The ruleset tag would look like this: `<ruleset name="Custom Standard" namespace="MyProject\CS\Standard">`
+
 Internal namespace changes to core classes require changes to all sniff class definitions. The old definition looked like this:
 ```php
 class StandardName_Sniffs_Category_TestSniff implements PHP_CodeSniffer_Sniff {}
