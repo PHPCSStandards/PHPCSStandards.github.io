@@ -28,15 +28,21 @@ By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is 
 
     $ phpcs --config-set default_standard Squiz
 
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the coding standard for a single run only, use the `--standard` command line argument.
+
 ## Setting the default report format
 By default, PHP_CodeSniffer will use the full report format if no format is supplied on the command line. You can change the default report format by setting the report_format configuration option.
 
     $ phpcs --config-set report_format summary
 
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the report format for a single run only, use the `--report` command line argument.
+
 ## Hiding warnings by default
 By default, PHP_CodeSniffer will show both errors and warnings for your code. You can hide warnings for a single script run by using the `-n` command line argument, but you can also enable this by default if you prefer. To hide warnings by default, set the `show_warnings` configuration option to `0`.
 
     $ phpcs --config-set show_warnings 0
+
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To hide warnings for a single run only, use the `-n` command line argument.
 
 > Note: When warnings are hidden by default, you can use the `-w` command line argument to show them for a single script run.
 
@@ -45,10 +51,14 @@ By default, PHP_CodeSniffer will run quietly and only print the report of errors
 
     $ phpcs --config-set show_progress 1
 
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To show progress for a single run only, use the `-p` command line argument.
+
 ## Using colors in output by default
 By default, PHP_CodeSniffer will not use colors in progress or report screen output. To use colors in output by default, set the `colors` configuration option to `1`.
 
     $ phpcs --config-set colors 1
+
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To show colors for a single run only, use the `--colors` command line argument.
 
 > Note: When colors are being used by default, you can use the `--no-colors` command line argument to disable them for a single script run.
 
@@ -66,10 +76,14 @@ To change the default severity levels to show all errors but only some warnings
 
 > Note: Setting the severity of warnings to 0 is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
 
+> Note: These configuration options cannot be set using the `--runtime-set` command line argument. To change severity levels for a single run only, use the `--severity`, `--error-severity`, and `--warning-severity` command line arguments.
+
 ## Setting the default report width
 By default, PHP_CodeSniffer will print all screen-based reports 80 characters wide. File paths will be truncated if they don't fit within this limit and error messages will be wrapped across multiple lines. You can increase the report width to show longer file paths and limit the wrapping of error messages using the `--report-width` command line argument, but you can also change the default report width by setting the `report_width` configuration option.
 
     $ phpcs --config-set report_width 120
+
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the report width for a single run only, use the `--report-width` command line argument.
 
 > Note: If you want reports to fill the entire terminal width (in supported terminals), set the `report_width` config configuration option to `auto`.
 >
@@ -80,10 +94,14 @@ By default, PHP_CodeSniffer will treat all source files as if they use ISO-8859-
 
     $ phpcs --config-set encoding utf-8
 
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the encoding for a single run only, use the `--encoding` command line argument.
+
 ## Setting the default tab width
 By default, PHP_CodeSniffer will not convert tabs to spaces in checked files. Specifying a tab width will make PHP_CodeSniffer replace tabs with spaces. You can force PHP_CodeSniffer to replace tabs with spaces by default by setting the `tab_width` configuration option.
 
     $ phpcs --config-set tab_width 4
+
+> Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the tab width for a single run only, use the `--tab-width` command line argument.
     
 When the tab width is set by default, the replacement of tabs with spaces can be disabled for a single script run by setting the tab width to zero.
 
