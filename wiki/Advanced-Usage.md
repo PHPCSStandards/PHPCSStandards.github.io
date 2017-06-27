@@ -165,6 +165,8 @@ Configuration options are written to a global configuration file. If you want to
 
     $ phpcs --runtime-set <option> <value> /path/to/code
 
+> Note: Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
+
 ## Deleting Configuration Options
 PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].
 
