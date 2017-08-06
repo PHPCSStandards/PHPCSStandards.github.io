@@ -42,7 +42,7 @@ In the following example, PHP_CodeSniffer will skip all files inside the package
 
     $ phpcs --ignore=*/tests/*,*/data/* /path/to/code
 
-> The ignore patterns can also be complete regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for the convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`.
+> The ignore patterns are treated as regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for the convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`. Also ensure you escape any `.` characters that you want treated as a literal dot, such as when checking file extensions. So if you are checking for `.inc` in your ignore pattern, use `\.inc` instead. 
 
 You can also tell PHP_CodeSniffer to ignore a file using a special comment inserted at the top of the file. This will stop the file being checked even if it does not match the ignore pattern.
 
