@@ -112,6 +112,8 @@ By default, PHP_CodeSniffer will look inside its own `src/Standards` directory t
 
     $ phpcs --config-set installed_paths /path/to/one,/path/to/two
 
+> Note: If you want to use relative paths, ensure they begin with `./` (e.g., `./path/to/one`) or PHP_CodeSniffer will assume the path is absolute. Relative paths should always be defined relative to the top-level PHP_CodeSniffer install directory (i.e., the directory that contains the `src` sub-directory).
+
 ## Setting the PHP version
 Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the version of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targeting, the `php_version` configuration option can be used.
 
