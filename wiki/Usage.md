@@ -224,7 +224,7 @@ PHP_CodeSniffer can print you a list of the coding standards that are installed 
 
 ## Listing Sniffs inside a Coding Standard
 
-PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with a `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
+PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with the `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
 
     $ phpcs --standard=PSR1 -e
 
