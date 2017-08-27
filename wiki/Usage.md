@@ -5,7 +5,8 @@
   * [Printing Progress Information](#printing-progress-information)
   * [Specifying a Coding Standard](#specifying-a-coding-standard)
   * [Printing a List of Installed Coding Standards](#printing-a-list-of-installed-coding-standards)
-  
+  * [Listing Sniffs inside a Coding Standard](#listing-sniffs-inside-a-coding-standard)
+
 ***
 
 ## Getting Help from the Command Line
@@ -220,3 +221,27 @@ PHP_CodeSniffer can print you a list of the coding standards that are installed 
 
     $ phpcs -i
     The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
+
+## Listing Sniffs inside a Coding Standard
+
+PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with a `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
+
+    $ phpcs --standard=PSR1 -e
+
+    The PSR1 standard contains 7 sniffs
+
+    Generic (3 sniffs)
+    ------------------
+      Generic.Files.ByteOrderMark
+      Generic.NamingConventions.UpperCaseConstantName
+      Generic.PHP.DisallowShortOpenTag
+
+    PSR1 (3 sniffs)
+    ---------------
+      PSR1.Classes.ClassDeclaration
+      PSR1.Files.SideEffects
+      PSR1.Methods.CamelCapsMethodName
+
+    Squiz (1 sniff)
+    ----------------
+      Squiz.Classes.ValidClassName
