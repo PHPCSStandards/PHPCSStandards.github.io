@@ -147,7 +147,7 @@ If errors are not required, the value of `absoluteLineLimit` can be set to zero.
 </rule>
 ```
 
-If the `ignoreComments` property is set to `true`, no error or warnings will be thrown for any line that only contains a comment, no matter how long the line is.
+If the `ignoreComments` property is set to `true`, no error or warning will be thrown for a line that only contains a comment, no matter how long the line is.
 
 ```xml
 <rule ref="Generic.Files.LineLength">
