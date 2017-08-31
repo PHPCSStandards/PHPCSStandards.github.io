@@ -112,10 +112,11 @@ This sniff ensures that files use a specific line ending, which can be customise
 
 ### Generic.Files.LineLength
 
-Property Name     | Type | Default | Available Since
------------------ | ---  | ------- | ---------------
-lineLimit         | int  | 80      | -
-absoluteLineLimit | int  | 100     | -
+Property Name     | Type  | Default | Available Since
+----------------- | ----  | ------- | ---------------
+lineLimit         | int   | 80      | -
+absoluteLineLimit | int   | 100     | -
+ignoreComments    | bool  | false   | 3.1.0
 
 This sniff checks all lines in a file and generates warnings if they are over `lineLimit` characters in length and errors if they are over `absoluteLineLimit` in length. These properties can be used to set the threshold at which errors are reported.
 
@@ -142,6 +143,16 @@ If errors are not required, the value of `absoluteLineLimit` can be set to zero.
     <properties>
         <property name="lineLimit" value="135" />
         <property name="absoluteLineLimit" value="0" />
+    </properties>
+</rule>
+```
+
+If the `ignoreComments` property is set to `true`, no error or warnings will be thrown for any line that only contains a comment, no matter how long the line is.
+
+```xml
+<rule ref="Generic.Files.LineLength">
+    <properties>
+        <property name="ignoreComments" value="true" />
     </properties>
 </rule>
 ```
