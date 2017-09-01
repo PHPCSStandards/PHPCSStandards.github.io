@@ -1057,8 +1057,10 @@ spacingBeforeFirst  | int  | 1       | 3.1.0
 This sniff checks that there is one blank line before between member vars and before the fist member var, but you can change the required padding using the `spacing` and `spacingBeforeFirst` properties.
 
 ```xml
-<!-- Ensure 2 blank lines between member vars,
-     but don't require blank lines before the first. -->
+<!--
+ Ensure 2 blank lines between member vars,
+ but don't require blank lines before the first.
+-->
 <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
     <properties>
         <property name="spacing" value="2" />
