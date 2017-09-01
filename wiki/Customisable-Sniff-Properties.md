@@ -1,4 +1,4 @@
-The behavior of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. This page lists the sniff properties that are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
+The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. This page lists the sniff properties that are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
 
 For more information about changing sniff behavior by customising your ruleset, see the [[Annotated ruleset.xml]].
 
@@ -46,6 +46,7 @@ For more information about changing sniff behavior by customising your ruleset, 
     * [Squiz.PHP.ForbiddenFunctions](#squizphpforbiddenfunctions)
     * [Squiz.Strings.ConcatenationSpacing](#squizstringsconcatenationspacing)
     * [Squiz.WhiteSpace.FunctionSpacing](#squizwhitespacefunctionspacing)
+    * [Squiz.WhiteSpace.MemberVarSpacing](#squizwhitespacemembervarspacing)
     * [Squiz.WhiteSpace.ObjectOperatorSpacing](#squizwhitespaceobjectoperatorspacing)
     * [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing)
     * [Squiz.WhiteSpace.SuperfluousWhitespace](#squizwhitespacesuperfluouswhitespace)
@@ -1042,6 +1043,25 @@ This sniff checks that there are two blank lines before and after functions decl
 <rule ref="Squiz.WhiteSpace.FunctionSpacing">
     <properties>
         <property name="spacing" value="1" />
+    </properties>
+</rule>
+```
+
+### Squiz.WhiteSpace.MemberVarSpacing
+
+Property Name       | Type | Default | Available Since
+------------------- | ---- | ------- | ---------------
+spacing             | int  | 1       | 3.1.0
+spacingBeforeFirst  | int  | 1       | 3.1.0
+
+This sniff checks that there is one blank line before between member vars and before the fist member var, but you can change the required padding using the `spacing` and `spacingBeforeFirst` properties.
+
+```xml
+<!-- Ensure 2 blank lines between member vars, but don't require blank lines before the first. -->
+<rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+    <properties>
+        <property name="spacing" value="2" />
+        <property name="spacingBeforeFirst" value="0" />
     </properties>
 </rule>
 ```
