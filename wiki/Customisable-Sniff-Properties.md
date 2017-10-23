@@ -6,6 +6,7 @@ For more information about changing sniff behavior by customising your ruleset, 
 * Generic Sniffs
     * [Generic.ControlStructures.InlineControlStructure](#genericcontrolstructuresinlinecontrolstructure)
     * [Generic.Debug.ClosureLinter](#genericdebugclosurelinter)
+    * [Generic.Debug.ESLint](#genericdebugeslint)
     * [Generic.Files.LineEndings](#genericfileslineendings)
     * [Generic.Files.LineLength](#genericfileslinelength)
     * [Generic.Formatting.MultipleStatementAlignment](#genericformattingmultiplestatementalignment)
@@ -91,6 +92,24 @@ There are two configurable options:
     <properties>
         <property name="errorCodes" type="array" value="0210"/>
         <property name="ignoreCodes" type="array" value="0001,0110,0240"/>
+    </properties>
+</rule>
+```
+
+### Generic.Debug.ESLint
+
+Property Name | Type   | Default | Available Since
+------------- | ------ | ------- | ---------------
+configFile    | string | -       | 2.9.0
+
+The `Generic.Debug.ESLint` sniff runs the [ESLint](https://eslint.org/) tool over JavaScript files and reports errors that the tool finds. All found violations are reported as either PHP_CodeSniffer errors or warnings based on the severity level that the ESLint tool provides.
+
+The sniff will attempt to auto-discover an ESLint config file in the current directory, but a config file path can also be specified by setting the `configFile` property.
+
+```xml
+<rule ref="Generic.Debug.ESLint">
+    <properties>
+        <property name="configFile" value="/path/to/.eslintrc.json"/>
     </properties>
 </rule>
 ```
