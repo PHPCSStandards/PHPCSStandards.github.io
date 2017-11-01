@@ -22,7 +22,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     your ruleset.xml file, you can set the namespace prefix using
     the namespace attribute of the ruleset tag.
 
-    For example, if your namespace format for snifs is
+    For example, if your namespace format for sniffs is
     MyProject\CS\Standard\Sniffs\Category, set the namespace to
     MyProject\CS\Standard (everything up to \Sniffs\)
  -->
