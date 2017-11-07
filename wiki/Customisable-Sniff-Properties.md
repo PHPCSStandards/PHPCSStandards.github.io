@@ -35,6 +35,7 @@ For more information about changing sniff behavior by customising your ruleset, 
 * Squiz Sniffs
     * [Squiz.Classes.ClassDeclaration](#squizclassesclassdeclaration)
     * [Squiz.Commenting.LongConditionClosingComment](#squizcommentinglongconditionclosingcomment)
+    * [Squiz.ControlStructures.ControlSignature](#squizcontrolstructurescontrolsignature)
     * [Squiz.ControlStructures.ForEachLoopDeclaration](#squizcontrolstructuresforeachloopdeclaration)
     * [Squiz.ControlStructures.ForLoopDeclaration](#squizcontrolstructuresforloopdeclaration)
     * [Squiz.ControlStructures.SwitchDeclaration](#squizcontrolstructuresswitchdeclaration)
@@ -758,6 +759,42 @@ When a closing comment is required, the format defaults to `//end %s`, where the
 <rule ref="Squiz.Commenting.LongConditionClosingComment">
     <properties>
         <property name="commentFormat" value="// end %s()" />
+    </properties>
+</rule>
+```
+
+### Squiz.ControlStructures.ControlSignature
+
+Property Name             | Type | Default | Available Since
+------------------------- | ---- | ------- | ---------------
+requiredSpacesBeforeColon | int  | 1       | 3.2.0
+
+One of the rules this sniff enforces is the number of spaces before the opening brace of control structures. By default, the sniff ensures there is one space before the opening brace for control structures using standard syntax, and one space before the colon for control structures using alternative syntax, as shown in the following code snippet:
+
+```php
+if ($foo) :
+    // IF body.
+else :
+    // ELSE body.
+endif;
+```
+
+A common way of defining control structures using alternative syntax is to put no padding before the colon, as shown in the following code snippet:
+
+```php
+if ($foo):
+    // IF body.
+else:
+    // ELSE body.
+endif;
+```
+
+If you prefer to write your code like this, you can set the `requiredSpacesBeforeColon` property to `0`.
+
+```xml
+<rule ref="Squiz.ControlStructures.ControlSignature">
+    <properties>
+        <property name="requiredSpacesBeforeColon" value="0" />
     </properties>
 </rule>
 ```
