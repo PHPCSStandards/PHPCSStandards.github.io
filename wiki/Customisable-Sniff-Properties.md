@@ -4,6 +4,7 @@ For more information about changing sniff behavior by customising your ruleset, 
 
 ## Table of contents
 * Generic Sniffs
+    * [Generic.Arrays.ArrayIndent](#genericarraysarrayindent)
     * [Generic.ControlStructures.InlineControlStructure](#genericcontrolstructuresinlinecontrolstructure)
     * [Generic.Debug.ClosureLinter](#genericdebugclosurelinter)
     * [Generic.Debug.ESLint](#genericdebugeslint)
@@ -56,6 +57,22 @@ For more information about changing sniff behavior by customising your ruleset, 
 ***
 
 ## Generic Sniffs
+
+### Generic.Arrays.ArrayIndent
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+indent        | int  | 4       | 3.2.0
+
+One of the rules that this sniff enforces is the indent of keys in a multi-line array declaration. By default, this sniff ensures that each key is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="Generic.Arrays.ArrayIndent">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
+</rule>
+```
 
 ### Generic.ControlStructures.InlineControlStructure
 
