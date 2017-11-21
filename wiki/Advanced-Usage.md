@@ -29,12 +29,6 @@ To check .php, .inc and .lib files:
 
     $ phpcs --extensions=php,inc,lib /path/to/code
 
-If you have asked PHP_CodeSniffer to check a specific file rather than an entire directory, the extension of the specified file will be ignored. The file will be checked even if it has an invalid extension or no extension at all. In the following example, the main.inc file will be checked by PHP_CodeSniffer even though the `--extensions` command line argument specifies that only .php files should be checked.
-
-    $ phpcs --extensions=php /path/to/code/main.inc
-
-The ignoring of file extensions for specific files is a feature of PHP_CodeSniffer and is the only way to check files without an extension. If you check an entire directory of files, all files without extensions will be ignored, so you must check each of these file separately.
-
 ## Ignoring Files and Folders
 Sometimes you want PHP_CodeSniffer to run over a very large number of files, but you want some files and folders to be skipped. The `--ignore` command line argument can be used to tell PHP_CodeSniffer to skip files and folders that match one or more patterns.
 
