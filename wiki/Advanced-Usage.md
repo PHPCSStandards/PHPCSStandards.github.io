@@ -92,7 +92,7 @@ The following example will only run two sniffs over the code instead of all snif
 
     $ phpcs --standard=PEAR --sniffs=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
 
-The following example will run all sniffs in the PEAR standard except for the two specificed:
+The following example will run all sniffs in the PEAR standard except for the two specified:
 
     $ phpcs --standard=PEAR --exclude=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
 
@@ -273,7 +273,7 @@ The level map output above shows the following pieces of information about the f
 * A scope opener, an open curly brace, was found at token 7 and opened the scope for an if statement, defined at token 1.
 * Tokens 8 - 15 are all included in the scope set by the scope opener at token 7, the open curly brace. All these tokens are at level 1, indicating that they are enclosed in 1 scope condition, and all these tokens are enclosed in a single condition; an if statement.
 
-The level map is most commonly used to determine indentation rules (e.g., a token 4 levels deep requires 16 spaces of indentation) or to determine if a particular token is within a particular scope (eg. a function keyword is within a class scope, making it a method).
+The level map is most commonly used to determine indentation rules (e.g., a token 4 levels deep requires 16 spaces of indentation) or to determine if a particular token is within a particular scope (e.g., a function keyword is within a class scope, making it a method).
 
 ## Printing Verbose Token Processing Output
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
@@ -337,4 +337,4 @@ The other interesting piece of information we get from the output above is that 
 For example, the ScopeIndentSniff executes on the if statement's token only, but actually checks the indentation of every line within the if statement. The sniff uses the scope map to find all tokens within the if statement.
 
 ## Quieting Output
-If a coding standard or configuration file includes settings to print progress or verbose output while running PHP_CodeSniffer, it can make it difficult to use the standard with automated checking tools and build scripts as these typically only expect an error report. If you have this problem, or just want less output, you can quiten the output of PHP_CodeSniffer by using the `-q` command line argument. When using this quiet mode, PHP_CodeSniffer will only print report output, and only if errors or warnings are found. No progress or verbose output will be printed.
+If a coding standard or configuration file includes settings to print progress or verbose output while running PHP_CodeSniffer, it can make it difficult to use the standard with automated checking tools and build scripts as these typically only expect an error report. If you have this problem, or just want less output, you can quieten the output of PHP_CodeSniffer by using the `-q` command line argument. When using this quiet mode, PHP_CodeSniffer will only print report output, and only if errors or warnings are found. No progress or verbose output will be printed.
