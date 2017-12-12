@@ -42,28 +42,32 @@ You can also tell PHP_CodeSniffer to ignore a file using a special comment inser
 
 ```php
 <?php
-// @codingStandardsIgnoreFile
+// phpcs:ignoreFile
 $xmlPackage = new XMLPackage;
 $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
 ```
+
+> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`
 
 ## Ignoring Parts of a File
 Some parts of your code may be unable to conform to your coding standard. For example, you might have to break your standard to integrate with an external library or web service. To stop PHP_CodeSniffer generating errors for this code, you can wrap it in special comments. PHP_CodeSniffer will then hide all errors and warnings that are generated for these lines of code.
 
 ```php
 $xmlPackage = new XMLPackage;
-// @codingStandardsIgnoreStart
+// phpcs:disable
 $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
-// @codingStandardsIgnoreEnd
+// phpcs:enable
 ```
 
-You can also ignore a single line using the `@codingStandardsIgnoreLine` comment. This comment will ignore the line that the comment is on, and the following line. It is typically used like this:
+> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`
+
+You can also ignore a single line using the `phpcs:ignore` comment. This comment will ignore the line that the comment is on, and the following line. It is typically used like this:
 
 ```php
 $xmlPackage = new XMLPackage;
-// @codingStandardsIgnoreLine
+// phpcs:ignore
 $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
 ```
@@ -72,10 +76,12 @@ Or like this:
 
 ```php
 $xmlPackage = new XMLPackage;
-$xmlPackage['error_code'] = get_default_error_code_value(); // @codingStandardsIgnoreLine
+$xmlPackage['error_code'] = get_default_error_code_value(); // phpcs:ignore
 
 $xmlPackage->send();
 ```
+
+> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`
 
 ## Limiting Results to Specific Sniffs
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
