@@ -48,7 +48,19 @@ $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
 ```
 
-> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`.The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+
+If required, you can add a note explaining why the file is being ignored by using the `--` separator.
+
+```php
+<?php
+// phpcs:ignoreFile -- this is not a core file
+$xmlPackage = new XMLPackage;
+$xmlPackage['error_code'] = get_default_error_code_value();
+$xmlPackage->send();
+```
+
+> Note: The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 ## Ignoring Parts of a File
 Some parts of your code may be unable to conform to your coding standard. For example, you might have to break your standard to integrate with an external library or web service. To stop PHP_CodeSniffer generating errors for this code, you can wrap it in special comments. PHP_CodeSniffer will then hide all errors and warnings that are generated for these lines of code.
@@ -113,6 +125,19 @@ bar($foo, false);
 ```
 
 > Note: Selective ignoring of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
+
+If required, you can add a note explaining why sniffs are being disable and re-enabled by using the `--` separator.
+
+```php
+// phpcs:disable PEAR,Squiz.Arrays -- this isn't our code
+$foo = [1,2,3];
+bar($foo,true);
+// phpcs:enable PEAR.Functions.FunctionCallSignature -- check function calls again
+bar($foo,false);
+// phpcs:enable -- this is out code again, so turn everything back on
+```
+
+> Note: The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 ## Limiting Results to Specific Sniffs
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
