@@ -48,7 +48,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  --no-colors           Do not use colors in output (this is the default)
  --cache               Cache results between runs
  --no-cache            Do not cache results between runs (this is the default)
- --ignore-annotations  Ignore all @codingStandard annotations in code comments
+ --ignore-annotations  Ignore all phpcs: annotations in code comments
 
  <cacheFile>    Use a specific file for caching (uses a temporary file by default)
  <basepath>     A path to strip from the front of file paths inside reports
