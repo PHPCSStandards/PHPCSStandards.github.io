@@ -90,9 +90,9 @@ By default, PHP_CodeSniffer will print all screen-based reports 80 characters wi
 >    `$phpcs --config-set report_width auto`
 
 ## Setting the default encoding
-By default, PHP_CodeSniffer will treat all source files as if they use ISO-8859-1 encoding. This can cause double-encoding problems when generating UTF-8 encoded XML reports. To help PHP_CodeSniffer encode reports correctly, you can specify the encoding of your source files using the `--encoding` command line argument, but you can also change the default encoding by setting the `encoding` configuration option.
+By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument, but you can also change the default encoding by setting the `encoding` configuration option.
 
-    $ phpcs --config-set encoding utf-8
+    $ phpcs --config-set encoding windows-1251
 
 > Note: This configuration option cannot be set using the `--runtime-set` command line argument. To set the encoding for a single run only, use the `--encoding` command line argument.
 
