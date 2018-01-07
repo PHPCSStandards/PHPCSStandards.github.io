@@ -181,11 +181,9 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 > Note: The [included sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset.xml]] if you want to use tab indentation.
 
 ## Specifying an Encoding
-Some PHP_CodeSniffer reports output UTF-8 encoded XML, which can cause problems if your files are already UTF-8 encoded. In this case, some content from your files (generally comments) are used within error messages and may be double-encoded. To help PHP_CodeSniffer encode reports correctly, you can specify the encoding of your source files using the `--encoding` command line argument.
+By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the --encoding command line argument.
 
-    $ phpcs --encoding=utf-8 /path/to/code
-
-The default encoding used by PHP_CodeSniffer is ISO-8859-1.
+    $ phpcs --encoding=windows-1251 /path/to/code
 
 ## Using a Bootstrap File
 PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
