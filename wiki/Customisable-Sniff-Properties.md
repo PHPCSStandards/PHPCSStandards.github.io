@@ -19,6 +19,7 @@ For more information about changing sniff behavior by customising your ruleset, 
     * [Generic.PHP.ForbiddenFunctions](#genericphpforbiddenfunctions)
     * [Generic.PHP.NoSilencedErrors](#genericphpnosilencederrors)
     * [Generic.Strings.UnnecessaryStringConcat](#genericstringsunnecessarystringconcat)
+    * [Generic.WhiteSpace.ArbitraryParenthesesSpacing](#genericwhitespacearbitraryparenthesesspacing)
     * [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent)
 * PEAR Sniffs
     * [PEAR.ControlStructures.ControlSignature](#pearcontrolstructurescontrolsignature)
@@ -393,6 +394,45 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 <rule ref="Generic.Strings.UnnecessaryStringConcat">
     <properties>
         <property name="error" value="false" />
+    </properties>
+</rule>
+```
+
+### Generic.WhiteSpace.ArbitraryParenthesesSpacing
+
+Property Name  | Type | Default | Available Since
+-------------- | ---- | ------- | ---------------
+spacing        | int  | 0       | 3.3.0
+ignoreNewlines | bool | false   | 3.3.0
+
+This sniff checks the padding inside parenthesis that are not being used by function declarations, function calls, or control structures. By default, the sniff ensures there are zero spaces inside the parenthesis, as shown in the following code snippet:
+
+```php
+$foo = ($bar !== 'bar');
+```
+
+Another common way of padding parenthesis is to use a single space, as shown in the following code snippet:
+
+```php
+$foo = ( $bar !== 'bar' );
+```
+
+If you prefer to write your code like this, you can set the `spacing` property to `1`, or whatever padding you prefer.
+
+```xml
+<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+    <properties>
+        <property name="spacing" value="1" />
+    </properties>
+</rule>
+```
+
+Sometimes long statements are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters inside parenthesis, and any required padding for alignment.
+
+```xml
+<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+    <properties>
+        <property name="ignoreNewlines" value="true" />
     </properties>
 </rule>
 ```
