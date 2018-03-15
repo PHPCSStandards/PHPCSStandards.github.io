@@ -18,3 +18,4 @@ For sniff developers
 
 [[Coding Standard Tutorial]]  
 [[Version 3.0 Upgrade Guide]]  
+[[Version 1.3.0 Upgrade Guide]]  
