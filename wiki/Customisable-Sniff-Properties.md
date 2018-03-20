@@ -1153,19 +1153,30 @@ spacingAfterLast   | int  | 2       | 3.3.0
 
 This sniff checks that there are two blank lines before and after functions declarations, but you can change the required padding using the `spacing`, `spacingBeforeFirst`, and `spacingAfterLast` properties.
 
-The `spacingBeforeFirst` property is used to determine how many blank lines are required before a function when it is the first block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if the function is preceeded by member vars.
+The `spacingBeforeFirst` property is used to determine how many blank lines are required before a function when it is the first block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if the function is preceded by member vars. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
 
-The `spacingAfterLast` property is used to determine how many blank lines are required after a function when it is the last block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if any member vars are placed after the function.
+The `spacingAfterLast` property is used to determine how many blank lines are required after a function when it is the last block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if any member vars are placed after the function. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
 
 The `spacing` property applies in all other cases.
 
 ```xml
-<!-- Ensure 1 blank line before and after functions. -->
+<!-- Ensure 1 blank line before and after functions, except at the top and bottom. -->
 <rule ref="Squiz.WhiteSpace.FunctionSpacing">
     <properties>
         <property name="spacing" value="1" />
-        <property name="spacingBeforeFirst" value="1" />
-        <property name="spacingAfterLast" value="1" />
+        <property name="spacingBeforeFirst" value="0" />
+        <property name="spacingAfterLast" value="0" />
+    </properties>
+</rule>
+```
+
+As the `spacingBeforeFirst` and `spacingAfterLast` properties use the value of the `spacing` property when not set, a shortcut for setting all three properties to the same value is to specify a value for the `spacing` property only.
+
+```xml
+<!-- Ensure 1 blank line before and after functions in all cases. -->
+<rule ref="Squiz.WhiteSpace.FunctionSpacing">
+    <properties>
+        <property name="spacing" value="1" />
     </properties>
 </rule>
 ```
