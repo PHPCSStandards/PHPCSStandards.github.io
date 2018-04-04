@@ -50,6 +50,8 @@ $xmlPackage->send();
 
 > Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
+> Note: The `phpcs:ignoreFile` comment syntax does not allow for a specific set of sniffs to be ignored for a file. Use the `phpcs:disable` comment syntax if you want to disable a specific set of sniffs for the entire file.
+
 If required, you can add a note explaining why the file is being ignored by using the `--` separator.
 
 ```php
@@ -96,6 +98,8 @@ bar($foo,true);
 bar($foo,false);
 // phpcs:enable
 ```
+
+> Note: All `phpcs:disable` and `phpcs:enable` comments only apply to the file they are contained within. After the file has finished processing all sniffs are re-enabled for future files.
 
 > Note: Selective disabling and re-enabling of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
