@@ -280,9 +280,29 @@ The following sample file documents the ruleset.xml format and shows you the com
   </properties>
  </rule>
  
+<!--
+    Array values are specified by using "element" tags
+    with "key" and "value" attributes.
+
+    NOTE: This syntax is is only supported in PHP_CodeSniffer
+    versions 3.3.0 and greater.
+ -->
+ <rule ref="Generic.PHP.ForbiddenFunctions">
+  <properties>
+   <property name="forbiddenFunctions" type="array">
+    <element key="delete" value="unset"/>
+    <element key="print" value="echo"/>
+    <element key="create_function" value="null"/>
+   </property>
+  </properties>
+ </rule>
+
  <!--
-    Array values are specified by using a string
+    Before version 3.3.0, array values are specified by using a string
     representation of the array.
+
+    NOTE: This syntax is deprecated and will be removed in
+    PHP_CodeSniffer version 4.0
  -->
  <rule ref="Generic.PHP.ForbiddenFunctions">
   <properties>
