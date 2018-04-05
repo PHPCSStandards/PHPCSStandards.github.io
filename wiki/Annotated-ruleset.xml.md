@@ -338,7 +338,8 @@ The following sample file documents the ruleset.xml format and shows you the com
  <!--
     You can hard-code ignore patterns for specific sniffs,
     a feature not available on the command line. Please note that
-    all sniff-specific ignore patterns are checked using absolute paths.
+    all sniff-specific ignore patterns are checked using absolute paths
+    and excluding only works for entire sniffs and not individual sniff messages.
 
     The code here will hide all messages from the Squiz DoubleQuoteUsage
     sniff for files that match either of the two exclude patterns.
@@ -366,7 +367,8 @@ The following sample file documents the ruleset.xml format and shows you the com
     You can hard-code include patterns for specific sniffs,
     allowing you to only include sniffs when checking specific file.
     Please note that all sniff-specific include patterns are checked using
-    absolute paths.
+    absolute paths and including only works for entire sniffs and not
+    individual sniff messages.
 
     The code here will only run the Squiz DoubleQuoteUsage sniff for
     files that match either of the two include patterns.
