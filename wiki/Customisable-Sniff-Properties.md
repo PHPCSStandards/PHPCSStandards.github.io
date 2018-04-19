@@ -34,6 +34,8 @@ For more information about changing sniff behavior by customising your ruleset, 
     * [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration)
     * [PSR2.ControlStructures.ControlStructureSpacing](#psr2controlstructurescontrolstructurespacing)
     * [PSR2.ControlStructures.SwitchDeclaration](#psr2controlstructuresswitchdeclaration)
+* PSR12 Sniffs
+    * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
 * Squiz Sniffs
     * [Squiz.Classes.ClassDeclaration](#squizclassesclassdeclaration)
     * [Squiz.Commenting.LongConditionClosingComment](#squizcommentinglongconditionclosingcomment)
@@ -765,6 +767,27 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 <rule ref="PSR2.ControlStructures.SwitchDeclaration">
     <properties>
         <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+
+
+
+## PSR12 Sniffs
+
+### PSR12.Namespaces.CompoundNamespaceDepth
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+maxDepth      | int  | 2       | 3.3.0
+
+This sniff checks the depth of imported namespaces inside compound use statements. By default, this sniff ensures that the namespaces are no more than two levels deep, but you can change the depth limit by setting the `maxDepth` property.
+
+```xml
+<rule ref="PSR12.Namespaces.CompoundNamespaceDepth">
+    <properties>
+        <property name="maxDepth" value="4" />
     </properties>
 </rule>
 ```
