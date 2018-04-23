@@ -34,6 +34,7 @@ For more information about changing sniff behavior by customising your ruleset, 
     * [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration)
     * [PSR2.ControlStructures.ControlStructureSpacing](#psr2controlstructurescontrolstructurespacing)
     * [PSR2.ControlStructures.SwitchDeclaration](#psr2controlstructuresswitchdeclaration)
+    * [PSR2.Methods.FunctionCallSignature](#psr2methodsfunctioncallsignature)
 * PSR12 Sniffs
     * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
 * Squiz Sniffs
@@ -682,9 +683,9 @@ exact                   | bool  | false   | -
 tabIndent               | bool  | false   | 2.0.0
 ignoreIndentationTokens | array | -       | 1.4.8
 
-> Note: All properties are inherited from the [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent) sniff.
+> Note: All properties are inherited from the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff.
 
-See the [Generic.WhiteSpace.ScopeIndent] (#genericwhitespacescopeindent) sniff for an explanation of all properties.
+See the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff for an explanation of all properties.
 
 ```xml
 <!-- Tabs should represent 4 spaces. -->
@@ -771,6 +772,19 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 </rule>
 ```
 
+### PSR2.Methods.FunctionCallSignature
+
+Property Name             | Type | Default | Available Since
+------------------------- | ---- | ------- | ---------------
+indent                    | int  | 4       | 1.3.4
+allowMultipleArguments    | bool | false   | 1.4.7
+requiredSpacesAfterOpen   | int  | 0       | 1.5.2
+requiredSpacesBeforeClose | int  | 0       | 1.5.2
+
+> Note: All properties are inherited from the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignature) sniff, although the default value of `allowMultipleArguments` is changed.
+
+See the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignature) sniff for an explanation of all properties.
+
 
 
 
@@ -803,7 +817,7 @@ Property Name | Type | Default | Available Since
 ------------  | ---- | ------- | ---------------
 indent        | int  | 4       | 1.3.5
 
-> Note: The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration] (#psr2classesclassdeclaration) sniff.
+> Note: The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration) sniff.
 
 One of the rules that this sniff enforces is the indent of a list of implemented or extended class names that have been split over multiple lines. By default, this sniff ensures that the class names are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -1097,7 +1111,7 @@ Property Name | Type | Default | Available Since
 ------------- | ---- | ------- | ---------------
 error         | bool | false   | -
 
-> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of discouraged functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
+> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions](#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of discouraged functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
 
 If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
 
@@ -1115,7 +1129,7 @@ Property Name | Type | Default | Available Since
 ------------- | ---- | ------- | ---------------
 error         | bool | false   | -
 
-> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions] (#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of forbidden functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
+> Note: This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions](#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of forbidden functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
 
 If the `error` property is set to `true`, an error will be thrown for violations instead of a warning.
 
