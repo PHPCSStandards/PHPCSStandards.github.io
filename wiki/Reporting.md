@@ -249,7 +249,7 @@ To use PHP_CodeSniffer with Emacs, make sure you have installed PHP mode for Ema
 Now you can use the compile command and associated shortcuts to move between error messages within your file.
 
 ## Printing a Git Blame Report
-Like the SVN Blame report, PHP_CodeSniffer can make use of the git blame command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output and options are the same as those described in the [SVN Blame report](#printing-an-svn-blame-report).
+Like the SVN Blame report, PHP_CodeSniffer can make use of the git blame command to try and determine who committed each error and warning to a Git repository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output and options are the same as those described in the [SVN Blame report](#printing-an-svn-blame-report).
 
 **Note:** You need to make sure the location of the `git` command is in your path. If the command is not in your path, the report will fail to generate.
 
