@@ -249,7 +249,60 @@ To use PHP_CodeSniffer with Emacs, make sure you have installed PHP mode for Ema
 Now you can use the compile command and associated shortcuts to move between error messages within your file.
 
 ## Printing a Git Blame Report
-Like the SVN Blame report, PHP_CodeSniffer can make use of the git blame command to try and determine who committed each error and warning to a Git repository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output and options are the same as those described in the [SVN Blame report](#printing-an-svn-blame-report).
+PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
+
+    $ phpcs --report=gitblame /path/to/code
+    
+    PHP CODE SNIFFER GIT BLAME SUMMARY
+    --------------------------------------------------------------------------------
+    AUTHOR                                                              COUNT (%)
+    --------------------------------------------------------------------------------
+    jsmith                                                              51 (40.8)
+    jblogs                                                              44 (30)
+    pdeveloper                                                          43 (10.33)
+    jscript                                                             27 (19.84)
+    --------------------------------------------------------------------------------
+    A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 4 AUTHOR(S)
+    --------------------------------------------------------------------------------
+
+Each author is listed with the number of violations they committed and the percentage of error lines to clean lines. The example report above shows that the developer `pdeveloper` has 43 violations but they only make up 10% of all code they have committed, while `jblogs` has 44 violations but they make up 30% of all their committed code. So these developers have about the same number of total violations, but `pdeveloper` seems to be doing a better job of conforming to the coding standard.
+
+To show a breakdown of the types of violations each author is committing, use the `-s` command line argument.
+
+    $ phpcs -s --report=gitblame /path/to/code
+    
+    PHP CODE SNIFFER GIT BLAME SUMMARY
+    --------------------------------------------------------------------------------
+    AUTHOR   SOURCE                                                     COUNT (%)
+    --------------------------------------------------------------------------------
+    jsmith                                                              51 (40.8)
+             Squiz.Files.LineLength                                     47
+             PEAR.Functions.FunctionCallSignature                       4
+    jblogs                                                              44 (30)
+             Squiz.Files.LineLength                                     40
+             Generic.CodeAnalysis.UnusedFunctionParameter               2
+             Squiz.CodeAnalysis.EmptyStatement                          1
+             Squiz.Formatting.MultipleStatementAlignment                1
+    --------------------------------------------------------------------------------
+    A TOTAL OF 95 SNIFF VIOLATION(S) WERE COMMITTED BY 2 AUTHOR(S)
+    --------------------------------------------------------------------------------
+
+To include authors with no violations, use the `-v` command line argument.
+
+    $ phpcs -v --report=gitblame /path/to/code
+    
+    PHP CODE SNIFFER GIT BLAME SUMMARY
+    --------------------------------------------------------------------------------
+    AUTHOR                                                              COUNT (%)
+    --------------------------------------------------------------------------------
+    jsmith                                                              51 (40.8)
+    jblogs                                                              44 (30)
+    pdeveloper                                                          43 (10.33)
+    jscript                                                             27 (19.84)
+    toogood                                                             0 (0)
+    --------------------------------------------------------------------------------
+    A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
+    --------------------------------------------------------------------------------
 
 **Note:** You need to make sure the location of the `git` command is in your path. If the command is not in your path, the report will fail to generate.
 
@@ -357,60 +410,7 @@ PHP_CodeSniffer can output an XML report similar to the one produced by JUnit, a
 
 
 ## Printing an SVN Blame Report
-PHP_CodeSniffer can make use of the svn blame command to try and determine who committed each error and warning to an SVN respository. To print an SVN Blame report, use the `--report=svnblame` command line argument. The output will look like this:
-
-    $ phpcs --report=svnblame /path/to/code
-    
-    PHP CODE SNIFFER SVN BLAME SUMMARY
-    --------------------------------------------------------------------------------
-    AUTHOR                                                              COUNT (%)
-    --------------------------------------------------------------------------------
-    jsmith                                                              51 (40.8)
-    jblogs                                                              44 (30)
-    pdeveloper                                                          43 (10.33)
-    jscript                                                             27 (19.84)
-    --------------------------------------------------------------------------------
-    A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 4 AUTHOR(S)
-    --------------------------------------------------------------------------------
-
-Each author is listed with the number of violations they committed and the percentage of error lines to clean lines. The example report above shows that the developer pdeveloper has 43 violations but they only make up 10% of all code they have committed, while jblogs has 44 violations but they make up 30% of all their committed code. So these developers have about the same number of total violations, but pdeveloper seems to be doing a better job of conforming to the coding standard.
-
-To show a breakdown of the types of violations each author is committing, use the `-s` command line argument.
-
-    $ phpcs -s --report=svnblame /path/to/code
-    
-    PHP CODE SNIFFER SVN BLAME SUMMARY
-    --------------------------------------------------------------------------------
-    AUTHOR   SOURCE                                                     COUNT (%)
-    --------------------------------------------------------------------------------
-    jsmith                                                              51 (40.8)
-             Squiz.Files.LineLength                                     47
-             PEAR.Functions.FunctionCallSignature                       4
-    jblogs                                                              44 (30)
-             Squiz.Files.LineLength                                     40
-             Generic.CodeAnalysis.UnusedFunctionParameter               2
-             Squiz.CodeAnalysis.EmptyStatement                          1
-             Squiz.Formatting.MultipleStatementAlignment                1
-    --------------------------------------------------------------------------------
-    A TOTAL OF 95 SNIFF VIOLATION(S) WERE COMMITTED BY 2 AUTHOR(S)
-    --------------------------------------------------------------------------------
-
-To include authors with no violations, and perhaps shower them with praise, use the `-v` command line argument.
-
-    $ phpcs -v --report=svnblame /path/to/code
-    
-    PHP CODE SNIFFER SVN BLAME SUMMARY
-    --------------------------------------------------------------------------------
-    AUTHOR                                                              COUNT (%)
-    --------------------------------------------------------------------------------
-    jsmith                                                              51 (40.8)
-    jblogs                                                              44 (30)
-    pdeveloper                                                          43 (10.33)
-    jscript                                                             27 (19.84)
-    toogood                                                             0 (0)
-    --------------------------------------------------------------------------------
-    A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
-    --------------------------------------------------------------------------------
+Like the Git Blame report, PHP_CodeSniffer can make use of the `svn blame` command to try and determine who committed each error and warning to an SVN repository. To print an SVN Blame report, use the `--report=svnblame` command line argument. The output and options are the same as those described in the [Git Blame report](#printing-a-git-blame-report).
 
 **Note:** You need to make sure the location of the `svn` command is in your path and that SVN is storing a username and password (if required by your repository). If the command is not in your path, the report will fail to generate. If SVN does not have a username and password stored, you'll need to enter it for each file being checked by PHP_CodeSniffer that contains violations.
 
