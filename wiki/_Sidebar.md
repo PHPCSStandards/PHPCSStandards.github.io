@@ -11,7 +11,7 @@ For everyone
 
 For coding standard creators
 
-[[Annotated ruleset.xml]]  
+[[Annotated ruleset]]  
 [[Customisable Sniff Properties]]
 
 For sniff developers
