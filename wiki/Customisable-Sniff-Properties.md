@@ -1,6 +1,6 @@
 The behaviour of some sniffs can be changed by setting certain sniff properties in your ruleset.xml file. This page lists the sniff properties that are available for customisation. For properties that were added after ruleset support was introduced in version 1.3.0, the first stable version that made the property available is listed.
 
-For more information about changing sniff behavior by customising your ruleset, see the [[Annotated ruleset.xml]].
+For more information about changing sniff behaviour by customising your ruleset, see the [[Annotated ruleset]].
 
 ## Table of contents
 * Generic Sniffs
