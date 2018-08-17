@@ -29,7 +29,7 @@ The content of the `ruleset.xml` file should be the following:
 </ruleset>
 ```
 
-> The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the ruleset.xml provides, see the [[Annotated ruleset.xml]].
+> The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the ruleset.xml provides, see the [[Annotated ruleset]].
 
 ## Creating the Sniff
 
