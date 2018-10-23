@@ -322,7 +322,7 @@ The following sample file documents the ruleset.xml format and shows you the com
  -->
  <rule ref="Generic.PHP.ForbiddenFunctions">
   <properties>
-   <property name="forbiddenFunctions" type="array" extend=true>
+   <property name="forbiddenFunctions" type="array" extend="true">
     <element key="sizeof" value="count"/>
    </property>
   </properties>
