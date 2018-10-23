@@ -312,8 +312,8 @@ The following sample file documents the ruleset.xml format and shows you the com
 
  <!--
     If you are including another standard, some array properties may
-    have already been defined. Instead of having to redefine them,
-    you can choose to extend the property value. Any elements with
+    have already been defined. Instead of having to redefine them
+    you can choose to extend the property value instead. Any elements with
     new keys will be added to the property value, and any elements with
     existing keys will override the imported value.
 
