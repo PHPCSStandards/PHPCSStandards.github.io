@@ -311,6 +311,24 @@ The following sample file documents the ruleset.xml format and shows you the com
  </rule>
 
  <!--
+    If you are including another standard, some array properties may
+    have already been defined. Instead of having to redefine them,
+    you can choose to extend the property value. Any elements with
+    new keys will be added to the property value, and any elements with
+    existing keys will override the imported value.
+
+    NOTE: This syntax is is only supported in PHP_CodeSniffer
+    versions 3.4.0 and greater.
+ -->
+ <rule ref="Generic.PHP.ForbiddenFunctions">
+  <properties>
+   <property name="forbiddenFunctions" type="array" extend=true>
+    <element key="sizeof" value="count"/>
+   </property>
+  </properties>
+ </rule>
+
+ <!--
     If you want to completely disable an error message in a sniff
     but you don't want to exclude the whole sniff, you can
     change the severity of the message to 0. In this case, we
