@@ -182,7 +182,7 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 
     $ phpcs --tab-width=4 /path/to/code
 
-> Note: The [included sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset.xml]] if you want to use tab indentation.
+> Note: The [included sniff](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
 
 ## Specifying an Encoding
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument.
@@ -199,7 +199,7 @@ If you run PHP_CodeSniffer without specifying a coding standard, PHP_CodeSniffer
 
 > Note: If multiple default configuration files are found, PHP_CodeSniffer will select one using the following order: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`
 
-The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset.xml]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
+The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
 
 > An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml.dist](https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xml.dist)
 
