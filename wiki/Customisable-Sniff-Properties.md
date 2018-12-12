@@ -11,6 +11,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [Generic.Files.LineEndings](#genericfileslineendings)
     * [Generic.Files.LineLength](#genericfileslinelength)
     * [Generic.Formatting.MultipleStatementAlignment](#genericformattingmultiplestatementalignment)
+    * [Generic.Formatting.SpaceAfterCast](#genericformattingspaceaftercast)
     * [Generic.Formatting.SpaceAfterNot](#genericformattingspaceafternot)
     * [Generic.Functions.OpeningFunctionBraceBsdAllman](#genericfunctionsopeningfunctionbracebsdallman)
     * [Generic.Functions.OpeningFunctionBraceKernighanRitchie](#genericfunctionsopeningfunctionbracekernighanritchie)
@@ -225,6 +226,45 @@ If the `error` property is set to `true`, an error will be thrown for violations
 <rule ref="Generic.Formatting.MultipleStatementAlignment">
     <properties>
         <property name="error" value="true" />
+    </properties>
+</rule>
+```
+
+### Generic.Formatting.SpaceAfterCast
+
+Property Name  | Type | Default | Available Since
+-------------- | ---- | ------- | ---------------
+spacing        | int  | 1       | 3.4.0
+ignoreNewlines | bool | false   | 3.4.0
+
+This sniff checks the spacing after a type cast. By default, the sniff ensures there is one space after the cast, as shown in the following code snippet:
+
+```php
+$var = (int) $foo;
+```
+
+Another common way of type casting is to follow the cast with no space, as shown in the following code snippet:
+
+```php
+$var = (int)$foo;
+```
+
+If you prefer to write your code like this, you can set the `spacing` property to `0`, or whatever padding you prefer.
+
+```xml
+<rule ref="Generic.Formatting.SpaceAfterCast">
+    <properties>
+        <property name="spacing" value="0" />
+    </properties>
+</rule>
+```
+
+Sometimes complex statements are broken over multiple lines for readability. By default, this sniff will generate an error if the type cast is followed by a newline. Setting the `ignoreNewlines` property to `true` will allow newline characters after a type cast.
+
+```xml
+<rule ref="Generic.Formatting.SpaceAfterCast">
+    <properties>
+        <property name="ignoreNewlines" value="true" />
     </properties>
 </rule>
 ```
