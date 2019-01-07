@@ -391,7 +391,7 @@ The following sample file documents the ruleset.xml format and shows you the com
  -->
  <rule ref="Squiz.Strings.DoubleQuoteUsage">
     <include-pattern>*/templates/*</include-pattern>
-    <include-pattern>*.tpl</include-pattern>
+    <include-pattern>*\.tpl$</include-pattern>
  </rule>
 
  <!--
@@ -405,7 +405,7 @@ The following sample file documents the ruleset.xml format and shows you the com
  -->
  <rule ref="Squiz.Strings.DoubleQuoteUsage.ContainsVar">
     <include-pattern>*/templates/*</include-pattern>
-    <include-pattern>*.tpl</include-pattern>
+    <include-pattern>*\.tpl$</include-pattern>
  </rule>
 
 </ruleset>
