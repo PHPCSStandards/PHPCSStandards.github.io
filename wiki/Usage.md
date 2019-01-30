@@ -23,7 +23,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
   [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>]
   [--encoding=<encoding>] [--parallel=<processes>] [--generator=<generator>]
   [--extensions=<extensions>] [--ignore=<patterns>] [--ignore-annotations]
-  [--stdin-path=<stdinPath>] [--file-list=<fileList>] <file> - ...
+  [--stdin-path=<stdinPath>] [--file-list=<fileList>] [--filter=<filter>] <file> - ...
 
  -     Check STDIN instead of local files and directories
  -n    Do not print warnings (shortcut for --warning-severity=0)
@@ -53,21 +53,21 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  <cacheFile>    Use a specific file for caching (uses a temporary file by default)
  <basepath>     A path to strip from the front of file paths inside reports
  <bootstrap>    A comma separated list of files to run before processing begins
- <file>         One or more files and/or directories to check
- <fileList>     A file containing a list of files and/or directories to check
-                (one per line)
  <encoding>     The encoding of the files being checked (default is utf-8)
  <extensions>   A comma separated list of file extensions to check
-                (extension filtering only valid when checking a directory)
                 The type of the file can be specified using: ext/type
                 e.g., module/php,es/js
+ <file>         One or more files and/or directories to check
+ <fileList>     A file containing a list of files and/or directories to check (one per line)
+ <filter>       Use the "gitmodified" filter, or specify the path to a custom filter class
  <generator>    Uses either the "HTML", "Markdown" or "Text" generator
                 (forces documentation generation instead of checking)
  <patterns>     A comma separated list of patterns to ignore files and directories
  <processes>    How many files should be checked simultaneously (default is 1)
  <report>       Print either the "full", "xml", "checkstyle", "csv"
                 "json", "junit", "emacs", "source", "summary", "diff"
-                "svnblame", "gitblame", "hgblame" or "notifysend" report
+                "svnblame", "gitblame", "hgblame" or "notifysend" report,
+                or specify the path to a custom report class
                 (the "full" report is printed by default)
  <reportFile>   Write the report to the specified file path
  <reportWidth>  How many columns wide screen reports should be printed
