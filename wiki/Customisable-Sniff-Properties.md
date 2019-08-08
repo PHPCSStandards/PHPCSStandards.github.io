@@ -1348,16 +1348,27 @@ This sniff ensures there are no spaces surrounding an object operator. Sometimes
 
 ### Squiz.WhiteSpace.OperatorSpacing
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 2.2.0
+Property Name                  | Type | Default | Available Since
+------------------------------ | ---- | ------- | ---------------
+ignoreNewlines                 | bool | false   | 2.2.0
+ignoreSpacingBeforeAssignments | bool | true    | 3.5.0
 
-This sniff ensures there is one space before and after an operators. Sometimes long statements are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters before or after an operator, and any required padding for alignment.
+This sniff ensures there is one space before and after an operator. Sometimes long statements are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters before or after an operator, and any required padding for alignment.
 
 ```xml
 <rule ref="Squiz.WhiteSpace.OperatorSpacing">
     <properties>
         <property name="ignoreNewlines" value="true" />
+    </properties>
+</rule>
+```
+
+A number of coding standards allow multiple assignments to be aligned inside a single code block. When doing this, the number of spaces before an assignment operator can be greater than `1`. To support this coding style, this sniff does not check the spacing before assignment operators by default. If you do not want to allow multiple assignments to be aligned, you can enable checking of spacing before assignment operators by setting the `ignoreSpacingBeforeAssignments` property to `false`.
+
+```xml
+<rule ref="Squiz.WhiteSpace.OperatorSpacing">
+    <properties>
+        <property name="ignoreSpacingBeforeAssignments" value="false" />
     </properties>
 </rule>
 ```
