@@ -39,6 +39,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [PSR2.Methods.FunctionCallSignature](#psr2methodsfunctioncallsignature)
 * PSR12 Sniffs
     * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
+    * [PSR12.Operators.OperatorSpacing](#psr12operatorsoperatorspacing)
 * Squiz Sniffs
     * [Squiz.Classes.ClassDeclaration](#squizclassesclassdeclaration)
     * [Squiz.Commenting.LongConditionClosingComment](#squizcommentinglongconditionclosingcomment)
@@ -895,6 +896,18 @@ This sniff checks the depth of imported namespaces inside compound use statement
     </properties>
 </rule>
 ```
+
+### PSR12.Operators.OperatorSpacing
+
+Property Name                  | Type | Default | Available Since
+------------------------------ | ---- | ------- | ---------------
+ignoreNewlines                 | bool | false   | 3.3.0
+ignoreSpacingBeforeAssignments | bool | true    | 3.5.0
+
+> Note: All properties are inherited from the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) sniff, although the default value of `allowMultipleArguments` is changed.
+
+See the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) sniff for an explanation of all properties.
+
 
 
 
