@@ -38,6 +38,8 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [PSR2.ControlStructures.SwitchDeclaration](#psr2controlstructuresswitchdeclaration)
     * [PSR2.Methods.FunctionCallSignature](#psr2methodsfunctioncallsignature)
 * PSR12 Sniffs
+    * [PSR12.Classes.AnonClassDeclaration](#psr12classesanonclassdeclaration)
+    * [PSR12.ControlStructures.ControlStructureSpacing](#psr12controlstructurescontrolstructurespacing)
     * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
     * [PSR12.Operators.OperatorSpacing](#psr12operatorsoperatorspacing)
 * Squiz Sniffs
@@ -880,6 +882,40 @@ See the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignatu
 
 
 ## PSR12 Sniffs
+
+### PSR12.Classes.AnonClassDeclaration
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+indent        | int  | 4       | 3.5.0
+
+> Note: The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration) sniff.
+
+This sniff checks the indent of a list of implemented or extended class names that have been split over multiple lines, and the indent of variables passed to the constructor that have been split over multiple lines. By default, this sniff ensures that the class names and passed variables are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="PSR12.Classes.AnonClassDeclaration">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+### PSR12.ControlStructures.ControlStructureSpacing
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+indent        | int  | 4       | 3.5.0
+
+One of the rules that this sniff enforces is the indent of each condition in a control structure when the conditions have been split over multiple lines. By default, this sniff ensures that the conditions are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
+
+```xml
+<rule ref="PSR12.ControlStructures.ControlStructureSpacing">
+    <properties>
+        <property name="indent" value="2" />
+    </properties>
+</rule>
+```
 
 ### PSR12.Namespaces.CompoundNamespaceDepth
 
