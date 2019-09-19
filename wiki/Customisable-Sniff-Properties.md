@@ -23,6 +23,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [Generic.Strings.UnnecessaryStringConcat](#genericstringsunnecessarystringconcat)
     * [Generic.WhiteSpace.ArbitraryParenthesesSpacing](#genericwhitespacearbitraryparenthesesspacing)
     * [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent)
+    * [Generic.WhiteSpace.SpreadOperatorSpacingAfter](#genericwhitespacespreadoperatorspacingafter)
 * PEAR Sniffs
     * [PEAR.ControlStructures.ControlSignature](#pearcontrolstructurescontrolsignature)
     * [PEAR.ControlStructures.MultiLineCondition](#pearcontrolstructuresmultilinecondition)
@@ -587,6 +588,33 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
     <properties>
         <property name="ignoreIndentationTokens" type="array"
             value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+    </properties>
+</rule>
+```
+
+### Generic.WhiteSpace.SpreadOperatorSpacingAfter
+
+Property Name  | Type | Default | Available Since
+-------------- | ---- | ------- | ---------------
+spacing        | int  | 0       | 3.5.0
+ignoreNewlines | bool | false   | 3.5.0
+
+This sniff checks the spacing after a `...` operator. By default, the sniff ensures there is no space after the operator, but you can enforce a fixed number of spaces by setting the `spacing` property.
+
+```xml
+<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter">
+    <properties>
+        <property name="spacing" value="1" />
+    </properties>
+</rule>
+```
+
+If you want to allow a newline after the operator, you can set the `ignoreNewlines` property to `true`.
+
+```xml
+<rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter">
+    <properties>
+        <property name="ignoreNewlines" value="true" />
     </properties>
 </rule>
 ```
