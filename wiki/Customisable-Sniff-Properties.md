@@ -765,9 +765,10 @@ One of the rules that this sniff enforces is the indent of each function argumen
 
 ### PEAR.WhiteSpace.ObjectOperatorIndent
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.6
+Property Name | Type  | Default | Available Since
+------------  | ----- | ------- | ---------------
+indent        | int   | 4       | 1.4.6
+multilevel    | bool  | false   | 3.5.0
 
 One of the rules that this sniff enforces is the indent of each line in a multi-line object chain. By default, this sniff ensures that each line is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -775,6 +776,29 @@ One of the rules that this sniff enforces is the indent of each line in a multi-
 <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
     <properties>
         <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+Another common way of indenting multi-line object chains is to increase and decrease the indent by one level at a time to show balanced method calls, as shown in the following code snippet:
+
+```php
+$rootNode
+    ->children()
+        ->booleanNode('foo')
+            ->defaultTrue()
+        ->end()
+        ->scalarNode('bar')
+            ->defaultValue('default')
+        ->end()
+    ->end();
+```
+If you want to allow mutli-level indenting, set the `multilevel` property to `true`. This will allow each line to be indented 1 more or 1 less level than the previous line, while still ensuring that all lines are indented at least once.
+
+```xml
+<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
+    <properties>
+        <property name="multilevel" value="true" />
     </properties>
 </rule>
 ```
