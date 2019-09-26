@@ -59,8 +59,9 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
                 e.g., module/php,es/js
  <file>         One or more files and/or directories to check
  <fileList>     A file containing a list of files and/or directories to check (one per line)
- <filter>       Use the "gitmodified" filter, or specify the path to a custom filter class
- <generator>    Uses either the "HTML", "Markdown" or "Text" generator
+ <filter>       Use either the "gitmodified" or "gitstaged" filter,
+                or specify the path to a custom filter class
+ <generator>    Use either the "HTML", "Markdown" or "Text" generator
                 (forces documentation generation instead of checking)
  <patterns>     A comma separated list of patterns to ignore files and directories
  <processes>    How many files should be checked simultaneously (default is 1)
