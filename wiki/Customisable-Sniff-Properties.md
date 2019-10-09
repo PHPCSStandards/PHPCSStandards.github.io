@@ -1381,9 +1381,9 @@ spacingAfterLast   | int  | 2       | 3.3.0
 
 This sniff checks that there are two blank lines before and after functions declarations, but you can change the required padding using the `spacing`, `spacingBeforeFirst`, and `spacingAfterLast` properties.
 
-The `spacingBeforeFirst` property is used to determine how many blank lines are required before a function when it is the first block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if the function is preceded by member vars. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
+The `spacingBeforeFirst` property is used to determine how many blank lines are required before a function when it is the first block of code inside a statement group or control structure. This property is ignored when the function is outside one of these scopes, or if the function is preceded by member vars. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
 
-The `spacingAfterLast` property is used to determine how many blank lines are required after a function when it is the last block of code inside a class, interface, or trait. This property is ignored when the function is outside one of these scopes, or if any member vars are placed after the function. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
+The `spacingAfterLast` property is used to determine how many blank lines are required after a function when it is the last block of code inside a statement group or control structure. This property is ignored when the function is outside one of these scopes, or if any member vars are placed after the function. If this property has not been set, the sniff will use whatever value has been set for the `spacing` property.
 
 The `spacing` property applies in all other cases.
 
