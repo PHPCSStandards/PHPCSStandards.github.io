@@ -101,12 +101,14 @@ The following sample file documents the ruleset.xml format and shows you the com
     If your helper classes need custom autoloading rules that you are
     not able to include in other ways, you can hard-code files to include
     before the ruleset is processed and any sniff classes have been loaded.
+    Note that autoload file paths are relative to the ruleset's location.
 
     This is different to bootstrap files, which are loaded after the ruleset
     has already been processed.
  -->
  <autoload>/path/to/autoload.php</autoload>
  <autoload>/path/to/other/autoload.php</autoload>
+ <autoload>./autoload.php</autoload>
 
  <!--
     Include all sniffs in the PEAR standard. Note that the
