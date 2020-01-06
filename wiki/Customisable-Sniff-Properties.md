@@ -40,6 +40,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [PSR2.Methods.FunctionCallSignature](#psr2methodsfunctioncallsignature)
 * PSR12 Sniffs
     * [PSR12.Classes.AnonClassDeclaration](#psr12classesanonclassdeclaration)
+    * [PSR12.ControlStructures.BooleanOperatorPlacement](#psr12controlstructuresbooleanoperatorplacement)
     * [PSR12.ControlStructures.ControlStructureSpacing](#psr12controlstructurescontrolstructurespacing)
     * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
     * [PSR12.Operators.OperatorSpacing](#psr12operatorsoperatorspacing)
@@ -949,6 +950,22 @@ This sniff checks the indent of a list of implemented or extended class names th
 <rule ref="PSR12.Classes.AnonClassDeclaration">
     <properties>
         <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+### PSR12.ControlStructures.BooleanOperatorPlacement
+
+Property Name | Type | Default | Available Since
+------------  | ---- | ------- | ---------------
+allowOnly     | bool | null    | 3.5.4
+
+This sniff ensures that boolean operators inside control structure conditions either all appear at the beginning of a line, or the end of a line, but not a mix of both. If you prefer to explicitly define where boolean operators should appear, you can set the `allowOnly` property to either `first` or `last` to ensure that boolean operators are always the first or last content of a line.
+
+```xml
+<rule ref="PSR12.ControlStructures.BooleanOperatorPlacement">
+    <properties>
+        <property name="allowOnly" value="first" />
     </properties>
 </rule>
 ```
