@@ -1141,6 +1141,7 @@ Property Name             | Type | Default | Available Since
 ------------------------- | ---- | ------- | ---------------
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
+ignoreNewlines            | bool | false   | 3.5.4
 
 This sniff checks that `for` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -1165,6 +1166,16 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
     <properties>
         <property name="requiredSpacesAfterOpen" value="1" />
         <property name="requiredSpacesBeforeClose" value="1" />
+    </properties>
+</rule>
+```
+
+Sometimes long control structures are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters before, after, and between each of the three bracketed statements.
+
+```xml
+<rule ref="Squiz.ControlStructures.ForLoopDeclaration">
+    <properties>
+        <property name="ignoreNewlines" value="true" />
     </properties>
 </rule>
 ```
