@@ -307,7 +307,7 @@ To include authors with no violations, use the `-v` command line argument.
 **Note:** You need to make sure the location of the `git` command is in your path. If the command is not in your path, the report will fail to generate.
 
 ## Printing a JSON Report
-PHP_CodeSniffer can output an JOSN report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
+PHP_CodeSniffer can output an JSON report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
 
     $ phpcs --report=json /path/to/code
     
