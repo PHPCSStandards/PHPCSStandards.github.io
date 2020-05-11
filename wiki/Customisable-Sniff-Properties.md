@@ -208,10 +208,10 @@ If the `ignoreComments` property is set to `true`, comments at the end of a line
 
 ### Generic.Formatting.MultipleStatementAlignment
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-maxPadding    | int  | 1000    | -
-error         | bool | false   | -
+Property Name | Type | Default | Available Since | Removed In
+------------- | ---- | ------- | --------------- | ----------
+maxPadding    | int  | 1000    | -               |
+error         | bool | false   | -               | 4.0.0
 
 This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the equals signs of each assignment are aligned.
 
@@ -471,10 +471,10 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Generic.Strings.UnnecessaryStringConcat
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-allowMultiline | bool | false   | 2.3.4
-error          | bool | true    | -
+Property Name  | Type | Default | Available Since | Removed In
+-------------- | ---- | ------- | --------------- | ----------
+allowMultiline | bool | false   | 2.3.4           |
+error          | bool | true    | -               | 4.0.0
 
 This sniff checks that two strings using the same quoting style are not concatenated. Sometimes long strings are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `allowMultiline` property to `true` will get the sniff to allow string concatenation if the string covers multiple lines.
 
