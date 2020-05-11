@@ -229,6 +229,20 @@ The following sample file documents the ruleset.xml format and shows you the com
  </rule>
 
  <!--
+    Or change the type of all messages produced by
+    a sniff, category, or standard.
+ -->
+ <rule ref="Generic.Formatting.MultipleStatementAlignment">
+  <type>error</type>
+ </rule>
+ <rule ref="Squiz.Strings">
+  <type>warning</type>
+ </rule>
+ <rule ref="PSR12">
+  <type>warning</type>
+ </rule>
+
+ <!--
     Here we change two messages from the same sniff. Note how the
     codes are slightly different because the sniff developer has
     defined both a MaxExceeded message and a TooLong message. In the
@@ -279,7 +293,6 @@ The following sample file documents the ruleset.xml format and shows you the com
   <properties>
    <property name="maxPadding" value="8"/>
    <property name="ignoreMultiLine" value="true"/>
-   <property name="error" value="true"/>
   </properties>
  </rule>
  
