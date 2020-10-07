@@ -1186,7 +1186,7 @@ Property Name | Type | Default | Available Since
 ------------  | ---- | ------- | ---------------
 indent        | int  | 4       | 1.4.7
 
-Two of the rules that this sniff enforces are the indent of `case` and `default` keywords, and the indent of the case terminating statement. By default, this sniff ensures that the keywords are indented 4 spaces from the `switch` keyword and that the terminating statement is indented 4 spaces from the `case` or `default` keyword, but you can change the size of the indent by setting the `indent` property.
+Two of the rules that this sniff enforces are the indent of `case` and `default` keywords, and the indent of the case terminating statement. By default, this sniff ensures that the keywords and terminating statement are indented 4 spaces from the `switch` keyword, but you can change the size of the indent by setting the `indent` property.
 
 ```xml
 <rule ref="Squiz.ControlStructures.SwitchDeclaration">
