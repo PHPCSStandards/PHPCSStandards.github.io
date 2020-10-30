@@ -25,6 +25,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent)
     * [Generic.WhiteSpace.SpreadOperatorSpacingAfter](#genericwhitespacespreadoperatorspacingafter)
 * PEAR Sniffs
+    * [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment)
     * [PEAR.ControlStructures.ControlSignature](#pearcontrolstructurescontrolsignature)
     * [PEAR.ControlStructures.MultiLineCondition](#pearcontrolstructuresmultilinecondition)
     * [PEAR.Formatting.MultiLineAssignment](#pearformattingmultilineassignment)
@@ -46,6 +47,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [PSR12.Operators.OperatorSpacing](#psr12operatorsoperatorspacing)
 * Squiz Sniffs
     * [Squiz.Classes.ClassDeclaration](#squizclassesclassdeclaration)
+    * [Squiz.Commenting.FunctionComment](#squizcommentingfunctioncomment)
     * [Squiz.Commenting.LongConditionClosingComment](#squizcommentinglongconditionclosingcomment)
     * [Squiz.ControlStructures.ControlSignature](#squizcontrolstructurescontrolsignature)
     * [Squiz.ControlStructures.ForEachLoopDeclaration](#squizcontrolstructuresforeachloopdeclaration)
@@ -625,6 +627,24 @@ If you want to allow a newline after the operator, you can set the `ignoreNewlin
 
 ## PEAR Sniffs
 
+### PEAR.Commenting.FunctionComment
+
+Property Name     | Type   | Default | Available Since
+----------------- | ------ | ------- | --------------
+minimumVisibility | string | private | 3.6.0
+
+This sniff verifies that functions are documented using a docblock. By default, all functions are checked regardless of their visibility, but the sniff can be told to ignore private and protected functions using the `minimumVisibility` property. When set to `protected`, only public and protected functions will be checked. When set to `public`, only public functions will be checked.
+
+```xml
+<rule ref="PEAR.Commenting.FunctionComment">
+    <properties>
+        <property name="minimumVisibility" value="public" />
+    </properties>
+</rule>
+```
+
+## PEAR Sniffs
+
 ### PEAR.ControlStructures.ControlSignature
 
 Property Name  | Type | Default | Available Since
@@ -1033,6 +1053,24 @@ One of the rules that this sniff enforces is the indent of a list of implemented
 <rule ref="Squiz.Classes.ClassDeclaration">
     <properties>
         <property name="indent" value="2" />
+    </properties>
+</rule>
+```
+
+### Squiz.Commenting.FunctionComment
+
+Property Name     | Type   | Default | Available Since
+----------------- | ------ | ------- | --------------
+minimumVisibility | string | private | 3.6.0
+
+> Note: The `minimumVisibility` property is inherited from the [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment) sniff.
+
+This sniff verifies that functions are documented using a docblock. By default, all functions are checked regardless of their visibility, but the sniff can be told to ignore private and protected functions using the `minimumVisibility` property. When set to `protected`, only public and protected functions will be checked. When set to `public`, only public functions will be checked.
+
+```xml
+<rule ref="Squiz.Commenting.FunctionComment">
+    <properties>
+        <property name="minimumVisibility" value="public" />
     </properties>
 </rule>
 ```
