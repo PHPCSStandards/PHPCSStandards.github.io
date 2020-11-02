@@ -212,12 +212,35 @@ If the `ignoreComments` property is set to `true`, comments at the end of a line
 
 Property Name | Type | Default | Available Since | Removed In
 ------------- | ---- | ------- | --------------- | ----------
-maxPadding    | int  | 1000    | -               |
+alignAtEnd    | bool | true    | 3.6.0           |
 error         | bool | false   | -               | 4.0.0
+maxPadding    | int  | 1000    | -               |
 
-This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the equals signs of each assignment are aligned.
+This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the assignment operators of each assignment are aligned. By default, the sniff enforces that the end of the assignment operators are aligned, ensuring that the assigned values are aligned. This formats code like this:
 
-The difference in alignment between two adjacent assignments is occasionally quite large, so aligning equals signs would create extremely long lines. By setting the `maxPadding` property, you can configure the maximum amount of padding required to align the assignment with the surrounding assignments before the alignment is ignored and no warnings will be generated.
+```php
+$foo  = 'foo';
+$foo .= 'bar';
+```
+
+If you prefer the start of the assignment tokens to be aligned, you can set the `alignAtEnd` sniff property to `false`.
+
+```xml
+<rule ref="Generic.Formatting.MultipleStatementAlignment">
+    <properties>
+        <property name="alignAtEnd" value="false" />
+    </properties>
+</rule>
+```
+
+Code will now be formatted like this:
+
+```php
+$foo = 'foo';
+$foo .= 'bar';
+```
+
+The difference in alignment between two adjacent assignments is occasionally quite large, so aligning assignment operators would create extremely long lines. By setting the `maxPadding` property, you can configure the maximum amount of padding required to align the assignment with the surrounding assignments before the alignment is ignored and no warnings will be generated.
 
 ```xml
 <rule ref="Generic.Formatting.MultipleStatementAlignment">
