@@ -121,8 +121,14 @@ There are two configurable options:
 ```xml
 <rule ref="Generic.Debug.ClosureLinter">
     <properties>
-        <property name="errorCodes" type="array" value="0210"/>
-        <property name="ignoreCodes" type="array" value="0001,0110,0240"/>
+        <property name="errorCodes" type="array">
+            <element value="0210"/>
+        </property>
+        <property name="ignoreCodes" type="array">
+            <element value="0001"/>
+            <element value="0110"/>
+            <element value="0240"/>
+        </property>
     </properties>
 </rule>
 ```
@@ -462,8 +468,10 @@ This sniff discourages the use of alias functions that are kept in PHP for compa
 ```xml
 <rule ref="Generic.PHP.ForbiddenFunctions">
     <properties>
-        <property name="forbiddenFunctions" type="array"
-            value="print=>echo,create_function=>null" />
+        <property name="forbiddenFunctions" type="array">
+            <element key="print" value="echo"/>
+            <element key="create_function" value="null"/>
+        </property>
      </properties>
 </rule>
 ```
@@ -612,8 +620,10 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 ```xml
 <rule ref="Generic.WhiteSpace.ScopeIndent">
     <properties>
-        <property name="ignoreIndentationTokens" type="array"
-            value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+        <property name="ignoreIndentationTokens" type="array">
+            <element value="T_COMMENT"/>
+            <element value="T_DOC_COMMENT_OPEN_TAG"/>
+        </property>
     </properties>
 </rule>
 ```
@@ -884,8 +894,10 @@ See the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff fo
     <properties>
         <property name="exact" value="true" />
         <property name="tabIndent" value="true" />
-        <property name="ignoreIndentationTokens" type="array"
-            value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
+        <property name="ignoreIndentationTokens" type="array">
+            <element value="T_COMMENT"/>
+            <element value="T_DOC_COMMENT_OPEN_TAG"/>
+        </property>
     </properties>
 </rule>
 ```
