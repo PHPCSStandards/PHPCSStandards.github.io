@@ -5,6 +5,7 @@ For more information about changing sniff behaviour by customising your ruleset,
 ## Table of contents
 * Generic Sniffs
     * [Generic.Arrays.ArrayIndent](#genericarraysarrayindent)
+    * [Generic.CodeAnalysis.UnusedFunctionParameter](#genericcodeanalysisunusedfunctionparameter)
     * [Generic.ControlStructures.InlineControlStructure](#genericcontrolstructuresinlinecontrolstructure)
     * [Generic.Debug.ClosureLinter](#genericdebugclosurelinter)
     * [Generic.Debug.ESLint](#genericdebugeslint)
@@ -87,6 +88,33 @@ One of the rules that this sniff enforces is the indent of keys in a multi-line 
 </rule>
 ```
 
+### Generic.CodeAnalysis.UnusedFunctionParameter
+
+Property Name   | Type  | Default | Available Since
+--------------- | ----- | ------- | ---------------
+ignoreTypeHints | array | []      | 3.6.0
+
+This sniff ensures that parameters passed to a function are used within that function, and warns if they are not. Sometimes, parameters can be left unused when doing something like implementing an interface, such as with the following code:
+
+```php
+public function execute(InputInterface $input, OutputInterface $output): int
+{
+    $output->writeln('Hello World!');
+}
+```
+
+If the `InputInterface` parameter does not need to be used, you can tell the sniff to ignore all variables with that type hint by setting the `ignoreTypeHints` property.
+
+```xml
+<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+    <properties>
+         <property name="ignoreTypeHints" type="array">
+            <element value="InputInterface"/>
+        </property>
+    </properties>
+</rule>
+```
+
 ### Generic.ControlStructures.InlineControlStructure
 
 Property Name | Type | Default | Available Since
@@ -107,8 +135,8 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 Property Name | Type  | Default | Available Since
 ------------- | ----- | ------- | ---------------
-errorCodes    | array | -       | -
-ignoreCodes   | array | -       | -
+errorCodes    | array | []      | -
+ignoreCodes   | array | []      | -
 
 The `Generic.Debug.ClosureLinter` sniff runs the [Google Closure Linter](https://github.com/google/closure-linter) tool over JavaScript files and reports errors that the tool finds. All found errors are reported as PHP_CodeSniffer warnings by default.
 
@@ -458,10 +486,10 @@ Strictly speaking, a name cannot have two capital letters next to each other in 
 
 ### Generic.PHP.ForbiddenFunctions
 
-Property Name      | Type  | Default                     | Available Since
--------------------| ----- | --------------------------- | ---------------
-forbiddenFunctions | array | sizeof=>count,delete=>unset | 2.0.0
-error              | bool  | true                        | -
+Property Name      | Type  | Default                       | Available Since
+-------------------| ----- | ----------------------------- | ---------------
+forbiddenFunctions | array | [sizeof=>count,delete=>unset] | 2.0.0
+error              | bool  | true                          | -
 
 This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alternative function exists (i.e., the function should never be used) specify `null` as the value.
 
@@ -575,7 +603,7 @@ Property Name           | Type  | Default | Available Since
 indent                  | int   | 4       | -
 exact                   | bool  | false   | -
 tabIndent               | bool  | false   | 2.0.0
-ignoreIndentationTokens | array | -       | 1.4.8
+ignoreIndentationTokens | array | []      | 1.4.8
 
 This sniff checks that code blocks are indented correctly. By default, this sniff ensures that code blocks are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -880,7 +908,7 @@ Property Name           | Type  | Default | Available Since
 indent                  | int   | 4       | -
 exact                   | bool  | false   | -
 tabIndent               | bool  | false   | 2.0.0
-ignoreIndentationTokens | array | -       | 1.4.8
+ignoreIndentationTokens | array | []      | 1.4.8
 
 > Note: All properties are inherited from the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff.
 
