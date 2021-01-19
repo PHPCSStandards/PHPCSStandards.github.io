@@ -1124,6 +1124,7 @@ One of the rules that this sniff enforces is the indent of a list of implemented
 
 Property Name     | Type   | Default | Available Since
 ----------------- | ------ | ------- | --------------
+skipIfInheritdoc  | bool   | false   | 3.6.0
 minimumVisibility | string | private | 3.6.0
 
 > Note: The `minimumVisibility` property is inherited from the [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment) sniff.
@@ -1136,6 +1137,25 @@ This sniff verifies that functions are documented using a docblock. By default, 
         <property name="minimumVisibility" value="public" />
     </properties>
 </rule>
+```
+
+If you make use of the `@inheritdoc` tag to inherit the parent function's entire docblock, the sniff will continue to report errors about missing tags unless you set the `skipIfInheritdoc` property to `true`.
+
+```xml
+<rule ref="Squiz.Commenting.FunctionComment">
+    <properties>
+        <property name="skipIfInheritdoc" value="true" />
+    </properties>
+</rule>
+```
+
+Doing this will cause the sniff to skip the checking of function comments that contain only the content `{@inheritdoc}`, such as:
+
+```php
+/**
+ * {@inheritDoc}
+ */
+public function foo($a, $b) {}
 ```
 
 ### Squiz.Commenting.LongConditionClosingComment
