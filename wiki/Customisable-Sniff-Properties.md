@@ -199,9 +199,9 @@ This sniff ensures that files use a specific line ending, which can be customise
 
 Property Name     | Type  | Default | Available Since
 ----------------- | ----  | ------- | ---------------
-lineLimit         | int   | 80      | -
 absoluteLineLimit | int   | 100     | -
 ignoreComments    | bool  | false   | 3.1.0
+lineLimit         | int   | 80      | -
 
 This sniff checks all lines in a file and generates warnings if they are over `lineLimit` characters in length and errors if they are over `absoluteLineLimit` in length. These properties can be used to set the threshold at which errors are reported.
 
@@ -298,8 +298,8 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-spacing        | int  | 1       | 3.4.0
 ignoreNewlines | bool | false   | 3.4.0
+spacing        | int  | 1       | 3.4.0
 
 This sniff checks the spacing after a type cast. By default, the sniff ensures there is one space after the cast, as shown in the following code snippet:
 
@@ -337,8 +337,8 @@ Sometimes complex statements are broken over multiple lines for readability. By 
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-spacing        | int  | 1       | 3.4.0
 ignoreNewlines | bool | false   | 3.4.0
+spacing        | int  | 1       | 3.4.0
 
 This sniff checks the spacing after a `!` operator. By default, the sniff ensures there is one space after the operator, as shown in the following code snippet:
 
@@ -386,8 +386,8 @@ By default, this sniff will generate an error if the `!` operator is followed by
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-checkFunctions | bool | true    | 2.3.0
 checkClosures  | bool | false   | 2.3.0
+checkFunctions | bool | true    | 2.3.0
 
 The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
 
@@ -405,8 +405,8 @@ The sniff checks the position of the opening brace of a function and/or closure 
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-checkFunctions | bool | true    | 2.3.0
 checkClosures  | bool | false   | 2.3.0
+checkFunctions | bool | true    | 2.3.0
 
 The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
 
@@ -424,8 +424,8 @@ The sniff checks the position of the opening brace of a function and/or closure 
 
 Property Name      | Type | Default | Available Since
 ------------------ | ---- | ------- | ---------------
-complexity         | int  | 10      | -
 absoluteComplexity | int  | 20      | -
+complexity         | int  | 10      | -
 
 This sniff checks the cyclomatic complexity for functions by counting the different paths the function includes.
 
@@ -448,8 +448,8 @@ There are two configurable options:
 
 Property Name        | Type | Default | Available Since
 -------------------- | ---- | ------- | ---------------
-nestingLevel         | int  | 5       | -
 absoluteNestingLevel | int  | 10      | -
+nestingLevel         | int  | 5       | -
 
 This sniff checks how many level deep that code is nested within a function.
 
@@ -488,8 +488,8 @@ Strictly speaking, a name cannot have two capital letters next to each other in 
 
 Property Name      | Type  | Default                       | Available Since
 -------------------| ----- | ----------------------------- | ---------------
-forbiddenFunctions | array | [sizeof=>count,delete=>unset] | 2.0.0
 error              | bool  | true                          | -
+forbiddenFunctions | array | [sizeof=>count,delete=>unset] | 2.0.0
 
 This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alternative function exists (i.e., the function should never be used) specify `null` as the value.
 
@@ -561,8 +561,8 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-spacing        | int  | 0       | 3.3.0
 ignoreNewlines | bool | false   | 3.3.0
+spacing        | int  | 0       | 3.3.0
 
 This sniff checks the padding inside parenthesis that are not being used by function declarations, function calls, or control structures. By default, the sniff ensures there are zero spaces inside the parenthesis, as shown in the following code snippet:
 
@@ -600,10 +600,10 @@ Sometimes long statements are broken over multiple lines to work within a maximu
 
 Property Name           | Type  | Default | Available Since
 ----------------------- | ----- | ------- | ---------------
-indent                  | int   | 4       | -
 exact                   | bool  | false   | -
-tabIndent               | bool  | false   | 2.0.0
 ignoreIndentationTokens | array | []      | 1.4.8
+indent                  | int   | 4       | -
+tabIndent               | bool  | false   | 2.0.0
 
 This sniff checks that code blocks are indented correctly. By default, this sniff ensures that code blocks are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -660,8 +660,8 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-spacing        | int  | 0       | 3.5.0
 ignoreNewlines | bool | false   | 3.5.0
+spacing        | int  | 0       | 3.5.0
 
 This sniff checks the spacing after a `...` operator. By default, the sniff ensures there is no space after the operator, but you can enforce a fixed number of spaces by setting the `spacing` property.
 
@@ -690,9 +690,10 @@ If you want to allow a newline after the operator, you can set the `ignoreNewlin
 
 ### PEAR.Commenting.FunctionComment
 
-Property Name     | Type   | Default | Available Since
------------------ | ------ | ------- | --------------
-minimumVisibility | string | private | 3.6.0
+Property Name     | Type   | Default                  | Available Since
+----------------- | ------ | ------------------------ | --------------
+minimumVisibility | string | private                  | 3.6.0
+specialMethods    | array  | [__construct,__destruct] | 3.6.0
 
 This sniff verifies that functions are documented using a docblock. By default, all functions are checked regardless of their visibility, but the sniff can be told to ignore private and protected functions using the `minimumVisibility` property. When set to `protected`, only public and protected functions will be checked. When set to `public`, only public functions will be checked.
 
@@ -704,7 +705,19 @@ This sniff verifies that functions are documented using a docblock. By default, 
 </rule>
 ```
 
-## PEAR Sniffs
+This sniff also enforces that function docblocks contain a `@return` tag, except for special methods. By default, the `__construct` and `__destruct` methods do not need to specify a return type, but the sniff can be told to not require a return type for other methods by setting the `specialMethods` sniff property.
+
+```xml
+<rule ref="PEAR.Commenting.FunctionComment">
+    <properties>
+        <property name="specialMethods" type="array">
+            <element value="__construct"/>
+            <element value="__destruct"/>
+            <element value="ignoreThisFunction"/>
+        </property>
+    </properties>
+</rule>
+```
 
 ### PEAR.ControlStructures.ControlSignature
 
@@ -760,8 +773,8 @@ One of the rules that this sniff enforces is the indent of an assignment that ha
 
 Property Name             | Type | Default | Available Since
 ------------------------- | ---- | ------- | ---------------
-indent                    | int  | 4       | 1.3.4
 allowMultipleArguments    | bool | true    | 1.3.6
+indent                    | int  | 4       | 1.3.4
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
@@ -905,10 +918,10 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 
 Property Name           | Type  | Default | Available Since
 ----------------------- | ----- | ------- | ---------------
-indent                  | int   | 4       | -
 exact                   | bool  | false   | -
-tabIndent               | bool  | false   | 2.0.0
 ignoreIndentationTokens | array | []      | 1.4.8
+indent                  | int   | 4       | -
+tabIndent               | bool  | false   | 2.0.0
 
 > Note: All properties are inherited from the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff.
 
@@ -1005,8 +1018,8 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 
 Property Name             | Type | Default | Available Since
 ------------------------- | ---- | ------- | ---------------
-indent                    | int  | 4       | 1.3.4
 allowMultipleArguments    | bool | false   | 1.4.7
+indent                    | int  | 4       | 1.3.4
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
@@ -1122,12 +1135,13 @@ One of the rules that this sniff enforces is the indent of a list of implemented
 
 ### Squiz.Commenting.FunctionComment
 
-Property Name     | Type   | Default | Available Since
------------------ | ------ | ------- | --------------
-skipIfInheritdoc  | bool   | false   | 3.6.0
-minimumVisibility | string | private | 3.6.0
+Property Name     | Type   | Default                  | Available Since
+----------------- | ------ | ------------------------ | --------------
+minimumVisibility | string | private                  | 3.6.0
+skipIfInheritdoc  | bool   | false                    | 3.6.0
+specialMethods    | array  | [__construct,__destruct] | 3.6.0
 
-> Note: The `minimumVisibility` property is inherited from the [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment) sniff.
+> Note: The `minimumVisibility` and `specialMethods` properties are inherited from the [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment) sniff.
 
 This sniff verifies that functions are documented using a docblock. By default, all functions are checked regardless of their visibility, but the sniff can be told to ignore private and protected functions using the `minimumVisibility` property. When set to `protected`, only public and protected functions will be checked. When set to `public`, only public functions will be checked.
 
@@ -1135,6 +1149,20 @@ This sniff verifies that functions are documented using a docblock. By default, 
 <rule ref="Squiz.Commenting.FunctionComment">
     <properties>
         <property name="minimumVisibility" value="public" />
+    </properties>
+</rule>
+```
+
+This sniff also enforces that function docblocks contain a `@return` tag, except for special methods. By default, the `__construct` and `__destruct` methods do not need to specify a return type, but the sniff can be told to not require a return type for other methods by setting the `specialMethods` sniff property.
+
+```xml
+<rule ref="Squiz.Commenting.FunctionComment">
+    <properties>
+        <property name="specialMethods" type="array">
+            <element value="__construct"/>
+            <element value="__destruct"/>
+            <element value="ignoreThisFunction"/>
+        </property>
     </properties>
 </rule>
 ```
@@ -1162,8 +1190,8 @@ public function foo($a, $b) {}
 
 Property Name | Type   | Default  | Available Since
 ------------- | ------ | -------- | ---------------
-lineLimit     | int    | 20       | 2.7.0
 commentFormat | string | //end %s | 2.7.0
+lineLimit     | int    | 20       | 2.7.0
 
 This sniff checks that long blocks of code have a closing comment. The `lineLimit` property allows you to configure the numbers of lines that the code block must span before requiring a comment. By default, the code block must be at least 20 lines long, including the opening and closing lines, but you can change the required length by setting the `lineLimit` property.
 
@@ -1260,9 +1288,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 
 Property Name             | Type | Default | Available Since
 ------------------------- | ---- | ------- | ---------------
+ignoreNewlines            | bool | false   | 3.5.4
 requiredSpacesAfterOpen   | int  | 0       | 1.5.2
 requiredSpacesBeforeClose | int  | 0       | 1.5.2
-ignoreNewlines            | bool | false   | 3.5.4
 
 This sniff checks that `for` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -1485,8 +1513,8 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 Property Name  | Type | Default | Available Since
 -------------- | ---- | ------- | ---------------
-spacing        | int  | 0       | 2.0.0
 ignoreNewlines | bool | false   | 2.3.1
+spacing        | int  | 0       | 2.0.0
 
 One of the rules this sniff enforces is the padding around concatenation operators. By default, the sniff ensures there are zero spaces before and after the concatenation operator, as shown in the following code snippet:
 
@@ -1525,8 +1553,8 @@ Sometimes long concatenation statements are broken over multiple lines to work w
 Property Name      | Type | Default | Available Since
 ------------------ | ---- | ------- | ---------------
 spacing            | int  | 2       | 1.4.5
-spacingBeforeFirst | int  | 2       | 3.3.0
 spacingAfterLast   | int  | 2       | 3.3.0
+spacingBeforeFirst | int  | 2       | 3.3.0
 
 This sniff checks that there are two blank lines before and after functions declarations, but you can change the required padding using the `spacing`, `spacingBeforeFirst`, and `spacingAfterLast` properties.
 
