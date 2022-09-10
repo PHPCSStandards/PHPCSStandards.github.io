@@ -103,7 +103,7 @@ bar($foo,false);
 
 > Note: Selective disabling and re-enabling of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
-You can also ignore a single line using the `phpcs:ignore` comment. This comment will ignore the line that the comment is on, and the following line. It is typically used like this:
+You can also ignore a single line using the `phpcs:ignore` comment. If placed on a line by itself, this comment will ignore the line that the comment is on and the following line. It is typically used like this:
 
 ```php
 // phpcs:ignore
@@ -111,7 +111,7 @@ $foo = [1,2,3];
 bar($foo, false);
 ```
 
-Or like this:
+Or if the comment is placed on a line that also contains code, only that line will be ignored:
 
 ```php
 $foo = [1,2,3]; // phpcs:ignore
