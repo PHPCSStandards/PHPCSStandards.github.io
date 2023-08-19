@@ -59,7 +59,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
                 e.g., module/php,es/js
  <file>         One or more files and/or directories to check
  <fileList>     A file containing a list of files and/or directories to check (one per line)
- <filter>       Use either the "gitmodified" or "gitstaged" filter,
+ <filter>       Use either the "GitModified" or "GitStaged" filter,
                 or specify the path to a custom filter class
  <generator>    Use either the "HTML", "Markdown" or "Text" generator
                 (forces documentation generation instead of checking)
