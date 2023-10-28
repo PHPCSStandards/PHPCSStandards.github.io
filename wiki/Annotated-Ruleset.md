@@ -198,7 +198,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     Here we are including a specific sniff but also changing
     the error message of a specific message inside the sniff.
     Note that the specific code for the message, which is
-    CommentFound in this case, is defined by the sniff developer.
+    TaskFound in this case, is defined by the sniff developer.
     You can display these codes by using the -s command line
     argument when checking a file.
 
@@ -212,7 +212,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     command line. This is great if you want to use some messages
     only in code reviews and not have them block code commits.
  -->
- <rule ref="Generic.Commenting.Todo.CommentFound">
+ <rule ref="Generic.Commenting.Todo.TaskFound">
   <message>Please review this TODO comment: %s</message>
   <severity>3</severity>
  </rule>
