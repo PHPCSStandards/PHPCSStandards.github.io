@@ -67,8 +67,8 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  <processes>    How many files should be checked simultaneously (default is 1)
  <report>       Print either the "full", "xml", "checkstyle", "csv"
                 "json", "junit", "emacs", "source", "summary", "diff"
-                "svnblame", "gitblame", "hgblame" or "notifysend" report,
-                or specify the path to a custom report class
+                "svnblame", "gitblame", "hgblame", "notifysend" or "performance"
+                report, or specify the path to a custom report class
                 (the "full" report is printed by default)
  <reportFile>   Write the report to the specified file path
  <reportWidth>  How many columns wide screen reports should be printed

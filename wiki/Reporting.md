@@ -12,6 +12,7 @@
     * [JSON](#printing-a-json-report)
     * [JUnit](#printing-a-junit-report)
     * Notify-Send
+    * [Performance](#printing-a-performance-report)
     * [Source](#printing-a-source-report)
     * [SVN Blame](#printing-an-svn-blame-report)
     * [XML](#printing-an-xml-report)
@@ -437,6 +438,47 @@ PHP_CodeSniffer can output an XML report similar to the one produced by JUnit, a
      <testcase name="/path/to/code/classB.php"/>
     </testsuite>
     </testsuites>
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
+## Printing a Performance Report
+PHP_CodeSniffer can output a sniff performance report showing you which sniffs in the standard you use are _slowest_. This can be useful information to examine when a PHP_CodeSniffer run takes a long time to finish and will provide you with insights to share with the developers of the sniffs you use.
+
+When the `--colors` option is enabled, sniffs which take more than twice the average run time per sniff will be displayed in orange and sniffs with a cumulative listener run time of more than three times the average run time per sniff will display in red.
+
+> [!NOTE]
+> Enabling the performance report, in and of itself will make a PHP_CodeSniffer run slower. This is nothing to worry about as the exact time taken for each sniff isn't that relevant, it's the relative time taken _in comparison to other sniffs_ which is the interesting part.
+
+> [!NOTE]
+> A sniff being "slow" can be due to the complexity of the sniff, in which case, this is to be expected.
+> Also keep in mind that the sniff run-time will often be influenced by whether or not the sniff finds errors in your code.
+
+To print a performance report, use the `--report=performance` command line argument. The output will look like this:
+
+    $ phpcs --report=performance /path/to/code
+
+    PHP CODE SNIFFER SNIFF PERFORMANCE REPORT
+    --------------------------------------------------------------------------------
+    SNIFF                                                 TIME TAKEN (SECS)     (%)
+    --------------------------------------------------------------------------------
+    Generic.NamingConventions.UpperCaseConstantName               0.074654 ( 44.6 %)
+    PSR1.Files.SideEffects                                        0.028242 ( 16.9 %)
+    PSR1.Methods.CamelCapsMethodName                              0.027005 ( 16.2 %)
+    PSR1.Classes.ClassDeclaration                                 0.021653 ( 13.0 %)
+    Squiz.Classes.ValidClassName                                  0.010412 (  6.2 %)
+    Generic.PHP.DisallowAlternativePHPTags                        0.002662 (  1.6 %)
+    Generic.PHP.DisallowShortOpenTag                              0.002560 (  1.5 %)
+    Generic.Files.ByteOrderMark                                   0.000012 (  0.0 %)
+    --------------------------------------------------------------------------------
+    TOTAL SNIFF PROCESSING TIME                                   0.167201 (100.0 %)
+
+    --------------------------------------------------------------------------------
+    Time taken by sniffs                                          0.167201 (  1.2 %)
+    Time taken by PHPCS runner                                   13.336752 ( 98.8 %)
+    --------------------------------------------------------------------------------
+    TOTAL RUN TIME                                               13.503953 (100.0 %)
+    --------------------------------------------------------------------------------
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
