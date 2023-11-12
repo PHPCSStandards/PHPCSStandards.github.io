@@ -29,6 +29,9 @@ To check .php, .inc and .lib files:
 
     $ phpcs --extensions=php,inc,lib /path/to/code
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Ignoring Files and Folders
 Sometimes you want PHP_CodeSniffer to run over a very large number of files, but you want some files and folders to be skipped. The `--ignore` command line argument can be used to tell PHP_CodeSniffer to skip files and folders that match one or more patterns.
 
@@ -67,6 +70,9 @@ $xmlPackage->send();
 
 > [!NOTE]
 > The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Ignoring Parts of a File
 Some parts of your code may be unable to conform to your coding standard. For example, you might have to break your standard to integrate with an external library or web service. To stop PHP_CodeSniffer generating errors for this code, you can wrap it in special comments. PHP_CodeSniffer will then hide all errors and warnings that are generated for these lines of code.
@@ -153,6 +159,9 @@ bar($foo,false);
 > [!NOTE]
 > The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Limiting Results to Specific Sniffs
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
 
@@ -169,6 +178,9 @@ The following example will run all sniffs in the PEAR standard except for the tw
 
 > [!WARNING]
 > If you use both the `--sniffs` and `--exclude` command line arguments together, the `--exclude` list will be ignored.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Filtering Errors and Warnings Based on Severity
 By default, PHP_CodeSniffer assigns a severity of 5 to all errors and warnings. Standards may change the severity of some messages so they are hidden by default or even so that they are raised to indicate greater importance. PHP_CodeSniffer allows you to decide what the minimum severity level must be to show a message in its report using the `--severity` command line argument.
@@ -187,6 +199,9 @@ Setting the severity of warnings to `0` is the same as using the `-n` command li
 
 This feature is particularly useful during manual code reviews. During normal development, or an automated build, you may want to only check code formatting issues. But while during a code review, you may wish to show less severe errors and warnings that may need manual peer review.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Replacing Tabs with Spaces
 Most of the sniffs written for PHP_CodeSniffer do not support the usage of tabs for indentation and alignment. You can write your own sniffs that check for tabs instead of spaces, but you can also get PHP_CodeSniffer to convert your tabs into spaces before a file is checked. This allows you to use the existing space-based sniffs on your tab-based files.
 
@@ -197,15 +212,24 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 > [!NOTE]
 > The [included sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Specifying an Encoding
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument.
 
     $ phpcs --encoding=windows-1251 /path/to/code
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Using a Bootstrap File
 PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
 
     $ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Using a Default Configuration File
 If you run PHP_CodeSniffer without specifying a coding standard, PHP_CodeSniffer will look in the current directory, and all parent directories, for a file called either `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, or `phpcs.xml.dist`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
@@ -218,6 +242,9 @@ The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|
 > [!NOTE]
 > An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml.dist](https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xml.dist)
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Specifying php.ini Settings
 PHP_CodeSniffer allows you to set temporary php.ini settings during a run using the `-d` command line argument. The name of the php.ini setting must be specified on the command line, but the value is optional. If no value is set, the php.ini setting will be given a value of TRUE.
 
@@ -226,6 +253,9 @@ PHP_CodeSniffer allows you to set temporary php.ini settings during a run using 
 You can also specific multiple values:
 
     $ phpcs -d memory_limit=32M -d include_path=.:/php/includes /path/to/code
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Setting Configuration Options
 PHP_CodeSniffer has some configuration options that can be set. Individual coding standards may also require configuration options to be set before functionality can be used. [[View a full list of configuration options|Configuration Options]].
@@ -241,6 +271,9 @@ Configuration options are written to a global configuration file. If you want to
 > [!NOTE]
 > Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Deleting Configuration Options
 PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].
 
@@ -248,7 +281,9 @@ To delete a configuration option, use the `--config-delete` command line argumen
 
     $ phpcs --config-delete <option>
 
-   
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Viewing Configuration Options
 To view the currently set configuration options, use the `--config-show` command line argument.
 
@@ -258,6 +293,9 @@ To view the currently set configuration options, use the `--config-show` command
         [default_standard] => PEAR
         [zend_ca_path] => /path/to/ZendCodeAnalyzer
     )
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Printing Verbose Tokeniser Output
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
@@ -349,6 +387,9 @@ The level map output above shows the following pieces of information about the f
 
 The level map is most commonly used to determine indentation rules (e.g., a token 4 levels deep requires 16 spaces of indentation) or to determine if a particular token is within a particular scope (e.g., a function keyword is within a class scope, making it a method).
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Printing Verbose Token Processing Output
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
 
@@ -410,5 +451,10 @@ The other interesting piece of information we get from the output above is that 
 
 For example, the ScopeIndentSniff executes on the if statement's token only, but actually checks the indentation of every line within the if statement. The sniff uses the scope map to find all tokens within the if statement.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Quieting Output
 If a coding standard or configuration file includes settings to print progress or verbose output while running PHP_CodeSniffer, it can make it difficult to use the standard with automated checking tools and build scripts as these typically only expect an error report. If you have this problem, or just want less output, you can quieten the output of PHP_CodeSniffer by using the `-q` command line argument. When using this quiet mode, PHP_CodeSniffer will only print report output, and only if errors or warnings are found. No progress or verbose output will be printed.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

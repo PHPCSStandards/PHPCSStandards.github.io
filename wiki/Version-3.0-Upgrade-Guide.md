@@ -47,6 +47,9 @@ use PHP_CodeSniffer\Files\File;
 class TestSniff implements Sniff {}
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Extending Other Sniffs
 
 If your custom sniff extends another sniff, the class definition needs to change a bit more. Previously, a `class_exists()` call may have been used to autoload the sniff. Now, a `use` statement is used for autoloading, and the extended class name also changes.
@@ -70,6 +73,9 @@ use PHP_CodeSniffer\Files\File;
 
 class TestSniff extends OtherTestSniff {}
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Extending the Included Abstract Sniffs
 
@@ -112,6 +118,9 @@ protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
 {
 }
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### New Class Names
 
@@ -160,6 +169,9 @@ use PHP_CodeSniffer\Util\Common;
 class TestSniff implements Sniff {}
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Upgrading Unit Tests
 
 Internal namespace changes to core classes require changes to all unit test class definitions. The old definition looked like this:
@@ -195,6 +207,9 @@ public function setCliValues($testFile, $config)
 ```
 > [!NOTE]
 > A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Config.php#L42).
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Upgrading Custom Reports
 
@@ -269,6 +284,9 @@ public function generate(
     ...
 }
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Supporting Concurrency
 

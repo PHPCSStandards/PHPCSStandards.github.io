@@ -88,6 +88,9 @@ One of the rules that this sniff enforces is the indent of keys in a multi-line 
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.CodeAnalysis.UnusedFunctionParameter
 
 Property Name   | Type  | Default | Available Since
@@ -115,6 +118,9 @@ If the `InputInterface` parameter does not need to be used, you can tell the sni
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.ControlStructures.InlineControlStructure
 
 Property Name | Type | Default | Available Since
@@ -130,6 +136,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Debug.ClosureLinter
 
@@ -162,6 +171,9 @@ There are two configurable options:
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Debug.ESLint
 
 Property Name | Type   | Default | Available Since
@@ -180,6 +192,9 @@ The sniff will attempt to auto-discover an ESLint config file in the current dir
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Files.LineEndings
 
 Property Name | Type   | Default | Available Since
@@ -195,6 +210,9 @@ This sniff ensures that files use a specific line ending, which can be customise
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Files.LineLength
 
@@ -243,6 +261,9 @@ If the `ignoreComments` property is set to `true`, comments at the end of a line
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Formatting.MultipleStatementAlignment
 
@@ -296,6 +317,9 @@ If the `error` property is set to `true`, an error will be thrown for violations
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Formatting.SpaceAfterCast
 
 Property Name  | Type | Default | Available Since
@@ -334,6 +358,9 @@ Sometimes complex statements are broken over multiple lines for readability. By 
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Formatting.SpaceAfterNot
 
@@ -384,6 +411,9 @@ By default, this sniff will generate an error if the `!` operator is followed by
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Functions.OpeningFunctionBraceBsdAllman
 
 Property Name  | Type | Default | Available Since
@@ -403,6 +433,9 @@ The sniff checks the position of the opening brace of a function and/or closure 
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Functions.OpeningFunctionBraceKernighanRitchie
 
 Property Name  | Type | Default | Available Since
@@ -421,6 +454,9 @@ The sniff checks the position of the opening brace of a function and/or closure 
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Metrics.CyclomaticComplexity
 
@@ -447,6 +483,9 @@ There are two configurable options:
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.Metrics.NestingLevel
 
 Property Name        | Type | Default | Available Since
@@ -469,6 +508,9 @@ There are two configurable options:
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.NamingConventions.CamelCapsFunctionName
 
 Property Name | Type | Default | Available Since
@@ -486,6 +528,9 @@ Strictly speaking, a name cannot have two capital letters next to each other in 
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.PHP.ForbiddenFunctions
 
@@ -517,6 +562,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.PHP.NoSilencedErrors
 
 Property Name | Type | Default | Available Since
@@ -532,6 +580,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.Strings.UnnecessaryStringConcat
 
@@ -559,6 +610,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.WhiteSpace.ArbitraryParenthesesSpacing
 
@@ -598,6 +652,9 @@ Sometimes long statements are broken over multiple lines to work within a maximu
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Generic.WhiteSpace.ScopeIndent
 
@@ -661,6 +718,9 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Generic.WhiteSpace.SpreadOperatorSpacingAfter
 
 Property Name  | Type | Default | Available Since
@@ -688,7 +748,7 @@ If you want to allow a newline after the operator, you can set the `ignoreNewlin
 </rule>
 ```
 
-
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ## PEAR Sniffs
@@ -724,6 +784,9 @@ This sniff also enforces that function docblocks contain a `@return` tag, except
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PEAR.ControlStructures.ControlSignature
 
 Property Name  | Type | Default | Available Since
@@ -743,6 +806,9 @@ This sniff verifies that control structures match a specific pattern of whitespa
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PEAR.ControlStructures.MultiLineCondition
 
 Property Name | Type | Default | Available Since
@@ -759,6 +825,9 @@ One of the rules that this sniff enforces is the indent of a condition that has 
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PEAR.Formatting.MultiLineAssignment
 
 Property Name | Type | Default | Available Since
@@ -774,6 +843,9 @@ One of the rules that this sniff enforces is the indent of an assignment that ha
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### PEAR.Functions.FunctionCallSignature
 
@@ -848,6 +920,9 @@ By default, this sniff ensures that each line in a multi-line function call is i
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PEAR.Functions.FunctionDeclaration
 
 Property Name | Type | Default | Available Since
@@ -863,6 +938,9 @@ One of the rules that this sniff enforces is the indent of each function argumen
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### PEAR.WhiteSpace.ObjectOperatorIndent
 
@@ -904,6 +982,9 @@ If you want to allow mutli-level indenting, set the `multilevel` property to `tr
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PEAR.WhiteSpace.ScopeClosingBrace
 
 Property Name | Type | Default | Available Since
@@ -919,6 +1000,9 @@ One of the rules that this sniff enforces is the indent of the case terminating 
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### PEAR.WhiteSpace.ScopeIndent
 
@@ -950,6 +1034,7 @@ See the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff fo
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 
@@ -970,6 +1055,9 @@ One of the rules that this sniff enforces is the indent of a list of implemented
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### PSR2.ControlStructures.ControlStructureSpacing
 
@@ -1005,6 +1093,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PSR2.ControlStructures.SwitchDeclaration
 
 Property Name | Type | Default | Available Since
@@ -1021,6 +1112,9 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PSR2.Methods.FunctionCallSignature
 
 Property Name             | Type | Default | Available Since
@@ -1035,6 +1129,7 @@ requiredSpacesBeforeClose | int  | 0       | 1.5.2
 
 See the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignature) sniff for an explanation of all properties.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 
@@ -1059,6 +1154,9 @@ This sniff checks the indent of a list of implemented or extended class names th
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PSR12.ControlStructures.BooleanOperatorPlacement
 
 Property Name | Type | Default | Available Since
@@ -1074,6 +1172,9 @@ This sniff ensures that boolean operators inside control structure conditions ei
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### PSR12.ControlStructures.ControlStructureSpacing
 
@@ -1091,6 +1192,9 @@ One of the rules that this sniff enforces is the indent of each condition in a c
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PSR12.Namespaces.CompoundNamespaceDepth
 
 Property Name | Type | Default | Available Since
@@ -1107,6 +1211,9 @@ This sniff checks the depth of imported namespaces inside compound use statement
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### PSR12.Operators.OperatorSpacing
 
 Property Name                  | Type | Default | Available Since
@@ -1119,7 +1226,7 @@ ignoreSpacingBeforeAssignments | bool | true    | 3.5.0
 
 See the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) sniff for an explanation of all properties.
 
-
+<p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 
@@ -1143,6 +1250,9 @@ One of the rules that this sniff enforces is the indent of a list of implemented
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.Commenting.FunctionComment
 
@@ -1198,6 +1308,9 @@ Doing this will cause the sniff to skip the checking of function comments that c
 public function foo($a, $b) {}
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.Commenting.LongConditionClosingComment
 
 Property Name | Type   | Default  | Available Since
@@ -1225,6 +1338,9 @@ When a closing comment is required, the format defaults to `//end %s`, where the
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.ControlStructures.ControlSignature
 
@@ -1262,6 +1378,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesBefor
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.ControlStructures.ForEachLoopDeclaration
 
 Property Name             | Type | Default | Available Since
@@ -1295,6 +1414,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.ControlStructures.ForLoopDeclaration
 
@@ -1341,6 +1463,9 @@ Sometimes long control structures are broken over multiple lines to work within 
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.ControlStructures.SwitchDeclaration
 
 Property Name | Type | Default | Available Since
@@ -1356,6 +1481,9 @@ Two of the rules that this sniff enforces are the indent of `case` and `default`
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.CSS.ForbiddenStyles
 
@@ -1373,6 +1501,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.CSS.Indentation
 
 Property Name | Type | Default | Available Since
@@ -1388,6 +1519,9 @@ This sniff checks the indentation of CSS class definitions. By default, this sni
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.Functions.FunctionDeclaration
 
@@ -1407,6 +1541,9 @@ This sniff verifies that functions declarations match a specific pattern of whit
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.Functions.FunctionDeclarationArgumentSpacing
 
@@ -1469,6 +1606,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.PHP.CommentedOutCode
 
 Property Name | Type | Default | Available Since
@@ -1485,6 +1625,9 @@ This sniff generates warnings for commented out code. By default, a warning is g
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.PHP.DiscouragedFunctions
 
@@ -1505,6 +1648,9 @@ If the `error` property is set to `true`, an error will be thrown for violations
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.PHP.ForbiddenFunctions
 
 Property Name | Type | Default | Available Since
@@ -1523,6 +1669,9 @@ If the `error` property is set to `true`, an error will be thrown for violations
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.Strings.ConcatenationSpacing
 
@@ -1563,6 +1712,9 @@ Sometimes long concatenation statements are broken over multiple lines to work w
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.WhiteSpace.FunctionSpacing
 
 Property Name      | Type | Default | Available Since
@@ -1601,6 +1753,9 @@ As the `spacingBeforeFirst` and `spacingAfterLast` properties use the value of t
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.WhiteSpace.MemberVarSpacing
 
 Property Name       | Type | Default | Available Since
@@ -1623,6 +1778,9 @@ This sniff checks that there is one blank line before between member vars and be
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.WhiteSpace.ObjectOperatorSpacing
 
 Property Name  | Type | Default | Available Since
@@ -1638,6 +1796,9 @@ This sniff ensures there are no spaces surrounding an object operator. Sometimes
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ### Squiz.WhiteSpace.OperatorSpacing
 
@@ -1666,6 +1827,9 @@ A number of coding standards allow multiple assignments to be aligned inside a s
 </rule>
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ### Squiz.WhiteSpace.SuperfluousWhitespace
 
 Property Name    | Type | Default | Available Since
@@ -1681,3 +1845,5 @@ Some of the rules this sniff enforces are that there should not be whitespace at
     </properties>
 </rule>
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

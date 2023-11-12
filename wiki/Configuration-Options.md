@@ -31,6 +31,9 @@ By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is 
 > [!NOTE]
 > This configuration option cannot be set using the `--runtime-set` command line argument. To set the coding standard for a single run only, use the `--standard` command line argument.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Setting the default report format
 By default, PHP_CodeSniffer will use the full report format if no format is supplied on the command line. You can change the default report format by setting the report_format configuration option.
 
@@ -38,6 +41,9 @@ By default, PHP_CodeSniffer will use the full report format if no format is supp
 
 > [!NOTE]
 > This configuration option cannot be set using the `--runtime-set` command line argument. To set the report format for a single run only, use the `--report` command line argument.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Hiding warnings by default
 By default, PHP_CodeSniffer will show both errors and warnings for your code. You can hide warnings for a single script run by using the `-n` command line argument, but you can also enable this by default if you prefer. To hide warnings by default, set the `show_warnings` configuration option to `0`.
@@ -49,6 +55,9 @@ By default, PHP_CodeSniffer will show both errors and warnings for your code. Yo
 
 > Note: When warnings are hidden by default, you can use the `-w` command line argument to show them for a single script run.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Showing progress by default
 By default, PHP_CodeSniffer will run quietly and only print the report of errors and warnings at the end. If you want to know what is happening you can turn on progress output, but you can also enable this by default if you prefer. To show progress by default, set the `show_progress` configuration option to `1`.
 
@@ -56,6 +65,9 @@ By default, PHP_CodeSniffer will run quietly and only print the report of errors
 
 > [!NOTE]
 > This configuration option cannot be set using the `--runtime-set` command line argument. To show progress for a single run only, use the `-p` command line argument.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Using colors in output by default
 By default, PHP_CodeSniffer will not use colors in progress or report screen output. To use colors in output by default, set the `colors` configuration option to `1`.
@@ -66,6 +78,9 @@ By default, PHP_CodeSniffer will not use colors in progress or report screen out
 > This configuration option cannot be set using the `--runtime-set` command line argument. To show colors for a single run only, use the `--colors` command line argument.
 >
 > When colors are being used by default, you can use the `--no-colors` command line argument to disable them for a single script run.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Changing the default severity levels
 By default, PHP_CodeSniffer will show all errors and warnings with a severity level of 5 or greater. You can change these settings for a single script run by using the `--severity`, `--error-severity` and `--warning-severity` command line arguments, but you can also change the default settings if you prefer.
@@ -85,6 +100,9 @@ To change the default severity levels to show all errors but only some warnings
 > [!NOTE]
 > These configuration options cannot be set using the `--runtime-set` command line argument. To change severity levels for a single run only, use the `--severity`, `--error-severity`, and `--warning-severity` command line arguments.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Setting the default report width
 By default, PHP_CodeSniffer will print all screen-based reports 80 characters wide. File paths will be truncated if they don't fit within this limit and error messages will be wrapped across multiple lines. You can increase the report width to show longer file paths and limit the wrapping of error messages using the `--report-width` command line argument, but you can also change the default report width by setting the `report_width` configuration option.
 
@@ -98,6 +116,9 @@ By default, PHP_CodeSniffer will print all screen-based reports 80 characters wi
 >
 >    `$phpcs --config-set report_width auto`
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Setting the default encoding
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument, but you can also change the default encoding by setting the `encoding` configuration option.
 
@@ -105,6 +126,9 @@ By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 enc
 
 > [!NOTE]
 > This configuration option cannot be set using the `--runtime-set` command line argument. To set the encoding for a single run only, use the `--encoding` command line argument.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Setting the default tab width
 By default, PHP_CodeSniffer will not convert tabs to spaces in checked files. Specifying a tab width will make PHP_CodeSniffer replace tabs with spaces. You can force PHP_CodeSniffer to replace tabs with spaces by default by setting the `tab_width` configuration option.
@@ -118,6 +142,9 @@ When the tab width is set by default, the replacement of tabs with spaces can be
 
     $ phpcs --tab-width=0 /path/to/code
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Setting the installed standard paths
 By default, PHP_CodeSniffer will look inside its own `src/Standards` directory to find installed coding standards. An installed standard appears when you use the `-i` command line argument and can be referenced using a name instead of a path when using the `--standard` command line argument. You can add install paths by setting the `installed_paths` configuration option.
 
@@ -126,6 +153,9 @@ By default, PHP_CodeSniffer will look inside its own `src/Standards` directory t
 > [!NOTE]
 > If you want to use relative paths, ensure they begin with `./` (e.g., `./path/to/one`) or PHP_CodeSniffer will assume the path is absolute. Relative paths should always be defined relative to the top-level PHP_CodeSniffer install directory (i.e., the directory that contains the `src` sub-directory).
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Setting the PHP version
 Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the version of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targeting, the `php_version` configuration option can be used.
 
@@ -133,6 +163,9 @@ Some sniffs change their behaviour based on the version of PHP being used to run
 
 > [!IMPORTANT]
 > The format of the `php_version` value is the same as the PHP_VERSION_ID constant. e.g., 50403 for version 5.4.3.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Ignoring errors when generating the exit code
 By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display errors to the user, but still return with a zero exit code if no warnings are found, you can set the `ignore_errors_on_exit` configuration option. This option is typically used by automated build tools so that a list of errors can be generated without failing the build.
@@ -144,10 +177,16 @@ If you want to generate a zero exit code in all cases, additionally set the `ign
     $ phpcs --config-set ignore_errors_on_exit 1
     $ phpcs --config-set ignore_warnings_on_exit 1
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Ignoring warnings when generating the exit code
 By default, PHP_CodeSniffer will exit with a non-zero code if any errors or warnings are found. If you want to display warnings to the user, but still return with a zero exit code if no errors are found, you can set the `ignore_warnings_on_exit` configuration option. This option is typically used by automated build tools so that a list of warnings can be generated without failing the build.
 
     $ phpcs --config-set ignore_warnings_on_exit 1
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Generic Coding Standard Configuration Options
 
@@ -175,7 +214,10 @@ The Generic coding standard [includes a sniff](https://github.com/PHPCSStandards
 As JSHint is just JavaScript code, you also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
 
     $ phpcs --config-set rhino_path /path/to/rhino
- 
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Squiz Coding Standard Configuration Options
 
 ### Setting the path to JSLint
@@ -192,7 +234,11 @@ The Squiz coding standard [includes a sniff](https://github.com/PHPCSStandards/P
 
     $ phpcs --config-set jsl_path /path/to/jsl
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Zend Coding Standard Configuration Options
+
 ### Setting the path to the Zend Code Analyzer
 The Zend coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php) that will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
 

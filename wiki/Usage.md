@@ -84,6 +84,9 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
 > [!NOTE]
 > The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Checking Files and Folders
 
 The simplest way of using PHP_CodeSniffer is to provide the location of a file or folder for PHP_CodeSniffer to check. If a folder is provided, PHP_CodeSniffer will check all files it finds in that folder and all its sub-folders. If you do not want sub-folders checked, use the `-l` command line argument to force PHP_CodeSniffer to run locally in the folders specified.
@@ -129,6 +132,9 @@ If you don't want warnings included in the output, specify the `-n` command line
      88 | ERROR | Line not indented correctly; expected 9 spaces but found 6
     --------------------------------------------------------------------------------
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Printing a Summary Report
 
 By default, PHP_CodeSniffer will print a complete list of all errors and warnings it finds. This list can become quite long, especially when checking a large number of files at once. To print a summary report that only shows the number of errors and warnings for each file, use the `--report=summary` command line argument. The output will look like this:
@@ -159,6 +165,9 @@ As with the full report, you can suppress the printing of warnings with the `-n`
     --------------------------------------------------------------------------------
     A TOTAL OF 6 ERROR(S) WERE FOUND IN 2 FILE(S)
     --------------------------------------------------------------------------------
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Printing Progress Information
 
@@ -202,6 +211,9 @@ With verbose output enabled, PHP_CodeSniffer will print the file that it is chec
     Processing Sniff.php [133 tokens in 94 lines]... DONE in < 1 second (0 errors, 0 warnings)
     Processing SniffException.php [47 tokens in 36 lines]... DONE in < 1 second (1 errors, 3 warnings)
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Specifying a Coding Standard
 
 PHP_CodeSniffer can have multiple coding standards installed to allow a single installation to be used with multiple projects. When checking PHP code, PHP_CodeSniffer can be told which coding standard to use. This is done using the `--standard` command line argument.
@@ -218,12 +230,18 @@ Multiple coding standards can be checked at the same time by passing a list of c
 
     $ phpcs --standard=PEAR,Squiz,/path/to/MyStandard /path/to/code/myfile.inc
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Printing a List of Installed Coding Standards
 
 PHP_CodeSniffer can print you a list of the coding standards that are installed so that you can correctly specify a coding standard to use for testing. You can print this list by specifying the `-i` command line argument.
 
     $ phpcs -i
     The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Listing Sniffs Inside a Coding Standard
 
