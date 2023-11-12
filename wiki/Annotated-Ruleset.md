@@ -300,7 +300,7 @@ The following sample file documents the ruleset.xml format and shows you the com
     Array values are specified by using "element" tags
     with "key" and "value" attributes.
 
-    NOTE: This syntax is is only supported in PHP_CodeSniffer
+    NOTE: This syntax is only supported in PHP_CodeSniffer
     versions 3.3.0 and greater.
  -->
  <rule ref="Generic.PHP.ForbiddenFunctions">

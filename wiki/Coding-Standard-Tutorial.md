@@ -123,7 +123,7 @@ class DisallowHashCommentsSniff implements Sniff
 ?>
 ```
 
-By default, PHP_CodeSniffer assumes all sniffs are designed to check PHP code only. You can specify a list of tokenizers that your sniff supports, allowing it to be used wth PHP, JavaScript or XML files, or any combination of the three. You do this by setting the `$supportedTokenizers` member variable in your sniff. Adding the following code to your sniff will tell PHP_CodeSniffer that it can be used to check both PHP and JavaScript code:
+By default, PHP_CodeSniffer assumes all sniffs are designed to check PHP code only. You can specify a list of tokenizers that your sniff supports, allowing it to be used wth PHP, JavaScript or CSS files, or any combination of the three. You do this by setting the `$supportedTokenizers` member variable in your sniff. Adding the following code to your sniff will tell PHP_CodeSniffer that it can be used to check both PHP and JavaScript code:
 
 ```php
 /**
@@ -132,9 +132,9 @@ By default, PHP_CodeSniffer assumes all sniffs are designed to check PHP code on
  * @var array
  */
 public $supportedTokenizers = array(
-                               'PHP',
-                               'JS',
-                              );
+    'PHP',
+    'JS',
+);
 ```
 
 
