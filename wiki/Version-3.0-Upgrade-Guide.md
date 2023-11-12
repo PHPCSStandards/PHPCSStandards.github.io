@@ -190,7 +190,7 @@ public function setCliValues($testFile, $config)
     $config->tabWidth = 4;
 }
 ```
-> Note: A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Config.php#L42).
+> Note: A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Config.php#L42).
 
 ## Upgrading Custom Reports
 

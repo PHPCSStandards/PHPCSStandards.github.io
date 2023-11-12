@@ -71,8 +71,7 @@ We now have to write the content of our sniff. The content of the `DisallowHashC
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Your Name <you@domain.net>
- * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @license   https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  */
 
 namespace PHP_CodeSniffer\Standards\MyStandard\Sniffs\Commenting;

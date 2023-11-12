@@ -81,7 +81,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  <tabWidth>     The number of spaces each tab represents
 ```
 
-> The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
+> The `--standard` command line argument is optional, even if you have more than one coding standard installed. If no coding standard is specified, PHP_CodeSniffer will default to checking against the _PEAR_ coding standard, or the standard you have set as the default. [View instructions for setting the default coding standard](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#setting-the-default-coding-standard).
 
 ## Checking Files and Folders
 
@@ -168,7 +168,7 @@ With progress output enabled, PHP_CodeSniffer will print a single-character stat
 * `.` : The file contained no errors or warnings
 * `E` : The file contained 1 or more errors
 * `W` : The file contained 1 or more warnings, but no errors
-* `S` : The file contained a [@codingStandardsIgnoreFile](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
+* `S` : The file contained a [@codingStandardsIgnoreFile](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
 
 Progress output will look like this:
 
@@ -184,7 +184,7 @@ Progress output will look like this:
     .E.EE.E.E..E.E.E.E.E.E.E.E.E.E.E.E.E.E.E.E.E..E..E..E.E.E..E 540 / 572
     .E.E....E.E.E...E.....E.E.ES....
 
-> You can configure PHP_CodeSniffer to show progress information by default using [the configuration option](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Configuration-Options#showing-progress-by-default)</link>.
+> You can configure PHP_CodeSniffer to show progress information by default using [the configuration option](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#showing-progress-by-default)</link>.
 
 With verbose output enabled, PHP_CodeSniffer will print the file that it is checking, show you how many tokens and lines the file contains, and let you know how long it took to process. The output will look like this:
 
