@@ -35,7 +35,7 @@ To check .php, .inc and .lib files:
 ## Ignoring Files and Folders
 Sometimes you want PHP_CodeSniffer to run over a very large number of files, but you want some files and folders to be skipped. The `--ignore` command line argument can be used to tell PHP_CodeSniffer to skip files and folders that match one or more patterns.
 
-In the following example, PHP_CodeSniffer will skip all files inside the package's tests and data directories. This is useful if you are checking a PEAR package but don't want your test or data files to conform to your coding standard.
+In the following example, PHP_CodeSniffer will skip all files inside the package's tests and data directories. This is useful if you are checking a package but don't want your test or data files to conform to your coding standard.
 
     $ phpcs --ignore=*/tests/*,*/data/* /path/to/code
 
