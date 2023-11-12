@@ -36,6 +36,7 @@ In the following example, PHP_CodeSniffer will skip all files inside the package
 
     $ phpcs --ignore=*/tests/*,*/data/* /path/to/code
 
+> [!IMPORTANT]
 > The ignore patterns are treated as regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for the convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`. Also ensure you escape any `.` characters that you want treated as a literal dot, such as when checking file extensions. So if you are checking for `.inc` in your ignore pattern, use `\.inc` instead. 
 
 You can also tell PHP_CodeSniffer to ignore a file using a special comment inserted at the top of the file. This will stop the file being checked even if it does not match the ignore pattern.
@@ -48,9 +49,11 @@ $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
 ```
 
-> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> [!NOTE]
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
-> Note: The `phpcs:ignoreFile` comment syntax does not allow for a specific set of sniffs to be ignored for a file. Use the `phpcs:disable` comment syntax if you want to disable a specific set of sniffs for the entire file.
+> [!NOTE]
+> The `phpcs:ignoreFile` comment syntax does not allow for a specific set of sniffs to be ignored for a file. Use the `phpcs:disable` comment syntax if you want to disable a specific set of sniffs for the entire file.
 
 If required, you can add a note explaining why the file is being ignored by using the `--` separator.
 
@@ -62,7 +65,8 @@ $xmlPackage['error_code'] = get_default_error_code_value();
 $xmlPackage->send();
 ```
 
-> Note: The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
+> [!NOTE]
+> The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 ## Ignoring Parts of a File
 Some parts of your code may be unable to conform to your coding standard. For example, you might have to break your standard to integrate with an external library or web service. To stop PHP_CodeSniffer generating errors for this code, you can wrap it in special comments. PHP_CodeSniffer will then hide all errors and warnings that are generated for these lines of code.
@@ -75,7 +79,8 @@ $xmlPackage->send();
 // phpcs:enable
 ```
 
-> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> [!NOTE]
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
 If you don't want to disable all coding standard errors, you can selectively disable and re-enable specific error message codes, sniffs, categories of sniffs, or entire coding standards. The following example disables the specific `Generic.Commenting.Todo.Found` message and then re-enables all checks at the end.
 
@@ -99,9 +104,11 @@ bar($foo,false);
 // phpcs:enable
 ```
 
-> Note: All `phpcs:disable` and `phpcs:enable` comments only apply to the file they are contained within. After the file has finished processing all sniffs are re-enabled for future files.
+> [!NOTE]
+> All `phpcs:disable` and `phpcs:enable` comments only apply to the file they are contained within. After the file has finished processing all sniffs are re-enabled for future files.
 
-> Note: Selective disabling and re-enabling of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
+> [!NOTE]
+> Selective disabling and re-enabling of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 You can also ignore a single line using the `phpcs:ignore` comment. If placed on a line by itself, this comment will ignore the line that the comment is on and the following line. It is typically used like this:
 
@@ -118,7 +125,8 @@ $foo = [1,2,3]; // phpcs:ignore
 bar($foo, false);
 ```
 
-> Note: Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> [!NOTE]
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
 Again, you can selectively ignore one or more specific error message codes, sniffs, categories of sniffs, or entire standards.
 
@@ -128,7 +136,8 @@ $foo = [1,2,3];
 bar($foo, false);
 ```
 
-> Note: Selective ignoring of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
+> [!NOTE]
+> Selective ignoring of codes/sniffs/categories/standards is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 If required, you can add a note explaining why sniffs are being disable and re-enabled by using the `--` separator.
 
@@ -141,12 +150,14 @@ bar($foo,false);
 // phpcs:enable -- this is out code again, so turn everything back on
 ```
 
-> Note: The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
+> [!NOTE]
+> The comment syntax note feature is only available from PHP_CodeSniffer version 3.2.0 onwards.
 
 ## Limiting Results to Specific Sniffs
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
 
-> Note: All sniffs specified on the command line must be used in the coding standard you are using to check your files.
+> [!NOTE]
+> All sniffs specified on the command line must be used in the coding standard you are using to check your files.
 
 The following example will only run two sniffs over the code instead of all sniffs in the PEAR standard:
 
@@ -156,7 +167,8 @@ The following example will run all sniffs in the PEAR standard except for the tw
 
     $ phpcs --standard=PEAR --exclude=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
 
-> Note: If you use both the `--sniffs` and `--exclude` command line arguments together, the `--exclude` list will be ignored.
+> [!WARNING]
+> If you use both the `--sniffs` and `--exclude` command line arguments together, the `--exclude` list will be ignored.
 
 ## Filtering Errors and Warnings Based on Severity
 By default, PHP_CodeSniffer assigns a severity of 5 to all errors and warnings. Standards may change the severity of some messages so they are hidden by default or even so that they are raised to indicate greater importance. PHP_CodeSniffer allows you to decide what the minimum severity level must be to show a message in its report using the `--severity` command line argument.
@@ -182,7 +194,8 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 
     $ phpcs --tab-width=4 /path/to/code
 
-> Note: The [included sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
+> [!NOTE]
+> The [included sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
 
 ## Specifying an Encoding
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument.
@@ -197,10 +210,12 @@ PHP_CodeSniffer can optionally include one or more custom bootstrap files before
 ## Using a Default Configuration File
 If you run PHP_CodeSniffer without specifying a coding standard, PHP_CodeSniffer will look in the current directory, and all parent directories, for a file called either `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, or `phpcs.xml.dist`. If found, configuration information will be read from this file, including the files to check, the coding standard to use, and any command line arguments to apply.
 
-> Note: If multiple default configuration files are found, PHP_CodeSniffer will select one using the following order: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`
+> [!IMPORTANT]
+> If multiple default configuration files are found, PHP_CodeSniffer will select one using the following order: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`
 
 The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|Annotated ruleset]], so all the same options are available in it. The `phpcs.xml` file essentially acts as a default coding standard and configuration file for a code base, and is typically used to allow the `phpcs` command to be run on a repository without specifying any arguments.
 
+> [!NOTE]
 > An example `phpcs.xml` file can be found in the PHP_CodeSniffer repository: [phpcs.xml.dist](https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xml.dist)
 
 ## Specifying php.ini Settings
@@ -223,7 +238,8 @@ Configuration options are written to a global configuration file. If you want to
 
     $ phpcs --runtime-set <option> <value> /path/to/code
 
-> Note: Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
+> [!NOTE]
+> Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
 
 ## Deleting Configuration Options
 PHP_CodeSniffer allows you to delete any configuration option, reverting it to its default value. [[View a full list of configuration options|Configuration Options]].

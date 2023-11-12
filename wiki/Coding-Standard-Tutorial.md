@@ -29,6 +29,7 @@ The content of the `ruleset.xml` file should be the following:
 </ruleset>
 ```
 
+> [!NOTE]
 > The ruleset.xml can be left quite small, as it is in this example coding standard. For information about the other features that the ruleset.xml provides, see the [[Annotated ruleset]].
 
 ## Creating the Sniff
@@ -39,6 +40,7 @@ A sniff requires a single PHP file that must be placed into a sub-directory to c
     $ mkdir Commenting
     $ touch Commenting/DisallowHashCommentsSniff.php
 
+> [!NOTE]
 > It does not matter what sub-directories you use for categorising your sniffs. Just make them descriptive enough so you can find your sniffs again later when you want to modify them.
 
 Each sniff must implement the `PHP_CodeSniffer\Sniffs\Sniff` interface so that PHP_CodeSniffer knows that it should instantiate the sniff once it's invoked. The interface defines two methods that must be implemented; `register` and `process`.

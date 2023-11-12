@@ -1,6 +1,7 @@
 PHP_CodeSniffer version 3 contains a large number of core changes and breaks backwards compatibility for all custom sniffs and reports. The aim of this guide is to help developers upgrade their custom sniffs, unit tests, and reports from PHP_CodeSniffer version 2 to version 3.
 
-> Note: If you only use the built-in coding standards, or you have a custom ruleset.xml file that only makes use of the sniffs and reports distributed with PHP_CodeSniffer, you do not need to make any changes to begin using PHP_CodeSniffer version 3.
+> [!NOTE]
+> If you only use the built-in coding standards, or you have a custom ruleset.xml file that only makes use of the sniffs and reports distributed with PHP_CodeSniffer, you do not need to make any changes to begin using PHP_CodeSniffer version 3.
 
 ***
 
@@ -26,9 +27,10 @@ PHP_CodeSniffer version 3 contains a large number of core changes and breaks bac
 
 All sniffs must now be namespaced.
 
-> Note: It doesn't matter what namespace you use for your sniffs as long as the last part of the namespace is in the format `StandardName\Sniffs\Category` as this is used to determine the sniff code. The examples below use a very minimal namespace but you can prefix it with whatever makes sense for your project. If you aren't sure what namespace to use, try using the example format.
-
-> Note: If you decide to use a more complex prefix, or your prefix does not match the name of the directory containing your ruleset.xml file, you need to define the prefix in the ruleset tag of your ruleset.xml file. For example, if your namespace format for sniffs is `MyProject\CS\StandardName\Sniffs\Category`, set the namespace to `MyProject\CS\StandardName` (everything up to `\Sniffs\`). The ruleset tag would look like this: `<ruleset name="Custom Standard" namespace="MyProject\CS\StandardName">`
+> [!NOTE]
+> It doesn't matter what namespace you use for your sniffs as long as the last part of the namespace is in the format `StandardName\Sniffs\Category` as this is used to determine the sniff code. The examples below use a very minimal namespace but you can prefix it with whatever makes sense for your project. If you aren't sure what namespace to use, try using the example format.
+>
+> If you decide to use a more complex prefix, or your prefix does not match the name of the directory containing your ruleset.xml file, you need to define the prefix in the ruleset tag of your ruleset.xml file. For example, if your namespace format for sniffs is `MyProject\CS\StandardName\Sniffs\Category`, set the namespace to `MyProject\CS\StandardName` (everything up to `\Sniffs\`). The ruleset tag would look like this: `<ruleset name="Custom Standard" namespace="MyProject\CS\StandardName">`
 
 Internal namespace changes to core classes require changes to all sniff class definitions. The old definition looked like this:
 ```php
@@ -90,7 +92,8 @@ use PHP_CodeSniffer\Sniffs\AbstractPatternSniff;
 
 class TestSniff extends AbstractPatternSniff {}
 ```
-> Note: `PHP_CodeSniffer\Files\File` is not typically needed in a sniff that extends AbstractPatternSniff because these sniffs normally only override the `getPatterns()` method. If you are overriding a method that needs `File`, include the `use` statement as you would for any other sniff.
+> [!NOTE]
+> `PHP_CodeSniffer\Files\File` is not typically needed in a sniff that extends AbstractPatternSniff because these sniffs normally only override the `getPatterns()` method. If you are overriding a method that needs `File`, include the `use` statement as you would for any other sniff.
 
 #### AbstractScopeSniff
 If you previously extended the `AbstractScopeSniff`, your class definition will now look like this:
@@ -190,13 +193,15 @@ public function setCliValues($testFile, $config)
     $config->tabWidth = 4;
 }
 ```
-> Note: A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Config.php#L42).
+> [!NOTE]
+> A complete list of configuration settings can be found in the documentation of the [Config class](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Config.php#L42).
 
 ## Upgrading Custom Reports
 
 All reports must now be namespaced.
 
-> Note: It doesn't really matter what namespace you use for your custom reports, but the examples below use a basic namespace based on the standard name. If you aren't sure what to use, try using this format.
+> [!NOTE]
+> It doesn't really matter what namespace you use for your custom reports, but the examples below use a basic namespace based on the standard name. If you aren't sure what to use, try using this format.
 
 Internal namespace changes to core classes require changes to all report class definitions. The old definition looked like this:
 ```php
@@ -269,7 +274,8 @@ public function generate(
 
 PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class at the same time and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
 
-> Note: Reports that output content in a way where the order or formatting is not important do not need to worry about caching data and can continue to produce reports they way they do now. Examples of these reports include the CSV report and the XML report.
+> [!NOTE]
+> Reports that output content in a way where the order or formatting is not important do not need to worry about caching data and can continue to produce reports they way they do now. Examples of these reports include the CSV report and the XML report.
 
 The Summary report is a good example of what changes need to be made. The summary report can't output a single final report line for each file it processes as it has to properly align all the values in the final screen report. Previously, it wrote the number of error and warnings found to a private member var array inside the `generateFileReport()` method and  later used that array to generate the final report. Even though it didn't output anything to screen, it had to return `true` to ensure the Reporter knew there were errors in the file:
 ```php

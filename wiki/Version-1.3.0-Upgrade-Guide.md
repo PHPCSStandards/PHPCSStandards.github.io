@@ -1,6 +1,7 @@
 PHP_CodeSniffer version 1.3.0 contains an important backwards compatibility break that all coding standard authors need to be aware of. Upgrading your coding standard to make use of the new `ruleset.xml` files is an easy process and this guide will show you how to get it done.
 
-> Note: Please note that if you have not created your own coding standard, you do not need to follow this guide. Users of PHP_CodeSniffer that use one of the built-in standards can continue to check their code as normal.
+> [!NOTE]
+> If you have not created your own coding standard, you do not need to follow this guide. Users of PHP_CodeSniffer that use one of the built-in standards can continue to check their code as normal.
 
 This guide assumes your coding standard has the following directory structure:
 ```
