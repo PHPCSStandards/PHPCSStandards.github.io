@@ -178,7 +178,7 @@ With progress output enabled, PHP_CodeSniffer will print a single-character stat
 * `.` : The file contained no errors or warnings
 * `E` : The file contained 1 or more errors
 * `W` : The file contained 1 or more warnings, but no errors
-* `S` : The file contained a [@codingStandardsIgnoreFile](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
+* `S` : The file contained a [// phpcs:ignoreFile](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
 
 Progress output will look like this:
 

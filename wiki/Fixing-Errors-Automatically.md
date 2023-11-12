@@ -69,7 +69,7 @@ Usage: phpcbf [-nwli] [-d key[=value]] [--ignore-annotations] [--stdin-path=<std
 
  --help                Print this help message
  --version             Print version information
- --ignore-annotations  Ignore all @codingStandard annotations in code comments
+ --ignore-annotations  Ignore all phpcs: annotations in code comments
 
  <basepath>    A path to strip from the front of file paths inside reports
  <file>        One or more files and/or directories to fix
