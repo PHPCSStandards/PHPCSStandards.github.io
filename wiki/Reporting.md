@@ -207,7 +207,7 @@ PHP_CodeSniffer can output a report that shows a code snippet for each error and
     ------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> The code report shows up to 5 lines of source code for each violation, so it is best used when checking single files and short code snippets to ensure the report doesn't become unreadble due to its length.
+> The code report shows up to 5 lines of source code for each violation, so it is best used when checking single files and short code snippets to ensure the report doesn't become unreadable due to its length.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
