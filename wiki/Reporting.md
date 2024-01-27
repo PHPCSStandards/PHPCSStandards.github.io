@@ -448,6 +448,10 @@ PHP_CodeSniffer can output a sniff performance report showing you which sniffs i
 When the `--colors` option is enabled, sniffs which take more than twice the average run time per sniff will be displayed in orange and sniffs with a cumulative listener run time of more than three times the average run time per sniff will display in red.
 
 > [!NOTE]
+> The Performance report will only be useful when run without using the cache as otherwise the cache functionality will interfer with accurately measuring the runtime of sniffs.
+> So make sure to always use the `--no-cache` feature when running Performance reports.
+
+> [!NOTE]
 > Enabling the performance report, in and of itself will make a PHP_CodeSniffer run slower. This is nothing to worry about as the exact time taken for each sniff isn't that relevant, it's the relative time taken _in comparison to other sniffs_ which is the interesting part.
 
 > [!NOTE]
@@ -456,7 +460,7 @@ When the `--colors` option is enabled, sniffs which take more than twice the ave
 
 To print a performance report, use the `--report=performance` command line argument. The output will look like this:
 
-    $ phpcs --report=performance /path/to/code
+    $ phpcs --report=performance /path/to/code --no-cache
 
     PHP CODE SNIFFER SNIFF PERFORMANCE REPORT
     --------------------------------------------------------------------------------
