@@ -166,6 +166,15 @@ bar($foo,false);
 By default, PHP_CodeSniffer will check your code using all sniffs in the specified standard. Sometimes you may want to find all occurrences of a single error to eliminate it more quickly, or to exclude sniffs to see if they are causing conflicts in your standard. PHP_CodeSniffer allows you to specify a list of sniffs to limit results to using the `--sniffs` command line argument, or a list of sniffs to exclude using the `--exclude` command line argument. Sniff codes are separated by commas.
 
 > [!NOTE]
+> To find out the sniff code of an error message, use the `-s` command line argument.
+>
+> The source codes shown when using the `-s` flag are build up like this:
+> `StandardName.Category.SniffName.ErrorCode`
+>
+> This four-part name is the identifier of a particular error or warning, commonly referred to as the _error code_.
+> The first three parts of the name `StandardName.Category.SniffName` is the _sniff code_.
+
+> [!NOTE]
 > All sniffs specified on the command line must be used in the coding standard you are using to check your files.
 
 The following example will only run two sniffs over the code instead of all sniffs in the PEAR standard:

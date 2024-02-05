@@ -29,7 +29,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
  -n    Do not print warnings (shortcut for --warning-severity=0)
  -w    Print both warnings and errors (this is the default)
  -l    Local directory only, no recursion
- -s    Show sniff codes in all reports
+ -s    Show error codes in all reports
  -a    Run interactively
  -e    Explain a standard by showing the sniffs it includes
  -p    Show progress of the run

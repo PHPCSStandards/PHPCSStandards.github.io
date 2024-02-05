@@ -24,10 +24,45 @@
 ***
 
 ## Printing Full and Summary Reports
-Both the full and summary reports can additionally show information about the source of errors and warnings. Source codes can be used with the `--sniffs` command line argument to only show messages from a specified list of sources. To include source codes in the report, use the `-s` command line argument.
+When running a scan, by default, the full report is displayed.
+
+    $ phpcs /path/to/code/myfile.php
+
+    FILE: /path/to/code/classA.php
+    --------------------------------------------------------------------------------
+    FOUND 4 ERRORS AND 1 WARNING AFFECTING 5 LINES
+    --------------------------------------------------------------------------------
+      2 | ERROR   | [ ] Missing file doc comment
+      4 | ERROR   | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+        |         |     found "FALSE"
+      6 | ERROR   | [x] Line indented incorrectly; expected at least 4 spaces, found
+        |         |     1
+      9 | ERROR   | [ ] Missing function doc comment
+     11 | WARNING | [x] Inline control structures are discouraged
+    --------------------------------------------------------------------------------
+    PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+    --------------------------------------------------------------------------------
+
+To see a summary of the errors and warnings per file, use the `--report=summary` option.
+
+    $ phpcs --report=summary /path/to/code
+
+    PHP CODE SNIFFER REPORT SUMMARY
+    --------------------------------------------------------------------------------
+    FILE                                                            ERRORS  WARNINGS
+    --------------------------------------------------------------------------------
+    /path/to/code/classA.inc                                        5       0
+    /path/to/code/classB.inc                                        1       1
+    /path/to/code/classC.inc                                        0       2
+    --------------------------------------------------------------------------------
+    A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
+    --------------------------------------------------------------------------------
+
+The full report can also show information about the source of errors and warnings. To include source codes in the report,
+use the `-s` command line argument.
 
     $ phpcs -s /path/to/code/myfile.php
-    
+
     FILE: /path/to/code/classA.php
     --------------------------------------------------------------------------------
     FOUND 4 ERRORS AND 1 WARNING AFFECTING 5 LINES
@@ -46,18 +81,9 @@ Both the full and summary reports can additionally show information about the so
     PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
     --------------------------------------------------------------------------------
 
-    $ phpcs -s --report=summary /path/to/code
-    
-    PHP CODE SNIFFER REPORT SUMMARY
-    --------------------------------------------------------------------------------
-    FILE                                                            ERRORS  WARNINGS
-    --------------------------------------------------------------------------------
-    /path/to/code/classA.inc                                        5       0
-    /path/to/code/classB.inc                                        1       1
-    /path/to/code/classC.inc                                        0       2
-    --------------------------------------------------------------------------------
-    A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
-    --------------------------------------------------------------------------------
+Source codes can be used with the `--sniffs` command line argument to only show messages from a specified list of sources
+and with the `--exclude` command line argument to silence the messages from a specified list of sources.
+[Learn how](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#limiting-results-to-specific-sniffs).
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
