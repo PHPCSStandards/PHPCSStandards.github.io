@@ -303,22 +303,25 @@ The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz and 
 
 PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with the `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
 
-    $ phpcs --standard=PSR1 -e
+```
+$ phpcs --standard=PSR1 -e
 
-    The PSR1 standard contains 7 sniffs
+The PSR1 standard contains 8 sniffs
 
-    Generic (3 sniffs)
-    ------------------
-      Generic.Files.ByteOrderMark
-      Generic.NamingConventions.UpperCaseConstantName
-      Generic.PHP.DisallowShortOpenTag
+Generic (4 sniffs)
+------------------
+  Generic.Files.ByteOrderMark
+  Generic.NamingConventions.UpperCaseConstantName
+  Generic.PHP.DisallowAlternativePHPTags
+  Generic.PHP.DisallowShortOpenTag
 
-    PSR1 (3 sniffs)
-    ---------------
-      PSR1.Classes.ClassDeclaration
-      PSR1.Files.SideEffects
-      PSR1.Methods.CamelCapsMethodName
+PSR1 (3 sniffs)
+---------------
+  PSR1.Classes.ClassDeclaration
+  PSR1.Files.SideEffects
+  PSR1.Methods.CamelCapsMethodName
 
-    Squiz (1 sniff)
-    ----------------
-      Squiz.Classes.ValidClassName
+Squiz (1 sniff)
+---------------
+  Squiz.Classes.ValidClassName
+```
