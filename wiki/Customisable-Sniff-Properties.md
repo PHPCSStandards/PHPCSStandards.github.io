@@ -1159,9 +1159,9 @@ This sniff checks the indent of a list of implemented or extended class names th
 
 ### PSR12.ControlStructures.BooleanOperatorPlacement
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-allowOnly     | bool | null    | 3.5.4
+Property Name | Type        | Default | Available Since
+------------  | ----------- | ------- | ---------------
+allowOnly     | string|null | null    | 3.5.4
 
 This sniff ensures that boolean operators inside control structure conditions either all appear at the beginning of a line, or the end of a line, but not a mix of both. If you prefer to explicitly define where boolean operators should appear, you can set the `allowOnly` property to either `first` or `last` to ensure that boolean operators are always the first or last content of a line.
 
