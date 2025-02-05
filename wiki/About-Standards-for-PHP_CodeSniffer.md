@@ -48,7 +48,7 @@ You may also find the [Customisable Sniff Properties](https://github.com/PHPCSSt
 In the context of PHP_CodeSniffer, a _"standard"_ is a predefined collection of rules for code to follow.
 Examples of standards are: PSR2 and PSR12, but a standard can also be eco-system specific, such as a Joomla or Doctrine standard, company specific or specific to a group of (related) projects.
 
-PHP_CodeSniffer has a number of build-in standards. However, if you want to define your own standard, you can.
+PHP_CodeSniffer has a number of built-in standards. However, if you want to define your own standard, you can.
 In terms of PHP_CodeSniffer, this is regarded as an _"external standard"_ and the path to the standard can be registered with PHP_CodeSniffer using the `--config-set installed_paths path/to/standard` command.
 
 A standard _may_ contain sniffs, but it doesn't have to. More about this below.
@@ -100,7 +100,7 @@ As mentioned before, have a look at the [Annotated ruleset](https://github.com/P
 
 ## Creating new rules
 
-There may be rules you want to enforce for which you cannot find an existing sniff, either in the PHP_CodeSniffer build-in standards or in any of the available generic external standards.
+There may be rules you want to enforce for which you cannot find an existing sniff, either in the PHP_CodeSniffer built-in standards or in any of the available generic external standards.
 
 In that case, you can write your own sniff to enforce that rule.
 
@@ -133,7 +133,7 @@ The directory structure MUST be as follows:
 
 #### 2. Sniff file name
 
-All sniff files MUST end on `Sniff.php` and be located within a `[CategoryName]` directory.
+All sniff file names MUST end with `Sniff.php` and be located within a `[CategoryName]` directory.
 
 All sniffs MUST have a name, so a sniff class called just and only `Sniff` is not allowed.
 
@@ -144,7 +144,7 @@ Both the sniff name and the category name MUST be valid symbol names in PHP.
 
 The namespace and class name MUST follow [PSR-4](https://www.php-fig.org/psr/psr-4/).
 
-This means that - taking the example directory structure above in to account - the namespace name MUST end on `[StandardName]\Sniffs\[CategoryName]` and the class name MUST be exactly the same as the file name (minus the `.php` file extension).
+This means that - taking the example directory structure above in to account - the namespace name MUST end with `[StandardName]\Sniffs\[CategoryName]` and the class name MUST be exactly the same as the file name (minus the `.php` file extension).
 
 > [!NOTE]
 > As long as an external standard is registered with PHP_CodeSniffer via `installed_paths` and the standard follows the directory layout and naming conventions, PHP_CodeSniffer can, and will, automatically handle the sniff autoloading.
@@ -156,7 +156,7 @@ This means that - taking the example directory structure above in to account - t
 
 
 ##### Valid:
-```
+```php
 <?php
 // File: MyStandard/Sniffs/Operators/OperatorSpacingSniff.php
 
@@ -169,7 +169,7 @@ class OperatorSpacingSniff implements Sniff {...}
 ```
 
 Prefixing the namespace is allowed:
-```
+```php
 <?php
 // File: MyStandard/Sniffs/Operators/OperatorSpacingSniff.php
 
@@ -190,7 +190,7 @@ Be sure to inform PHP_CodeSniffer about the namespace prefix by annotating it in
 ```
 
 Nesting the standard directory deeper inside a project is allowed:
-```
+```php
 <?php
 // File: src/Tools/PHPCS/MyStandard/Sniffs/Operators/OperatorSpacingSniff.php
 
@@ -208,8 +208,8 @@ Also make sure that the `installed_paths` configuration option is set correctly 
 
 ##### Invalid:
 
-Sniff name not ending on `Sniff`:
-```
+:x: Sniff name not ending on `Sniff`:
+```php
 <?php
 // File: MyStandard/Sniffs/Operators/OperatorSpacing.php
 
@@ -221,8 +221,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class OperatorSpacing implements Sniff {...}
 ```
 
-Sniff not placed in a (sub-)directory under a `Sniffs` directory:
-```
+:x: Sniff not placed in a (sub-)directory under a `Sniffs` directory:
+```php
 <?php
 // File: MyStandard/Operators/OperatorSpacing.php
 
@@ -234,8 +234,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class OperatorSpacingSniff implements Sniff {...}
 ```
 
-Not following the required directory structure (missing `[CategoryName]` subdirectory):
-```
+:x: Not following the required directory structure (missing `[CategoryName]` subdirectory):
+```php
 <?php
 // File: MyStandard/Sniffs/OperatorSpacingSniff.php
 
@@ -247,8 +247,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class OperatorSpacingSniff implements Sniff {...}
 ```
 
-Not following the required directory structure (missing `[StandardName]` top-level directory):
-```
+:x: Not following the required directory structure (missing `[StandardName]` top-level directory):
+```php
 <?php
 // File: src/Sniffs/Operators/OperatorSpacingSniff.php
 
