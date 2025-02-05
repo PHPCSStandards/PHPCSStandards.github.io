@@ -1,5 +1,7 @@
 In this tutorial, we will create a new coding standard with a single sniff. Our sniff will prohibit the use of Perl style hash comments.
 
+Sniffs need to follow [strict directory layout and naming conventions](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/About-Standards-for-PHP_CodeSniffer#naming-conventions).
+
 ## Creating the Coding Standard Directory
 
 All sniffs in PHP_CodeSniffer must belong to a coding standard. A coding standard is a directory with a specific sub-directory structure and a `ruleset.xml` file, so we can create one very easily. Let's call our coding standard _MyStandard_. Run the following commands to create the coding standard directory structure:

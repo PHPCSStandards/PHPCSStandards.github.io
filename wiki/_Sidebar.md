@@ -11,6 +11,7 @@ For everyone
 
 For coding standard creators
 
+[[About Standards for PHP_CodeSniffer]]  
 [[Annotated Ruleset]]  
 [[Customisable Sniff Properties]]
 

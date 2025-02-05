@@ -2,7 +2,15 @@ PHP_CodeSniffer allows developers to design their own coding standards by creati
 
 Once created, a ruleset file can be used with the `--standard` command line argument. In the following example, PHP_CodeSniffer will use the coding standard defined in a custom ruleset file called custom_ruleset.xml:
 
-    $ phpcs --standard=/path/to/custom_ruleset.xml test.php
+```bash
+$ phpcs --standard=/path/to/custom_ruleset.xml test.php
+```
+
+By default, PHP_CodeSniffer will look for the following files: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`.
+If you use one of these names for your standard, PHP_CodeSniffer will automatically find anf use it if no `--standard` is provided on the command-line.
+
+For projects, it is recommended to use one of the `.dist` filenames.
+
 
 ## The Annotated Sample File
 
@@ -10,7 +18,7 @@ The following sample file documents the ruleset.xml format and shows you the com
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Custom Standard" namespace="MyProject\CS\Standard">
+<ruleset name="CustomStandard" namespace="MyProject\CS\CustomStandard">
 
  <!--
     The name attribute of the ruleset tag is displayed
@@ -190,6 +198,9 @@ The following sample file documents the ruleset.xml format and shows you the com
     If you are including sniffs that are not installed, you can
     reference the sniff class using an absolute or relative path
     instead of using the sniff code.
+    Sniffs included via a path reference should still follow the
+    naming conventions for PHP_CodeSniffer as outlined in
+    https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/About-Standards-for-PHP_CodeSniffer#naming-conventions
  -->
  <rule ref="/path/to/standards/Generic/Sniffs/Commenting/TodoSniff.php"/>
  <rule ref="../Generic/Sniffs/ControlStructures/InlineControlStructureSniff.php"/>
