@@ -139,12 +139,14 @@ All sniffs MUST have a name, so a sniff class called just and only `Sniff` is no
 
 Both the sniff name and the category name MUST be valid symbol names in PHP.
 
+The name "Sniffs" MUST NOT be used as a category name.
+
 
 #### 3. Namespace and class name
 
 The namespace and class name MUST follow [PSR-4](https://www.php-fig.org/psr/psr-4/).
 
-This means that - taking the example directory structure above in to account - the namespace name MUST end with `[StandardName]\Sniffs\[CategoryName]` and the class name MUST be exactly the same as the file name (minus the `.php` file extension).
+This means that - taking the example directory structure above into account - the namespace name MUST end with `[StandardName]\Sniffs\[CategoryName]` and the class name MUST be exactly the same as the file name (minus the `.php` file extension).
 
 > [!NOTE]
 > As long as an external standard is registered with PHP_CodeSniffer via `installed_paths` and the standard follows the directory layout and naming conventions, PHP_CodeSniffer can, and will, automatically handle the sniff autoloading.
