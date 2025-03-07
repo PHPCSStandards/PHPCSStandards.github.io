@@ -159,10 +159,10 @@ By default, PHP_CodeSniffer will look inside its own `src/Standards` directory t
 ## Setting the PHP version
 Some sniffs change their behaviour based on the version of PHP being used to run PHPCS. For example, a sniff that checks for namespaces may choose to ignore this check if the version of PHP does not include namespace support. Sometimes a code base that supports older PHP versions is checked using a newer PHP version. In this case, sniffs see the new PHP version and report errors that may not be correct. To let the sniffs know what version of PHP you are targeting, the `php_version` configuration option can be used.
 
-    $ phpcs --config-set php_version 50403
+    $ phpcs --config-set php_version 70416
 
 > [!IMPORTANT]
-> The format of the `php_version` value is the same as the PHP_VERSION_ID constant. e.g., 50403 for version 5.4.3.
+> The format of the `php_version` value is the same as the PHP_VERSION_ID constant. e.g., 70416 for version 7.4.16.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
