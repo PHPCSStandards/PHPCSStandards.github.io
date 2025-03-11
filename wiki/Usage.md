@@ -96,7 +96,8 @@ Configuration Options:
   file.
   This applies to the following options: "default_standard", "report_format", "tab_width", "encoding",
   "severity", "error_severity", "warning_severity", "show_warnings", "report_width", "show_progress", "quiet",
-  "colors", "cache", "parallel".
+  "colors", "cache", "parallel", "installed_paths", "php_version", "ignore_errors_on_exit",
+  "ignore_warnings_on_exit".
   --config-show                  Show the configuration options which are currently stored in the applicable
                                  CodeSniffer.conf file.
   --config-set <key> <value>     Save a configuration option to the CodeSniffer.conf file.

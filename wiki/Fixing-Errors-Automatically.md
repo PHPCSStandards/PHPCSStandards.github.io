@@ -49,46 +49,80 @@ Diff reports are more easily used when output to a file. They can then be applie
 ## Using the PHP Code Beautifier and Fixer
 To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
 ```
-Usage: phpcbf [-nwli] [-d key[=value]] [--ignore-annotations] [--stdin-path=<stdinPath>]
-  [--standard=<standard>] [--sniffs=<sniffs>] [--exclude=<sniffs>] [--suffix=<suffix>]
-  [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
-  [--tab-width=<tabWidth>] [--encoding=<encoding>] [--parallel=<processes>]
-  [--basepath=<basepath>] [--extensions=<extensions>] [--ignore=<patterns>] <file> - ...
+Usage:
+  phpcbf [options] <file|directory>
 
- -     Fix STDIN instead of local files and directories
- -n    Do not fix warnings (shortcut for --warning-severity=0)
- -w    Fix both warnings and errors (on by default)
- -l    Local directory only, no recursion
- -p    Show progress of the run
- -q    Quiet mode; disables progress and verbose output
- -v    Print processed files
- -vv   Print ruleset and token output
- -vvv  Print sniff processing information
- -i    Show a list of installed coding standards
- -d    Set the [key] php.ini value to [value] or [true] if value is omitted
+Scan targets:
+  <file|directory>              One or more files and/or directories to check, space separated.
+  -                             Check STDIN instead of local files and directories.
+  --stdin-path=<stdinPath>      If processing STDIN, the file path that STDIN will be processed as.
+  --file-list=<fileList>        Check the files and/or directories which are defined in the file to which the
+                                path is provided (one per line).
+  --filter=<filter>             Check based on a predefined file filter. Use either the "GitModified" or
+                                "GitStaged" filter, or specify the path to a custom filter class.
+  --ignore=<patterns>           Ignore files based on a comma-separated list of patterns matching files and/or
+                                directories.
+  --extensions=<extensions>     Check files with the specified file extensions (comma-separated list).
+                                Defaults to php,inc/php,js,css.
+                                The type of the file can be specified using: ext/type; e.g. module/php,es/js.
+  -l                            Check local directory only, no recursion.
 
- --help                Print this help message
- --version             Print version information
- --ignore-annotations  Ignore all phpcs: annotations in code comments
+Rule Selection Options:
+  --standard=<standard>         The name of, or the path to, the coding standard to use. Can be a
+                                comma-separated list specifying multiple standards. If no standard is
+                                specified, PHP_CodeSniffer will look for a [.]phpcs.xml[.dist] custom ruleset
+                                file in the current directory and those above it.
+  --sniffs=<sniffs>             A comma-separated list of sniff codes to limit the scan to. All sniffs must be
+                                part of the standard in use.
+  --exclude=<sniffs>            A comma-separated list of sniff codes to exclude from the scan. All sniffs
+                                must be part of the standard in use.
 
- <basepath>    A path to strip from the front of file paths inside reports
- <file>        One or more files and/or directories to fix
- <encoding>    The encoding of the files being fixed (default is utf-8)
- <extensions>  A comma separated list of file extensions to fix
-               (extension filtering only valid when checking a directory)
-               The type of the file can be specified using: ext/type
-               e.g., module/php,es/js
- <patterns>    A comma separated list of patterns to ignore files and directories
- <processes>   How many files should be fixed simultaneously (default is 1)
- <severity>    The minimum severity required to fix an error or warning
- <sniffs>      A comma separated list of sniff codes to include or exclude from fixing
-               (all sniffs must be part of the specified standard)
- <standard>    The name or path of the coding standard to use
- <stdinPath>   If processing STDIN, the file path that STDIN will be processed as
- <suffix>      Write modified files to a filename using this suffix
-               ("diff" and "patch" are not used in this mode)
- <tabWidth>    The number of spaces each tab represents
+  -i                            Show a list of installed coding standards.
+
+Run Options:
+  --bootstrap=<bootstrap>       Run the specified file(s) before processing begins. A list of files can be
+                                provided, separated by commas.
+  --parallel=<processes>        The number of files to be checked simultaneously. Defaults to 1 (no parallel
+                                processing).
+                                If enabled, this option only takes effect if the PHP PCNTL (Process Control)
+                                extension is available.
+  --suffix=<suffix>             Write modified files to a filename using this suffix ("diff" and "patch" are
+                                not used in this mode).
+
+  -d <key[=value]>              Set the [key] php.ini value to [value] or set to [true] if value is omitted.
+                                Note: only php.ini settings which can be changed at runtime are supported.
+
+Reporting Options:
+  --report-width=<reportWidth>  How many columns wide screen reports should be. Set to "auto" to use current
+                                screen width, where supported.
+  --basepath=<basepath>         Strip a path from the front of file paths inside reports.
+
+  -w                            Include both warnings and errors (default).
+  -n                            Do not include warnings. Shortcut for "--warning-severity=0".
+  --severity=<severity>         The minimum severity required to display an error or warning. Defaults to 5.
+  --error-severity=<severity>   The minimum severity required to display an error. Defaults to 5.
+  --warning-severity=<severity> The minimum severity required to display a warning. Defaults to 5.
+
+  --ignore-annotations          Ignore all "phpcs:..." annotations in code comments.
+  --colors                      Use colors in screen output.
+  --no-colors                   Do not use colors in screen output (default).
+  -p                            Show progress of the run.
+  -q                            Quiet mode; disables progress and verbose output.
+
+Configuration Options:
+  --encoding=<encoding>         The encoding of the files being checked. Defaults to "utf-8".
+  --tab-width=<tabWidth>        The number of spaces each tab represents.
+
+  --runtime-set <key> <value>   Set a configuration option to be applied to the current scan run only.
+
+Miscellaneous Options:
+  -h, -?, --help                Print this help message.
+  --version                     Print version information.
+  -v                            Verbose output: Print processed files.
+  -vv                           Verbose output: Print ruleset and token output.
+  -vvv                          Verbose output: Print sniff processing information.
 ```
+
 When using the PHPCBF command, you do not need to specify a report type. PHPCBF will automatically make changes to your source files:
 
     $ phpcbf /path/to/code
