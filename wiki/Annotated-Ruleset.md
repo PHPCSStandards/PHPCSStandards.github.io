@@ -7,7 +7,7 @@ $ phpcs --standard=/path/to/custom_ruleset.xml test.php
 ```
 
 By default, PHP_CodeSniffer will look for the following files: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`.
-If you use one of these names for your standard, PHP_CodeSniffer will automatically find anf use it if no `--standard` is provided on the command-line.
+If you use one of these names for your standard, PHP_CodeSniffer will automatically find and use it if no `--standard` is provided on the command-line.
 
 For projects, it is recommended to use one of the `.dist` filenames.
 
