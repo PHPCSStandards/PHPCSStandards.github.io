@@ -1,6 +1,7 @@
 ## Table of contents
 
 * [A Project ruleset or a standard ?](#a-project-ruleset-or-a-standard-)
+* [How does PHP_CodeSniffer determine which standard or ruleset to apply ?](#how-does-php_codesniffer-determine-which-standard-or-ruleset-to-apply-)
 * [About standards](#about-standards)
 * [Creating an external standard for PHP_CodeSniffer](#creating-an-external-standard-for-php_codesniffer)
 * [Creating new rules](#creating-new-rules)
@@ -43,6 +44,21 @@ The [Annotated ruleset](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/A
 Keep in mind that for a _standard_ to be optimally reusable, it should not contain project specific information, such as `<file>` directives or `<exclude-patterns>`, while a project specific `[.]phpcs.xml[.dist]` ruleset file _can_ contain that information.
 
 You may also find the [Customisable Sniff Properties](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties) page a handy reference for customisations which can be made to PHP_CodeSniffer native sniffs.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
+## How does PHP_CodeSniffer determine which standard or ruleset to apply ?
+
+1. The `--standard=...` CLI argument can be passed a comma-separated list of standards to apply, like `--standard=PSR12,myCustomRuleset.xml`.
+    If the CLI argument is passed, those standard(s) are applied.
+2. If no `--standard=...` CLI argument is passed, PHP_CodeSniffer will look for the following files in the current directory and directories above it: `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist`, `phpcs.xml.dist`.
+    If PHP_CodeSniffer finds one of these files, that will be the ruleset which will be applied.
+    Note: the files PHPCS looks for are listed in order of precedence, so if both a `.phpcs.xml` file as well as a `phpcs.xml.dist` file are found, the `.phpcs.xml` file takes precedence.
+3. If no (project) ruleset file is found, PHP_CodeSniffer will check if a default standard has been set via `--config-set default_standard [Name]`.
+    If so, PHP_CodeSniffer will use that standard.
+    :warning: Setting the default standard is a user-specific setting, so should not be relied upon.
+4. If no system-default standard was set, PHP_CodeSniffer will apply the PEAR standard.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
