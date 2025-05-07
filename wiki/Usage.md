@@ -216,48 +216,47 @@ A TOTAL OF 6 ERROR(S) WERE FOUND IN 2 FILE(S)
 
 By default, PHP_CodeSniffer will run quietly, only printing the report of errors and warnings at the end. If you are checking a large number of files, you may have to wait a while to see the report. If you want to know what is happening, you can turn on progress or verbose output.
 
-With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked. The possible status characters are:
-
-* `.` : The file contained no errors or warnings
-* `E` : The file contained 1 or more errors
-* `W` : The file contained 1 or more warnings, but no errors
-* `S` : The file contained a [// phpcs:ignoreFile](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders) comment and was skipped
-
-Progress output will look like this:
+To enable progress reporting, use the `-p` command line argument.
+With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked, like so:
 
 ```
 $ phpcs /path/to/code/CodeSniffer -p
 
-......................S.....................................  60 / 572
-..........EEEE.E.E.E.E.E.E.E.E..W..EEE.E.E.E.EE.E.E.E.E.E.E. 120 / 572
-E.E.E.E.E.WWWW.E.W..EEE.E.................E.E.E.E...E....... 180 / 572
-E.E.E.E.....................E.E.E.E.E.E.E.E.E.E.W.E.E.E.E.E. 240 / 572
-E.W......................................................... 300 / 572
-..........................................E.E.E.E...E.E.E.E. 360 / 572
-E.E.E.E.E.E..E.E.E..E..E..E.E.WW.E.E.EE.E.E................. 420 / 572
-...................E.E.EE.E.E.E.S.E.EEEE.E...E...EE.E.E..EEE 480 / 572
-.E.EE.E.E..E.E.E.E.E.E.E.E.E.E.E.E.E.E.E.E.E..E..E..E.E.E..E 540 / 572
-.E.E....E.E.E...E.....E.E.ES....
+...S........W.........S.....................................  60 / 110 (54%)
+..........EEEE.E.E.E.E.E.E.E.E..W..EEE.E.E.E.EE.E.           110 / 110 (100%)
 ```
 
+Legend for the progress indicators:
+
+| When scanning with | Indicator    | Means:                                                    |
+| ------------------ | ------------ | --------------------------------------------------------- |
+| `phpcs`            | `E` (red)    | Non-fixable error(s) found in the file                    |
+|                    | `E` (green)  | Fixable error(s) found in the file                        |
+|                    | `W` (yellow) | Non-fixable warning(s) found in the file, but no errors   |
+|                    | `W` (green)  | Fixable warning(s) found in the file, but no errors       |
+| `phpcbf`           | `F` (green)  | Fixed errors and/or warnings in the file                  |
+|                    | `E` (red)    | Unfixable errors or warnings in the file (fixer conflict) |
+| `phpcs`/`phpcbf`   | `.`          | No errors or warnings found in the file                   |
+|                    | `S`          | File was skipped                                          |
+
 > [!NOTE]
-> You can configure PHP_CodeSniffer to show progress information by default using [the configuration option](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#showing-progress-by-default)</link>.
+> You can configure PHP_CodeSniffer to show progress information by default using [the `show_progress` configuration option](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#showing-progress-by-default)</link>.
 
 With verbose output enabled, PHP_CodeSniffer will print the file that it is checking, show you how many tokens and lines the file contains, and let you know how long it took to process. The output will look like this:
 
 ```
 $ phpcs /path/to/code/CodeSniffer -v
 
-Registering sniffs in PEAR standard... DONE (24 sniffs registered)
-Creating file list... DONE (572 files in queue)
-Processing AbstractDocElement.php [1093 tokens in 303 lines]... DONE in < 1 second (0 errors, 1 warnings)
-Processing AbstractParser.php [2360 tokens in 558 lines]... DONE in 2 seconds (0 errors, 1 warnings)
-Processing ClassCommentParser.php [923 tokens in 296 lines]... DONE in < 1 second (2 errors, 0 warnings)
-Processing CommentElement.php [988 tokens in 218 lines]... DONE in < 1 second (1 error, 5 warnings)
-Processing FunctionCommentParser.php [525 tokens in 184 lines]... DONE in 1 second (0 errors, 6 warnings)
-Processing File.php [10968 tokens in 1805 lines]... DONE in 5 seconds (0 errors, 5 warnings)
-Processing Sniff.php [133 tokens in 94 lines]... DONE in < 1 second (0 errors, 0 warnings)
-Processing SniffException.php [47 tokens in 36 lines]... DONE in < 1 second (1 errors, 3 warnings)
+Registering sniffs in PEAR standard... DONE (28 sniffs registered)
+Creating file list... DONE (158 files in queue)
+Changing into directory src/Standards/Generic/Sniffs/Arrays
+Processing ArrayIndentSniff.php [1409 tokens in 193 lines]... DONE in 39ms (4 errors, 20 warnings)
+Processing DisallowLongArraySyntaxSniff.php [405 tokens in 72 lines]... DONE in 11ms (0 errors, 4 warnings)
+Processing DisallowShortArraySyntaxSniff.php [331 tokens in 61 lines]... DONE in 9ms (4 errors, 3 warnings)
+Changing into directory src/Standards/Generic/Sniffs/Classes
+Processing DuplicateClassNameSniff.php [800 tokens in 118 lines]... DONE in 24ms (0 errors, 0 warnings)
+Processing OpeningBraceSameLineSniff.php [936 tokens in 123 lines]... DONE in 26ms (4 errors, 12 warnings)
+...
 ```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>

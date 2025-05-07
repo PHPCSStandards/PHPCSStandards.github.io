@@ -1,5 +1,4 @@
 ## Table of contents
-* [Progress reporting](#progress-reporting)
 * [Printing Full and Summary Reports](#printing-full-and-summary-reports)
 * Other Report Types
     * [Checkstyle](#printing-a-checkstyle-report)
@@ -23,27 +22,6 @@
 * [Writing a Report to a File](#writing-a-report-to-a-file)
 
 ***
-
-## Progress reporting
-
-To see progress reporting while scanning a code base, use the `-p` command line argument.
-
-Legend for the progress indicators:
-
-| When scanning with | Indicator    | Means:                                                    |
-| ------------------ | ------------ | --------------------------------------------------------- |
-| `phpcs`/`phpcbf`   | `S`          | Skipped file                                              |
-| `phpcs`            | `E` (red)    | Non-fixable errors found in the file                      |
-|                    | `E` (green)  | Fixable errors found in the file                          |
-|                    | `W` (yellow) | Non-fixable warnings found in the file                    |
-|                    | `W` (green)  | Fixable warnings found in the file                        |
-|                    | `.`          | No errors or warnings found in the file                   |
-| `phpcbf`           | `F` (green)  | Fixed errors or warnings in the file                      |
-|                    | `E` (red)    | Unfixable errors or warnings in the file (fixer conflict) |
-|                    | `.`          | No errors or warnings found in the file                   |
-
-<p align="right"><a href="#table-of-contents">back to top</a></p>
-
 
 ## Printing Full and Summary Reports
 When running a scan, by default, the full report is displayed.
