@@ -63,10 +63,11 @@ Run Options:
                                  Note: only php.ini settings which can be changed at runtime are supported.
 
 Reporting Options:
-  --report=<report>              Print either the "full", "xml", "checkstyle", "csv", "json", "junit",
-                                 "emacs", "source", "summary", "diff", "svnblame", "gitblame", "hgblame",
-                                 "notifysend" or "performance" report or specify the path to a custom report
-                                 class. By default, the "full" report is displayed.
+  --report=<report(s)>           A comma-separated list of reports to print. Available reports: "full", "xml",
+                                 "checkstyle", "csv", "json", "junit", "emacs", "source", "summary", "diff",
+                                 "svnblame", "gitblame", "hgblame", "notifysend" or "performance".
+                                 Or specify the path to a custom report class. By default, the "full" report
+                                 is displayed.
   --report-file=<reportFile>     Write the report to the specified file path.
   --report-<report>=<reportFile> Write the report specified in <report> to the specified file path.
   --report-width=<reportWidth>   How many columns wide screen reports should be. Set to "auto" to use current
