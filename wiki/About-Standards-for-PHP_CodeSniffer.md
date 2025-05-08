@@ -5,6 +5,10 @@
 * [Creating an external standard for PHP_CodeSniffer](#creating-an-external-standard-for-php_codesniffer)
 * [Creating new rules](#creating-new-rules)
     * [Naming conventions](#naming-conventions)
+        * [1. Directory structure](#1-directory-structure)
+        * [2. Sniff file name](#2-sniff-file-name)
+        * [3. Namespace and class name](#3-namespace-and-class-name)
+        * [Examples](#examples)
 
 ***
 

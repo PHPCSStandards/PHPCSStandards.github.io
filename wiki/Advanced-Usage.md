@@ -14,6 +14,8 @@
 * [Deleting Configuration Options](#deleting-configuration-options)
 * [Viewing Configuration Options](#viewing-configuration-options)
 * [Printing Verbose Tokeniser Output](#printing-verbose-tokeniser-output)
+    * [The Scope Map](#the-scope-map)
+    * [The Level Map](#the-level-map)
 * [Printing Verbose Token Processing Output](#printing-verbose-token-processing-output)
 * [Quieting Output](#quieting-output)
 

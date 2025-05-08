@@ -1,4 +1,15 @@
-PHP_CodeSniffer is able to fix many errors and warnings automatically. The `diff` report can be used to generate a diff that can be applied using the `patch` command. Alternatively, the PHP Code Beautifier and Fixer (`phpcbf`) can be used in place of `phpcs` to automatically generate and apply the diff for you.
+## Table of contents
+
+* [About Automatic Fixing](#about-automatic-fixing)
+* [Printing a Diff Report](#printing-a-diff-report)
+* [Using the PHP Code Beautifier and Fixer](#using-the-php-code-beautifier-and-fixer)
+* [Viewing Debug Information](#viewing-debug-information)
+
+***
+
+## About Automatic Fixing
+
+PHP_CodeSniffer is able to fix many errors and warnings automatically. The `diff` report can be used to generate a diff that can be applied using the `patch` command. Alternatively, the PHP Code Beautifier and Fixer (`phpcbf`) can be used instead of `phpcs` to automatically generate and apply the diff for you.
 
 Screen-based reports, such as the [full](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, additional information will be printed:
 
@@ -19,6 +30,9 @@ FOUND 5 ERRORS AFFECTING 4 LINES
 PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 --------------------------------------------------------------------------------
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Printing a Diff Report
 
@@ -52,6 +66,9 @@ patching file /path/to/code/file.php
 
 > [!NOTE]
 > The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Using the PHP Code Beautifier and Fixer
 
@@ -157,6 +174,9 @@ Fixed 2 files
 Time: 2.55 secs, Memory: 25.00Mb
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## Viewing Debug Information
 
 To see the fixes that are being made to a file, specify the `-vv` command line argument when generating a diff report. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
@@ -189,3 +209,5 @@ Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUA
 * fixed 1 violations, starting loop 3 *
 *** END FILE FIXING ***
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

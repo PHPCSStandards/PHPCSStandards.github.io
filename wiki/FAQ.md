@@ -1,12 +1,29 @@
+## Table of contents
+
+* [Does PHP_CodeSniffer perform any code coverage or unit testing?](#does-php_codesniffer-perform-any-code-coverage-or-unit-testing)
+* [My code is fine! Why do I need PHP_CodeSniffer?](#my-code-is-fine-why-do-i-need-php_codesniffer)
+* [Does PHP_CodeSniffer parse my code to ensure it will execute?](#does-php_codesniffer-parse-my-code-to-ensure-it-will-execute)
+* [I don't agree with your coding standards! Can I make PHP_CodeSniffer enforce my own?](#i-dont-agree-with-your-coding-standards-can-i-make-php_codesniffer-enforce-my-own)
+* [How come PHP_CodeSniffer reported errors, I fixed them, now I get even more?](#how-come-php_codesniffer-reported-errors-i-fixed-them-now-i-get-even-more)
+* [What does PHP_CodeSniffer use to tokenize my code?](#what-does-php_codesniffer-use-to-tokenize-my-code)
+
+***
+
 ## Does PHP_CodeSniffer perform any code coverage or unit testing?
 
 No. PHP_CodeSniffer is not a tool for testing that your PHP application works correctly. All PHP_CodeSniffer will do is ensure your PHP code meets the standards that you are following.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## My code is fine! Why do I need PHP_CodeSniffer?
 
 Maybe you don't, but if you want to ensure you adhere to a set of coding standards, PHP_CodeSniffer is a quick and easy way to do that. PHP_CodeSniffer is a replacement for the more manual task of checking coding standards in code reviews. With PHP_CodeSniffer, you can reserve code reviews for the checking of code correctness.
 
 Coding standards are a good thing. They will make your code easier to read and maintain, especially when multiple developers are working on the same application. Consider using coding standards if you don't already.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## Does PHP_CodeSniffer parse my code to ensure it will execute?
 
@@ -19,9 +36,15 @@ $ php -l /path/to/code/myfile.inc
 No syntax errors detected in /path/to/code/myfile.inc
 ```
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## I don't agree with your coding standards! Can I make PHP_CodeSniffer enforce my own?
 
 Yes. At its core, PHP_CodeSniffer is just a framework for enforcing coding standards. PHP_CodeSniffer is released with some sample coding standards to help developers get started on projects where there is no standard defined. If you want to write your own standard, read the tutorial on creating coding standards.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
 
 ## How come PHP_CodeSniffer reported errors, I fixed them, now I get even more?
 
@@ -29,8 +52,13 @@ Sometimes, errors mask the existence of other errors, or new errors are created 
 
 Always run PHP_CodeSniffer until you get a passing result. Once you've made the changes PHP_CodeSniffer recommends, run PHP_CodeSniffer again to ensure no new errors have been added.
 
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
 ## What does PHP_CodeSniffer use to tokenize my code?
 
 For PHP files, PHP_CodeSniffer uses [PHP's inbuilt tokenizer functions](http://www.php.net/tokenizer) to parse your code. It then modifies that output to include much more data about the file, such as matching function braces to function keywords.
 
 For all other file types, PHP_CodeSniffer includes a custom tokenizer that either makes use of PHP's inbuilt tokenizer or emulates it. In both cases, the token array must be checked and changed manually before all the standard PHP_CodeSniffer matching rules are applied, making tokenizing a bit slower for these file types.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

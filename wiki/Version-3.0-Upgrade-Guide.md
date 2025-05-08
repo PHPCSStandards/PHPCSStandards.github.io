@@ -13,10 +13,10 @@ PHP_CodeSniffer version 3 contains a large number of core changes and breaks bac
         * [AbstractVariableSniff](#abstractvariablesniff)
         * [AbstractPatternSniff](#abstractpatternsniff)
         * [AbstractScopeSniff](#abstractscopesniff)
-* [New Class Names](#new-class-names)
-    * [PHP_CodeSniffer_File](#php_codesniffer_file)
-    * [PHP_CodeSniffer_Tokens](#php_codesniffer_tokens)
-    * [PHP_CodeSniffer](#php_codesniffer)
+    * [New Class Names](#new-class-names)
+        * [PHP_CodeSniffer_File](#php_codesniffer_file)
+        * [PHP_CodeSniffer_Tokens](#php_codesniffer_tokens)
+        * [PHP_CodeSniffer](#php_codesniffer)
 * [Upgrading Unit Tests](#upgrading-unit-tests)
     * [Setting CLI Values](#setting-cli-values)
 * [Upgrading Custom Reports](#upgrading-custom-reports)
@@ -337,3 +337,5 @@ foreach ($lines as $line) {
     ...
 }
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

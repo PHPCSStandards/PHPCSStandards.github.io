@@ -327,3 +327,5 @@ Squiz (1 sniff)
 ---------------
   Squiz.Classes.ValidClassName
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>

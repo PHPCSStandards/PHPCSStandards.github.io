@@ -4,7 +4,7 @@ For more information about changing sniff behaviour by customising your ruleset,
 
 ## Table of contents
 
-* Generic Sniffs
+* [Generic Sniffs](#generic-sniffs)
     * [Generic.Arrays.ArrayIndent](#genericarraysarrayindent)
     * [Generic.CodeAnalysis.UnusedFunctionParameter](#genericcodeanalysisunusedfunctionparameter)
     * [Generic.ControlStructures.InlineControlStructure](#genericcontrolstructuresinlinecontrolstructure)
@@ -26,7 +26,7 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [Generic.WhiteSpace.ArbitraryParenthesesSpacing](#genericwhitespacearbitraryparenthesesspacing)
     * [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent)
     * [Generic.WhiteSpace.SpreadOperatorSpacingAfter](#genericwhitespacespreadoperatorspacingafter)
-* PEAR Sniffs
+* [PEAR Sniffs](#pear-sniffs)
     * [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment)
     * [PEAR.ControlStructures.ControlSignature](#pearcontrolstructurescontrolsignature)
     * [PEAR.ControlStructures.MultiLineCondition](#pearcontrolstructuresmultilinecondition)
@@ -36,18 +36,18 @@ For more information about changing sniff behaviour by customising your ruleset,
     * [PEAR.WhiteSpace.ObjectOperatorIndent](#pearwhitespaceobjectoperatorindent)
     * [PEAR.WhiteSpace.ScopeClosingBrace](#pearwhitespacescopeclosingbrace)
     * [PEAR.WhiteSpace.ScopeIndent](#pearwhitespacescopeindent)
-* PSR2 Sniffs
+* [PSR2 Sniffs](#psr2-sniffs)
     * [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration)
     * [PSR2.ControlStructures.ControlStructureSpacing](#psr2controlstructurescontrolstructurespacing)
     * [PSR2.ControlStructures.SwitchDeclaration](#psr2controlstructuresswitchdeclaration)
     * [PSR2.Methods.FunctionCallSignature](#psr2methodsfunctioncallsignature)
-* PSR12 Sniffs
+* [PSR12 Sniffs](#psr12-sniffs)
     * [PSR12.Classes.AnonClassDeclaration](#psr12classesanonclassdeclaration)
     * [PSR12.ControlStructures.BooleanOperatorPlacement](#psr12controlstructuresbooleanoperatorplacement)
     * [PSR12.ControlStructures.ControlStructureSpacing](#psr12controlstructurescontrolstructurespacing)
     * [PSR12.Namespaces.CompoundNamespaceDepth](#psr12namespacescompoundnamespacedepth)
     * [PSR12.Operators.OperatorSpacing](#psr12operatorsoperatorspacing)
-* Squiz Sniffs
+* [Squiz Sniffs](#squiz-sniffs)
     * [Squiz.Classes.ClassDeclaration](#squizclassesclassdeclaration)
     * [Squiz.Commenting.FunctionComment](#squizcommentingfunctioncomment)
     * [Squiz.Commenting.LongConditionClosingComment](#squizcommentinglongconditionclosingcomment)

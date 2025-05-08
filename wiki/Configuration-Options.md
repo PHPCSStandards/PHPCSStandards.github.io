@@ -314,3 +314,5 @@ The Zend coding standard [includes a sniff](https://github.com/PHPCSStandards/PH
 ```bash
 $ phpcs --config-set zend_ca_path /path/to/ZendCodeAnalyzer
 ```
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
