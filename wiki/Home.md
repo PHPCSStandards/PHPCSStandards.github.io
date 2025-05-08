@@ -1,6 +1,10 @@
-PHP_CodeSniffer is a set of two PHP scripts; the main phpcs script that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard, and a second phpcbf script to automatically correct coding standard violations. PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
+PHP_CodeSniffer is a set of two PHP scripts:
+1. the main [`phpcs` script](wiki/Usage) that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard; and
+2. a [`phpcbf` script](wiki/Fixing-Errors-Automatically) to automatically correct detected coding standard violations.
 
-A coding standard in PHP_CodeSniffer is a collection of sniff files. Each sniff file checks one part of the coding standard only. Each sniff can yield multiple error codes, a different one for each aspect of the code which was checked and found non-compliant
+PHP_CodeSniffer is an essential development tool that ensures your code remains clean and consistent.
+
+A coding standard in PHP_CodeSniffer is a collection of sniff files. Each sniff file checks one part of the coding standard only. Each sniff can yield multiple error codes, a different one for each aspect of the code which was checked and found non-compliant.
 
 Multiple coding standards can be used within PHP_CodeSniffer so that the one installation can be used across multiple projects. The default coding standard used by PHP_CodeSniffer is the PEAR coding standard.
 
