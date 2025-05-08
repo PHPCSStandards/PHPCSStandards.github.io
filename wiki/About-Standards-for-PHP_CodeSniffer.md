@@ -4,7 +4,7 @@
 * [About standards](#about-standards)
 * [Creating an external standard for PHP_CodeSniffer](#creating-an-external-standard-for-php_codesniffer)
 * [Creating new rules](#creating-new-rules)
-   * [Naming conventions](#naming-conventions)
+    * [Naming conventions](#naming-conventions)
 
 ***
 

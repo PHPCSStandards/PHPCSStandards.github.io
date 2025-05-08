@@ -1,11 +1,11 @@
 ## Table of contents
-  * [Getting Help from the Command Line](#getting-help-from-the-command-line)
-  * [Checking Files and Folders](#checking-files-and-folders)
-  * [Printing a Summary Report](#printing-a-summary-report)
-  * [Printing Progress Information](#printing-progress-information)
-  * [Specifying a Coding Standard](#specifying-a-coding-standard)
-  * [Printing a List of Installed Coding Standards](#printing-a-list-of-installed-coding-standards)
-  * [Listing Sniffs Inside a Coding Standard](#listing-sniffs-inside-a-coding-standard)
+* [Getting Help from the Command Line](#getting-help-from-the-command-line)
+* [Checking Files and Folders](#checking-files-and-folders)
+* [Printing a Summary Report](#printing-a-summary-report)
+* [Printing Progress Information](#printing-progress-information)
+* [Specifying a Coding Standard](#specifying-a-coding-standard)
+* [Printing a List of Installed Coding Standards](#printing-a-list-of-installed-coding-standards)
+* [Listing Sniffs Inside a Coding Standard](#listing-sniffs-inside-a-coding-standard)
 
 ***
 
