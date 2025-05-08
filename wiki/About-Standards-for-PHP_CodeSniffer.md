@@ -109,7 +109,6 @@ In that case, you can write your own sniff to enforce that rule.
 > [!IMPORTANT]
 > All sniffs in a standard are automatically included. There is no need to include the sniff(s) in the `ruleset.xml` via a `<rule ref=.../>`.
 
-
 There is a [Coding Standard Tutorial](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Coding-Standard-Tutorial) available on how to write a sniff.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -155,7 +154,6 @@ This means that - taking the example directory structure above into account - th
 
 
 #### Examples
-
 
 ##### Valid:
 ```php
@@ -206,7 +204,6 @@ class OperatorSpacingSniff implements Sniff {...}
 The same note about setting the `namespace` attribute in the `ruleset.xml` file applies.
 
 Also make sure that the `installed_paths` configuration option is set correctly and points to the `MyStandard` directory.
-
 
 ##### Invalid:
 

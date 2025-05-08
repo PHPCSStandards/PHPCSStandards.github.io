@@ -4,7 +4,8 @@ A coding standard in PHP_CodeSniffer is a collection of sniff files. Each sniff 
 
 Multiple coding standards can be used within PHP_CodeSniffer so that the one installation can be used across multiple projects. The default coding standard used by PHP_CodeSniffer is the PEAR coding standard.
 
-## Example 
+## Example
+
 To check a file against the PEAR coding standard, simply specify the file's location.
 
 ```bash

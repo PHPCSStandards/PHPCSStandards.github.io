@@ -6,6 +6,7 @@ PHP_CodeSniffer version 3 contains a large number of core changes and breaks bac
 ***
 
 ## Table of contents
+
 * [Upgrading Custom Sniffs](#upgrading-custom-sniffs)
     * [Extending Other Sniffs](#extending-other-sniffs)
     * [Extending the Included Abstract Sniffs](#extending-the-included-abstract-sniffs)
@@ -89,6 +90,7 @@ use PHP_CodeSniffer\Files\File;
 
 class TestSniff extends AbstractVariableSniff {}
 ```
+
 #### AbstractPatternSniff
 If you previously extended the `AbstractPatternSniff`, your class definition will now look like this:
 ```php

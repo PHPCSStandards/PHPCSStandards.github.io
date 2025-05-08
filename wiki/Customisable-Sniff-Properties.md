@@ -3,6 +3,7 @@ The behaviour of some sniffs can be changed by setting certain sniff properties 
 For more information about changing sniff behaviour by customising your ruleset, see the [[Annotated ruleset]].
 
 ## Table of contents
+
 * Generic Sniffs
     * [Generic.Arrays.ArrayIndent](#genericarraysarrayindent)
     * [Generic.CodeAnalysis.UnusedFunctionParameter](#genericcodeanalysisunusedfunctionparameter)
@@ -1037,7 +1038,6 @@ See the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff fo
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-
 ## PSR2 Sniffs
 
 ### PSR2.Classes.ClassDeclaration
@@ -1130,7 +1130,6 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 See the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignature) sniff for an explanation of all properties.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
-
 
 
 ## PSR12 Sniffs
@@ -1227,7 +1226,6 @@ This sniff checks the depth of imported namespaces inside compound use statement
 See the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) sniff for an explanation of all properties.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
-
 
 
 ## Squiz Sniffs

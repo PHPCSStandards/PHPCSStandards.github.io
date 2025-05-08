@@ -1,4 +1,5 @@
 ## Table of contents
+
 * [Printing Full and Summary Reports](#printing-full-and-summary-reports)
 * Other Report Types
     * [Checkstyle](#printing-a-checkstyle-report)
@@ -24,6 +25,7 @@
 ***
 
 ## Printing Full and Summary Reports
+
 When running a scan, by default, the full report is displayed.
 
 ```bash
@@ -95,6 +97,7 @@ and with the `--exclude` command line argument to silence the messages from a sp
 
 
 ## Printing a Source Report
+
 PHP_CodeSniffer can output a summary report showing you the most common errors detected in your files so you can target specific parts of your coding standard for improvement. To print a source report, use the `--report=source` command line argument. The output will look like this:
 
 ```bash
@@ -141,6 +144,7 @@ PHPCBF CAN FIX THE 3 MARKED SOURCES AUTOMATICALLY (3 VIOLATIONS IN TOTAL)
 
 
 ## Printing an Information Report
+
 PHP_CodeSniffer can output an information report to show you how your code is written rather than checking that it conforms to a standard. This report will use one or more standards you pass to it and then use the sniffs within those standards to inspect your code. Sniffs must be written to support recording metrics for this feature, so not all sniffs will report back information. To print an information report, use the `--report=info` command line argument. The output will look like this:
 
 ```bash
@@ -253,6 +257,7 @@ PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 
 
 ## Printing a Checkstyle Report
+
 PHP_CodeSniffer can output an XML report similar to the one produced by Checkstyle, allowing you to use the output in scripts and applications that already support Checkstyle. To print a Checkstyle report, use the `--report=checkstyle` command line argument. The output will look like this:
 
 ```bash
@@ -274,6 +279,7 @@ $ phpcs --report=checkstyle /path/to/code
 
 
 ## Printing a CSV Report
+
 PHP_CodeSniffer can output a CSV report to allow you to parse the output easily and use the results in your own scripts. To print a CSV report, use the `--report=csv` command line argument. The output will look like this:
 
 ```bash
@@ -294,6 +300,7 @@ File,Line,Column,Type,Message,Source,Severity,Fixable
 
 
 ## Printing an Emacs Report
+
 PHP_CodeSniffer can output a report in a format the compiler built into the GNU Emacs text editor can understand. This lets you use the built-in complier to run PHP_CodeSniffer on a file you are editing and navigate between errors and warnings within the file. To print an Emacs report, use the `--report=emacs` command line argument. The output will look like this:
 
 ```bash
@@ -321,6 +328,7 @@ Now you can use the compile command and associated shortcuts to move between err
 
 
 ## Printing a Git Blame Report
+
 PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
 
 ```bash
@@ -389,6 +397,7 @@ A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
 
 
 ## Printing a JSON Report
+
 PHP_CodeSniffer can output an JSON report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
 
 ```bash
@@ -467,6 +476,7 @@ $ phpcs --report=json /path/to/code
 
 
 ## Printing a JUnit Report
+
 PHP_CodeSniffer can output an XML report similar to the one produced by JUnit, allowing you to use the output in scripts and applications that already support JUnit. To print a JUnit report, use the `--report=junit` command line argument. The output will look like this:
 
 ```bash
@@ -501,6 +511,7 @@ $ phpcs --report=junit /path/to/code
 
 
 ## Printing a Performance Report
+
 PHP_CodeSniffer can output a sniff performance report showing you which sniffs in the standard you use are _slowest_. This can be useful information to examine when a PHP_CodeSniffer run takes a long time to finish and will provide you with insights to share with the developers of the sniffs you use.
 
 When the `--colors` option is enabled, sniffs which take more than twice the average run time per sniff will be displayed in orange and sniffs with a cumulative listener run time of more than three times the average run time per sniff will display in red.
@@ -547,6 +558,7 @@ TOTAL RUN TIME                                               13.503953 (100.0 %)
 
 
 ## Printing an SVN Blame Report
+
 Like the Git Blame report, PHP_CodeSniffer can make use of the `svn blame` command to try and determine who committed each error and warning to an SVN repository. To print an SVN Blame report, use the `--report=svnblame` command line argument. The output and options are the same as those described in the [Git Blame report](#printing-a-git-blame-report).
 
 > [!IMPORTANT]
@@ -556,6 +568,7 @@ Like the Git Blame report, PHP_CodeSniffer can make use of the `svn blame` comma
 
 
 ## Printing an XML Report
+
 PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
 
 ```bash
@@ -577,6 +590,7 @@ $ phpcs --report=xml /path/to/code
 
 
 ## Printing Multiple Reports
+
 PHP_CodeSniffer can print any combination of the above reports to either the screen or to separate files. To print multiple reports, use the `--report-[type]` command line argument instead of the standard `--report=[type]` format. You can then specify multiple reports using multiple arguments. The reports will be printed to the screen in the order you specify them on the command line.
 
 The following command will write both a full and summary report to the screen
@@ -601,6 +615,7 @@ $ phpcs --report-full=/path/to/full.txt --report-summary /path/to/code
 
 
 ## Running Interactively
+
 Instead of producing a single report at the end of a run, PHP_CodeSniffer can run interactively and show reports for files one at a time. When using the interactive mode, PHP_CodeSniffer will show a report for the first file it finds an error or warning in. It will then pause and wait for user input. Once you have corrected the errors, you can press `ENTER` to have PHP_CodeSniffer recheck your file and continue if the file is now free of errors. You can also choose to skip the file and move to the next file with errors.
 
 To run PHP_CodeSniffer interactively, use the `-a` command line argument.
@@ -633,6 +648,7 @@ PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 
 
 ## Specifying a Report Width
+
 By default, PHP_CodeSniffer will print all screen-based reports 80 characters wide. File paths will be truncated if they don't fit within this limit and error messages will be wrapped across multiple lines. You can increase the report width to show longer file paths and limit the wrapping of error messages using the `--report-width` command line argument.
 
 ```bash
@@ -650,6 +666,7 @@ $ phpcs --report-width=120 --report=summary /path/to/code/myfile.php
 
 
 ## Writing a Report to a File
+
 PHP_CodeSniffer always prints the specified report to the screen, but it can also be told to write a copy of the report to a file. When writing to a file, all internal parsing errors and verbose output PHP_CodeSniffer produces will not be included in the file. This feature is particularly useful when using report types such as XML and CSV that are often parsed by scripts or used with continuous integration software.
 
 To write a copy of a report to a file, use the `--report-file` command line argument.

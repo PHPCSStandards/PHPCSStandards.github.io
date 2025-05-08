@@ -21,6 +21,7 @@ PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ```
 
 ## Printing a Diff Report
+
 PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
 
 ```bash
@@ -53,6 +54,7 @@ patching file /path/to/code/file.php
 > The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
 
 ## Using the PHP Code Beautifier and Fixer
+
 To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
 ```text
 Usage:

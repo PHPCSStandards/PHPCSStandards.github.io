@@ -1,4 +1,5 @@
 ## Table of contents
+
 * [Getting Help from the Command Line](#getting-help-from-the-command-line)
 * [Checking Files and Folders](#checking-files-and-folders)
 * [Printing a Summary Report](#printing-a-summary-report)
