@@ -76,7 +76,7 @@ Once you have a good name:
 ```
 
 If your chosen standard name is `MyCompanyStandard`, the directory structure would now look like this:
-```
+```text
 - MyCompanyStandard (directory)
   - ruleset.xml (file)
 ```
@@ -124,7 +124,7 @@ Sniffs need to follow strict directory layout and naming conventions to allow fo
 A sniff MUST belong to a standard and MUST be in a category.
 
 The directory structure MUST be as follows:
-```
+```text
 [StandardName]/Sniffs/[CategoryName]/
 ```
 

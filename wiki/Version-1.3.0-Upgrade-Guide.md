@@ -4,7 +4,7 @@ PHP_CodeSniffer version 1.3.0 contains an important backwards compatibility brea
 > If you have not created your own coding standard, you do not need to follow this guide. Users of PHP_CodeSniffer that use one of the built-in standards can continue to check their code as normal.
 
 This guide assumes your coding standard has the following directory structure:
-```
+```text
 MyStandard
 |_ MyStandardCodingStandard.php
 |_ Sniffs
@@ -18,7 +18,7 @@ The only thing we need to do to upgrade a custom coding standard is convert the 
 ### The Basics
 
 The first thing you need to do is create a `ruleset.xml` file directly under your top-level directory. The name of the file must be `ruleset.xml`:
-```
+```bash
 touch MyStandard/ruleset.xml
 ```
 
@@ -63,7 +63,7 @@ These rules would be replicated in a `ruleset.xml` file like this:
 ```
 
 The two changes here are the use of the `rule` tag to include sniffs and standards, and also the way we reference an individual sniff. Instead of specifying the path to the sniff we instead specify the internal code that PHP_CodeSniffer gives it, which is based on the path. It's actually a pretty easy conversion. Just just drop the `Sniffs` directory, convert the slashes to periods and remove `Sniff.php` from the end. Here are some more examples to make sure it is clear.
-```
+```text
 BEFORE: Generic/Sniffs/VersionControl/SubversionPropertiesSniff.php
 AFTER:  Generic.VersionControl.SubversionProperties
 

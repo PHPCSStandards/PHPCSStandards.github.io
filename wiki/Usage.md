@@ -13,7 +13,7 @@
 
 Running PHP_CodeSniffer with the `-h` or `--help` command line arguments will print a list of commands that PHP_CodeSniffer will respond to. The output of `phpcs -h` is shown below.
 
-```
+```text
 Usage:
   phpcs [options] <file|directory>
 
@@ -138,7 +138,7 @@ $ phpcs /path/to/code/myfile.inc /path/to/code/my_dir
 
 After PHP_CodeSniffer has finished processing your files, you will get an error report. The report lists both errors and warnings for all files that violated the coding standard. The output looks like this:
 
-```
+```bash
 $ phpcs /path/to/code/myfile.php
 
 FILE: /path/to/code/myfile.php
@@ -157,7 +157,7 @@ FOUND 5 ERROR(S) AND 1 WARNING(S) AFFECTING 5 LINE(S)
 
 If you don't want warnings included in the output, specify the `-n` command line argument.
 
-```
+```bash
 $ phpcs -n /path/to/code/myfile.php
 
 FILE: /path/to/code/myfile.php
@@ -179,7 +179,7 @@ FOUND 5 ERROR(S) AFFECTING 5 LINE(S)
 
 By default, PHP_CodeSniffer will print a complete list of all errors and warnings it finds. This list can become quite long, especially when checking a large number of files at once. To print a summary report that only shows the number of errors and warnings for each file, use the `--report=summary` command line argument. The output will look like this:
 
-```
+```bash
 $ phpcs --report=summary /path/to/code
 
 PHP CODE SNIFFER REPORT SUMMARY
@@ -196,7 +196,7 @@ A TOTAL OF 6 ERROR(S) AND 3 WARNING(S) WERE FOUND IN 3 FILE(S)
 
 As with the full report, you can suppress the printing of warnings with the `-n` command line argument.
 
-```
+```bash
 $ phpcs -n --report=summary /path/to/code
 
 PHP CODE SNIFFER REPORT SUMMARY
@@ -220,7 +220,7 @@ By default, PHP_CodeSniffer will run quietly, only printing the report of errors
 To enable progress reporting, use the `-p` command line argument.
 With progress output enabled, PHP_CodeSniffer will print a single-character status for each file being checked, like so:
 
-```
+```bash
 $ phpcs /path/to/code/CodeSniffer -p
 
 ...S........W.........S.....................................  60 / 110 (54%)
@@ -245,7 +245,7 @@ Legend for the progress indicators:
 
 With verbose output enabled, PHP_CodeSniffer will print the file that it is checking, show you how many tokens and lines the file contains, and let you know how long it took to process. The output will look like this:
 
-```
+```bash
 $ phpcs /path/to/code/CodeSniffer -v
 
 Registering sniffs in PEAR standard... DONE (28 sniffs registered)
@@ -292,7 +292,7 @@ $ phpcs --standard=PEAR,Squiz,/path/to/MyStandard /path/to/code/myfile.inc
 
 PHP_CodeSniffer can print you a list of the coding standards that are installed so that you can correctly specify a coding standard to use for testing. You can print this list by specifying the `-i` command line argument.
 
-```
+```bash
 $ phpcs -i
 The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz and Zend
 ```
@@ -304,7 +304,7 @@ The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz and 
 
 PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with the `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
 
-```
+```bash
 $ phpcs --standard=PSR1 -e
 
 The PSR1 standard contains 8 sniffs

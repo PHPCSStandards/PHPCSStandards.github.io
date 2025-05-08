@@ -54,7 +54,7 @@ patching file /path/to/code/file.php
 
 ## Using the PHP Code Beautifier and Fixer
 To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
-```
+```text
 Usage:
   phpcbf [options] <file|directory>
 
