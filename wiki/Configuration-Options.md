@@ -26,7 +26,7 @@
 
 ## Setting the default coding standard
 
-By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is supplied on the command line. You can change the default standard by setting the default_standard configuration option.
+By default, PHP_CodeSniffer will use the PEAR coding standard if no standard is supplied on the command line. You can change the default standard by setting the `default_standard` configuration option.
 
 ```bash
 $ phpcs --config-set default_standard Squiz
@@ -40,7 +40,7 @@ $ phpcs --config-set default_standard Squiz
 
 ## Setting the default report format
 
-By default, PHP_CodeSniffer will use the full report format if no format is supplied on the command line. You can change the default report format by setting the report_format configuration option.
+By default, PHP_CodeSniffer will use the full report format if no format is supplied on the command line. You can change the default report format by setting the `report_format` configuration option.
 
 ```bash
 $ phpcs --config-set report_format summary
@@ -201,7 +201,7 @@ $ phpcs --config-set php_version 70416
 ```
 
 > [!IMPORTANT]
-> The format of the `php_version` value is the same as the PHP_VERSION_ID constant. e.g., 70416 for version 7.4.16.
+> The format of the `php_version` value is the same as the `PHP_VERSION_ID` constant. E.g. `70416` for version `7.4.16`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -239,7 +239,7 @@ $ phpcs --config-set ignore_warnings_on_exit 1
 
 ### Setting the path to CSSLint
 
-The Generic coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/CSSLintSniff.php) that will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
+The `Generic.Debug.CSSLint` sniff will check each CSS file using [CSS Lint](http://csslint.net/). Use the `csslint_path` configuration option to tell the CSSLint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set csslint_path /path/to/csslint
@@ -247,7 +247,7 @@ $ phpcs --config-set csslint_path /path/to/csslint
 
 ### Setting the path to the Google Closure Linter
 
-The Generic coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/ClosureLinterSniff.php) that will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
+The `Generic.Debug.ClosureLinter` sniff will check each file using the [Google Closure Linter](https://github.com/google/closure-linter), an open source JavaScript style checker from Google. Use the `gjslint_path` configuration option to tell the Google Closure Linter sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set gjslint_path /path/to/gjslint
@@ -255,7 +255,7 @@ $ phpcs --config-set gjslint_path /path/to/gjslint
 
 ### Setting the path to PHP
 
-The Generic coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/SyntaxSniff.php) that will check the syntax of each PHP file using [the built-in PHP linter](http://php.net/manual/en/features.commandline.options.php). Use the `php_path` configuration option to tell the Syntax sniff where to find the PHP binary.
+The `Generic.PHP.Syntax` sniff will check the syntax of each PHP file using [the built-in PHP linter](http://php.net/manual/en/features.commandline.options.php). Use the `php_path` configuration option to tell the Syntax sniff where to find the PHP binary.
 
 ```bash
 $ phpcs --config-set php_path /path/to/php
@@ -263,13 +263,13 @@ $ phpcs --config-set php_path /path/to/php
 
 ### Setting the path to JSHint
 
-The Generic coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/Debug/JSHintSniff.php) that will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
+The `Generic.Debug.JSHint` sniff will check each JavaScript file using [JSHint](http://www.jshint.com/), a tool to detect errors and potential problems in JavaScript code. Use the `jshint_path` configuration option to tell the JSHint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set jshint_path /path/to/jshint.js
 ```
 
-As JSHint is just JavaScript code, you also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
+As JSHint is just JavaScript code, you may also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set rhino_path /path/to/rhino
@@ -282,13 +282,13 @@ $ phpcs --config-set rhino_path /path/to/rhino
 
 ### Setting the path to JSLint
 
-The Squiz coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Squiz/Sniffs/Debug/JSLintSniff.php) that will check each JavaScript file using [JSLint](http://www.jslint.com/), a JavaScript program that looks for problems in JavaScript programs. Use the `jslint_path` configuration option to tell the JSLint sniff where to find the tool.
+The `Squiz.Debug.JSLint` sniff will check each JavaScript file using [JSLint](http://www.jslint.com/), a JavaScript program that looks for problems in JavaScript programs. Use the `jslint_path` configuration option to tell the JSLint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set jslint_path /path/to/jslint.js
 ```
 
-As JSLint is just JavaScript code, you also need to install [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) to be able to execute it. Use the `rhino_path` configuration option to tell the JSLint sniff where to find the tool.
+As JSLint is just JavaScript code, you may also need to install [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) to be able to execute it. Use the `rhino_path` configuration option to tell the JSLint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set rhino_path /path/to/rhino
@@ -296,7 +296,7 @@ $ phpcs --config-set rhino_path /path/to/rhino
 
 ### Setting the path to JavaScript Lint
 
-The Squiz coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Squiz/Sniffs/Debug/JavaScriptLintSniff.php) that will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
+The `Squiz.Debug.JavascriptLint` sniff will check each JavaScript file using [JavaScript Lint](http://www.javascriptlint.com/), a tool that checks all your JavaScript source code for common mistakes without actually running the script or opening the web page. Use the `jsl_path` configuration option to tell the JavaScript Lint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set jsl_path /path/to/jsl
@@ -309,7 +309,7 @@ $ phpcs --config-set jsl_path /path/to/jsl
 
 ### Setting the path to the Zend Code Analyzer
 
-The Zend coding standard [includes a sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php) that will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
+The `Zend.Debug.CodeAnalyzer` sniff will check each file using the Zend Code Analyzer, a tool that comes with Zend Studio. Use the `zend_ca_path` configuration option to tell the Zend Code Analyzer sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set zend_ca_path /path/to/ZendCodeAnalyzer
