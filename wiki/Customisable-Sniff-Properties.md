@@ -74,9 +74,9 @@ For more information about changing sniff behaviour by customising your ruleset,
 
 ### Generic.Arrays.ArrayIndent
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 3.2.0
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 3.2.0           |
 
 One of the rules that this sniff enforces is the indent of keys in a multi-line array declaration. By default, this sniff ensures that each key is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -93,9 +93,9 @@ One of the rules that this sniff enforces is the indent of keys in a multi-line 
 
 ### Generic.CodeAnalysis.UnusedFunctionParameter
 
-Property Name   | Type  | Default | Available Since
---------------- | ----- | ------- | ---------------
-ignoreTypeHints | array | []      | 3.6.0
+| Property Name   | Type  | Default | Available Since |
+| --------------- | ----- | ------- | --------------- |
+| ignoreTypeHints | array | []      | 3.6.0           |
 
 This sniff ensures that parameters passed to a function are used within that function, and warns if they are not. Sometimes, parameters can be left unused when doing something like implementing an interface, such as with the following code:
 
@@ -123,9 +123,9 @@ If the `InputInterface` parameter does not need to be used, you can tell the sni
 
 ### Generic.ControlStructures.InlineControlStructure
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-error         | bool | true    | -
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| error         | bool | true    | -               |
 
 If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
 
@@ -142,10 +142,10 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Generic.Debug.ClosureLinter
 
-Property Name | Type  | Default | Available Since
-------------- | ----- | ------- | ---------------
-errorCodes    | array | []      | -
-ignoreCodes   | array | []      | -
+| Property Name | Type  | Default | Available Since |
+| ------------- | ----- | ------- | --------------- |
+| errorCodes    | array | []      | -               |
+| ignoreCodes   | array | []      | -               |
 
 The `Generic.Debug.ClosureLinter` sniff runs the [Google Closure Linter](https://github.com/google/closure-linter) tool over JavaScript files and reports errors that the tool finds. All found errors are reported as PHP_CodeSniffer warnings by default.
 
@@ -176,9 +176,9 @@ There are two configurable options:
 
 ### Generic.Debug.ESLint
 
-Property Name | Type   | Default | Available Since
-------------- | ------ | ------- | ---------------
-configFile    | string | -       | 2.9.0
+| Property Name | Type   | Default | Available Since |
+| ------------- | ------ | ------- | --------------- |
+| configFile    | string | -       | 2.9.0           |
 
 The `Generic.Debug.ESLint` sniff runs the [ESLint](https://eslint.org/) tool over JavaScript files and reports errors that the tool finds. All found violations are reported as either PHP_CodeSniffer errors or warnings based on the severity level that the ESLint tool provides.
 
@@ -197,9 +197,9 @@ The sniff will attempt to auto-discover an ESLint config file in the current dir
 
 ### Generic.Files.LineEndings
 
-Property Name | Type   | Default | Available Since
-------------- | ------ | ------- | ---------------
-eolChar       | string | \n      | -
+| Property Name | Type   | Default | Available Since |
+| ------------- | ------ | ------- | --------------- |
+| eolChar       | string | \n      | -               |
 
 This sniff ensures that files use a specific line ending, which can be customised by setting the `eolChar` property.
 
@@ -216,11 +216,11 @@ This sniff ensures that files use a specific line ending, which can be customise
 
 ### Generic.Files.LineLength
 
-Property Name     | Type  | Default | Available Since
------------------ | ----  | ------- | ---------------
-absoluteLineLimit | int   | 100     | -
-ignoreComments    | bool  | false   | 3.1.0
-lineLimit         | int   | 80      | -
+| Property Name     | Type | Default | Available Since |
+| ----------------- | ---- | ------- | --------------- |
+| absoluteLineLimit | int  | 100     | -               |
+| ignoreComments    | bool | false   | 3.1.0           |
+| lineLimit         | int  | 80      | -               |
 
 This sniff checks all lines in a file and generates warnings if they are over `lineLimit` characters in length and errors if they are over `absoluteLineLimit` in length. These properties can be used to set the threshold at which errors are reported.
 
@@ -267,11 +267,11 @@ If the `ignoreComments` property is set to `true`, comments at the end of a line
 
 ### Generic.Formatting.MultipleStatementAlignment
 
-Property Name | Type | Default | Available Since | Removed In
-------------- | ---- | ------- | --------------- | ----------
-alignAtEnd    | bool | true    | 3.6.0           |
-error         | bool | false   | -               | 4.0.0
-maxPadding    | int  | 1000    | -               |
+| Property Name | Type | Default | Available Since | Removed In |
+| ------------- | ---- | ------- | --------------- | ---------- |
+| alignAtEnd    | bool | true    | 3.6.0           |            |
+| error         | bool | false   | -               | 4.0.0      |
+| maxPadding    | int  | 1000    | -               |            |
 
 This sniff checks the alignment of assignment operators. If there are multiple adjacent assignments, it checks that the assignment operators of each assignment are aligned. By default, the sniff enforces that the end of the assignment operators are aligned, ensuring that the assigned values are aligned. This formats code like this:
 
@@ -322,10 +322,10 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 ### Generic.Formatting.SpaceAfterCast
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 3.4.0
-spacing        | int  | 1       | 3.4.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 3.4.0           |
+| spacing        | int  | 1       | 3.4.0           |
 
 This sniff checks the spacing after a type cast. By default, the sniff ensures there is one space after the cast, as shown in the following code snippet:
 
@@ -364,10 +364,10 @@ Sometimes complex statements are broken over multiple lines for readability. By 
 
 ### Generic.Formatting.SpaceAfterNot
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 3.4.0
-spacing        | int  | 1       | 3.4.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 3.4.0           |
+| spacing        | int  | 1       | 3.4.0           |
 
 This sniff checks the spacing after a `!` operator. By default, the sniff ensures there is one space after the operator, as shown in the following code snippet:
 
@@ -416,10 +416,10 @@ By default, this sniff will generate an error if the `!` operator is followed by
 
 ### Generic.Functions.OpeningFunctionBraceBsdAllman
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-checkClosures  | bool | false   | 2.3.0
-checkFunctions | bool | true    | 2.3.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| checkClosures  | bool | false   | 2.3.0           |
+| checkFunctions | bool | true    | 2.3.0           |
 
 The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
 
@@ -438,10 +438,10 @@ The sniff checks the position of the opening brace of a function and/or closure 
 
 ### Generic.Functions.OpeningFunctionBraceKernighanRitchie
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-checkClosures  | bool | false   | 2.3.0
-checkFunctions | bool | true    | 2.3.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| checkClosures  | bool | false   | 2.3.0           |
+| checkFunctions | bool | true    | 2.3.0           |
 
 The sniff checks the position of the opening brace of a function and/or closure (anonymous function). The sniff only checks functions by default, but the `checkFunctions` and `checkClosures` properties can be used to have the sniff check one or both of these code blocks.
 
@@ -460,10 +460,10 @@ The sniff checks the position of the opening brace of a function and/or closure 
 
 ### Generic.Metrics.CyclomaticComplexity
 
-Property Name      | Type | Default | Available Since
------------------- | ---- | ------- | ---------------
-absoluteComplexity | int  | 20      | -
-complexity         | int  | 10      | -
+| Property Name      | Type | Default | Available Since |
+| ------------------ | ---- | ------- | --------------- |
+| absoluteComplexity | int  | 20      | -               |
+| complexity         | int  | 10      | -               |
 
 This sniff checks the cyclomatic complexity for functions by counting the different paths the function includes.
 
@@ -488,10 +488,10 @@ There are two configurable options:
 
 ### Generic.Metrics.NestingLevel
 
-Property Name        | Type | Default | Available Since
--------------------- | ---- | ------- | ---------------
-absoluteNestingLevel | int  | 10      | -
-nestingLevel         | int  | 5       | -
+| Property Name        | Type | Default | Available Since |
+| -------------------- | ---- | ------- | --------------- |
+| absoluteNestingLevel | int  | 10      | -               |
+| nestingLevel         | int  | 5       | -               |
 
 This sniff checks how many level deep that code is nested within a function.
 
@@ -513,9 +513,9 @@ There are two configurable options:
 
 ### Generic.NamingConventions.CamelCapsFunctionName
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-strict        | bool | true    | 1.3.5
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| strict        | bool | true    | 1.3.5           |
 
 This sniff ensures function and method names are in CamelCaps.
 
@@ -534,10 +534,10 @@ Strictly speaking, a name cannot have two capital letters next to each other in 
 
 ### Generic.PHP.ForbiddenFunctions
 
-Property Name      | Type  | Default                       | Available Since
--------------------| ----- | ----------------------------- | ---------------
-error              | bool  | true                          | -
-forbiddenFunctions | array | [sizeof=>count,delete=>unset] | 2.0.0
+| Property Name      | Type  | Default                       | Available Since |
+| ------------------ | ----- | ----------------------------- | --------------- |
+| error              | bool  | true                          | -               |
+| forbiddenFunctions | array | [sizeof=>count,delete=>unset] | 2.0.0           |
 
 This sniff discourages the use of alias functions that are kept in PHP for compatibility with older versions. The sniff can be used to forbid the use of any function by setting the `forbiddenFunctions` property. The property is defined as an array, with the keys being the names of the functions to forbid and the values being the names of suggested alternative functions to use instead. If no alternative function exists (i.e., the function should never be used) specify `null` as the value.
 
@@ -567,9 +567,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Generic.PHP.NoSilencedErrors
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-error         | bool | true    | -
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| error         | bool | true    | -               |
 
 If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
 
@@ -586,10 +586,10 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Generic.Strings.UnnecessaryStringConcat
 
-Property Name  | Type | Default | Available Since | Removed In
--------------- | ---- | ------- | --------------- | ----------
-allowMultiline | bool | false   | 2.3.4           |
-error          | bool | true    | -               | 4.0.0
+| Property Name  | Type | Default | Available Since | Removed In |
+| -------------- | ---- | ------- | --------------- | ---------- |
+| allowMultiline | bool | false   | 2.3.4           |            |
+| error          | bool | true    | -               | 4.0.0      |
 
 This sniff checks that two strings using the same quoting style are not concatenated. Sometimes long strings are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `allowMultiline` property to `true` will get the sniff to allow string concatenation if the string covers multiple lines.
 
@@ -616,10 +616,10 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Generic.WhiteSpace.ArbitraryParenthesesSpacing
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 3.3.0
-spacing        | int  | 0       | 3.3.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 3.3.0           |
+| spacing        | int  | 0       | 3.3.0           |
 
 This sniff checks the padding inside parenthesis that are not being used by function declarations, function calls, or control structures. By default, the sniff ensures there are zero spaces inside the parenthesis, as shown in the following code snippet:
 
@@ -658,12 +658,12 @@ Sometimes long statements are broken over multiple lines to work within a maximu
 
 ### Generic.WhiteSpace.ScopeIndent
 
-Property Name           | Type  | Default | Available Since
------------------------ | ----- | ------- | ---------------
-exact                   | bool  | false   | -
-ignoreIndentationTokens | array | []      | 1.4.8
-indent                  | int   | 4       | -
-tabIndent               | bool  | false   | 2.0.0
+| Property Name           | Type  | Default | Available Since |
+| ----------------------- | ----- | ------- | --------------- |
+| exact                   | bool  | false   | -               |
+| ignoreIndentationTokens | array | []      | 1.4.8           |
+| indent                  | int   | 4       | -               |
+| tabIndent               | bool  | false   | 2.0.0           |
 
 This sniff checks that code blocks are indented correctly. By default, this sniff ensures that code blocks are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -723,10 +723,10 @@ Setting the `ignoreIndentationTokens` property provides the sniff with a list of
 
 ### Generic.WhiteSpace.SpreadOperatorSpacingAfter
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 3.5.0
-spacing        | int  | 0       | 3.5.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 3.5.0           |
+| spacing        | int  | 0       | 3.5.0           |
 
 This sniff checks the spacing after a `...` operator. By default, the sniff ensures there is no space after the operator, but you can enforce a fixed number of spaces by setting the `spacing` property.
 
@@ -755,10 +755,10 @@ If you want to allow a newline after the operator, you can set the `ignoreNewlin
 
 ### PEAR.Commenting.FunctionComment
 
-Property Name     | Type   | Default                  | Available Since
------------------ | ------ | ------------------------ | --------------
-minimumVisibility | string | private                  | 3.6.0
-specialMethods    | array  | [__construct,__destruct] | 3.6.0
+| Property Name     | Type   | Default                  | Available Since |
+| ----------------- | ------ | ------------------------ | --------------- |
+| minimumVisibility | string | private                  | 3.6.0           |
+| specialMethods    | array  | [__construct,__destruct] | 3.6.0           |
 
 This sniff verifies that functions are documented using a docblock. By default, all functions are checked regardless of their visibility, but the sniff can be told to ignore private and protected functions using the `minimumVisibility` property. When set to `protected`, only public and protected functions will be checked. When set to `public`, only public functions will be checked.
 
@@ -789,9 +789,9 @@ This sniff also enforces that function docblocks contain a `@return` tag, except
 
 ### PEAR.ControlStructures.ControlSignature
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | --------------
-ignoreComments | bool | true    | 1.4.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreComments | bool | true    | 1.4.0           |
 
 > [!NOTE]
 > The `ignoreComments` property is inherited from the AbstractPattern sniff.
@@ -811,9 +811,9 @@ This sniff verifies that control structures match a specific pattern of whitespa
 
 ### PEAR.ControlStructures.MultiLineCondition
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.7
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.7           |
 
 One of the rules that this sniff enforces is the indent of a condition that has been split over multiple lines. By default, this sniff ensures that each line of the condition is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -830,9 +830,9 @@ One of the rules that this sniff enforces is the indent of a condition that has 
 
 ### PEAR.Formatting.MultiLineAssignment
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.7
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.7           |
 
 One of the rules that this sniff enforces is the indent of an assignment that has been split over multiple lines. By default, this sniff ensures that the line with the assignment operator is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -849,12 +849,12 @@ One of the rules that this sniff enforces is the indent of an assignment that ha
 
 ### PEAR.Functions.FunctionCallSignature
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-allowMultipleArguments    | bool | true    | 1.3.6
-indent                    | int  | 4       | 1.3.4
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| allowMultipleArguments    | bool | true    | 1.3.6           |
+| indent                    | int  | 4       | 1.3.4           |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 One of the rules this sniff enforces is that function calls have the correct padding inside their bracketed argument lists. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -925,9 +925,9 @@ By default, this sniff ensures that each line in a multi-line function call is i
 
 ### PEAR.Functions.FunctionDeclaration
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.7
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.7           |
 
 One of the rules that this sniff enforces is the indent of each function argument in a multi-line function declaration. By default, this sniff ensures that each line is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -944,10 +944,10 @@ One of the rules that this sniff enforces is the indent of each function argumen
 
 ### PEAR.WhiteSpace.ObjectOperatorIndent
 
-Property Name | Type  | Default | Available Since
-------------  | ----- | ------- | ---------------
-indent        | int   | 4       | 1.4.6
-multilevel    | bool  | false   | 3.5.0
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.6           |
+| multilevel    | bool | false   | 3.5.0           |
 
 One of the rules that this sniff enforces is the indent of each line in a multi-line object chain. By default, this sniff ensures that each line is indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -987,9 +987,9 @@ If you want to allow mutli-level indenting, set the `multilevel` property to `tr
 
 ### PEAR.WhiteSpace.ScopeClosingBrace
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.3.4
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.3.4           |
 
 One of the rules that this sniff enforces is the indent of the case terminating statement. By default, this sniff ensures that the statement is indented 4 spaces from the `case` or `default` keyword, but you can change the size of the indent by setting the `indent` property.
 
@@ -1006,12 +1006,12 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 
 ### PEAR.WhiteSpace.ScopeIndent
 
-Property Name           | Type  | Default | Available Since
------------------------ | ----- | ------- | ---------------
-exact                   | bool  | false   | -
-ignoreIndentationTokens | array | []      | 1.4.8
-indent                  | int   | 4       | -
-tabIndent               | bool  | false   | 2.0.0
+| Property Name           | Type  | Default | Available Since |
+| ----------------------- | ----- | ------- | --------------- |
+| exact                   | bool  | false   | -               |
+| ignoreIndentationTokens | array | []      | 1.4.8           |
+| indent                  | int   | 4       | -               |
+| tabIndent               | bool  | false   | 2.0.0           |
 
 > [!NOTE]
 > All properties are inherited from the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff.
@@ -1042,9 +1042,9 @@ See the [Generic.WhiteSpace.ScopeIndent](#genericwhitespacescopeindent) sniff fo
 
 ### PSR2.Classes.ClassDeclaration
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-indent        | int  | 4       | 1.3.5
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.3.5           |
 
 One of the rules that this sniff enforces is the indent of a list of implemented or extended class names that have been split over multiple lines. By default, this sniff ensures that the class names are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -1061,10 +1061,10 @@ One of the rules that this sniff enforces is the indent of a list of implemented
 
 ### PSR2.ControlStructures.ControlStructureSpacing
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 This sniff checks that control structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -1098,9 +1098,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 
 ### PSR2.ControlStructures.SwitchDeclaration
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.5
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.5           |
 
 One of the rules that this sniff enforces is the indent of the case terminating statement. By default, this sniff ensures that the statement is indented 4 spaces from the `case` or `default` keyword, but you can change the size of the indent by setting the `indent` property.
 
@@ -1117,12 +1117,12 @@ One of the rules that this sniff enforces is the indent of the case terminating 
 
 ### PSR2.Methods.FunctionCallSignature
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-allowMultipleArguments    | bool | false   | 1.4.7
-indent                    | int  | 4       | 1.3.4
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| allowMultipleArguments    | bool | false   | 1.4.7           |
+| indent                    | int  | 4       | 1.3.4           |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 > [!NOTE]
 > All properties are inherited from the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignature) sniff, although the default value of `allowMultipleArguments` is changed.
@@ -1137,9 +1137,9 @@ See the [PEAR.Functions.FunctionCallSignature](#pearfunctionsfunctioncallsignatu
 
 ### PSR12.Classes.AnonClassDeclaration
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 3.5.0
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 3.5.0           |
 
 > [!NOTE]
 > The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration) sniff.
@@ -1159,9 +1159,9 @@ This sniff checks the indent of a list of implemented or extended class names th
 
 ### PSR12.ControlStructures.BooleanOperatorPlacement
 
-Property Name | Type        | Default | Available Since
-------------  | ----------- | ------- | ---------------
-allowOnly     | string|null | null    | 3.5.4
+| Property Name | Type         | Default | Available Since |
+| ------------- | ------------ | ------- | --------------- |
+| allowOnly     | string\|null | null    | 3.5.4           |
 
 This sniff ensures that boolean operators inside control structure conditions either all appear at the beginning of a line, or the end of a line, but not a mix of both. If you prefer to explicitly define where boolean operators should appear, you can set the `allowOnly` property to either `first` or `last` to ensure that boolean operators are always the first or last content of a line.
 
@@ -1178,9 +1178,9 @@ This sniff ensures that boolean operators inside control structure conditions ei
 
 ### PSR12.ControlStructures.ControlStructureSpacing
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 3.5.0
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 3.5.0           |
 
 One of the rules that this sniff enforces is the indent of each condition in a control structure when the conditions have been split over multiple lines. By default, this sniff ensures that the conditions are indented 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -1197,9 +1197,9 @@ One of the rules that this sniff enforces is the indent of each condition in a c
 
 ### PSR12.Namespaces.CompoundNamespaceDepth
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-maxDepth      | int  | 2       | 3.3.0
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| maxDepth      | int  | 2       | 3.3.0           |
 
 This sniff checks the depth of imported namespaces inside compound use statements. By default, this sniff ensures that the namespaces are no more than two levels deep, but you can change the depth limit by setting the `maxDepth` property.
 
@@ -1216,10 +1216,10 @@ This sniff checks the depth of imported namespaces inside compound use statement
 
 ### PSR12.Operators.OperatorSpacing
 
-Property Name                  | Type | Default | Available Since
------------------------------- | ---- | ------- | ---------------
-ignoreNewlines                 | bool | false   | 3.3.0
-ignoreSpacingBeforeAssignments | bool | true    | 3.5.0
+| Property Name                  | Type | Default | Available Since |
+| ------------------------------ | ---- | ------- | --------------- |
+| ignoreNewlines                 | bool | false   | 3.3.0           |
+| ignoreSpacingBeforeAssignments | bool | true    | 3.5.0           |
 
 > [!NOTE]
 > All properties are inherited from the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) sniff, although the default value of `allowMultipleArguments` is changed.
@@ -1234,9 +1234,9 @@ See the [Squiz.WhiteSpace.OperatorSpacing](#squizwhitespaceoperatorspacing) snif
 
 ### Squiz.Classes.ClassDeclaration
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.3.5
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.3.5           |
 
 > [!NOTE]
 > The `indent` property is inherited from the [PSR2.Classes.ClassDeclaration](#psr2classesclassdeclaration) sniff.
@@ -1256,11 +1256,11 @@ One of the rules that this sniff enforces is the indent of a list of implemented
 
 ### Squiz.Commenting.FunctionComment
 
-Property Name     | Type   | Default                  | Available Since
------------------ | ------ | ------------------------ | --------------
-minimumVisibility | string | private                  | 3.6.0
-skipIfInheritdoc  | bool   | false                    | 3.6.0
-specialMethods    | array  | [__construct,__destruct] | 3.6.0
+| Property Name     | Type   | Default                  | Available Since |
+| ----------------- | ------ | ------------------------ | --------------- |
+| minimumVisibility | string | private                  | 3.6.0           |
+| skipIfInheritdoc  | bool   | false                    | 3.6.0           |
+| specialMethods    | array  | [__construct,__destruct] | 3.6.0           |
 
 > [!NOTE]
 > The `minimumVisibility` and `specialMethods` properties are inherited from the [PEAR.Commenting.FunctionComment](#pearcommentingfunctioncomment) sniff.
@@ -1313,10 +1313,10 @@ public function foo($a, $b) {}
 
 ### Squiz.Commenting.LongConditionClosingComment
 
-Property Name | Type   | Default  | Available Since
-------------- | ------ | -------- | ---------------
-commentFormat | string | //end %s | 2.7.0
-lineLimit     | int    | 20       | 2.7.0
+| Property Name | Type   | Default    | Available Since |
+| ------------- | ------ | ---------- | --------------- |
+| commentFormat | string | `//end %s` | 2.7.0           |
+| lineLimit     | int    | 20         | 2.7.0           |
 
 This sniff checks that long blocks of code have a closing comment. The `lineLimit` property allows you to configure the numbers of lines that the code block must span before requiring a comment. By default, the code block must be at least 20 lines long, including the opening and closing lines, but you can change the required length by setting the `lineLimit` property.
 
@@ -1344,9 +1344,9 @@ When a closing comment is required, the format defaults to `//end %s`, where the
 
 ### Squiz.ControlStructures.ControlSignature
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-requiredSpacesBeforeColon | int  | 1       | 3.2.0
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| requiredSpacesBeforeColon | int  | 1       | 3.2.0           |
 
 One of the rules this sniff enforces is the number of spaces before the opening brace of control structures. By default, the sniff ensures there is one space before the opening brace for control structures using standard syntax, and one space before the colon for control structures using alternative syntax, as shown in the following code snippet:
 
@@ -1383,10 +1383,10 @@ If you prefer to write your code like this, you can set the `requiredSpacesBefor
 
 ### Squiz.ControlStructures.ForEachLoopDeclaration
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 This sniff checks that `foreach` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -1420,11 +1420,11 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 
 ### Squiz.ControlStructures.ForLoopDeclaration
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-ignoreNewlines            | bool | false   | 3.5.4
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| ignoreNewlines            | bool | false   | 3.5.4           |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 This sniff checks that `for` structures have the correct padding inside their bracketed statement. By default, the sniff ensures there are zero spaces following the opening bracket, and zero spaces preceding the closing bracket, as shown in the following code snippet:
 
@@ -1468,9 +1468,9 @@ Sometimes long control structures are broken over multiple lines to work within 
 
 ### Squiz.ControlStructures.SwitchDeclaration
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.7
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.7           |
 
 Two of the rules that this sniff enforces are the indent of `case` and `default` keywords, and the indent of the case terminating statement. By default, this sniff ensures that the keywords and terminating statement are indented 4 spaces from the `switch` keyword, but you can change the size of the indent by setting the `indent` property.
 
@@ -1487,9 +1487,9 @@ Two of the rules that this sniff enforces are the indent of `case` and `default`
 
 ### Squiz.CSS.ForbiddenStyles
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-error         | bool | true    | 1.4.6
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| error         | bool | true    | 1.4.6           |
 
 If the `error` property is set to `false`, a warning will be thrown for violations instead of an error.
 
@@ -1506,9 +1506,9 @@ If the `error` property is set to `false`, a warning will be thrown for violatio
 
 ### Squiz.CSS.Indentation
 
-Property Name | Type | Default | Available Since
-------------  | ---- | ------- | ---------------
-indent        | int  | 4       | 1.4.7
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| indent        | int  | 4       | 1.4.7           |
 
 This sniff checks the indentation of CSS class definitions. By default, this sniff ensures that style statements are indented using 4 spaces, but you can change the size of the indent by setting the `indent` property.
 
@@ -1525,9 +1525,9 @@ This sniff checks the indentation of CSS class definitions. By default, this sni
 
 ### Squiz.Functions.FunctionDeclaration
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | --------------
-ignoreComments | bool | false   | 1.4.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreComments | bool | false   | 1.4.0           |
 
 > [!NOTE]
 > The `ignoreComments` property is inherited from the AbstractPattern sniff.
@@ -1547,11 +1547,11 @@ This sniff verifies that functions declarations match a specific pattern of whit
 
 ### Squiz.Functions.FunctionDeclarationArgumentSpacing
 
-Property Name             | Type | Default | Available Since
-------------------------- | ---- | ------- | ---------------
-equalsSpacing             | int  | 0       | 1.3.5
-requiredSpacesAfterOpen   | int  | 0       | 1.5.2
-requiredSpacesBeforeClose | int  | 0       | 1.5.2
+| Property Name             | Type | Default | Available Since |
+| ------------------------- | ---- | ------- | --------------- |
+| equalsSpacing             | int  | 0       | 1.3.5           |
+| requiredSpacesAfterOpen   | int  | 0       | 1.5.2           |
+| requiredSpacesBeforeClose | int  | 0       | 1.5.2           |
 
 One of the rules this sniff enforces is the padding around equal signs in the function argument list. By default, the sniff ensures there are zero spaces before and after the equals sign, as shown in the following code snippet:
 
@@ -1611,9 +1611,9 @@ If you prefer to write your code like this, you can set the `requiredSpacesAfter
 
 ### Squiz.PHP.CommentedOutCode
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-maxPercentage | int  | 35      | 1.3.3
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| maxPercentage | int  | 35      | 1.3.3           |
 
 This sniff generates warnings for commented out code. By default, a warning is generated if a comment appears to be more than 35% valid code. If you find that the sniff is generating a lot of false positive, you may want to raise the valid code threshold by increasing the `maxPercentage` property. Similarly, if you find that the sniff is generating a lot of false negatives, you may want to make it more sensitive by dropping the threshold by decreasing the `maxPercentage` property.
 
@@ -1631,9 +1631,9 @@ This sniff generates warnings for commented out code. By default, a warning is g
 
 ### Squiz.PHP.DiscouragedFunctions
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-error         | bool | false   | -
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| error         | bool | false   | -               |
 
 > [!NOTE]
 > This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions](#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of discouraged functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
@@ -1653,9 +1653,9 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 ### Squiz.PHP.ForbiddenFunctions
 
-Property Name | Type | Default | Available Since
-------------- | ---- | ------- | ---------------
-error         | bool | false   | -
+| Property Name | Type | Default | Available Since |
+| ------------- | ---- | ------- | --------------- |
+| error         | bool | false   | -               |
 
 > [!NOTE]
 > This sniff also has a `forbiddenFunctions` property inherited from the [Generic.PHP.ForbiddenFunctions](#genericphpforbiddenfunctions) sniff, but it should not be used. If you want to customise the list of forbidden functions, use the Generic.PHP.ForbiddenFunctions sniff directly.
@@ -1675,10 +1675,10 @@ If the `error` property is set to `true`, an error will be thrown for violations
 
 ### Squiz.Strings.ConcatenationSpacing
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 2.3.1
-spacing        | int  | 0       | 2.0.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 2.3.1           |
+| spacing        | int  | 0       | 2.0.0           |
 
 One of the rules this sniff enforces is the padding around concatenation operators. By default, the sniff ensures there are zero spaces before and after the concatenation operator, as shown in the following code snippet:
 
@@ -1717,11 +1717,11 @@ Sometimes long concatenation statements are broken over multiple lines to work w
 
 ### Squiz.WhiteSpace.FunctionSpacing
 
-Property Name      | Type | Default | Available Since
------------------- | ---- | ------- | ---------------
-spacing            | int  | 2       | 1.4.5
-spacingAfterLast   | int  | 2       | 3.3.0
-spacingBeforeFirst | int  | 2       | 3.3.0
+| Property Name      | Type | Default | Available Since |
+| ------------------ | ---- | ------- | --------------- |
+| spacing            | int  | 2       | 1.4.5           |
+| spacingAfterLast   | int  | 2       | 3.3.0           |
+| spacingBeforeFirst | int  | 2       | 3.3.0           |
 
 This sniff checks that there are two blank lines before and after functions declarations, but you can change the required padding using the `spacing`, `spacingBeforeFirst`, and `spacingAfterLast` properties.
 
@@ -1758,10 +1758,10 @@ As the `spacingBeforeFirst` and `spacingAfterLast` properties use the value of t
 
 ### Squiz.WhiteSpace.MemberVarSpacing
 
-Property Name       | Type | Default | Available Since
-------------------- | ---- | ------- | ---------------
-spacing             | int  | 1       | 3.1.0
-spacingBeforeFirst  | int  | 1       | 3.1.0
+| Property Name      | Type | Default | Available Since |
+| ------------------ | ---- | ------- | --------------- |
+| spacing            | int  | 1       | 3.1.0           |
+| spacingBeforeFirst | int  | 1       | 3.1.0           |
 
 This sniff checks that there is one blank line before between member vars and before the fist member var, but you can change the required padding using the `spacing` and `spacingBeforeFirst` properties.
 
@@ -1783,9 +1783,9 @@ This sniff checks that there is one blank line before between member vars and be
 
 ### Squiz.WhiteSpace.ObjectOperatorSpacing
 
-Property Name  | Type | Default | Available Since
--------------- | ---- | ------- | ---------------
-ignoreNewlines | bool | false   | 2.7.0
+| Property Name  | Type | Default | Available Since |
+| -------------- | ---- | ------- | --------------- |
+| ignoreNewlines | bool | false   | 2.7.0           |
 
 This sniff ensures there are no spaces surrounding an object operator. Sometimes long object chains are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters before or after an object operator, and any required padding for alignment.
 
@@ -1802,10 +1802,10 @@ This sniff ensures there are no spaces surrounding an object operator. Sometimes
 
 ### Squiz.WhiteSpace.OperatorSpacing
 
-Property Name                  | Type | Default | Available Since
------------------------------- | ---- | ------- | ---------------
-ignoreNewlines                 | bool | false   | 2.2.0
-ignoreSpacingBeforeAssignments | bool | true    | 3.5.0
+| Property Name                  | Type | Default | Available Since |
+| ------------------------------ | ---- | ------- | --------------- |
+| ignoreNewlines                 | bool | false   | 2.2.0           |
+| ignoreSpacingBeforeAssignments | bool | true    | 3.5.0           |
 
 This sniff ensures there is one space before and after an operator. Sometimes long statements are broken over multiple lines to work within a maximum line length, but this sniff will generate an error for these cases by default. Setting the `ignoreNewlines` property to `true` will allow newline characters before or after an operator, and any required padding for alignment.
 
@@ -1832,9 +1832,9 @@ A number of coding standards allow multiple assignments to be aligned inside a s
 
 ### Squiz.WhiteSpace.SuperfluousWhitespace
 
-Property Name    | Type | Default | Available Since
----------------- | ---- | ------- | ---------------
-ignoreBlankLines | bool | false   | 1.4.2
+| Property Name    | Type | Default | Available Since |
+| ---------------- | ---- | ------- | --------------- |
+| ignoreBlankLines | bool | false   | 1.4.2           |
 
 Some of the rules this sniff enforces are that there should not be whitespace at the end of a line, and that functions should not contain multiple blank lines in a row. If the `ignoreBlankLines` property is set to `true`, blank lines (lines that contain only whitespace) may have spaces and tabs as their content, and multiple blank lines will be allows inside functions.
 
