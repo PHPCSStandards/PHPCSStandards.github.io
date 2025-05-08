@@ -4,7 +4,8 @@ Sniffs need to follow [strict directory layout and naming conventions](https://g
 
 ## Creating the Coding Standard Directory
 
-All sniffs in PHP_CodeSniffer must belong to a coding standard. A coding standard is a directory with a specific sub-directory structure and a `ruleset.xml` file, so we can create one very easily. Let's call our coding standard _MyStandard_. Run the following commands to create the coding standard directory structure:
+All sniffs in PHP_CodeSniffer must belong to a coding standard. A coding standard is a directory with a specific sub-directory structure and a `ruleset.xml` file, so creating a standard is straight-forward.
+Let's call our coding standard _MyStandard_. Run the following commands to create the coding standard directory structure:
 
 ```bash
 $ mkdir MyStandard

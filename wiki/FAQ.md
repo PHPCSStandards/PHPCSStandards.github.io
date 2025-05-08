@@ -20,21 +20,23 @@ No. PHP_CodeSniffer is not a tool for testing that your PHP application works co
 
 Maybe you don't, but if you want to ensure you adhere to a set of coding standards, PHP_CodeSniffer is a quick and easy way to do that. PHP_CodeSniffer is a replacement for the more manual task of checking coding standards in code reviews. With PHP_CodeSniffer, you can reserve code reviews for the checking of code correctness.
 
-Coding standards are a good thing. They will make your code easier to read and maintain, especially when multiple developers are working on the same application. Consider using coding standards if you don't already.
+Coding standards are a good thing. They will improve the code readability and make your code easier to maintain, especially when multiple developers are working on the same application. Consider using coding standards if you don't already.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ## Does PHP_CodeSniffer parse my code to ensure it will execute?
 
-No. PHP_CodeSniffer does not actually parse your code, and so cannot accurately tell if your code contains parse errors. PHP_CodeSniffer does know about some parse errors and will warn you if it finds code that it is unable to sniff correctly due to a suspected parse error. However, as there is no actual parsing taking place, PHP_CodeSniffer may return an incorrect number of errors when checking code that does contain parse errors.
+No. PHP_CodeSniffer does not actually parse your code, and so cannot accurately tell if your code contains parse errors. PHP_CodeSniffer does know about some parse errors and will warn you if it finds code that it is unable to sniff correctly due to a suspected parse error. However, as there is no actual parsing taking place, PHP_CodeSniffer may return an incorrect number of errors when checking code that contains parse errors.
 
-You can easily check for parse errors in a file using the PHP command line interface and the `-l` (lowercase L) option.
+You can check for parse errors in a file using the PHP command line interface and the `-l` (lowercase L) option.
 
 ```bash
 $ php -l /path/to/code/myfile.inc
 No syntax errors detected in /path/to/code/myfile.inc
 ```
+
+Alternatively, you can use the `Generic.PHP.Syntax` sniff to run syntax checking as part of a PHP_CodeSniffer scan. Or you can use a dedicated (parallel) linting tool for PHP.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 

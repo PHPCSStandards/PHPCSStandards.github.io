@@ -56,7 +56,7 @@ $ phpcs --report=diff /path/to/code
  function foo() {
 ```
 
-Diff reports are more easily used when output to a file. They can then be applied using the `patch` command:
+Diff reports are more straight-forward to use when output to a file. They can then be applied using the `patch` command:
 
 ```bash
 $ phpcs --report-diff=/path/to/changes.diff /path/to/code

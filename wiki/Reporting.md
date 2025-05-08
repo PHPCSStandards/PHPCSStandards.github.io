@@ -280,7 +280,7 @@ $ phpcs --report=checkstyle /path/to/code
 
 ## Printing a CSV Report
 
-PHP_CodeSniffer can output a CSV report to allow you to parse the output easily and use the results in your own scripts. To print a CSV report, use the `--report=csv` command line argument. The output will look like this:
+PHP_CodeSniffer can output a CSV report to allow you to parse the output and use the results in your own scripts. To print a CSV report, use the `--report=csv` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=csv /path/to/code
@@ -398,7 +398,7 @@ A TOTAL OF 165 SNIFF VIOLATION(S) WERE COMMITTED BY 5 AUTHOR(S)
 
 ## Printing a JSON Report
 
-PHP_CodeSniffer can output an JSON report to allow you to parse the output easily and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
+PHP_CodeSniffer can output an JSON report to allow you to parse the output and use the results in your own scripts. To print a JSON report, use the `--report=json` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=json /path/to/code
@@ -569,7 +569,7 @@ Like the Git Blame report, PHP_CodeSniffer can make use of the `svn blame` comma
 
 ## Printing an XML Report
 
-PHP_CodeSniffer can output an XML report to allow you to parse the output easily and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
+PHP_CodeSniffer can output an XML report to allow you to parse the output and use the results in your own scripts. To print an XML report, use the `--report=xml` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=xml /path/to/code
