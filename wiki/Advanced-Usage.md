@@ -18,6 +18,7 @@
     * [The Level Map](#the-level-map)
 * [Printing Verbose Token Processing Output](#printing-verbose-token-processing-output)
 * [Quieting Output](#quieting-output)
+* [Understanding the Exit Codes](#understanding-the-exit-codes)
 
 ***
 
@@ -522,5 +523,37 @@ For example, the ScopeIndentSniff executes on the if statement's token only, but
 ## Quieting Output
 
 If a coding standard or configuration file includes settings to print progress or verbose output while running PHP_CodeSniffer, it can make it difficult to use the standard with automated checking tools and build scripts as these typically only expect an error report. If you have this problem, or just want less output, you can quieten the output of PHP_CodeSniffer by using the `-q` command line argument. When using this quiet mode, PHP_CodeSniffer will only print report output, and only if errors or warnings are found. No progress or verbose output will be printed.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
+## Understanding the Exit Codes
+
+As of PHP_CodeSniffer 4.0.0, exit codes are cumulative and composed as follows:
+
+| Exit code | Meaning                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| `0`       | clean code base / successful non-scan request (_help/documentation/etc_)                                |
+| `1`       | issues found/remaining, auto-fixable                                                                    |
+| `2`       | issues found/remaining, non-auto-fixable                                                                |
+| `4`       | failure to fix some files/fixer conflict (phpcbf only)                                                  |
+| `16`      | processing error - blocking the actual run of PHP_CodeSniffer, like a parse error in an XML ruleset     |
+| `64`      | requirements for running not met (i.e. minimum PHP version doesn't comply, missing required extensions) |
+
+Example: when running `phpcs`, if both auto-fixable as well as non-auto-fixable issues are found, the exit code will be `3` (`1` + `2`).
+
+The exit codes can be influenced by the following configuration flags: [`ignore_errors_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-errors-when-generating-the-exit-code), [`ignore_warnings_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-warnings-when-generating-the-exit-code) and [`ignore_non_auto_fixable_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-non-auto-fixable-issues-when-generating-the-exit-code).
+
+
+In PHP_CodeSniffer 3.x, the exit codes were:
+
+| `phpcs` |                      | `phpcbf` |                                                          |
+| ------- | -------------------- | -------- | -------------------------------------------------------- |
+| `0`     | no errors found      | `0`      | no fixable errors were found, so nothing was fixed       |
+| `1`     | errors found         | `1`      | all fixable errors were fixed correctly                  |
+| `2`     | fixable errors found | `2`      | PHPCBF failed to fix some of the fixable errors it found |
+| `3`     | processing error     | `3`      | processing error                                         |
+
+And the following configuration flags were available: [`ignore_errors_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-errors-when-generating-the-exit-code), [`ignore_warnings_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-warnings-when-generating-the-exit-code).
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
