@@ -11,9 +11,11 @@ No. PHP_CodeSniffer does not actually parse your code, and so cannot accurately 
 
 You can easily check for parse errors in a file using the PHP command line interface and the `-l` (lowercase L) option.
 
-    $ php -l /path/to/code/myfile.inc
-    No syntax errors detected in /path/to/code/myfile.inc
-    
+```bash
+$ php -l /path/to/code/myfile.inc
+No syntax errors detected in /path/to/code/myfile.inc
+```
+
 ## I don't agree with your coding standards! Can I make PHP_CodeSniffer enforce my own?
 Yes. At its core, PHP_CodeSniffer is just a framework for enforcing coding standards. PHP_CodeSniffer is released with some sample coding standards to help developers get started on projects where there is no standard defined. If you want to write your own standard, read the tutorial on creating coding standards.
 

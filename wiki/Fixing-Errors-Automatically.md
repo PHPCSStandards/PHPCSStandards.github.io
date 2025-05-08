@@ -2,46 +2,52 @@ PHP_CodeSniffer is able to fix many errors and warnings automatically. The `diff
 
 Screen-based reports, such as the [full](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, additional information will be printed:
 
-    $ phpcs /path/to/code/myfile.php
+```bash
+$ phpcs /path/to/code/myfile.php
 
-    FILE: /path/to/code/myfile.php
-    --------------------------------------------------------------------------------
-    FOUND 5 ERRORS AFFECTING 4 LINES
-    --------------------------------------------------------------------------------
-     2 | ERROR | [ ] Missing file doc comment
-     3 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
-       |       |     found "FALSE"
-     5 | ERROR | [x] Line indented incorrectly; expected at least 4 spaces, found 1
-     8 | ERROR | [ ] Missing function doc comment
-     8 | ERROR | [ ] Opening brace should be on a new line
-    --------------------------------------------------------------------------------
-    PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-    --------------------------------------------------------------------------------
+FILE: /path/to/code/myfile.php
+--------------------------------------------------------------------------------
+FOUND 5 ERRORS AFFECTING 4 LINES
+--------------------------------------------------------------------------------
+ 2 | ERROR | [ ] Missing file doc comment
+ 3 | ERROR | [x] TRUE, FALSE and NULL must be lowercase; expected "false" but
+   |       |     found "FALSE"
+ 5 | ERROR | [x] Line indented incorrectly; expected at least 4 spaces, found 1
+ 8 | ERROR | [ ] Missing function doc comment
+ 8 | ERROR | [ ] Opening brace should be on a new line
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+```
 
 ## Printing a Diff Report
 PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
 
-    $ phpcs --report=diff /path/to/code
-    
-    --- /path/to/code/file.php
-    +++ PHP_CodeSniffer
-    @@ -1,8 +1,8 @@
-     <?php
-     
-    -if ($foo === FALSE) {
-    +if ($foo === false) {
-    +    echo 'hi';
-         echo 'hi';
-    - echo 'hi';
-     }
-     
-     function foo() {
+```bash
+$ phpcs --report=diff /path/to/code
+
+--- /path/to/code/file.php
++++ PHP_CodeSniffer
+@@ -1,8 +1,8 @@
+ <?php
+
+-if ($foo === FALSE) {
++if ($foo === false) {
++    echo 'hi';
+     echo 'hi';
+- echo 'hi';
+ }
+
+ function foo() {
+```
 
 Diff reports are more easily used when output to a file. They can then be applied using the `patch` command:
 
-    $ phpcs --report-diff=/path/to/changes.diff /path/to/code
-    $ patch -p0 -ui /path/to/changes.diff
-    patching file /path/to/code/file.php
+```bash
+$ phpcs --report-diff=/path/to/changes.diff /path/to/code
+$ patch -p0 -ui /path/to/changes.diff
+patching file /path/to/code/file.php
+```
 
 > [!NOTE]
 > The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
@@ -125,51 +131,59 @@ Miscellaneous Options:
 
 When using the PHPCBF command, you do not need to specify a report type. PHPCBF will automatically make changes to your source files:
 
-    $ phpcbf /path/to/code
-    Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
-        => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
-    Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
-        => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
-    Patched 2 files
-    Time: 2.55 secs, Memory: 25.00Mb
+```bash
+$ phpcbf /path/to/code
+Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
+    => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
+Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
+    => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
+Patched 2 files
+Time: 2.55 secs, Memory: 25.00Mb
+```
 
 If you do not want to overwrite existing files, you can specify the `--suffix` command line argument and provide a filename suffix to use for new files. A fixed copy of each file will be created and stored in the same directory as the original file. If a file already exists with the new name, it will be overwritten.
 
-    $ phpcbf /path/to/code --suffix=.fixed
-    Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
-        => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
-        => Fixed file written to init.php.fixed
-    Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
-        => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
-        => Fixed file written to config.php.fixed
-    Fixed 2 files
-    Time: 2.55 secs, Memory: 25.00Mb
+```bash
+$ phpcbf /path/to/code --suffix=.fixed
+Processing init.php [PHP => 7875 tokens in 960 lines]... DONE in 274ms (12 fixable violations)
+    => Fixing file: 0/12 violations remaining [made 3 passes]... DONE in 412ms
+    => Fixed file written to init.php.fixed
+Processing config.php [PHP => 8009 tokens in 957 lines]... DONE in 421ms (155 fixable violations)
+    => Fixing file: 0/155 violations remaining [made 7 passes]... DONE in 937ms
+    => Fixed file written to config.php.fixed
+Fixed 2 files
+Time: 2.55 secs, Memory: 25.00Mb
+```
 
 ## Viewing Debug Information
 
 To see the fixes that are being made to a file, specify the `-vv` command line argument when generating a diff report. There is quite a lot of debug output concerning the standard being used and the tokenizing of the file, but the end of the output will look like this:
 
-    $ phpcs /path/to/file --report=diff -vv
-    ..snip..
-    *** START FILE FIXING ***
-    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
-    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
-    * fixed 1 violations, starting loop 2 *
-    *** END FILE FIXING ***
+```bash
+$ phpcs /path/to/file --report=diff -vv
+..snip..
+*** START FILE FIXING ***
+E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
+* fixed 1 violations, starting loop 2 *
+*** END FILE FIXING ***
+```
 
 Sometimes the file may need to be processed multiple times in order to fix all the violations. This can happen when multiple sniffs need to modify the same part of a file, or if a fix causes a new sniff violation somewhere else in the standard. When this happens, the output will look like this:
 
-    $ phpcs /path/to/file --report=diff -vv
-    ..snip..
-    *** START FILE FIXING ***
-    E: [Line 3] Expected 1 space before "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
-    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 228) replaced token 3 (T_EQUAL) "=" => "·="
-    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
-    * token 3 has already been modified, skipping *
-    E: [Line 3] Equals sign not aligned correctly; expected 1 space but found 0 spaces (Generic.Formatting.MultipleStatementAlignment.Incorrect)
-    * token 3 has already been modified, skipping *
-    * fixed 1 violations, starting loop 2 *
-    E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
-    Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
-    * fixed 1 violations, starting loop 3 *
-    *** END FILE FIXING ***
+```bash
+$ phpcs /path/to/file --report=diff -vv
+..snip..
+*** START FILE FIXING ***
+E: [Line 3] Expected 1 space before "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceBefore)
+Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 228) replaced token 3 (T_EQUAL) "=" => "·="
+E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+* token 3 has already been modified, skipping *
+E: [Line 3] Equals sign not aligned correctly; expected 1 space but found 0 spaces (Generic.Formatting.MultipleStatementAlignment.Incorrect)
+* token 3 has already been modified, skipping *
+* fixed 1 violations, starting loop 2 *
+E: [Line 3] Expected 1 space after "="; 0 found (Squiz.WhiteSpace.OperatorSpacing.NoSpaceAfter)
+Squiz_Sniffs_WhiteSpace_OperatorSpacingSniff (line 259) replaced token 4 (T_EQUAL) "=" => "=·"
+* fixed 1 violations, starting loop 3 *
+*** END FILE FIXING ***
+```

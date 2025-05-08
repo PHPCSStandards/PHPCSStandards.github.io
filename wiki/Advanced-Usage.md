@@ -22,12 +22,14 @@
 By default, PHP_CodeSniffer will check any file it finds with a `.inc`, `.php`, `.js` or `.css` extension, although not all standards will actually check all these file types. Sometimes, this means that PHP_CodeSniffer is not checking enough of your files. Sometimes, the opposite is true. PHP_CodeSniffer allows you to specify a list of valid file extensions using the `--extensions` command line argument. Extensions are separated by commas.
 
 To only check .php files:
-
-    $ phpcs --extensions=php /path/to/code
+```bash
+$ phpcs --extensions=php /path/to/code
+```
 
 To check .php, .inc and .lib files:
-
-    $ phpcs --extensions=php,inc,lib /path/to/code
+```bash
+$ phpcs --extensions=php,inc,lib /path/to/code
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -36,8 +38,9 @@ To check .php, .inc and .lib files:
 Sometimes you want PHP_CodeSniffer to run over a very large number of files, but you want some files and folders to be skipped. The `--ignore` command line argument can be used to tell PHP_CodeSniffer to skip files and folders that match one or more patterns.
 
 In the following example, PHP_CodeSniffer will skip all files inside the package's tests and data directories. This is useful if you are checking a package but don't want your test or data files to conform to your coding standard.
-
-    $ phpcs --ignore=*/tests/*,*/data/* /path/to/code
+```bash
+$ phpcs --ignore=*/tests/*,*/data/* /path/to/code
+```
 
 > [!IMPORTANT]
 > The ignore patterns are treated as regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for the convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`. Also ensure you escape any `.` characters that you want treated as a literal dot, such as when checking file extensions. So if you are checking for `.inc` in your ignore pattern, use `\.inc` instead. 
@@ -178,12 +181,14 @@ By default, PHP_CodeSniffer will check your code using all sniffs in the specifi
 > All sniffs specified on the command line must be used in the coding standard you are using to check your files.
 
 The following example will only run two sniffs over the code instead of all sniffs in the PEAR standard:
-
-    $ phpcs --standard=PEAR --sniffs=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
+```bash
+$ phpcs --standard=PEAR --sniffs=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
+```
 
 The following example will run all sniffs in the PEAR standard except for the two specified:
-
-    $ phpcs --standard=PEAR --exclude=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
+```bash
+$ phpcs --standard=PEAR --exclude=Generic.PHP.LowerCaseConstant,PEAR.WhiteSpace.ScopeIndent /path/to/code
+```
 
 > [!WARNING]
 > If you use both the `--sniffs` and `--exclude` command line arguments together, the `--exclude` list will be ignored.
@@ -195,14 +200,16 @@ The following example will run all sniffs in the PEAR standard except for the tw
 By default, PHP_CodeSniffer assigns a severity of 5 to all errors and warnings. Standards may change the severity of some messages so they are hidden by default or even so that they are raised to indicate greater importance. PHP_CodeSniffer allows you to decide what the minimum severity level must be to show a message in its report using the `--severity` command line argument.
 
 To hide errors and warnings with a severity less than 3:
-
-    $ phpcs --severity=3 /path/to/code
+```bash
+$ phpcs --severity=3 /path/to/code
+```
 
 You can specify different values for errors and warnings using the `--error-severity` and `--warning-severity` command line arguments.
 
 To show all errors, but only warnings with a severity of 8 or more:
-
-    $ phpcs --error-severity=1 --warning-severity=8 /path/to/code
+```bash
+$ phpcs --error-severity=1 --warning-severity=8 /path/to/code
+```
 
 Setting the severity of warnings to `0` is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
 
@@ -215,8 +222,9 @@ This feature is particularly useful during manual code reviews. During normal de
 Most of the sniffs written for PHP_CodeSniffer do not support the usage of tabs for indentation and alignment. You can write your own sniffs that check for tabs instead of spaces, but you can also get PHP_CodeSniffer to convert your tabs into spaces before a file is checked. This allows you to use the existing space-based sniffs on your tab-based files.
 
 In the following example, PHP_CodeSniffer will replace all tabs in the files being checked with between 1 and 4 spaces, depending on the column the tab indents to.
-
-    $ phpcs --tab-width=4 /path/to/code
+```bash
+$ phpcs --tab-width=4 /path/to/code
+```
 
 > [!NOTE]
 > The [included sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
@@ -226,16 +234,18 @@ In the following example, PHP_CodeSniffer will replace all tabs in the files bei
 
 ## Specifying an Encoding
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument.
-
-    $ phpcs --encoding=windows-1251 /path/to/code
+```bash
+$ phpcs --encoding=windows-1251 /path/to/code
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
 ## Using a Bootstrap File
 PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
-
-    $ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
+```bash
+$ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -257,11 +267,15 @@ The `phpcs.xml` file has exactly the same format as a normal [[ruleset.xml file|
 ## Specifying php.ini Settings
 PHP_CodeSniffer allows you to set temporary php.ini settings during a run using the `-d` command line argument. The name of the php.ini setting must be specified on the command line, but the value is optional. If no value is set, the php.ini setting will be given a value of TRUE.
 
-    $ phpcs -d memory_limit=32M /path/to/code
+```bash
+$ phpcs -d memory_limit=32M /path/to/code
+```
 
 You can also specific multiple values:
 
-    $ phpcs -d memory_limit=32M -d include_path=.:/php/includes /path/to/code
+```bash
+$ phpcs -d memory_limit=32M -d include_path=.:/php/includes /path/to/code
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -271,11 +285,15 @@ PHP_CodeSniffer has some configuration options that can be set. Individual codin
 
 To set a configuration option, use the `--config-set` command line argument.
 
-    $ phpcs --config-set <option> <value>
+```bash
+$ phpcs --config-set <option> <value>
+```
 
 Configuration options are written to a global configuration file. If you want to set them for a single run only, use the `--runtime-set` command line argument.
 
-    $ phpcs --runtime-set <option> <value> /path/to/code
+```bash
+$ phpcs --runtime-set <option> <value> /path/to/code
+```
 
 > [!NOTE]
 > Not all configuration options can be set using the `--runtime-set` command line argument. Configuration options that provide defaults for command line arguments, such as the default standard or report type, can not be used with `--runtime-set`. To set these values for a single run only, use the dedicated CLI arguments that PHP_CodeSniffer provides. The [[Configuration Options|Configuration Options]] list provides an alternative CLI argument for each configuration option not supported by `--runtime-set`.
@@ -288,7 +306,9 @@ PHP_CodeSniffer allows you to delete any configuration option, reverting it to i
 
 To delete a configuration option, use the `--config-delete` command line argument.
 
-    $ phpcs --config-delete <option>
+```bash
+$ phpcs --config-delete <option>
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -296,12 +316,14 @@ To delete a configuration option, use the `--config-delete` command line argumen
 ## Viewing Configuration Options
 To view the currently set configuration options, use the `--config-show` command line argument.
 
-    $ phpcs --config-show
-    Array
-    (
-        [default_standard] => PEAR
-        [zend_ca_path] => /path/to/ZendCodeAnalyzer
-    )
+```bash
+$ phpcs --config-show
+Array
+(
+    [default_standard] => PEAR
+    [zend_ca_path] => /path/to/ZendCodeAnalyzer
+)
+```
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -316,14 +338,16 @@ The output of the PHP_CodeSniffer tokeniser shows the step-by-step creation of t
 ### The Scope Map
 The scope map is best explained with an example. For the following file:
 
-    <?php
-    if ($condition) {
-        echo 'Condition was true';
-    }
-    ?>
+```php
+<?php
+if ($condition) {
+    echo 'Condition was true';
+}
+?>
+```
 
 The scope map output is:
-
+```text
     *** START SCOPE MAP ***
     Start scope map at 1: T_IF => if
     Process token 2 []: T_WHITESPACE =>  
@@ -342,7 +366,8 @@ The scope map output is:
     Process token 15 [opener:7;]: T_CLOSE_CURLY_BRACKET => }
     => Found scope closer for 1 (T_IF)
     *** END SCOPE MAP ***
-    
+```
+
 The scope map output above shows the following pieces of information about the file:
 * A scope token `if` was found at token 1 (note that token 0 is the open PHP tag).
 * The opener for the if statement, the open curly brace, was found at token 7.
@@ -354,14 +379,16 @@ The scope map output is most useful when debugging PHP_CodeSniffer's scope map, 
 ### The Level Map 
 The level map is best explained with an example. For the following file:
 
-    <?php
-    if ($condition) {
-        echo 'Condition was true';
-    }
-    ?>
+```php
+<?php
+if ($condition) {
+    echo 'Condition was true';
+}
+?>
+```
 
 The level map output is:
-
+```text
     *** START LEVEL MAP ***
     Process token 0 on line 1 [lvl:0;]: T_OPEN_TAG => <?php\n
     Process token 1 on line 2 [lvl:0;]: T_IF => if
@@ -388,8 +415,8 @@ The level map output is:
     Process token 16 on line 4 [lvl:0;]: T_WHITESPACE => \n
     Process token 17 on line 5 [lvl:0;]: T_CLOSE_TAG => ?>\n
     *** END LEVEL MAP ***
+```
 
-    
 The level map output above shows the following pieces of information about the file:
 * A scope opener, an open curly brace, was found at token 7 and opened the scope for an if statement, defined at token 1.
 * Tokens 8 - 15 are all included in the scope set by the scope opener at token 7, the open curly brace. All these tokens are at level 1, indicating that they are enclosed in 1 scope condition, and all these tokens are enclosed in a single condition; an if statement.
@@ -406,14 +433,16 @@ PHP_CodeSniffer contains multiple verbosity levels. Level 3 (indicated by the co
 
 The token processing output is best explained with an example. For the following file:
 
-    <?php
-    if ($condition) {
-        echo 'Condition was true';
-    }
-    ?>
+```php
+<?php
+if ($condition) {
+    echo 'Condition was true';
+}
+?>
+```
 
 The token processing output is:
-
+```text
     *** START TOKEN PROCESSING ***
     Process token 0: T_OPEN_TAG => <?php\n
         Processing PEAR_Sniffs_Commenting_FileCommentSniff... DONE in 0 seconds
@@ -451,6 +480,7 @@ The token processing output is:
         Processing Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff... DONE in 0 seconds
     Process token 17: T_CLOSE_TAG => ?>\n
     *** END TOKEN PROCESSING ***
+```
 
 Every token processed is shown, along with its ID, type and contents. For each token, all sniffs that were executed on the token are displayed, along with the running time.
 
