@@ -30,7 +30,7 @@ The contents of this file will be minimal if you are not including any sniffs fr
 </ruleset>
 ```
 
-A simple `ruleset.xml` file like this tells PHP_CodeSniffer that this directory contains a coding standard, the name of the standard is *My Standard* and the sniffs in the standard are sourced directly from the default `Sniffs` directory.
+A simple `ruleset.xml` file like this tells PHP_CodeSniffer that this directory contains a coding standard, the name of the standard is _My Standard_ and the sniffs in the standard are sourced directly from the default `Sniffs` directory.
 
 Once you've created your `ruleset.xml` file, you can go ahead and delete the `CodingStandard.php` class file as it is no longer required. However, you can keep both files in the coding standard if you want to use your standard in both old and new versions of PHP_CodeSniffer. But be aware that you will need to make changes to both files and any advanced ruleset features you add to your `ruleset.xml` file can not be replicated in your `CodingStandard.php` class file.
 
