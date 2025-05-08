@@ -268,7 +268,7 @@ Processing OpeningBraceSameLineSniff.php [936 tokens in 123 lines]... DONE in 26
 
 PHP_CodeSniffer can have multiple coding standards installed to allow a single installation to be used with multiple projects. When checking PHP code, PHP_CodeSniffer can be told which coding standard to use. This is done using the `--standard` command line argument.
 
-The example below checks the `myfile.inc` file for violations of the _PEAR_ coding standard (installed by default).
+The example below checks the `myfile.inc` file for violations against the _PEAR_ coding standard (installed by default).
 
 ```bash
 $ phpcs --standard=PEAR /path/to/code/myfile.inc
@@ -303,7 +303,7 @@ The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz and 
 
 ## Listing Sniffs Inside a Coding Standard
 
-PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` command line argument along with the `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
+PHP_CodeSniffer can print you a list of the sniffs that a coding standard includes by specifying the `-e` (="explain") command line argument along with the `--standard` argument. This allows you to see what checks will be applied when you use a given standard.
 
 ```bash
 $ phpcs --standard=PSR1 -e

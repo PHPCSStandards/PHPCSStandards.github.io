@@ -25,12 +25,12 @@
 
 By default, PHP_CodeSniffer will check any file it finds with a `.inc`, `.php`, `.js` or `.css` extension, although not all standards will actually check all these file types. Sometimes, this means that PHP_CodeSniffer is not checking enough of your files. Sometimes, the opposite is true. PHP_CodeSniffer allows you to specify a list of valid file extensions using the `--extensions` command line argument. Extensions are separated by commas.
 
-To only check .php files:
+To only check `.php` files:
 ```bash
 $ phpcs --extensions=php /path/to/code
 ```
 
-To check .php, .inc and .lib files:
+To check `.php`, `.inc` and `.lib` files:
 ```bash
 $ phpcs --extensions=php,inc,lib /path/to/code
 ```
@@ -42,15 +42,15 @@ $ phpcs --extensions=php,inc,lib /path/to/code
 
 Sometimes you want PHP_CodeSniffer to run over a very large number of files, but you want some files and folders to be skipped. The `--ignore` command line argument can be used to tell PHP_CodeSniffer to skip files and folders that match one or more patterns.
 
-In the following example, PHP_CodeSniffer will skip all files inside the package's tests and data directories. This is useful if you are checking a package but don't want your test or data files to conform to your coding standard.
+In the following example, PHP_CodeSniffer will skip all files inside the package's `tests` and `data` directories. This is useful if you are checking a package but don't want your test or data files to conform to your coding standard.
 ```bash
 $ phpcs --ignore=*/tests/*,*/data/* /path/to/code
 ```
 
 > [!IMPORTANT]
-> The ignore patterns are treated as regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for the convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`. Also ensure you escape any `.` characters that you want treated as a literal dot, such as when checking file extensions. So if you are checking for `.inc` in your ignore pattern, use `\.inc` instead.
+> The ignore patterns are treated as regular expressions. If you do specify a regular expression, be aware that `*` is converted to `.*` for convenience in simple patterns, like those used in the example above. So use `*` anywhere you would normally use `.*`. Also ensure you escape any `.` characters that you want treated as a literal dot, such as when checking file extensions. So if you are checking for `.inc` in your ignore pattern, use `\.inc` instead.
 
-You can also tell PHP_CodeSniffer to ignore a file using a special comment inserted at the top of the file. This will stop the file being checked even if it does not match the ignore pattern.
+You can also tell PHP_CodeSniffer to ignore a file using a special comment inserted at the top of the file. This will stop the file from being checked, even if it does not match the ignore pattern.
 
 ```php
 <?php
@@ -61,9 +61,10 @@ $xmlPackage->send();
 ```
 
 > [!NOTE]
-> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreFile` instead of `// phpcs:ignoreFile`.
+> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
-> [!NOTE]
+> [!TIP]
 > The `phpcs:ignoreFile` comment syntax does not allow for a specific set of sniffs to be ignored for a file. Use the `phpcs:disable` comment syntax if you want to disable a specific set of sniffs for the entire file.
 
 If required, you can add a note explaining why the file is being ignored by using the `--` separator.
@@ -95,7 +96,8 @@ $xmlPackage->send();
 ```
 
 > [!NOTE]
-> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreStart` instead of `// phpcs:disable`, and use `// @codingStandardsIgnoreEnd` instead of `// phpcs:enable`.
+> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
 If you don't want to disable all coding standard errors, you can selectively disable and re-enable specific error message codes, sniffs, categories of sniffs, or entire coding standards. The following example disables the specific `Generic.Commenting.Todo.Found` message and then re-enables all checks at the end.
 
@@ -141,7 +143,8 @@ bar($foo, false);
 ```
 
 > [!NOTE]
-> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`. The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
+> Before PHP_CodeSniffer version 3.2.0, use `// @codingStandardsIgnoreLine` instead of `// phpcs:ignore`.
+> The `@codingStandards` syntax is deprecated and will be removed in PHP_CodeSniffer version 4.0.
 
 Again, you can selectively ignore one or more specific error message codes, sniffs, categories of sniffs, or entire standards.
 
@@ -219,9 +222,9 @@ To show all errors, but only warnings with a severity of 8 or more:
 $ phpcs --error-severity=1 --warning-severity=8 /path/to/code
 ```
 
-Setting the severity of warnings to `0` is the same as using the `-n` command line argument. If you set the severity of errors to `0` PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
+Setting the severity of warnings to `0` is the same as using the `-n` command line argument. If you set the severity of errors to `0`, PHP_CodeSniffer will not show any errors, which may be useful if you just want to show warnings.
 
-This feature is particularly useful during manual code reviews. During normal development, or an automated build, you may want to only check code formatting issues. But while during a code review, you may wish to show less severe errors and warnings that may need manual peer review.
+This feature is particularly useful during manual code reviews. During normal development, or an automated build, you may want to only check code formatting issues, while during a code review, you may wish to show less severe errors and warnings that may need manual peer review.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -236,7 +239,8 @@ $ phpcs --tab-width=4 /path/to/code
 ```
 
 > [!NOTE]
-> The [included sniff](https://github.com/PHPCSStandards/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php) that enforces space indentation will still generate errors even if you have replaced tabs with spaces using the `--tab-width` setting. This sniff looks at the unmodified version of the code to check line indentation and so must be disabled in a [[custom ruleset.xml file|Annotated ruleset]] if you want to use tab indentation.
+> The `Generic.WhiteSpace.DisallowTabIndent` and `Generic.WhiteSpace.DisallowSpaceIndent` sniffs, which enforce space or tab indentation respectively, will still generate errors, even if you have replaced tabs with spaces using the `--tab-width` setting. These sniffs looks at the unmodified version of the code to check line indentation.  
+> When using a [[custom ruleset.xml file|Annotated ruleset]], only enable one of these two sniffs, never both.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
@@ -244,6 +248,7 @@ $ phpcs --tab-width=4 /path/to/code
 ## Specifying an Encoding
 
 By default, PHP_CodeSniffer will treat all source files as if they use UTF-8 encoding. If you need your source files to be processed using a specific encoding, you can specify the encoding using the `--encoding` command line argument.
+
 ```bash
 $ phpcs --encoding=windows-1251 /path/to/code
 ```
@@ -254,6 +259,7 @@ $ phpcs --encoding=windows-1251 /path/to/code
 ## Using a Bootstrap File
 
 PHP_CodeSniffer can optionally include one or more custom bootstrap files before beginning the run. Bootstrap files are included after command line arguments and rulesets have been parsed, and right before files begin to process. These custom files may be used to perform such taks as manipulating the internal settings of PHP_CodeSniffer that are not exposed through command line arguments. Multiple bootstrap files are seperated by commas.
+
 ```bash
 $ phpcs --bootstrap=/path/to/boostrap.1.inc,/path/to/bootstrap.2.inc /path/to/code
 ```
