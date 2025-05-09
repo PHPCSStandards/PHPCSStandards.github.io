@@ -5,7 +5,7 @@
     * [Checkstyle](#printing-a-checkstyle-report)
     * [Code](#printing-a-code-report)
     * [CSV](#printing-a-csv-report)
-    * Diff
+    * [Diff](#printing-a-diff-report)
     * [Emacs](#printing-an-emacs-report)
     * [Git Blame](#printing-a-git-blame-report)
     * HG Blame
@@ -295,6 +295,45 @@ File,Line,Column,Type,Message,Source,Severity,Fixable
 
 > [!IMPORTANT]
 > The first row of the CSV output defines the order of information. When using the CSV output, please parse this header row to determine the order correctly as the format may change over time or new information may be added.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
+## Printing a Diff Report
+
+> [!TIP]
+> Use the [`phpcbf` script](wiki/Fixing-Errors-Automatically) instead to automatically fix scanned files.
+
+PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
+
+```bash
+$ phpcs --report=diff /path/to/code
+
+--- /path/to/code/file.php
++++ PHP_CodeSniffer
+@@ -1,8 +1,8 @@
+ <?php
+
+-if ($foo === FALSE) {
++if ($foo === false) {
++    echo 'hi';
+     echo 'hi';
+- echo 'hi';
+ }
+
+ function foo() {
+```
+
+Diff reports are more straight-forward to use when output to a file. They can then be applied using the `patch` command:
+
+```bash
+$ phpcs --report-diff=/path/to/changes.diff /path/to/code
+$ patch -p0 -ui /path/to/changes.diff
+patching file /path/to/code/file.php
+```
+
+> [!NOTE]
+> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 

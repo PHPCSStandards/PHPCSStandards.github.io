@@ -1,7 +1,6 @@
 ## Table of contents
 
 * [About Automatic Fixing](#about-automatic-fixing)
-* [Printing a Diff Report](#printing-a-diff-report)
 * [Using the PHP Code Beautifier and Fixer](#using-the-php-code-beautifier-and-fixer)
 * [Viewing Debug Information](#viewing-debug-information)
 
@@ -9,9 +8,9 @@
 
 ## About Automatic Fixing
 
-PHP_CodeSniffer is able to fix many errors and warnings automatically. The `diff` report can be used to generate a diff that can be applied using the `patch` command. Alternatively, the PHP Code Beautifier and Fixer (`phpcbf`) can be used instead of `phpcs` to automatically generate and apply the diff for you.
+PHP_CodeSniffer is able to fix many errors and warnings automatically. The PHP Code Beautifier and Fixer (`phpcbf`) can be used instead of `phpcs` to automatically generate and apply the fixes for you.
 
-Screen-based reports, such as the [full](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, additional information will be printed:
+Screen-based reports, such as the [full](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports), [summary](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) and [source](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-a-source-report) reports, provide information about how many errors and warnings are found. If any of the issues can be fixed automatically by `phpcbf`, this will be annotated in the report with the `[x]` markings:
 
 ```bash
 $ phpcs /path/to/code/myfile.php
@@ -34,45 +33,9 @@ PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-## Printing a Diff Report
-
-PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
-
-```bash
-$ phpcs --report=diff /path/to/code
-
---- /path/to/code/file.php
-+++ PHP_CodeSniffer
-@@ -1,8 +1,8 @@
- <?php
-
--if ($foo === FALSE) {
-+if ($foo === false) {
-+    echo 'hi';
-     echo 'hi';
-- echo 'hi';
- }
-
- function foo() {
-```
-
-Diff reports are more straight-forward to use when output to a file. They can then be applied using the `patch` command:
-
-```bash
-$ phpcs --report-diff=/path/to/changes.diff /path/to/code
-$ patch -p0 -ui /path/to/changes.diff
-patching file /path/to/code/file.php
-```
-
-> [!NOTE]
-> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
-
-<p align="right"><a href="#table-of-contents">back to top</a></p>
-
-
 ## Using the PHP Code Beautifier and Fixer
 
-To automatically fix as many sniff violations as possible, use the `phpcbf` command in place of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
+To automatically fix as many sniff violations as possible, use the `phpcbf` command instead of the `phpcs` command. While most of the PHPCS command line arguments can be used by PHPCBF, some are specific to reporting and will be ignored. Running PHPCBF with the `-h` or `--help` command line arguments will print a list of commands that PHPCBF will respond to. The output of `phpcbf -h` is shown below.
 ```text
 Usage:
   phpcbf [options] <file|directory>
