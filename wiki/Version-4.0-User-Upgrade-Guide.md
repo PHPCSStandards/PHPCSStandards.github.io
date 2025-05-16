@@ -25,6 +25,7 @@ There is a separate [[Upgrade Guide for Sniff Developers and Integrators|Version
     * [Removed sniff properties](#removed-sniff-properties)
     * [Ignore Annotation syntax](#ignore-annotation-syntax)
     * [Exit codes](#exit-codes)
+    * [Branch rename in the PHP_CodeSniffer repo](#upcoming-branch-rename-in-the-php_codesniffer-repo)
 * [Notable other changes and new features](#notable-other-changes-and-new-features)
     * [Progress, error and debug output is now send to STDERR](#progress-error-and-debug-output-is-now-send-to-stderr)
     * [Files without extension can now be scanned](#files-without-extension-can-now-be-scanned)
@@ -295,6 +296,39 @@ Additionally, you can now use the new `ignore_non_auto_fixable_on_exit` config f
 #### Upgrading
 
 CI scripts or git pre-commit hooks may be checking explicitly for specific exit codes from PHP_CodeSniffer. If that's the case, these will need to be updated.
+
+<p align="right"><a href="#table-of-contents">back to top</a></p>
+
+
+### [Upcoming] Branch rename in the PHP_CodeSniffer repo
+
+Just before the final 4.0.0 release, the PHP_CodeSniffer `master` branch will be renamed to `3.x` and the default branch will change to `4.x`.
+
+#### Upgrading
+
+##### Referencing the PHP_CodeSniffer XSD file for rulesets
+
+If your ruleset includes a reference to the PHP_CodeSniffer XSD file via a URL, that URL will become invalid.
+As of mid May 2025, the current PHP_CodeSniffer ruleset XSD file can be referenced via the following permalink: `https://schema.phpcodesniffer.com/phpcs.xsd`.
+Permalinks to the XSD file for specific minors are also available in the following format: `https://schema.phpcodesniffer.com/#.#/phpcs.xsd`.
+
+Example changeset:
+```diff
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="Your ruleset name"
+-   xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd">
++   xsi:noNamespaceSchemaLocation="https://schema.phpcodesniffer.com/phpcs.xsd">
+```
+
+Relative file references like `xsi:noNamespaceSchemaLocation="./vendor/squizlabs/php_codesniffer/phpcs.xsd"` will continue to be valid.
+
+##### Referencing the main branches in the repo
+
+If you reference a development version of PHP_CodeSniffer in your `composer.json` file or in CI scripts, those references will need to be updated.
+What to update these to, depends on your use-case.
+
+* If you want to use the latest development version of PHP_CodeSniffer, use the `4.x` branch. For Composer, references to the branch will need to look like this: `4.x-dev`.
+* If you want the last development version of the `3.x` branch - previously `master`, use `3.x`.  For Composer, references to the branch will need to look like this: `3.x-dev`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
