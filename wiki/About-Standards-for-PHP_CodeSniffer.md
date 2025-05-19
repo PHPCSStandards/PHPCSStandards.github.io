@@ -90,7 +90,7 @@ Once you have a good name:
 * Create a file in that directory called `ruleset.xml` with the following contents and replace `StandardName` in the below code snippet with your chosen name.
 ```xml
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="StandardName" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="StandardName" xsi:noNamespaceSchemaLocation="https://schema.phpcodesniffer.com/phpcs.xsd">
 
 </ruleset>
 ```
@@ -106,7 +106,7 @@ Now you can start adding rules to the standard.
 For example, if your standard wants to enforce space indentation, you can add the `Generic.WhiteSpace.DisallowTabIndent` sniff to your ruleset:
 ```xml
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="YourStandardName" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="YourStandardName" xsi:noNamespaceSchemaLocation="https://schema.phpcodesniffer.com/phpcs.xsd">
 
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
 
@@ -204,7 +204,7 @@ class OperatorSpacingSniff implements Sniff {...}
 Be sure to inform PHP_CodeSniffer about the namespace prefix by annotating it in the `ruleset.xml` file in the `namespace` attribute on the `ruleset` node:
 ```xml
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="MyStandard" namespace="NS\Prefix\MyStandard" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd">
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="MyStandard" namespace="NS\Prefix\MyStandard" xsi:noNamespaceSchemaLocation="https://schema.phpcodesniffer.com/phpcs.xsd">
 
 </ruleset>
 ```
