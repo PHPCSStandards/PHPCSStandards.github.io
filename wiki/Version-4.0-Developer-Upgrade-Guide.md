@@ -625,8 +625,7 @@ In practice this means the following for most test suites for external standards
         Autoload::addSearchPath($details['path'], $details['namespace']);
     }
     ```
-    > [!NOTE]
-    > If you load the PHPCS test `bootstrap.php` file from within _your_ test `bootstrap.php` file, this is not needed, as the PHPCS bootstrap will already do this for you.
+    > :bulb: If you load the PHPCS test `bootstrap.php` file from within _your_ test `bootstrap.php` file, this is not needed, as the PHPCS bootstrap will already do this for you.
 4. There is no need anymore to set the `PHPCS_IGNORE_TESTS` environment variable in a PHPUnit config file.
 5. Update the import use statements for the sniff tests to point to the `AbstractSniffTestCase` and update the `extends` in the class declaration, like so:
     ```diff
