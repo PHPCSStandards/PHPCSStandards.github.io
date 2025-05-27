@@ -118,8 +118,8 @@ Support for the JS/CSS tokenizers has been removed. To cause the least amount of
 
 * Sniffs which specify the `$supportedTokenizers` property and don't include `'PHP'` in the array value will no longer run on PHPCS 4.0.
     The end-user will be shown an error message about this and PHP_CodeSniffer will exit with this error.
-	This error message can be silenced by implementing the `PHP_CodeSniffer\Sniffs\DeprecatedSniff` interface (PHPCS 3.9.0+) to mark the sniff as deprecated.
-	In that case, the sniff will show a deprecation notice when running on PHPCS 3.x and the sniff will be silently ignored on PHPCS 4.x.
+    This error message can be silenced by implementing the `PHP_CodeSniffer\Sniffs\DeprecatedSniff` interface (PHPCS 3.9.0+) to mark the sniff as deprecated.
+    In that case, the sniff will show a deprecation notice when running on PHPCS 3.x and the sniff will be silently ignored on PHPCS 4.x.
 * Sniffs which specify the `$supportedTokenizers` property and include both `'PHP'` as well as something else, will run against the scanned files, with all files being treated as PHP, as of PHPCS 4.0.0 and will not cause any notices about the sniff to be shown to the end-user.
 
 This has been implemented in this way to allow external standards to be cross-version compatible with PHPCS 3.x as well as 4.x for a while and to not force external standards to release a new major release to support PHPCS 4.0 (due to sniffs needing to be removed).
@@ -545,8 +545,8 @@ The `protected` `getDeclarationNameWithNamespace()` and `getNamespaceOfScope()` 
 
 * The visibility of the following class constants has changed from `public` to `private`. If you used these in your own code, you will need to create your own constants instead:
     - `PHP_CodeSniffer\Generators\HTML::STYLESHEET`
-	- `PHP_CodeSniffer\Util\Timing::MINUTE_IN_MS`
-	- `PHP_CodeSniffer\Util\Timing::SECOND_IN_MS`
+    - `PHP_CodeSniffer\Util\Timing::MINUTE_IN_MS`
+    - `PHP_CodeSniffer\Util\Timing::SECOND_IN_MS`
 
 * The `PHP_CodeSniffer\Util\Standards::printInstalledStandards()` method is deprecated and should no longer be used. Use `echo PHP_CodeSniffer\Util\Standards::prepareInstalledStandardsForDisplay()` instead once support for PHPCS 3.x is being dropped.
 
@@ -625,7 +625,7 @@ In practice this means the following for most test suites for external standards
         Autoload::addSearchPath($details['path'], $details['namespace']);
     }
     ```
-	> [!NOTE]
+    > [!NOTE]
     > If you load the PHPCS test `bootstrap.php` file from within _your_ test `bootstrap.php` file, this is not needed, as the PHPCS bootstrap will already do this for you.
 4. There is no need anymore to set the `PHPCS_IGNORE_TESTS` environment variable in a PHPUnit config file.
 5. Update the import use statements for the sniff tests to point to the `AbstractSniffTestCase` and update the `extends` in the class declaration, like so:
