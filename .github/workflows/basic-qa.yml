@@ -1,0 +1,25 @@
+name: CS
+
+on:
+  # Run on all pushes and on all pull requests.
+  push:
+  pull_request:
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Do NOT cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  markdownlint:
+    name: 'Lint Markdown'
+    uses: PHPCSStandards/.github/.github/workflows/reusable-markdownlint.yml@main
+
+  yamllint:
+    name: 'Lint Yaml'
+    uses: PHPCSStandards/.github/.github/workflows/reusable-yamllint.yml@main
+    with:
+      strict: true
