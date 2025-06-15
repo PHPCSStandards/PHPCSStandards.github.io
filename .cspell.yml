@@ -1,0 +1,49 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: '0.2'
+language: en-GB
+readonly: true
+
+useGitignore: true
+
+dictionaries:
+  - php
+
+patterns:
+  - name: markdown_code_block
+    pattern: |
+      /
+          ^(\s*`{3,})[a-z]+   # match the ``` with a language modifier
+          [\s\S]*?            # the block of code
+          ^\1                 # end of the block
+      /gmx
+  - name: markdown_inline_code
+    pattern: /(\s*`)[^`\n]{3,}`/gmx
+
+languageSettings:
+  - languageId: markdown
+    ignoreRegExpList:
+      - markdown_code_block
+      - markdown_inline_code
+
+words:
+  # Generic "good" words.
+  - PHP_CodeSniffer
+  - phpcs
+  - phpcbf
+  - Allman
+  - Analyzer
+  - anymore
+  - csslint
+  - docblocks
+  - gitblame
+  - Joomla
+  - nowdocs
+  - Squiz
+  - SquizLabs
+
+  # Used in "gitblame" report.
+  - jsmith
+  - jblogs
+  - pdeveloper
+  - jscript
+  - toogood
