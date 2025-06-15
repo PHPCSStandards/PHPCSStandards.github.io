@@ -302,7 +302,7 @@ File,Line,Column,Type,Message,Source,Severity,Fixable
 ## Printing a Diff Report
 
 > [!TIP]
-> Use the [`phpcbf` script](wiki/Fixing-Errors-Automatically) instead to automatically fix scanned files.
+> Use the [`phpcbf` script](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Fixing-Errors-Automatically) instead to automatically fix scanned files.
 
 PHP_CodeSniffer can output a diff file that can be applied using the `patch` command. The suggested changes will fix some of the sniff violations that are present in the source code. To print a diff report, use the `--report=diff` command line argument. The output will look like this:
 
