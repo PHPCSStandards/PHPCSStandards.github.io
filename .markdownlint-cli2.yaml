@@ -38,6 +38,9 @@ config:
   MD031: false
   # MD032/blanks-around-lists - Lists should be surrounded by blank lines.
   MD032: false
+  # MD036/no-emphasis-as-heading : Emphasis used instead of a heading.
+  # Disabled as this is used as a "hack" to exclude select headers from the automatic Table of Contents creation.
+  MD036: false
   # MD041/first-line-heading/first-line-h1 : First line in a file should be a top-level heading.
   MD041: false
 

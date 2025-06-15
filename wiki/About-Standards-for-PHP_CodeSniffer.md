@@ -1,15 +1,7 @@
 ## Table of contents
 
-* [A Project ruleset or a standard ?](#a-project-ruleset-or-a-standard-)
-* [How does PHP_CodeSniffer determine which standard or ruleset to apply ?](#how-does-php_codesniffer-determine-which-standard-or-ruleset-to-apply-)
-* [About standards](#about-standards)
-* [Creating an external standard for PHP_CodeSniffer](#creating-an-external-standard-for-php_codesniffer)
-* [Creating new rules](#creating-new-rules)
-    * [Naming conventions](#naming-conventions)
-        * [1. Directory structure](#1-directory-structure)
-        * [2. Sniff file name](#2-sniff-file-name)
-        * [3. Namespace and class name](#3-namespace-and-class-name)
-        * [Examples](#examples)
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ***
 

@@ -10,27 +10,10 @@ There is a separate [[Upgrade Guide for Sniff Developers and Integrators|Version
 
 ## Table of contents
 
-* [Should I upgrade ?](#should-i-upgrade-)
-    * [External Standards](#external-standards)
-* [How do I upgrade ?](#how-do-i-upgrade-)
-    * [OMG BBQ, I'm inundated by deprecation notices from PHP_CodeSniffer 3.13.x!](#omg-bbq-im-inundated-by-deprecation-notices-from-php_codesniffer-313x)
-* [Upgrading step by step](#upgrading-step-by-step)
-    * [The minimum PHP version is now PHP 7.2.0](#the-minimum-php-version-is-now-php-720)
-    * [Ruleset processing changes](#ruleset-processing-changes)
-    * [Support for scanning JS/CSS files has been removed](#support-for-scanning-jscss-files-has-been-removed)
-    * [Setting array properties for sniffs](#setting-array-properties-for-sniffs)
-    * [Removed sniffs](#removed-sniffs)
-    * [Removed error codes](#removed-error-codes)
-    * [Changed error codes](#changed-error-codes)
-    * [Removed sniff properties](#removed-sniff-properties)
-    * [Ignore Annotation syntax](#ignore-annotation-syntax)
-    * [Exit codes](#exit-codes)
-    * [Branch rename in the PHP_CodeSniffer repo](#upcoming-branch-rename-in-the-php_codesniffer-repo)
-* [Notable other changes and new features](#notable-other-changes-and-new-features)
-    * [Progress, error and debug output is now send to STDERR](#progress-error-and-debug-output-is-now-send-to-stderr)
-    * [Files without extension can now be scanned](#files-without-extension-can-now-be-scanned)
-    * [Array properties can now extend default property values](#array-properties-can-now-extend-default-property-values)
-    * [My scans are failing on a "No files were checked" error...](#my-scans-are-failing-on-a-no-files-were-checked-error)
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+***
 
 ## Should I upgrade ?
 

@@ -1,11 +1,7 @@
 ## Table of contents
 
-* [Does PHP_CodeSniffer perform any code coverage or unit testing?](#does-php_codesniffer-perform-any-code-coverage-or-unit-testing)
-* [My code is fine! Why do I need PHP_CodeSniffer?](#my-code-is-fine-why-do-i-need-php_codesniffer)
-* [Does PHP_CodeSniffer parse my code to ensure it will execute?](#does-php_codesniffer-parse-my-code-to-ensure-it-will-execute)
-* [I don't agree with your coding standards! Can I make PHP_CodeSniffer enforce my own?](#i-dont-agree-with-your-coding-standards-can-i-make-php_codesniffer-enforce-my-own)
-* [How come PHP_CodeSniffer reported errors, I fixed them, now I get even more?](#how-come-php_codesniffer-reported-errors-i-fixed-them-now-i-get-even-more)
-* [What does PHP_CodeSniffer use to tokenize my code?](#what-does-php_codesniffer-use-to-tokenize-my-code)
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ***
 

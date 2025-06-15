@@ -2,6 +2,13 @@ In this tutorial, we will create a new coding standard with a single sniff. Our 
 
 Sniffs need to follow [strict directory layout and naming conventions](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/About-Standards-for-PHP_CodeSniffer#naming-conventions).
 
+## Table of contents
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+***
+
 ## Creating the Coding Standard Directory
 
 All sniffs in PHP_CodeSniffer must belong to a coding standard. A coding standard is a directory with a specific sub-directory structure and a `ruleset.xml` file, so creating a standard is straight-forward.
