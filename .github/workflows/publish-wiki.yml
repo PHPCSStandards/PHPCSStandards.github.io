@@ -1,0 +1,48 @@
+name: Publish wiki
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - wiki/**
+      - .github/workflows/publish-wiki.yml
+  # Do a dry-run (check, no deploy) for PRs.
+  pull_request:
+    paths:
+      - wiki/**
+      - .github/workflows/publish-wiki.yml
+  # Allow running this workflow manually from the Actions tab.
+  workflow_dispatch:
+  # Allow this workflow to be triggered from outside.
+  repository_dispatch:
+    types:
+      - 'phpcs-release'
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "publish-wiki"
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-wiki:
+    name: "Publish Wiki"
+    if: github.repository == 'PHPCSStandards/PHP_CodeSniffer-documentation'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to wiki
+        uses: Andrew-Chen-Wang/github-wiki-action@v4
+        with:
+          strategy: 'clone'
+          path: 'wiki/'
+          # commit-message: ...
+          # repository: PHPCSStandards/PHP_CodeSniffer
+          # token: ${{ secrets.PHPCS_GITHUB_TOKEN }}
+          # dry-run: ${{ github.event_name == 'pull_request' }}
