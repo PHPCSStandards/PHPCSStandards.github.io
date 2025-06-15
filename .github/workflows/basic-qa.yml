@@ -46,3 +46,34 @@ jobs:
           format: markdown
           token: ${{ secrets.GITHUB_TOKEN }}
           fail: true
+
+  spellcheck:
+    name: Spellcheck
+    # Config file: .cspell.yml
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Spellcheck
+        id: spellcheck
+        uses: streetsidesoftware/cspell-action@v7
+        with:
+          # Define glob patterns to filter the files to be checked. Use a new line between patterns to define multiple patterns.
+          files: '**/*.md'
+          root: '.'
+          suggestions: true
+          # Notification level for annotations. Allowed values are: warning, error, none
+          inline: warning
+          treat_flagged_words_as_errors: true
+          # Determines if the action should be failed if any spelling issues are found.
+          strict: false
+          # Limit the files checked to the ones in the pull request or push.
+          incremental_files_only: false
+
+      - name: Fail the build when more spelling issues were found than expected
+        # yamllint disable-line rule:line-length
+        if: ${{ steps.spellcheck.outputs.success == false && steps.spellcheck.outputs.number_of_issues != 11  && steps.spellcheck.outputs.number_of_files_with_issues != 5}}
+        run: exit 1
