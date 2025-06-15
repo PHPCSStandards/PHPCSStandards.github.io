@@ -33,15 +33,20 @@ jobs:
     if: github.repository == 'PHPCSStandards/PHP_CodeSniffer-documentation'
 
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Copy wiki files to temporary location
+        shell: bash
+        run: cp -v -a wiki _wiki
 
       - name: Deploy to wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4
         with:
           strategy: 'clone'
-          path: 'wiki/'
+          path: '_wiki/'
           # commit-message: ...
           # repository: PHPCSStandards/PHP_CodeSniffer
           # token: ${{ secrets.PHPCS_GITHUB_TOKEN }}
