@@ -36,8 +36,8 @@ There is a separate [[Upgrade Guide for Sniff Developers and Integrators|Version
 
 It is highly recommended to upgrade as soon as you are able.
 
-The PHP_CodeSniffer 3.x branch will no longer receive updates, with the exception of security fixes and runtime compatibility fixes for new PHP versions.
-This "limited support" will last a maximum of one year from the date of the PHP_Codesniffer 4.0.0 release.
+The PHP_CodeSniffer 3.x branch will no longer receive updates, with the exception of security fixes and runtime compatibility fixes for new PHP versions.  
+This "limited support" will last a maximum of one year from the date of the PHP_CodeSniffer 4.0.0 release.
 
 ### External Standards
 
@@ -72,7 +72,7 @@ If you want, you can even silence them by running PHP_CodeSniffer in quiet mode 
 
 ### The minimum PHP version is now PHP 7.2.0
 
-This has no impact on the "code under scan", it just means that when running PHP_CodeSniffer, the minimum PHP version needs to be PHP 7.2.
+This has no impact on the "code under scan", it just means that when running PHP_CodeSniffer, the minimum PHP version needs to be PHP 7.2.  
 As an example, you can run PHP_CodeSniffer on PHP 8.4 to scan a code base which is supposed to run on PHP 5.6.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -112,17 +112,17 @@ To continue running code style and code quality checks on JS and/or CSS files, u
 #### Upgrading
 
 There are two kinds of sniffs which are affected by this:
-1. Sniffs which are specific to JS/CSS and only target JS/CSS code.
+1. Sniffs which are specific to JS/CSS and only target JS/CSS code.  
     If you use JS/CSS specific sniffs from either PHP_CodeSniffer itself or from an external standard, remove references to these sniffs from your ruleset.
-2. "Mixed" sniffs, i.e. sniffs which target both PHP as well as JS and/or CSS code.
+2. "Mixed" sniffs, i.e. sniffs which target both PHP as well as JS and/or CSS code.  
     If an external standard you include in your ruleset contains these type of "mixed" sniffs, contact the maintainer of that standard about making the sniff compatible with PHP_CodeSniffer 4.0.
 
 PHP_CodeSniffer >= 3.13.0 will show you deprecation notices for these sniffs to help you find them.
 
 Secondly, review your `extensions` settings.
-* If you have `extensions` set in a ruleset, like `<arg name="extensions" value="php,inc/php" />`, be sure to remove any non-PHP extensions.
+* If you have `extensions` set in a ruleset, like `<arg name="extensions" value="php,inc/php" />`, be sure to remove any non-PHP extensions.  
     You can also remove the language part, i.e. `php,inc/php` becomes `php,inc`.
-* Next, make sure to also check for any hard-coded commands which pass the `--extensions=...` CLI argument, like in continuous integration scripts.
+* Next, make sure to also check for any hard-coded commands which pass the `--extensions=...` CLI argument, like in continuous integration scripts.  
     The same applies there: remove any non-PHP extensions and remove any potential language settings.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
@@ -130,7 +130,7 @@ Secondly, review your `extensions` settings.
 
 ### Setting array properties for sniffs
 
-PHP_CodeSniffer 3.3.0 introduced a new syntax to set the value of array properties for sniffs by specifying array elements using a new `element` tag with `key` and `value` attributes. The old syntax was deprecated in the same PHP_CodeSniffer version.
+PHP_CodeSniffer 3.3.0 introduced a new syntax to set the value of array properties for sniffs by specifying array elements using a new `element` tag with `key` and `value` attributes. The old syntax was deprecated in the same PHP_CodeSniffer version.  
 Support for the old syntax has been removed in PHP_CodeSniffer 4.0.0.
 
 #### Upgrading
@@ -190,7 +190,7 @@ If you haven't done so already, search your `[.]phpcs.xml[.dist]` file for...
 
 ### Removed error codes
 
-As of PHP_CodeSniffer 4.0, PHP_CodeSniffer will no longer throw warnings about potential parse errors.
+As of PHP_CodeSniffer 4.0, PHP_CodeSniffer will no longer throw warnings about potential parse errors.  
 This was only done in a few places anyway, while the vast majority of sniffs would try to silently ignore code with parse errors.
 
 > [!NOTE]
@@ -291,7 +291,7 @@ If you haven't done so already, execute a search & replace on your code base.
 
 The exit codes used by PHP_CodeSniffer have changed. This change was made primarily to allow for `phpcbf` to exit with a `0` exit code if all fixable issues were fixed and there are no non-auto-fixable issues remaining.
 
-The pre-existing [`ignore_warnings_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-warnings-when-generating-the-exit-code) and [`ignore_errors_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-errors-when-generating-the-exit-code) config flags will still be respected.
+The pre-existing [`ignore_warnings_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-warnings-when-generating-the-exit-code) and [`ignore_errors_on_exit`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Configuration-Options#ignoring-errors-when-generating-the-exit-code) config flags will still be respected.  
 Additionally, you can now use the new `ignore_non_auto_fixable_on_exit` config flag to ignore non-auto-fixable issues when the exit code is generated.
 
 #### Upgrading
@@ -309,8 +309,8 @@ Just before the final 4.0.0 release, the PHP_CodeSniffer `master` branch will be
 
 ##### Referencing the PHP_CodeSniffer XSD file for rulesets
 
-If your ruleset includes a reference to the PHP_CodeSniffer XSD file via a URL, that URL will become invalid.
-As of mid May 2025, the current PHP_CodeSniffer ruleset XSD file can be referenced via the following permalink: `https://schema.phpcodesniffer.com/phpcs.xsd`.
+If your ruleset includes a reference to the PHP_CodeSniffer XSD file via a URL, that URL will become invalid.  
+As of mid May 2025, the current PHP_CodeSniffer ruleset XSD file can be referenced via the following permalink: `https://schema.phpcodesniffer.com/phpcs.xsd`.  
 Permalinks to the XSD file for specific minors are also available in the following format: `https://schema.phpcodesniffer.com/#.#/phpcs.xsd`.
 
 Example changeset:
@@ -325,7 +325,7 @@ Relative file references like `xsi:noNamespaceSchemaLocation="./vendor/squizlabs
 
 ##### Referencing the main branches in the repo
 
-If you reference a development version of PHP_CodeSniffer in your `composer.json` file or in CI scripts, those references will need to be updated.
+If you reference a development version of PHP_CodeSniffer in your `composer.json` file or in CI scripts, those references will need to be updated.  
 What to update these to, depends on your use-case.
 
 * If you want to use the latest development version of PHP_CodeSniffer, use the `4.x` branch. For Composer, references to the branch will need to look like this: `4.x-dev`.
@@ -367,7 +367,7 @@ Previously a ruleset could already "extend" an array property for a sniff set by
 
 As of PHP_CodeSniffer 4.0, a ruleset can also "extend" the default value of an array property as set in the sniff itself.
 
-The upside of this is, that if you want to default value + some extras, you no longer need to duplicate the default values from sniff array properties in your ruleset.
+The upside of this is, that if you want to default value + some extras, you no longer need to duplicate the default values from sniff array properties in your ruleset.  
 The downside is, of course, that if the default value of the property in the sniff changes, your scans may start failing without warning.
 
 #### Upgrading
@@ -403,7 +403,7 @@ Now you can "inherit" the default value and add to it by using `extend="true"`:
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-### My scans are failing on a "No files were checked" error...
+### My scans are failing on a "No files were checked" error
 
 Between the extension filtering via `--extensions=...` (CLI) / `<arg name="extensions" value="..."/>` (ruleset), potential `--ignore=...` (CLI) / `<exclude-pattern>...` (ruleset) directives being followed, and potential `--filter=...` directives, there are no files eligible for scanning.
 
