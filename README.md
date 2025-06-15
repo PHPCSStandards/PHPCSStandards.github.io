@@ -8,3 +8,8 @@ The intention is for that website to be a GitHub Pages/Jekyll site, but we'll ne
 In the mean time, the documentation for the PHP_CodeSniffer project is available via the [project Wiki](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki) and made publicly editable via this repository.
 
 _This is an interim solution and the intention is to eventually migrate the wiki documentation to the website._
+
+
+## Want to contribute ?
+
+Have a look at the [CONTRIBUTING guide](CONTRIBUTING.md).
