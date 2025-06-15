@@ -280,7 +280,7 @@ public function generate(
 
 ### Supporting Concurrency
 
-PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member vars can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class at the same time and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
+PHP_CodeSniffer version 3 supports processing multiple files concurrently, so reports can no longer rely on getting file results one at a time. Reports that used to write to local member variables can no longer do so as multiple forks of the PHP_CodeSniffer process will all be writing to a different instance of the report class at the same time and these cache values will never be merged. Instead, reports need to output their cached data directly. They will later be given a chance to read in the entire cached output and generate a final clean report.
 
 > [!NOTE]
 > Reports that output content in a way where the order or formatting is not important do not need to worry about caching data and can continue to produce reports they way they do now. Examples of these reports include the CSV report and the XML report.

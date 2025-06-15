@@ -38,7 +38,7 @@ There are basically two upgrade strategies:
 
 Which strategy is best suited for your project will depend on your userbase.
 
-If your userbase is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefitting from updates to your package if they can't upgrade to PHPCS 4.x yet.
+If your userbase is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefiting from updates to your package if they can't upgrade to PHPCS 4.x yet.
 
 The vast majority of the below upgrade tasks will need to be executed in both cases, but there are some upgrade tasks which can only be executed once support for PHP_CodeSniffer 3.x is being dropped.
 
@@ -276,7 +276,7 @@ The following tokens have been removed:
 
 If these tokens are used in PHP-only sniffs, they can be safely removed.  
 If these tokens are used in JS/CSS only sniffs, as mentioned in ["Support for JS/CSS has been removed"](#support-for-jscss-has-been-removed): deprecate or remove the sniff.  
-If these tokens are used in mixed sniffs, which also scan PHP files, remove the CSS/JS specific code or, for cross-version compatibility, check for the existance of the tokens before using them.
+If these tokens are used in mixed sniffs, which also scan PHP files, remove the CSS/JS specific code or, for cross-version compatibility, check for the existence of the tokens before using them.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
