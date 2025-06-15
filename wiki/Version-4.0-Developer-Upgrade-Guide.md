@@ -14,38 +14,10 @@ There is a separate [[Upgrade Guide for Ruleset Maintainers and End-Users|Versio
 
 ## Table of contents
 
-* [Should I upgrade ?](#should-i-upgrade-)
-    * [Upgrade strategies](#upgrade-strategies)
-* [Upgrading the ruleset.xml file](#upgrading-the-rulesetxml-file)
-* [Upgrading Standards](#upgrading-standards)
-    * [Support for external standards named "Internal" has been removed](#support-for-external-standards-named-internal-has-been-removed)
-* [Upgrading Custom Sniffs](#upgrading-custom-sniffs)
-    * [Sniffs need to comply with the naming conventions](#sniffs-need-to-comply-with-the-naming-conventions)
-    * [Sniffs must implement the `PHP_CodeSniffer\Sniffs\Sniff` interface](#sniffs-must-implement-the-php_codesniffersniffssniff-interface)
-    * [Support for JS/CSS has been removed](#support-for-jscss-has-been-removed)
-    * [Property type casting has been made more consistent](#property-type-casting-has-been-made-more-consistent)
-    * [Changed Methods](#changed-methods)
-        * [File::getDeclarationName()](#filegetdeclarationname)
-        * [File::getMemberProperties()](#filegetmemberproperties)
-        * [Config::setConfigData() is no longer static](#configsetconfigdata-is-no-longer-static)
-    * [Tokens class changes](#tokens-class-changes)
-        * [Token arrays are now class constants](#token-arrays-are-now-class-constants)
-        * [Removed Tokens](#removed-tokens)
-    * [Tokenizer Changes](#tokenizer-changes)
-        * [T_USE (for closures), T_ISSET, T_UNSET, T_EMPTY, T_EVAL, T_EXIT are parenthesis owners](#t_use-for-closures-t_isset-t_unset-t_empty-t_eval-t_exit-are-parenthesis-owners)
-        * [Namespaced Names](#namespaced-names)
-        * [T_STATIC](#t_static)
-        * [T_OPEN_TAG](#t_open_tag)
-        * [`goto`](#goto)
-        * [Other Tokenizer Changes](#other-tokenizer-changes)
-    * [Changes to abstract sniffs](#changes-to-abstract-sniffs)
-    * [Changes to PHPCS native sniffs](#changes-to-phpcs-native-sniffs)
-        * [Various sniffs listen to fewer tokens](#various-sniffs-listen-to-fewer-tokens)
-        * [PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\SelfMemberReferenceSniff](#php_codesnifferstandardssquizsniffsclassesselfmemberreferencesniff)
-* [Miscellaneous other changes which may affect code extending PHP_CodeSniffer](#miscellaneous-other-changes-which-may-affect-code-extending-php_codesniffer)
-* [Unit Tests](#unit-tests)
-    * [For standards using their own test framework](#for-standards-using-their-own-test-framework)
-    * [For standards using the PHPCS native test framework](#for-standards-using-the-phpcs-native-test-framework)
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+***
 
 ## Should I upgrade ?
 
@@ -124,7 +96,7 @@ Support for the JS/CSS tokenizers has been removed. To cause the least amount of
 
 This has been implemented in this way to allow external standards to be cross-version compatible with PHPCS 3.x as well as 4.x for a while and to not force external standards to release a new major release to support PHPCS 4.0 (due to sniffs needing to be removed).
 
-#### Upgrading
+**Upgrading**
 
 Search for sniffs which specify the `public $supportedTokenizers` property to find sniffs which may need updating.
 
@@ -146,7 +118,7 @@ Type casting for sniff property values set from within a ruleset has been made m
 * `null` will now be set to an actual `null` value. Previously, the sniff property would have been set to string `'null'`.
 * Array element values will now also get the type casting treatment. Previously, array values would always be strings.
 
-#### Upgrading
+**Upgrading**
 
 Search for sniff which have `public` properties which can be changed from within a ruleset.
 
@@ -434,7 +406,7 @@ The `AbstractPatternSniff::__construct()` method no longer takes any arguments. 
 Since PHPCS 1.4.0, the  AbstractPatternSniff sets the `ignoreComments` option using a `public` var rather than through the constructor.  
 This allows the setting to be overwritten in `ruleset.xml` files.
 
-#### Upgrading
+**Upgrading**
 
 * Search for sniffs which extend the `AbstractPatternSniff`.
 * If the sniff calls the `parent::__construct()` method with an argument, remove the argument.
@@ -517,12 +489,12 @@ The `protected` `getDeclarationNameWithNamespace()` and `getNamespaceOfScope()` 
 * The `PHP_CodeSniffer\Reporter::$totalFixable` and `Reporter::$totalFixed` properties are deprecated and should no longer be used.  
     Use respectively `(Reporter::$totalFixableErrors + Reporter::$totalFixableWarnings)` and `(Reporter::$totalFixedErrors + Reporter::$totalFixedWarnings)` instead.
 
-* `PHP_CodeSniffer\Ruleset::setSniffProperty()`: the BC-layer supporting the old array format for the `$settings` parameter for the method has been removed.  
+* `PHP_CodeSniffer\Ruleset::setSniffProperty()`: the BC-layer supporting the old array format for the `$settings` parameter for the method has been removed.
     The `$settings` parameter must be passed as an array with the following two keys: `'scope'` and `'value'`, with `'scope'` being set to either `'sniff'` or `'standard'`, and `'value'` containing the new property value.  
     Also see [squizlabs/PHP_CodeSniffer#3629](https://github.com/squizlabs/PHP_CodeSniffer/pull/3629).
 
 * Various class properties have been replaced with class constants. Where these were in the public API (= the below list), the properties still exist, but are now (soft) deprecated and will be removed in PHP_CodeSniffer 5.0.  
-    The visibility of the (deprecated) properties and their class constant replacements is the same.  
+    The visibility of the (deprecated) properties and their class constant replacements is the same.
     If you previously overloaded one of these properties in a custom sniff extending one of the affected sniffs, you will now need to overload the class constant.  
     To obtain cross-version compatibility with PHPCS 3.x as well as 4.x, you may need to overload both the property as well as the constant.
 
@@ -561,7 +533,7 @@ The `protected` `getDeclarationNameWithNamespace()` and `getNamespaceOfScope()` 
 
 The Ruleset class now respects sniff selection via `--sniffs=...`, even when in a test context.
 
-#### Upgrading
+**Upgrading**
 
 If your own test framework contained work-arounds to get round the previous restriction, it should now be safe to remove those work-arounds and to use the `--sniffs=...` argument when initiating the `Config` class.
 
@@ -613,7 +585,7 @@ If an external standard uses its own test framework, this section can be skipped
 For compatibility with the PHP_CodeSniffer native test framework, the directory layout conventions and class naming conventions for tests have to be strictly followed and external standards which want to use the PHPCS native test framework need to be registered in the PHP_CodeSniffer `CodeSniffer.conf` file.
 This is not really any different from before, just even more important now.
 
-#### Upgrading
+**Upgrading**
 
 In practice this means the following for most test suites for external standards which extend the PHP_CodeSniffer native test suite:
 1. In `composer.json`: update the PHPUnit version requirements.  

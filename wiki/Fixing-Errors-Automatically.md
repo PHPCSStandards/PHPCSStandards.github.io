@@ -1,8 +1,7 @@
 ## Table of contents
 
-* [About Automatic Fixing](#about-automatic-fixing)
-* [Using the PHP Code Beautifier and Fixer](#using-the-php-code-beautifier-and-fixer)
-* [Viewing Debug Information](#viewing-debug-information)
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ***
 

@@ -1,24 +1,7 @@
 ## Table of contents
 
-* [Specifying Valid File Extensions](#specifying-valid-file-extensions)
-* [Ignoring Files and Folders](#ignoring-files-and-folders)
-* [Ignoring Parts of a File](#ignoring-parts-of-a-file)
-* [Limiting Results to Specific Sniffs](#limiting-results-to-specific-sniffs)
-* [Filtering Errors and Warnings Based on Severity](#filtering-errors-and-warnings-based-on-severity)
-* [Replacing Tabs with Spaces](#replacing-tabs-with-spaces)
-* [Specifying an Encoding](#specifying-an-encoding)
-* [Using a Bootstrap File](#using-a-bootstrap-file)
-* [Using a Default Configuration File](#using-a-default-configuration-file)
-* [Specifying php.ini Settings](#specifying-phpini-settings)
-* [Setting Configuration Options](#setting-configuration-options)
-* [Deleting Configuration Options](#deleting-configuration-options)
-* [Viewing Configuration Options](#viewing-configuration-options)
-* [Printing Verbose Tokeniser Output](#printing-verbose-tokeniser-output)
-    * [The Scope Map](#the-scope-map)
-    * [The Level Map](#the-level-map)
-* [Printing Verbose Token Processing Output](#printing-verbose-token-processing-output)
-* [Quieting Output](#quieting-output)
-* [Understanding the Exit Codes](#understanding-the-exit-codes)
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ***
 

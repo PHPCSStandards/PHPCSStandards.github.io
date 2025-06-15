@@ -38,9 +38,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install DocToc table of contents generator
+        run: npm install -g doctoc
+
       - name: Copy wiki files to temporary location
         shell: bash
         run: cp -v -a wiki _wiki
+
+      - name: Update tables of contents
+        run: doctoc ./_wiki/ --github --maxlevel 4 --update-only
+
+      - name: Re-run tables of contents with different settings for specific file
+        run: doctoc ./_wiki/Version-4.0-User-Upgrade-Guide.md --github --maxlevel 3 --update-only
 
       - name: Deploy to wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4
