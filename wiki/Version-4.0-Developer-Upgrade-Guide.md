@@ -36,9 +36,9 @@ There are basically two upgrade strategies:
 1. Drop support for PHP_CodeSniffer 3.x completely and adopt support for PHP_CodeSniffer 4.x.
 2. Make your package cross-version compatible with both PHP_CodeSniffer 3.x as well as 4.x.
 
-Which strategy is best suited for your project will depend on your userbase.
+Which strategy is best suited for your project will depend on your user-base.
 
-If your userbase is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefiting from updates to your package if they can't upgrade to PHPCS 4.x yet.
+If your user-base is known to often combine multiple external standards, making the package PHPCS cross-version compatible may be preferred to allow users to upgrade as soon as possible, while still benefiting from updates to your package if they can't upgrade to PHPCS 4.x yet.
 
 The vast majority of the below upgrade tasks will need to be executed in both cases, but there are some upgrade tasks which can only be executed once support for PHP_CodeSniffer 3.x is being dropped.
 
