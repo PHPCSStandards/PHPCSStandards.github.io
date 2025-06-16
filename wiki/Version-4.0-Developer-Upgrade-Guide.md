@@ -43,7 +43,7 @@ If your userbase is known to often combine multiple external standards, making t
 The vast majority of the below upgrade tasks will need to be executed in both cases, but there are some upgrade tasks which can only be executed once support for PHP_CodeSniffer 3.x is being dropped.
 
 
-## Upgrading the ruleset.xml file
+## Upgrading the `ruleset.xml` file
 
 See the [[Upgrade Guide for Ruleset Maintainers and End-Users|Version 4.0 User Upgrade Guide]] for everything you need to know about upgrading the `ruleset.xml` file.
 
