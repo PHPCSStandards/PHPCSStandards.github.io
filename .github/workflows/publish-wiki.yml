@@ -51,6 +51,18 @@ jobs:
       - name: Re-run tables of contents with different settings for specific file
         run: doctoc ./_wiki/Version-4.0-User-Upgrade-Guide.md --github --maxlevel 3 --update-only
 
+      # Retention is normally 90 days, but this artifact is only to help with reviewing PRs,
+      # especially when new output blocks are added or the (workflow) code for existing ones
+      # is updated. All in all, no need to keep the artifact for more than a few days.
+      - name: "[PR only] Upload the preprocessed wiki files as an artifact"
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: wiki-files
+          path: ./_wiki
+          if-no-files-found: error
+          retention-days: 10
+
       - name: Check GitHub Git Operations status
         uses: crazy-max/ghaction-github-status@v4
         with:
