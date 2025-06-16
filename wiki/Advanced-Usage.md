@@ -334,13 +334,13 @@ Array
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-## Printing Verbose Tokeniser Output
+## Printing Verbose Tokenizer Output
 
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
 
-PHP_CodeSniffer contains multiple verbosity levels. Level 2 (indicated by the command line argument `-vv`) will print all verbosity information for level 1 (file specific token and line counts with running times) as well as verbose tokeniser output.
+PHP_CodeSniffer contains multiple verbosity levels. Level 2 (indicated by the command line argument `-vv`) will print all verbosity information for level 1 (file specific token and line counts with running times) as well as verbose tokenizer output.
 
-The output of the PHP_CodeSniffer tokeniser shows the step-by-step creation of the scope map and the level map.
+The output of the PHP_CodeSniffer tokenizer shows the step-by-step creation of the scope map and the level map.
 
 ### The Scope Map
 
@@ -439,7 +439,7 @@ The level map is most commonly used to determine indentation rules (e.g., a toke
 
 This feature is provided for debugging purposes only. Using this feature will dramatically increase screen output and script running time.
 
-PHP_CodeSniffer contains multiple verbosity levels. Level 3 (indicated by the command line argument `-vvv`) will print all verbosity information for level 1 (file specific token and line counts with running times), level 2 (tokeniser output) as well as token processing output with sniff running times.
+PHP_CodeSniffer contains multiple verbosity levels. Level 3 (indicated by the command line argument `-vvv`) will print all verbosity information for level 1 (file specific token and line counts with running times), level 2 (tokenizer output) as well as token processing output with sniff running times.
 
 The token processing output is best explained with an example. For the following file:
 
