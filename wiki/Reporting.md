@@ -333,7 +333,7 @@ patching file /path/to/code/file.php
 ```
 
 > [!NOTE]
-> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` subdirectory to the Windows system `PATH`.
+> The `*nix` `diff` command is required for generating reports in `diff` format. Windows users may need to ensure that the `diff` command is available by either installing [DiffUtils](http://gnuwin32.sourceforge.net/packages/diffutils.htm) or, if available, adding the Git `/usr/bin/` sub-directory to the Windows system `PATH`.
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
