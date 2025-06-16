@@ -23,3 +23,26 @@ jobs:
     uses: PHPCSStandards/.github/.github/workflows/reusable-yamllint.yml@main
     with:
       strict: true
+
+  linkcheck:
+    name: "Check links"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --cache --max-cache-age 1w --verbose './**/*.md'
+          format: markdown
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail: true
