@@ -368,7 +368,7 @@ Now you can use the compile command and associated shortcuts to move between err
 
 ## Printing a Git Blame Report
 
-PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git respository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
+PHP_CodeSniffer can make use of the `git blame` command to try and determine who committed each error and warning to a Git repository. To print a Git Blame report, use the `--report=gitblame` command line argument. The output will look like this:
 
 ```bash
 $ phpcs --report=gitblame /path/to/code
