@@ -26,14 +26,14 @@ The typical differences between project-specific rulesets and standards are:
 | Will automatically be used when no standard is provided on the command line ? | Yes                      | No                             |
 | Can have custom sniffs ?                                                      | No                       | Yes                            |
 | Can be installed ?                                                            | No                       | Yes                            |
-| Reusability by other projects ?                                               | Limited                  | Yes                            |
+| Re-usability by other projects ?                                              | Limited                  | Yes                            |
 
-For optimal reusability, it is in most cases a good idea for a standard to be in its own repository and to be maintained as a separate project.
+For optimal re-usability, it is in most cases a good idea for a standard to be in its own repository and to be maintained as a separate project.
 
 A `[.]phpcs.xml[.dist]` file and a `ruleset.xml` file can largely contain the same type of directives.
 The [Annotated ruleset](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Annotated-Ruleset) page contains information on all the directives you can use.
 
-Keep in mind that for a _standard_ to be optimally reusable, it should not contain project specific information, such as `<file>` directives or `<exclude-patterns>`, while a project specific `[.]phpcs.xml[.dist]` ruleset file _can_ contain that information.
+Keep in mind that for a _standard_ to be optimally re-usable, it should not contain project specific information, such as `<file>` directives or `<exclude-patterns>`, while a project specific `[.]phpcs.xml[.dist]` ruleset file _can_ contain that information.
 
 You may also find the [Customisable Sniff Properties](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties) page a handy reference for customisations which can be made to PHP_CodeSniffer native sniffs.
 
