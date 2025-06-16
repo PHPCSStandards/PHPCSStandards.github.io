@@ -263,7 +263,7 @@ The `Generic.Debug.JSHint` sniff will check each JavaScript file using [JSHint](
 $ phpcs --config-set jshint_path /path/to/jshint.js
 ```
 
-As JSHint is just JavaScript code, you may also need to install [Rhino](http://www.mozilla.org/rhino/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
+As JSHint is just JavaScript code, you may also need to install [Rhino](https://rhino.github.io/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSHint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set rhino_path /path/to/rhino
@@ -282,7 +282,7 @@ The `Squiz.Debug.JSLint` sniff will check each JavaScript file using [JSLint](ht
 $ phpcs --config-set jslint_path /path/to/jslint.js
 ```
 
-As JSLint is just JavaScript code, you may also need to install [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) to be able to execute it. Use the `rhino_path` configuration option to tell the JSLint sniff where to find the tool.
+As JSLint is just JavaScript code, you may also need to install [Rhino](https://rhino.github.io/) to be able to execute it. Use the `rhino_path` configuration option to tell the JSLint sniff where to find the tool.
 
 ```bash
 $ phpcs --config-set rhino_path /path/to/rhino
