@@ -77,3 +77,16 @@ jobs:
         # yamllint disable-line rule:line-length
         if: ${{ steps.spellcheck.outputs.success == false && steps.spellcheck.outputs.number_of_issues != 11  && steps.spellcheck.outputs.number_of_files_with_issues != 5}}
         run: exit 1
+
+  spellcheck-5:
+    name: Spellcheck-5
+    # Config file: _typos.toml
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: "Search for misspellings"
+        uses: "crate-ci/typos@v1"
