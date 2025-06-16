@@ -284,7 +284,7 @@ CI scripts or git pre-commit hooks may be checking explicitly for specific exit 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
 
-### [Upcoming] Branch rename in the PHP_CodeSniffer repo
+### [Upcoming] Branch rename in the PHP_CodeSniffer repository
 
 Just before the final 4.0.0 release, the PHP_CodeSniffer `master` branch will be renamed to `3.x` and the default branch will change to `4.x`.
 
@@ -306,7 +306,7 @@ Example changeset:
 
 Relative file references like `xsi:noNamespaceSchemaLocation="./vendor/squizlabs/php_codesniffer/phpcs.xsd"` will continue to be valid.
 
-##### Referencing the main branches in the repo
+##### Referencing the main branches in the repository
 
 If you reference a development version of PHP_CodeSniffer in your `composer.json` file or in CI scripts, those references will need to be updated.  
 What to update these to, depends on your use-case.
