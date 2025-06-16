@@ -1,0 +1,15 @@
+[files]
+extend-exclude = [
+    ".git/",
+]
+ignore-hidden = true
+
+[default]
+locale = "en-gb"
+check-filename = true
+
+[default.extend-words]
+# Don't correct for the CLI flag name.
+colors = "colors"
+# Don't correct for the Zend tooling name.
+Analyzer = "Analyzer"
