@@ -911,7 +911,7 @@ $rootNode
         ->end()
     ->end();
 ```
-If you want to allow mutli-level indenting, set the `multilevel` property to `true`. This will allow each line to be indented 1 more or 1 less level than the previous line, while still ensuring that all lines are indented at least once.
+If you want to allow multi-level indenting, set the `multilevel` property to `true`. This will allow each line to be indented 1 more or 1 less level than the previous line, while still ensuring that all lines are indented at least once.
 
 ```xml
 <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
