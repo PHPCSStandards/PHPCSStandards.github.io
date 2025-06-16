@@ -245,7 +245,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 class OperatorSpacingSniff implements Sniff {...}
 ```
 
-:x: Not following the required directory structure (missing `[CategoryName]` subdirectory):
+:x: Not following the required directory structure (missing `[CategoryName]` sub-directory):
 ```php
 <?php
 // File: MyStandard/Sniffs/OperatorSpacingSniff.php
