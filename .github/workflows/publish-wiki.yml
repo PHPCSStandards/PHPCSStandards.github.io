@@ -41,6 +41,56 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 'latest'
+          ini-values: error_reporting=-1, display_errors=On, log_errors_max_len=0
+          tools: phpcs, phpcbf
+          coverage: none
+
+      # Make sure we've gotten the latest version from setup-php.
+      - name: Retrieve latest release info
+        uses: octokit/request-action@v2.x
+        id: get_latest_release
+        with:
+          route: GET /repos/PHPCSStandards/PHP_CodeSniffer/releases/latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Grab latest tag name from API response
+        id: latest_version
+        run: |
+          echo "TAG=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Grab the version
+        id: phar_version
+        # yamllint disable-line rule:line-length
+        run: echo "VERSION=$(phpcs --version | grep --only-matching --max-count=1 --extended-regexp '\b[0-9]+(\.[0-9]+)+')" >> "$GITHUB_OUTPUT"
+
+      - name: Fail the build if the PHAR is not the correct version
+        if: ${{ steps.phar_version.outputs.VERSION != steps.latest_version.outputs.TAG }}
+        run: exit 1
+
+      # ############################
+      # Prepare output snippets.
+      # ############################
+
+      - name: Create directory to place snippets in
+        run: mkdir build/output-snippets
+
+      - name: "Usage page: phpcs help"
+        run: phpcs --report-width=110 --no-colors -h > build/output-snippets/phpcs-h.txt
+
+      - name: "Fixing page: phpcbf help"
+        run: phpbfs --report-width=110 --no-colors -h > build/output-snippets/phpcbf-h.txt
+
+
+
+      # ############################
+      # Update Wiki files.
+      # ############################
+
       - name: Install DocToc table of contents generator
         run: npm install -g doctoc
 
@@ -53,6 +103,11 @@ jobs:
 
       - name: Re-run tables of contents with different settings for specific file
         run: doctoc ./_wiki/Version-4.0-User-Upgrade-Guide.md --github --maxlevel 3 --update-only
+
+
+      # ############################
+      # Deploy.
+      # ############################
 
       # Retention is normally 90 days, but this artifact is only to help with reviewing PRs,
       # especially when new output blocks are added or the (workflow) code for existing ones
