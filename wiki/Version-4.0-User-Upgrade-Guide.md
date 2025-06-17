@@ -224,15 +224,16 @@ Search your `[.]phpcs.xml[.dist]` file for the below error codes. If these error
 
 Search your `[.]phpcs.xml[.dist]` file for the below error codes. If these error codes are referenced in a ruleset, you should replace them.
 
-| Search for                                                       | Replace with                                                                      |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `Generic.Formatting.MultipleStatementAlignment.IncorrectWarning` | `Generic.Formatting.MultipleStatementAlignment.Incorrect`                         |
-| `Generic.Formatting.MultipleStatementAlignment.NotSameWarning`   | `Generic.Formatting.MultipleStatementAlignment.NotSame`                           |
-| `Squiz.Classes.ValidClassName.NotCamelCaps`                      | `Squiz.Classes.ValidClassName.NotPascalCase`                                      |
-| `Squiz.PHP.Heredoc.NotAllowed`                                   | `Squiz.PHP.Heredoc.HeredocNotAllowed` and/or `Squiz.PHP.Heredoc.NowdocNotAllowed` |
-| `PSR12.Files.FileHeader.SpacingAfterBlock`                       | `PSR12.Files.FileHeader.SpacingAfterTagBlock`, `PSR12.Files.FileHeader.SpacingAfterDocblockBlock`, `PSR12.Files.FileHeader.SpacingAfterDeclareBlock`, `PSR12.Files.FileHeader.SpacingAfterNamespaceBlock`, `PSR12.Files.FileHeader.SpacingAfterUseBlock`, `PSR12.Files.FileHeader.SpacingAfterUseFunctionBlock` and/or `PSR12.Files.FileHeader.SpacingAfterUseConstBlock` |
-| `PSR12.Files.FileHeader.SpacingInsideBlock`                      | `PSR12.Files.FileHeader.SpacingInsideUseBlock`, `PSR12.Files.FileHeader.SpacingInsideUseFunctionBlock` and/or `PSR12.Files.FileHeader.SpacingInsideUseConstBlock` |
-| `Squiz.Commenting.VariableComment.TagNotAllowed`                 | `Squiz.Commenting.VariableComment.[TagName]TagNotAllowed` (`[TagName]` is dynamically generated based on the tags seen) |
+| Search for                                                                 | Replace with                                                                      |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `Generic.Formatting.MultipleStatementAlignment.IncorrectWarning`           | `Generic.Formatting.MultipleStatementAlignment.Incorrect`                         |
+| `Generic.Formatting.MultipleStatementAlignment.NotSameWarning`             | `Generic.Formatting.MultipleStatementAlignment.NotSame`                           |
+| `Squiz.Classes.ValidClassName.NotCamelCaps`                                | `Squiz.Classes.ValidClassName.NotPascalCase`                                      |
+| `Squiz.PHP.Heredoc.NotAllowed`                                             | `Squiz.PHP.Heredoc.HeredocNotAllowed` and/or `Squiz.PHP.Heredoc.NowdocNotAllowed` |
+| `PSR12.Files.FileHeader.SpacingAfterBlock`                                 | `PSR12.Files.FileHeader.SpacingAfterTagBlock`, `PSR12.Files.FileHeader.SpacingAfterDocblockBlock`, `PSR12.Files.FileHeader.SpacingAfterDeclareBlock`, `PSR12.Files.FileHeader.SpacingAfterNamespaceBlock`, `PSR12.Files.FileHeader.SpacingAfterUseBlock`, `PSR12.Files.FileHeader.SpacingAfterUseFunctionBlock` and/or `PSR12.Files.FileHeader.SpacingAfterUseConstBlock` |
+| `PSR12.Files.FileHeader.SpacingInsideBlock`                                | `PSR12.Files.FileHeader.SpacingInsideUseBlock`, `PSR12.Files.FileHeader.SpacingInsideUseFunctionBlock` and/or `PSR12.Files.FileHeader.SpacingInsideUseConstBlock` |
+| `Squiz.Commenting.VariableComment.TagNotAllowed`                           | `Squiz.Commenting.VariableComment.[TagName]TagNotAllowed` (`[TagName]` is dynamically generated based on the tags seen) |
+| `Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterVisbility` | `Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterVisibility`       |
 
 <p align="right"><a href="#table-of-contents">back to top</a></p>
 
