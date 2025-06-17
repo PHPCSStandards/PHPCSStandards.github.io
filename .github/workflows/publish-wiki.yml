@@ -24,15 +24,18 @@ concurrency:
   group: "publish-wiki"
   cancel-in-progress: false
 
-permissions:
-  contents: write
-
 jobs:
   publish-wiki:
     name: "Publish Wiki"
     if: github.repository == 'PHPCSStandards/PHP_CodeSniffer-documentation'
 
     runs-on: ubuntu-latest
+
+    permissions:
+      # Needed for the commit to the wiki.
+      contents: write
+      # Needed for the PR comment.
+      pull-requests: write
 
     steps:
       - name: Checkout code
@@ -56,12 +59,28 @@ jobs:
       # is updated. All in all, no need to keep the artifact for more than a few days.
       - name: "[PR only] Upload the preprocessed wiki files as an artifact"
         if: ${{ github.event_name == 'pull_request' }}
+        id: artifact
         uses: actions/upload-artifact@v4
         with:
           name: wiki-files
           path: ./_wiki
           if-no-files-found: error
           retention-days: 10
+
+      - name: "[PR only] Post comment to review artifact if workflow was updated"
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: mshick/add-pr-comment@v2
+        with:
+          # TODO: replace this with PAT
+          repo-token: ${{ secrets.PHPCS_GITHUB_TOKEN }}
+          message: |
+            Thank you for this PR.
+            A dry-run has been executed on your PR, executing all markdown pre-processing for the wiki files.
+
+            Please review the resulting final markdown files via the [created artifact](${{ steps.artifact.outputs.artifact-url }}).
+            This is especially important when adding new pages or updating auto-generated output blocks.
+
+            _N.B.: the above link will automatically be updated when this PR is updated._
 
       - name: Check GitHub Git Operations status
         uses: crazy-max/ghaction-github-status@v4
