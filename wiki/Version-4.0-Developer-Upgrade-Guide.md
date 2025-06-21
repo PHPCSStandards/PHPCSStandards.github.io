@@ -528,7 +528,7 @@ The `protected` `getDeclarationNameWithNamespace()` and `getNamespaceOfScope()` 
 
 | Search for                          | Replace with                         | Notes    |
 | ----------------------------------- | ------------------------------------ | -------- |
-| (`public`) `PHP_CodeSniffer\Util\Common::$allowedTypes`               | `PHP_CodeSniffer\Util\Common::ALLOWED_TYPES`  | |
+| (`public`) `PHP_CodeSniffer\Util\Common::$allowedTypes`               | `PHP_CodeSniffer\Util\Common::ALLOWED_TYPES`  | The format of the array has changed from numerically indexed to associated with the keys and values containing the same information. |
 | (`public`) `PHP_CodeSniffer\Tokenizers\PHP::$tstringContexts`               | `PHP_CodeSniffer\Tokenizers\PHP::T_STRING_CONTEXTS`  | |
 | (`protected`) `PHP_CodeSniffer\Sniffs\AbstractVariableSniff::$phpReservedVars` | `PHP_CodeSniffer\Sniffs\AbstractVariableSniff::PHP_RESERVED_VARS` | |
 | (`protected`) `PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff::$magicMethods` | `PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff::MAGIC_METHODS` | This also affects the `PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff` class which extends the `CamelCapsFunctionNameSniff` |
