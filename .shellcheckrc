@@ -1,0 +1,8 @@
+shell=bash
+color=always
+
+external-sources=false
+source-path=/build
+
+# Turn on all checks.
+enable=all

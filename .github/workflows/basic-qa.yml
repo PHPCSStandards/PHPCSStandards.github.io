@@ -77,3 +77,21 @@ jobs:
         # yamllint disable-line rule:line-length
         if: ${{ steps.spellcheck.outputs.success == false && steps.spellcheck.outputs.number_of_issues != 11  && steps.spellcheck.outputs.number_of_files_with_issues != 5}}
         run: exit 1
+
+  shellcheck:
+    name: 'ShellCheck'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up problem matcher
+        uses: lumaxis/shellcheck-problem-matchers@v2
+        with:
+          format: gcc
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          format: gcc
