@@ -13,18 +13,8 @@ Multiple coding standards can be used within PHP_CodeSniffer so that the one ins
 To check a file against the PEAR coding standard, simply specify the file's location.
 
 ```bash
-$ phpcs /path/to/code/myfile.php
-
-FILE: /path/to/code/myfile.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Missing file doc comment
- 20 | ERROR | PHP keywords must be lowercase; expected "false" but found "FALSE"
- 47 | ERROR | Line not indented correctly; expected 4 spaces but found 1
- 51 | ERROR | Missing function doc comment
- 88 | ERROR | Line not indented correctly; expected 9 spaces but found 6
---------------------------------------------------------------------------------
+$ phpcs path/to/code/myfile.php
+{{COMMAND-OUTPUT "phpcs --parallel=1 --basepath=build/wiki-code-samples --no-colors --standard=PEAR build/wiki-code-samples/path/to/code/myfile.php"}}
 ```
 
 Or, if you wish to check an entire directory, you can specify the directory location instead of a file.

@@ -73,21 +73,6 @@ jobs:
         run: exit 1
 
       # ############################
-      # Prepare output snippets.
-      # ############################
-
-      - name: Create directory to place snippets in
-        run: mkdir build/output-snippets
-
-      - name: "Usage page: phpcs help"
-        run: phpcs --report-width=110 --no-colors -h > build/output-snippets/phpcs-h.txt
-
-      - name: "Fixing page: phpcbf help"
-        run: phpbfs --report-width=110 --no-colors -h > build/output-snippets/phpcbf-h.txt
-
-
-
-      # ############################
       # Update Wiki files.
       # ############################
 
@@ -97,6 +82,10 @@ jobs:
       - name: Copy wiki files to temporary location
         shell: bash
         run: cp -v -a wiki _wiki
+
+      - name: Find / replace output example placeholders
+        shell: bash
+        run: build/wiki-command-replacer.sh
 
       - name: Update tables of contents
         run: doctoc ./_wiki/ --github --maxlevel 4 --update-only
