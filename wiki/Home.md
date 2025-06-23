@@ -10,11 +10,11 @@ Multiple coding standards can be used within PHP_CodeSniffer so that the one ins
 
 ## Example
 
-To check a file against the PEAR coding standard, simply specify the file's location.
+To check a file against the default coding standard, simply specify the file's location. The default coding standard in PHP_CodeSniffer 3.x is PEAR; the default coding standard in PHP_CodeSniffer 3.x is PSR12.
 
 ```bash
 $ phpcs path/to/code/myfile.php
-{{COMMAND-OUTPUT "phpcs --parallel=1 --basepath=build/wiki-code-samples --no-colors --standard=PEAR build/wiki-code-samples/path/to/code/myfile.php"}}
+{{COMMAND-OUTPUT "phpcs --parallel=1 --basepath=build/wiki-code-samples --no-colors build/wiki-code-samples/path/to/code/myfile.php"}}
 ```
 
 Or, if you wish to check an entire directory, you can specify the directory location instead of a file.
