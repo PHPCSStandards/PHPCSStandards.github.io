@@ -132,7 +132,7 @@ jobs:
           git_threshold: partial_outage
 
       - name: Deploy to wiki
-        uses: Andrew-Chen-Wang/github-wiki-action@v5.0.0
+        uses: Andrew-Chen-Wang/github-wiki-action@v4
         env:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
         with:
@@ -142,5 +142,3 @@ jobs:
           # repository: PHPCSStandards/PHP_CodeSniffer
           # token: ${{ secrets.PHPCS_GITHUB_TOKEN }}
           dry-run: ${{ github.event_name == 'pull_request' }}
-          disable-empty-commits: true
-          preprocess: false
